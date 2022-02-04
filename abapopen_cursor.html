@@ -1,0 +1,241 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABAPOPEN_CURSOR -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abapopen_cursor.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:00 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="OPEN CURSOR">
+<meta name="keywords" content="ABAP, Database Cursor">
+<title>
+OPEN CURSOR - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abapopen_cursor.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abapopen_cursor.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopensql.html')" class="blue">Open SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopen_sql_reading.html')" class="blue">Open SQL - Reads</a>&nbsp;&rarr;&nbsp;
+</span>
+<A NAME="@@OPEN CURSOR@@!ABAP_STATEMENT_OSQL!@@"></A>
+<A NAME="@@FOR SELECT@@OPEN CURSOR@@"></A>
+<p><span class="h1">
+OPEN CURSOR <br><br>
+</span></p>
+<P>
+<a href="javascript:call_link('abapopen_cursor_shortref.html')" class="blue">Quick Reference</a> <br><br>
+</P>
+<p><span class="h2">
+<span class="bold">Syntax</span>
+</span></p>
+<P>
+<span class="qtext">OPEN CURSOR <i class=bn>[</i>WITH HOLD<i class=bn>]</i> @dbcur<i class=bn>|</i>@DATA(dbcur) FOR <br>
+&nbsp;&nbsp;<i class=bn>[</i><a href="javascript:call_link('abapwith.html')" class="blue">WITH</a> <br>&nbsp;&nbsp;&nbsp;&nbsp;+cte1 AS ( SELECT
+<a href="javascript:call_link('abapwith_subquery.html')" class="blue">subquery_clauses</a> )<i class=bn>[</i>, <br>&nbsp;&nbsp;
+&nbsp;+cte2 AS ( SELECT <a href="javascript:call_link('abapwith_subquery.html')" class="blue">subquery_clauses</a> ) <br>&nbsp;&nbsp;&nbsp;&nbsp;...<i class=bn>]</i><i class=bn>]</i> <br>
+&nbsp;&nbsp;SELECT <a href="javascript:call_link('abapopen_cursor_mainquery.html')" class="blue">mainquery_clauses</a> <br>&nbsp;&nbsp;<i class=bn>[</i><a href="javascript:call_link('abapunion.html')" class="blue">UNION ...</a><i class=bn>]</i> <br>
+&nbsp;&nbsp;<i class=bn>[</i><a href="javascript:call_link('abapselect_additions.html')" class="blue">additional_options</a><i class=bn>]</i>.</span> <br><br>
+</P>
+<p><span class="h3">
+Addition:
+</span></p>
+<P>
+   <A HREF="#!ABAP_ONE_ADD@1@" class="blue"> <span class="qtext">... WITH HOLD</span> </A> <br><br>
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+The <a href="javascript:call_link('abenopen_sql_glosry.html')" class="grey" title="Glossary Entry">Open SQL</a> statement <span class="qtext">OPEN CURSOR</span> opens a
+<a href="javascript:call_link('abendatabase_cursor_glosry.html')" class="grey" title="Glossary Entry">database cursor</a> for the result set of the
+<a href="javascript:call_link('abenmainquery_glosry.html')" class="grey" title="Glossary Entry">main query</a> defined after
+<span class="qtext">FOR</span> and links a cursor variable <span class="qtext">dbcur</span> with this
+database cursor. The results set of the main query can be read with the statement <a href="javascript:call_link('abapfetch.html')" class="blue"><span class="qtext">FETCH</span></a>.
+</P>
+<P>
+The main query is specified after <span class="qtext">FOR</span> as follows:
+</P>
+<ul class="disc">
+<li>
+The main query is specified using language element <span class="qtext">SELECT</span>, and its clauses
+and additions <a href="javascript:call_link('abapopen_cursor_mainquery.html')" class="blue"><span class="qtext">mainquery_clauses</span></a> define the result set.
+<br><br></li>
+<li>
+The language element <a href="javascript:call_link('abapunion.html')" class="blue"><span class="qtext">UNION</span></a> can be
+used to combine the result sets of multiple queries. In this case, additional rules <a href="javascript:call_link('abapunion_clause.html')" class="blue"><span class="qtext">query_clauses</span></a> apply for specifying clauses.
+<br><br></li>
+<li>
+Finally, you can specify optional additions <a href="javascript:call_link('abapselect_additions.html')" class="blue"><span class="qtext">additional_options</span></a>.
+<br><br></li>
+<li>
+You also have the option to define <a href="javascript:call_link('abencommon_table_expression_glosry.html')" class="grey" title="Glossary Entry">
+common table expressions</a> in the main query by using language element <span class="qtext">WITH</span>. When defining and using common table expressions, the same applies as when using <span class="qtext">WITH</span> to introduce a
+<a href="javascript:call_link('abapwith.html')" class="blue">standalone statement</a>.
+<br></li>
+</ul>
+<P>
+The following can be specified for the cursor:
+</P>
+<ul class="disc">
+<li>
+A <a href="javascript:call_link('abenopen_sql_host_variables.html')" class="blue">host variable</a> <span class="qtext">dbcur</span>
+declared using a specific predefined data type: <a href="javascript:call_link('abenbuilt_in_types_complete.html')" class="blue"><span class="qtext">
+cursor</span></a>. The name of this host variable must be prefixed with the escape character <span class="qtext">@</span>.
+A database cursor <span class="qtext">dbcur</span> that has already been opened cannot be opened again.
+<br><br></li>
+<li>
+An <a href="javascript:call_link('abeninline_declaration_glosry.html')" class="grey" title="Glossary Entry">inline declaration</a> of a corresponding
+<a href="javascript:call_link('abenopen_sql_host_variables.html')" class="blue">host variable</a> <span class="qtext">dbcur</span>. The
+<a href="javascript:call_link('abendeclaration_operator_glosry.html')" class="grey" title="Glossary Entry">declaration operator</a>
+<a href="javascript:call_link('abendata_inline.html')" class="blue"><span class="qtext">DATA</span></a> must be prefixed with the escape character <span class="qtext">@</span>.
+<br></li>
+</ul>
+<P>
+A line of the results set is always assigned to an opened database cursor as a cursor position. After
+the statement <span class="qtext">OPEN CURSOR</span>, the database cursor is positioned in front of the first line of the results set.
+</P>
+<P>
+In a single program, a maximum of 17 database cursors can be open simultaneously across the
+<a href="javascript:call_link('abenopen_sql_interface_glosry.html')" class="grey" title="Glossary Entry">Open SQL interface</a>.
+If more than 17 database cursors are opened, the runtime error DBSQL_TOO_MANY_OPEN_CURSOR occurs. An
+open database cursor can be closed using the statement <a href="javascript:call_link('abapclose_cursor.html')" class="blue"><span class="qtext">CLOSE CURSOR</span></a>. In addition, an open database cursor is closed for a
+<a href="javascript:call_link('abendatabase_commit_glosry.html')" class="grey" title="Glossary Entry">database commit</a> or a <a href="javascript:call_link('abendatabase_rollback_glosry.html')" class="grey" title="Glossary Entry">database rollback</a>.
+</P>
+<P>
+If a cursor variable <span class="qtext">dbcur</span> of an open database cursor is assigned to another
+cursor variable or passed as a parameter, the latter is associated with the same database cursor at the same position. A cursor variable of an open database cursor can also be passed to
+<a href="javascript:call_link('abenprocedure_glosry.html')" class="grey" title="Glossary Entry">procedures</a> that have been called externally, to enable the database cursor to be accessed from there.
+</P>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>
+It is not recommended that cursor variables are assigned to each other and they should be set only using the statements <span class="qtext">OPEN CURSOR</span> and <span class="qtext">CLOSE CURSOR</span>.
+<br><br></li>
+<li>
+If <a href="javascript:call_link('abenopen_sql_writing.html')" class="blue">write accesses</a> are made on a database table for
+which a database cursor is open, the results set is database-specific and undefined. Avoid this kind of parallel access if possible.
+<br><br></li>
+<li>
+As well as explicit Open SQL reads using <span class="qtext">OPEN CURSOR</span> and <a href="javascript:call_link('abapselect.html')" class="blue">
+<span class="qtext">SELECT</span></a> loops, the Open SQL interface also opens database cursors implicitly, such as when loading
+<a href="javascript:call_link('abensap_puffering.html')" class="blue">buffered</a> tables. The runtime error DBSQL_TOO_MANY_OPEN_CURSOR can be avoided by not using explicit reads to exploit the maximum number of open database cursors.
+<br><br></li>
+<li>
+If a <a href="javascript:call_link('abencds_view_glosry.html')" class="grey" title="Glossary Entry">CDS view</a> is defined as a
+<a href="javascript:call_link('abenddic_replacement_objects.html')" class="blue">replacement object</a> for a database table or database view specified as a
+<a href="javascript:call_link('abapselect_data_source.html')" class="blue">data source</a> of the <span class="qtext">SELECT</span>
+statement of <span class="qtext">OPEN CURSOR</span>, the statement <a href="javascript:call_link('abapfetch.html')" class="blue"><span class="qtext">FETCH</span></a> accesses the CDS view and not the database table or the database view.
+<br><br></li>
+<li>
+Host variables without the escape character <span class="qtext">@</span> are
+<a href="javascript:call_link('abenopen_sql_hostvar_obsolete.html')" class="blue">obsolete</a>. The escape character <span class="qtext">@</span> must be specified in the
+<a href="javascript:call_link('abenopensql_strict_modes.html')" class="blue">strict modes</a> of the syntax check from Release 7.40, SP05. The use of an inline declaration for <span class="qtext">dbcur</span> activates the strict mode with
+<a href="javascript:call_link('abenopensql_strict_mode_751.html')" class="blue">release 7.51</a> and higher. <br><br>
+<br></li>
+</ul>
+<p><span class="h4">
+Example
+</span></p>
+<P>
+See <a href="javascript:call_link('abapfetch.html')" class="blue"><span class="qtext">FETCH</span></a>. <br><br>
+</P>
+<A NAME="@@WITH HOLD@@OPEN CURSOR@@"></A>
+<p><span class="h3">
+<A NAME="!ABAP_ONE_ADD@1@"></A> <span class="bold">Addition</span>
+</span></p>
+<P>
+<span class="qtext">... WITH HOLD</span> <!-- /A -->  <br>
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+If the addition <span class="qtext">WITH HOLD</span> is specified, the database cursor is not closed by a database commit executed using
+<a href="javascript:call_link('abennative_sql_glosry.html')" class="grey" title="Glossary Entry">Native SQL</a>.
+</P>
+<P>
+The addition <span class="qtext">WITH HOLD</span> can be used only in reads performed on the standard
+database. It cannot be specified together with the addition <a href="javascript:call_link('abapselect_additions.html')" class="blue"><span class="qtext">CONNECTION</span></a>.
+</P>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>
+The addition <span class="qtext">WITH HOLD</span> is ignored by implicit
+<a href="javascript:call_link('abendatabase_commit_glosry.html')" class="grey" title="Glossary Entry">database commits</a>, by
+commits produced by the statement <a href="javascript:call_link('abapcommit.html')" class="blue"><span class="qtext">COMMIT WORK</span></a>, or by any rollbacks that always close the database cursor.
+<br><br></li>
+<li>
+A Native SQL database commit can be performed using the <span class="lnkgrey">DB_COMMIT</span> function module, for example. <br><br>
+<br></li>
+</ul>
+<br>
+<br>
+<!-- POSTFIX --><span class="h4">Continue</span><br>
+<a href="javascript:call_link('abapopen_cursor_mainquery.html')" class="blue">OPEN CURSOR - mainquery_clauses</a><br>
+<a href="javascript:call_link('abapfetch.html')" class="blue">FETCH</a><br>
+<a href="javascript:call_link('abapclose_cursor.html')" class="blue">CLOSE CURSOR</a><br>
+<img src="exa.gif" alt="Example" title="Example">
+<a href="javascript:call_link('abenopen_cursor_abexa.html')" class="blue">Reading Data Through the Cursor</a><br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abapopen_cursor.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:02 GMT -->
+</html>

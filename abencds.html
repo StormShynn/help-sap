@@ -1,0 +1,153 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENCDS -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:24:23 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="ABAP CDS in ABAP Dictionary">
+<meta name="keywords" content="ABAP, ABAP CDS, ABAP Core Data Services, CDS">
+<title>
+ABAP CDS in ABAP Dictionary - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abencds.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abencds.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dictionary.html')" class="blue">ABAP - Dictionary</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+ABAP CDS in ABAP Dictionary
+</span></p>
+<p>
+The ABAP Core Data Services (ABAP CDS) are the platform-independent implementation of the general
+<a href="javascript:call_link('abencds_glosry.html')" class="grey" title="Glossary Entry">CDS</a> concept for AS ABAP. The ABAP CDS make it possible to define semantic data models on the central database of the AS ABAP. Unlike the SAP HANA-specific variant
+<a href="http://help.sap.com/saphelp_hanaplatform/helpdata/en/b5/23afd66f5a40469573d9c47d7af831/content.htm?frameset=/en/22/47aca08f054d30b0f749f757ec1ccd/frameset.htm&amp;current_toc=/en/34/29fc63a1de4cd6876ea211dc86ee54/plain.htm&amp;node_id=101&amp;show_children=false" target="blank" class="blue">
+HANA CDS</a>, the ABAP CDS are independent of the database system. The entities of the models defined
+in ABAP CDS provide enhanced access functions compared with existing database tables and views defined in ABAP Dictionary, making it possible to optimize Open SQL-based applications. This is particularly clear when an AS ABAP uses a
+<a href="javascript:call_link('abenhana_database_glosry.html')" class="grey" title="Glossary Entry">SAP HANA database</a>, since its in-memory characteristics can be implemented in an optimum manner.
+</p>
+<p>
+The data models are defined in the form of <a href="javascript:call_link('abencds_object_glosry.html')" class="grey" title="Glossary Entry">CDS objects</a> using the data definition language (DDL) and data control language (DCL) provided by ABAP CDS in the
+<a href="javascript:call_link('abencds_syntax.html')" class="blue">ABAP CDS syntax</a> in
+<a href="javascript:call_link('abencds_source_code_glosry.html')" class="grey" title="Glossary Entry">CDS source code</a>. The
+CDS objects defined with these languages are integrated into ABAP Dictionary and managed here. Currently, the following CDS objects can be defined here:
+</p>
+<ul class="disc">
+<li><a href="javascript:call_link('abenddic_cds_entities.html')" class="blue">CDS data definitions</a></li>
+</ul>
+<dl><dd>
+CDS data definitions are made using the <a href="javascript:call_link('abencds_ddl_glosry.html')" class="grey" title="Glossary Entry">CDS DDL</a> of the ABAP CDS. They define the following
+<a href="javascript:call_link('abencds_entity_glosry.html')" class="grey" title="Glossary Entry">CDS entities</a>. These units can be accessed as a data type (in ABAP programs) and as a data source (in Open SQL read statements).
+</dd></dl>
+<ul class="circlem2">
+<li><a href="javascript:call_link('abenddic_cds_views.html')" class="blue">CDS views</a> <br> <br>
+<a href="javascript:call_link('abencds_entity_glosry.html')" class="grey" title="Glossary Entry">CDS entities</a>, which from a technical perspective are based on
+<a href="javascript:call_link('abencds_database_view_glosry.html')" class="grey" title="Glossary Entry">CDS database views</a> of the ABAP Dictionary.</li>
+</ul>
+<ul class="circlem2">
+<li><a href="javascript:call_link('abenddic_cds_table_functions.html')" class="blue">CDS table functions</a> <br> <br>
+<a href="javascript:call_link('abencds_entity_glosry.html')" class="grey" title="Glossary Entry">CDS entities</a>, which are implemented in
+<a href="javascript:call_link('abenamdp_function_glosry.html')" class="grey" title="Glossary Entry">AMDP functions</a>.</li>
+</ul>
+<dl><dd>
+The <a href="javascript:call_link('abencds_ddl_glosry.html')" class="grey" title="Glossary Entry">CDS DDL</a> of the ABAP CDS also contains language elements that enhance CDS entities.
+</dd></dl>
+<ul class="disc">
+<li><a href="javascript:call_link('abencds_authorizations.html')" class="blue">CDS access controls</a></li>
+</ul>
+<dl><dd>
+CDS access controls are based on <a href="javascript:call_link('abencds_role_glosry.html')" class="grey" title="Glossary Entry">CDS roles</a> that are defined in
+<a href="javascript:call_link('abencds_dcl_glosry.html')" class="grey" title="Glossary Entry">CDS DCL</a>. When CDS entities that are assigned a CDS role are accessed, additional
+<a href="javascript:call_link('abenaccess_condition_glosry.html')" class="grey" title="Glossary Entry">access conditions</a> are evaluated by default.
+</dd></dl>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li><a href="javascript:call_link('abencds_object_glosry.html')" class="grey" title="Glossary Entry">CDS objects</a> are transported using the
+<a href="javascript:call_link('abencds_source_code_glosry.html')" class="grey" title="Glossary Entry">CDS source code</a>. The
+<a href="javascript:call_link('abencds_entity_glosry.html')" class="grey" title="Glossary Entry">CDS entities</a> defined using a
+<a href="javascript:call_link('abencds_data_definition_glosry.html')" class="grey" title="Glossary Entry">CDS data definition</a> are created after the transport when activated in the target system.</li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abencds_source_code_glosry.html')" class="grey" title="Glossary Entry">CDS source code</a> can only be programmed in the Eclipse-based
+<a href="javascript:call_link('abenadt_glosry.html')" class="grey" title="Glossary Entry">ABAP Development Tools (ADT)</a>. The
+Data Definition Language (DDL) and the Data Control Language (DCL) use different editors. The ADT documentation describes how these editors are used.</li>
+</ul>
+<ul class="disc">
+<li>As well as the database-independent ABAP CDS,
+<a href="http://help.sap.com/saphelp_hanaplatform/helpdata/en/b5/23afd66f5a40469573d9c47d7af831/content.htm?frameset=/en/22/47aca08f054d30b0f749f757ec1ccd/frameset.htm&amp;current_toc=/en/34/29fc63a1de4cd6876ea211dc86ee54/plain.htm&amp;node_id=101&amp;show_children=false" target="blank" class="blue">
+HANA CDS</a> are also available as another variant of the
+<a href="javascript:call_link('abencds_glosry.html')" class="grey" title="Glossary Entry">CDS</a> concept. HANA CDS are only available in the
+<a href="javascript:call_link('abenhana_database_glosry.html')" class="grey" title="Glossary Entry">SAP HANA database</a>. Entities of the HANA CDS are not developed with the
+<a href="javascript:call_link('abenadt_glosry.html')" class="grey" title="Glossary Entry">ABAP Development Tools (ADT)</a>, but with SAP HANA-specific tools, for example, in the SAP HANA studio.</li>
+</ul>
+<ul class="disc">
+<li>The fact that the ABAP CDS are platform-independent from a functional perspective does not mean that the performance when accessing
+<a href="javascript:call_link('abencds_entity_glosry.html')" class="grey" title="Glossary Entry">CDS entities</a> is the same for all platforms. See the <a href="javascript:call_link('abenabap_cds_perfo.html')" class="blue">Performance Note</a>.</li>
+</ul>
+<br>
+<br>
+<!-- POSTFIX --><span class="h4">Continue</span><br>
+<a href="javascript:call_link('abencds_syntax.html')" class="blue">ABAP CDS - Syntax</a><br>
+<a href="javascript:call_link('abenddic_cds_entities.html')" class="blue">ABAP CDS - Data Definitions</a><br>
+<a href="javascript:call_link('abencds_meta_data_extensions.html')" class="blue">ABAP CDS Metadata Extensions</a><br>
+<a href="javascript:call_link('abencds_authorizations.html')" class="blue">ABAP CDS - Access Control</a><br>
+<a href="javascript:call_link('abenabap_cds_perfo.html')" class="blue">ABAP CDS - Performance Note</a><br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:24:27 GMT -->
+</html>

@@ -1,0 +1,224 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABAPEXEC_CONNECTION -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abapexec_connection.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:46 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="EXEC SQL - CONNECT">
+<title>
+EXEC SQL - CONNECT - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abapexec_connection.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abapexec_connection.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennative_sql.html')" class="blue">Native SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennativesql.html')" class="blue">EXEC SQL - Embedded Native SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abapexec.html')" class="blue">EXEC SQL</a>&nbsp;&rarr;&nbsp;
+</span>
+<A NAME="@@CONNECT TO@@EXEC SQL@@"></A>
+<p><span class="h1">
+EXEC SQL - CONNECT <br><br>
+</span></p>
+<P>
+A connection must be defined with the database before
+<a href="javascript:call_link('abennative_sql_glosry.html')" class="grey" title="Glossary Entry">Native SQL</a> statements can be used. When
+<a href="javascript:call_link('abensap_nw_abap_glosry.html')" class="grey" title="Glossary Entry">AS ABAP</a> is started, a standard
+connection from the database interface to the central AS ABAP database is opened. This connection is defined as the current connection for embedded Native SQL statements and as a standard connection for
+<a href="javascript:call_link('abenopen_sql_glosry.html')" class="grey" title="Glossary Entry">Open SQL</a> statements when an
+ABAP program is started. Use the following SAP-specific Native SQL statements, to start additional connections to other database systems. These connections can be accessed in static Native SQL.
+</P>
+<P>
+The possible connections between AS ABAP and the database systems are defined in the database table <span class="lnkgrey">DBCON</span>. Entries in the database table DBCON can be created and modified using the
+<a href="javascript:call_link('abendba_cockpit_glosry.html')" class="grey" title="Glossary Entry">DBA Cockpit</a> tool.
+</P>
+<p><span class="h4">
+Note
+</span></p>
+<P>
+When the work process is switched, followed by an <a href="javascript:call_link('abendb_commit.html')" class="blue">implicit database commit</a>, the commit is executed on all open connections. <br><br>
+</P>
+<P>
+<span class="bold">Open Connection</span> <br><br>
+</P>
+<p><span class="h2">
+<span class="bold">Syntax</span>
+</span></p>
+<P>
+<span class="qtext">EXEC SQL.</span> <br><span class="qtext">&nbsp;&nbsp;CONNECT TO dbs <i class=bn>[</i>AS con<i class=bn>]</i></span> <br><span class="qtext">ENDEXEC.</span> <br><br>
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+This static Native SQL statement opens a connection to the database system <span class="qtext">dbs</span>
+and makes this the current connection. In other words, all the following Native SQL statements work
+with the database system named in <span class="qtext">dbs</span>. If a connection to the specified database system already exists, it is used; otherwise, a new connection is set up.
+</P>
+<P>
+<span class="qtext">dbs</span> can be specified as a literal or as a
+<a href="javascript:call_link('abapexec_host.html')" class="blue">host variable</a> containing a name from the column CON_NAME
+in the database table <span class="lnkgrey">DBCON</span>. The database system specified here must be
+supported by SAP and the technical data for the connection must be entered. The column DBMS in the database table DBCON contains an abbreviation for the type of database system.
+</P>
+<P>
+The addition <span class="qtext">AS</span> can be used to specify a name <span class="qtext">con</span>
+for the connection. A literal or a character-like host variable can be specified for <span class="qtext">con</span>.
+Its content is used as its name. The connection can then be selected using this name in the static Native SQL statement <span class="qtext">SET CONNECTION</span>. <br><br>
+</P>
+<P>
+<span class="bold">Selecting a Connection</span> <br><br>
+</P>
+<A NAME="@@SET CONNECTION@@EXEC SQL@@"></A>
+<p><span class="h2">
+<span class="bold">Syntax</span>
+</span></p>
+<P>
+<span class="qtext">EXEC SQL.</span> <br><span class="qtext">&nbsp;&nbsp;SET CONNECTION <i class=bn>{</i>con<i class=bn>|</i>DEFAULT<i class=bn>}</i></span> <br><span class="qtext">ENDEXEC.</span> <br><br>
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+This static Native SQL statement sets the current connection for all following static Native SQL statements.
+For <span class="qtext">con</span>, a literal or a character-like host variable can be specified that
+must contain the name of a connection already started. The name of the connection can be specified either
+as the database system from the database table DBCON, as given in the static Native SQL statement <span class="qtext">
+CONNECT TO</span>, or as the name assigned there using the <span class="qtext">AS</span> addition. <span class="qtext">
+DEFAULT</span> is used to set the standard connection to the central database system of the current AS ABAP. <br><br>
+</P>
+<P>
+<span class="bold">Determining the Connection</span> <br><br>
+</P>
+<A NAME="@@GET CONNECTION@@EXEC SQL@@"></A>
+<p><span class="h2">
+<span class="bold">Syntax</span>
+</span></p>
+<P>
+<span class="qtext">EXEC SQL.</span> <br><span class="qtext">&nbsp;&nbsp;GET CONNECTION :con</span> <br><span class="qtext">ENDEXEC.</span> <br><br>
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+This static Native SQL statement assigns the name of the current connection to <span class="qtext">con</span>.
+<span class="qtext">con</span> expects a character-like host variable. If the connection has been set
+up using the static Native SQL statement <span class="qtext">CONNECT TO</span> and a name was given
+to the connection using <span class="qtext">AS</span>, this name is assigned. If the connection was
+set up without using a name assignment, the name of the database system from the database table DBCON is used. If the current connection is the standard connection to the central database of the
+<a href="javascript:call_link('abensap_nw_abap_glosry.html')" class="grey" title="Glossary Entry">AS ABAP</a>, <span class="qtext">con</span> is assigned the value <span class="qtext400">"DEFAULT"</span>. <br><br>
+</P>
+<P>
+<span class="bold">Close connection</span> <br><br>
+</P>
+<A NAME="@@DISCONNECT@@EXEC SQL@@"></A>
+<p><span class="h2">
+<span class="bold">Syntax</span>
+</span></p>
+<P>
+<span class="qtext">EXEC SQL.</span> <br><span class="qtext">&nbsp;&nbsp;DISCONNECT con</span> <br><span class="qtext">ENDEXEC.</span> <br><br>
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+This Native SQL statement closes the connection <span class="qtext">con</span>. If <span class="qtext">con</span>
+is not the current connection, this is not affected. If <span class="qtext">con</span> is the current
+connection, the standard connection to the central database of the AS ABAP is simultaneously set as the current connection for all following static Native SQL statements.
+</P>
+<P>
+For <span class="qtext">con</span>, a literal or a character-like host variable can be specified that
+must contain the name of a connection already started. If a name was assigned while starting the connection
+using the static Native SQL statement <span class="qtext">CONNECT TO</span> with the addition <span class="qtext">
+AS</span>, this name must be used. Otherwise, the name of the database system from the DBCON database table must be used. The standard connection <span class="qtext400">"DEFAULT"</span> cannot be closed. <br><br>
+</P>
+<p><span class="h4">
+Example
+</span></p>
+<P>
+Starts a connection to an Oracle database and imports all entries of a column in the database table SCARR.
+</P>
+<p class="qtextml1">
+<span class="qtext">
+PARAMETERS dbs TYPE dbcon-con_name. <br> <br>DATA carrid_wa TYPE scarr-carrid. <br> <br>DATA dbtype TYPE dbcon_dbms. <br>
+ <br>SELECT SINGLE dbms <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM dbcon <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE con_name = @dbs <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INTO @dbtype. <br> <br>IF dbtype = 'ORA'. <br>&nbsp;&nbsp;TRY. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXEC SQL. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONNECT TO :dbs <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDEXEC. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF sy-subrc &lt;> 0. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAISE EXCEPTION TYPE cx_sy_native_sql_error. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXEC SQL. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OPEN dbcur FOR <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT carrid <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM scarr <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE mandt = :sy-mandt <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDEXEC. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DO. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXEC SQL. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FETCH NEXT dbcur INTO :carrid_wa <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDEXEC. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF sy-subrc &lt;> 0. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXIT. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cl_demo_output=>write( |{ carrid_wa }| ). <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDDO. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXEC SQL. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLOSE dbcur <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDEXEC. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXEC SQL. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DISCONNECT :dbs <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDEXEC. <br>&nbsp;&nbsp;&nbsp;&nbsp;CATCH cx_sy_native_sql_error. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE `Error in Native SQL.` TYPE 'I'. <br>&nbsp;&nbsp;ENDTRY. <br>ENDIF. <br>cl_demo_output=>display( ). <br><br>
+</span>
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abapexec_connection.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:46 GMT -->
+</html>

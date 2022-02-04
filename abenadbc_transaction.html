@@ -1,0 +1,118 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENADBC_TRANSACTION -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenadbc_transaction.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:28 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Database LUWs">
+<title>
+Database LUWs - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenadbc_transaction.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenadbc_transaction.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennative_sql.html')" class="blue">Native SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenadbc.html')" class="blue">ADBC - ABAP Database Connectivity</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencl_sql_connection.html')" class="blue">CL_SQL_CONNECTION - Database Connections</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Database LUWs
+</span></p>
+<p>
+For each open database connection that can be represented by an instance of class
+<a href="javascript:call_link('abencl_sql_connection.html')" class="blue">CL_SQL_CONNECTION</a>, only one
+<a href="javascript:call_link('abendatabase_luw_glosry.html')" class="grey" title="Glossary Entry">database LUW</a> can be active at any one time. When a connection is opened, the first database LUW of the connection is opened implicitly.
+</p>
+<p>
+Class CL_SQL_CONNECTION contains instance methods
+</p>
+<ul class="disc">
+<li>COMMIT,</li>
+</ul>
+<ul class="disc">
+<li>ROLLBACK,</li>
+</ul>
+<p>
+These end the current database LUW of a connection by means of a
+<a href="javascript:call_link('abendatabase_commit_glosry.html')" class="grey" title="Glossary Entry">database commit</a> or a
+<a href="javascript:call_link('abendatabase_rollback_glosry.html')" class="grey" title="Glossary Entry">database rollback</a> and open a new database LUW.
+</p>
+<p>
+The database LUWs of different connections are independent of one another and must be ended individually. When the work process is switched, with the resulting
+<a href="javascript:call_link('abendb_commit.html')" class="blue">implicit database commit</a>, this is executed on all open connections. The database commit on the default connection takes place last of all.
+</p>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>To execute a database commit or a database rollback on the default connection using ADBC, an instance
+of class CL_SQL_CONNECTION must be created for this connection using <span class="qtext">CREATE OBJECT</span>.</li>
+</ul>
+<ul class="disc">
+<li>Transaction control is possible only using the methods COMMIT and ROLLBACK of the class CL_SQL_CONNECTION,
+since only in this case are all actions required at the end of the transaction executed in the database
+interface. The statements <span class="qtext">COMMIT</span> or <span class="qtext">ROLLBACK</span> should not be executed using CL_SQL_STATEMENT or CL_SQL_PREPARED_STATEMENT, to avoid critical side effects.</li>
+</ul>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenadbc_transaction.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:28 GMT -->
+</html>

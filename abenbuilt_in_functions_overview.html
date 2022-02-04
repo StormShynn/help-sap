@@ -1,0 +1,313 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENBUILT_IN_FUNCTIONS_OVERVIEW -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenbuilt_in_functions_overview.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:31:59 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Predefined Functions - Overview">
+<title>
+Predefined Functions - Overview - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenbuilt_in_functions_overview.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenbuilt_in_functions_overview.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenbuilt_in.html')" class="blue">Predefined Types, Data Objects, Functions, and Constructors</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenbuilt_in_functions.html')" class="blue">Predefined Functions</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Predefined Functions - Overview
+</span></p>
+<p>
+The following tables show the predefined functions by purpose. Predefined functions are generally
+<a href="javascript:call_link('abenprocess_function_glosry.html')" class="grey" title="Glossary Entry">processing functions</a> or
+<a href="javascript:call_link('abendescription_function_glosry.html')" class="grey" title="Glossary Entry">description functions</a>.
+</p>
+<ul class="disc">
+<li>A processing function performs general processing and returns a return code according to its purpose.</li>
+</ul>
+<ul class="disc">
+<li>A description function determines a property of an argument and usually returns this property as a numeric value.</li>
+</ul>
+<p>
+Other functions are known as logical functions, which either evaluate a logical expression (Boolean functions) or return a truth value (predicate functions).
+</p>
+<A name="@@ITOC@@ABENBUILT_IN_FUNCTIONS_OVERVIEW_1"></A>
+<p><span class="h2">
+Logical Functions
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Function</span></td>
+<td><span class="bold">Meaning</span></td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenboole_functions.html')" class="blue"><span class="qtext">boolc</span></a>, <a href="javascript:call_link('abenboole_functions.html')" class="blue">
+<span class="qtext">boolx</span></a>, <a href="javascript:call_link('abenboole_functions.html')" class="blue"><span class="qtext">xsdbool</span></a></td>
+<td>Boolean functions</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abencontains_functions.html')" class="blue"><span class="qtext">contains</span></a>, <a href="javascript:call_link('abencontains_functions.html')" class="blue">
+<span class="qtext">contains_any_of</span></a>, <a href="javascript:call_link('abencontains_functions.html')" class="blue"><span class="qtext">contains_any_not_of</span></a></td>
+<td>Predicate functions for strings</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenmatches_functions.html')" class="blue"><span class="qtext">matches</span></a></td>
+<td>Predicate function for strings</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenline_exists_function.html')" class="blue"><span class="qtext">line_exists</span></a></td>
+<td>Predicate function for internal tables</td>
+</tr>
+</table><br>
+<p>
+<a href="javascript:call_link('abenlogic_functions.html')" class="blue"><span class="bold"><span class="italic">&rarr;</span> More</span></a>
+</p>
+<A name="@@ITOC@@ABENBUILT_IN_FUNCTIONS_OVERVIEW_2"></A>
+<p><span class="h2">
+Numeric Functions
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Function</span></td>
+<td><span class="bold">Meaning</span></td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abennumerical_functions.html')" class="blue"><span class="qtext">abs</span></a>, <a href="javascript:call_link('abennumerical_functions.html')" class="blue">
+<span class="qtext">ceil</span></a>, <a href="javascript:call_link('abennumerical_functions.html')" class="blue"><span class="qtext">floor</span></a>,
+<a href="javascript:call_link('abennumerical_functions.html')" class="blue"><span class="qtext">frac</span></a>, <a href="javascript:call_link('abennumerical_functions.html')" class="blue">
+<span class="qtext">sign</span></a>, <a href="javascript:call_link('abennumerical_functions.html')" class="blue"><span class="qtext">trunc</span></a></td>
+<td>General numeric functions</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenpower_function.html')" class="blue"><span class="qtext">ipow</span></a></td>
+<td>Integer power function</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abennmax_nmin_functions.html')" class="blue"><span class="qtext">nmax</span></a>, <a href="javascript:call_link('abennmax_nmin_functions.html')" class="blue"><span class="qtext">nmin</span></a></td>
+<td>Numeric extremum functions</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenfloating_point_functions.html')" class="blue"><span class="qtext">acos</span></a>, <a href="javascript:call_link('abenfloating_point_functions.html')" class="blue">
+<span class="qtext">asin</span></a>, <a href="javascript:call_link('abenfloating_point_functions.html')" class="blue"><span class="qtext">atan</span></a>,
+<a href="javascript:call_link('abenfloating_point_functions.html')" class="blue"><span class="qtext">cos</span></a>, <a href="javascript:call_link('abenfloating_point_functions.html')" class="blue">
+<span class="qtext">sin</span></a>, <a href="javascript:call_link('abenfloating_point_functions.html')" class="blue"><span class="qtext">tan</span></a>,
+<a href="javascript:call_link('abenfloating_point_functions.html')" class="blue"><span class="qtext">cosh</span></a>, <a href="javascript:call_link('abenfloating_point_functions.html')" class="blue">
+<span class="qtext">sinh</span></a>, <a href="javascript:call_link('abenfloating_point_functions.html')" class="blue"><span class="qtext">tanh</span></a>,
+<a href="javascript:call_link('abenfloating_point_functions.html')" class="blue"><span class="qtext">exp</span></a>, <a href="javascript:call_link('abenfloating_point_functions.html')" class="blue">
+<span class="qtext">log</span></a>, <a href="javascript:call_link('abenfloating_point_functions.html')" class="blue"><span class="qtext">log10</span></a>,
+<a href="javascript:call_link('abenfloating_point_functions.html')" class="blue"><span class="qtext">sqrt</span></a></td>
+<td>Floating point functions</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abendec_floating_point_functions.html')" class="blue"><span class="qtext">round</span></a>, <a href="javascript:call_link('abendec_floating_point_functions.html')" class="blue"><span class="qtext">rescale</span></a></td>
+<td>Rounding functions</td>
+</tr>
+</table><br>
+<p>
+<a href="javascript:call_link('abenmathematical_functions.html')" class="blue"><span class="bold"><span class="italic">&rarr;</span> More</span></a>
+</p>
+<A name="@@ITOC@@ABENBUILT_IN_FUNCTIONS_OVERVIEW_3"></A>
+<p><span class="h2">
+String Functions
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Function</span></td>
+<td><span class="bold">Meaning</span></td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenlength_functions.html')" class="blue"><span class="qtext">charlen</span></a>, <a href="javascript:call_link('abenlength_functions.html')" class="blue">
+<span class="qtext">dbmaxlen</span></a>, <a href="javascript:call_link('abenlength_functions.html')" class="blue"><span class="qtext">numofchar</span></a>,
+<a href="javascript:call_link('abenlength_functions.html')" class="blue"><span class="qtext">strlen</span></a></td>
+<td>Length functions</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenlength_functions_args.html')" class="blue"><span class="qtext">char_off</span></a></td>
+<td>Length function</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abencmax_cmin_functions.html')" class="blue"><span class="qtext">cmax</span></a>, <a href="javascript:call_link('abencmax_cmin_functions.html')" class="blue"><span class="qtext">cmin</span></a></td>
+<td>Character-like extremum value functions</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abencount_functions.html')" class="blue"><span class="qtext">count</span></a>, <a href="javascript:call_link('abencount_functions.html')" class="blue">
+<span class="qtext">count_any_of</span></a>, <a href="javascript:call_link('abencount_functions.html')" class="blue"><span class="qtext">count_any_not_of</span></a></td>
+<td>Search functions</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abendistance_functions.html')" class="blue"><span class="qtext">distance</span></a></td>
+<td>Similarity function</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abencondense_functions.html')" class="blue"><span class="qtext">condense</span></a></td>
+<td>Condense function</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenconcatenation_functions.html')" class="blue"><span class="qtext">concat_lines_of</span></a></td>
+<td>Concatenation function</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenescape_functions.html')" class="blue"><span class="qtext">escape</span></a></td>
+<td>Escape function</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abensearch_functions.html')" class="blue"><span class="qtext">find</span></a>, <a href="javascript:call_link('abensearch_functions.html')" class="blue">
+<span class="qtext">find_end</span></a>, <a href="javascript:call_link('abensearch_functions.html')" class="blue"><span class="qtext">find_any_of</span></a>,
+<a href="javascript:call_link('abensearch_functions.html')" class="blue"><span class="qtext">find_any_not_of</span></a></td>
+<td>Search functions</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abeninsert_functions.html')" class="blue"><span class="qtext">insert</span></a></td>
+<td>Insert function</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenmatch_functions.html')" class="blue"><span class="qtext">match</span></a></td>
+<td>Substring function</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenrepeat_functions.html')" class="blue"><span class="qtext">repeat</span></a></td>
+<td>Repeat function</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenreplace_functions.html')" class="blue"><span class="qtext">replace</span></a></td>
+<td>Replace function</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenreverse_functions.html')" class="blue"><span class="qtext">reverse</span></a></td>
+<td>Reverse function</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abensegment_functions.html')" class="blue"><span class="qtext">Segment</span></a></td>
+<td>Segment function</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenshift_functions.html')" class="blue"><span class="qtext">shift_left</span></a>, <a href="javascript:call_link('abenshift_functions.html')" class="blue"><span class="qtext">shift_right</span></a></td>
+<td>Shift functions</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abensubstring_functions.html')" class="blue"><span class="qtext">substring</span></a>, <a href="javascript:call_link('abensubstring_functions.html')" class="blue">
+<span class="qtext">substring_after</span></a>, <a href="javascript:call_link('abensubstring_functions.html')" class="blue"><span class="qtext">
+substring_from</span></a>, <a href="javascript:call_link('abensubstring_functions.html')" class="blue"><span class="qtext">substring_before</span></a>,
+<a href="javascript:call_link('abensubstring_functions.html')" class="blue"><span class="qtext">substring_to</span></a></td>
+<td>Substring functions</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abencase_functions.html')" class="blue"><span class="qtext">to_upper</span></a>, <a href="javascript:call_link('abencase_functions.html')" class="blue">
+<span class="qtext">to_lower</span></a>, <a href="javascript:call_link('abencase_functions.html')" class="blue"><span class="qtext">
+to_mixed</span></a>, <a href="javascript:call_link('abencase_functions.html')" class="blue"><span class="qtext">from_mixed</span></a></td>
+<td>Case functions</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abentranslate_functions.html')" class="blue"><span class="qtext">translate</span></a></td>
+<td>Translation function</td>
+</tr>
+</table><br>
+<p>
+<a href="javascript:call_link('abenstring_functions.html')" class="blue"><span class="bold"><span class="italic">&rarr;</span> More</span></a>
+</p>
+<A name="@@ITOC@@ABENBUILT_IN_FUNCTIONS_OVERVIEW_4"></A>
+<p><span class="h2">
+Byte String Functions
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Function</span></td>
+<td><span class="bold">Meaning</span></td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abendescriptive_functions_binary.html')" class="blue"><span class="qtext">xstrlen</span></a></td>
+<td>Length function</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenbit_functions.html')" class="blue"><span class="qtext">bit-set</span></a></td>
+<td>Bit function</td>
+</tr>
+</table><br>
+<p>
+<a href="javascript:call_link('abenbinary_functions.html')" class="blue"><span class="bold"><span class="italic">&rarr;</span> More</span></a>
+</p>
+<A name="@@ITOC@@ABENBUILT_IN_FUNCTIONS_OVERVIEW_5"></A>
+<p><span class="h2">
+Table Functions
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Function</span></td>
+<td><span class="bold">Meaning</span></td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abendescriptive_functions_table.html')" class="blue"><span class="qtext">lines</span></a></td>
+<td>Row function</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abenline_index_function.html')" class="blue"><span class="qtext">line_index</span></a></td>
+<td>Index function</td>
+</tr>
+</table><br>
+<p>
+<a href="javascript:call_link('abentable_functions.html')" class="blue"><span class="bold"><span class="italic">&rarr;</span> More</span></a>
+</p>
+<p>
+
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenbuilt_in_functions_overview.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:32:00 GMT -->
+</html>

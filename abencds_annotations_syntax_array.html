@@ -1,0 +1,171 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENCDS_ANNOTATIONS_SYNTAX_ARRAY -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds_annotations_syntax_array.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:24:41 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="ABAP CDS - Annotation Arrays">
+<title>
+ABAP CDS - Annotation Arrays - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abencds_annotations_syntax_array.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abencds_annotations_syntax_array.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dictionary.html')" class="blue">ABAP - Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds.html')" class="blue">ABAP CDS in ABAP Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_syntax.html')" class="blue">ABAP CDS - Syntax</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_annotations.html')" class="blue">ABAP CDS - Annotations</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_annotations_syntax.html')" class="blue">ABAP CDS - Syntax for Annotations</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+ABAP CDS - Annotation Arrays
+</span></p>
+<p><span class="h2">
+<span class="bold">Syntax</span>
+</span></p>
+<P>
+
+</P>
+<p>
+<span class="qtext400">... [ <a href="javascript:call_link('abencds_annotations_syntax_value.html')" class="blue">value1</a><i class=bn>|</i>
+<a href="javascript:call_link('abencds_annotations_syntax_subanno.html')" class="blue">subannos1</a><i class=bn>|</i>array1,
+<a href="javascript:call_link('abencds_annotations_syntax_value.html')" class="blue">value2</a><i class=bn>|</i><a href="javascript:call_link('abencds_annotations_syntax_subanno.html')" class="blue">subannos2</a><i class=bn>|</i>array2, ... ]</span>
+</p>
+<p><span class="h4">
+Effect
+</span></p>
+<p>
+A comma-separated list of <a href="javascript:call_link('abencds_annotations_syntax_value.html')" class="blue">values</a>,
+<a href="javascript:call_link('abencds_annotations_syntax_subanno.html')" class="blue">subannotations</a>, or other annotation arrays can be listed in square brackets after the colon <span class="qtext400">:</span> of an
+<a href="javascript:call_link('abencds_annotations_syntax.html')" class="blue">annotation</a>.This type of list turns the annotation
+<span class="qtext400">annotation</span> specified before the colon into an array with elements specified in parentheses.
+</p>
+<ul class="disc">
+<li>The specified values <a href="javascript:call_link('abencds_annotations_syntax_value.html')" class="blue"><span class="qtext400">value1</span></a>,
+<a href="javascript:call_link('abencds_annotations_syntax_value.html')" class="blue"><span class="qtext400">value2</span></a>, ... define elements to which the specified values are assigned.</li>
+</ul>
+<ul class="disc">
+<li>Subannotations <a href="javascript:call_link('abencds_annotations_syntax_subanno.html')" class="blue"><span class="qtext400">subannos1</span></a>,
+<a href="javascript:call_link('abencds_annotations_syntax_subanno.html')" class="blue"><span class="qtext400">subannos2</span></a>, ... in curly brackets define structured elements with one or more subannotations.</li>
+</ul>
+<ul class="disc">
+<li>It is possible to specify annotation arrays <span class="qtext400">array1</span>, <span class="qtext400">array2</span>,
+... in square brackets in the syntax, however this is currently ignored when the annotations are evaluated.</li>
+</ul>
+<p>
+An element of a structured annotation is an annotation to which the same syntax rules apply as to every
+other annotation. An element does not have an explicit name in the syntax, but is (internally) uniquely
+identified for the evaluation using an index appended to the name of the array. This also counts nested square brackets that are otherwise ignored by the evaluation.
+</p>
+<p><span class="h4">
+Note
+</span></p>
+<p>
+During the <a href="javascript:call_link('abencds_annotations_analysis.html')" class="blue">evaluation of annotations</a> only
+annotations that are recognizable as annotation arrays by their square brackets are treated as such.
+If an <span class="qtext400">@annot</span> annotation is defined as annotation array by its specification,
+but is listed as <span class="qtext400">@annot: value</span> instead of <span class="qtext400">@annot: [value]</span> in a CDS source code, it is not recognized as an annotation array by the evaluation.
+</p>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+Annotation array <span class="qtext400">annot</span> with three elements, each of which are assigned
+a value. The elements can be evaluated using the name <span class="qtext400">annot</span> and their index (from 1 to 3).
+</p>
+<dl><dd>
+<span class="qtext400">@annot:[ 'a', 'b', 'c' ]</span>
+</dd></dl>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+Annotation array <span class="qtext400">annot</span> with three elements, which contain subannotations. The elements can be evaluated using the name <span class="qtext400">annot</span> and their index (from 1 to 3).
+</p>
+<dl><dd>
+<span class="qtext400">@annot:[ { annot1 }, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { annot2:{ s1, s2} }, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { annot3.s1, annot3.s2&nbsp;&nbsp;}&nbsp;&nbsp;]</span>
+</dd></dl>
+<p>
+The semantics are as follows:
+</p>
+<ul class="disc">
+<li>The first element is an annotation with subannotation <span class="qtext400">annot1</span> and without specified values.</li>
+</ul>
+<ul class="circlem2">
+<li>The second element consists of two annotations with subannotations <span class="qtext400">annot2.s1</span>
+and <span class="qtext400">annot2.s2</span> without specified values. The subannotations are created by the structured annotation <span class="qtext400">annot2</span>.</li>
+</ul>
+<ul class="circlem2">
+<li>The third element, like the second element, consists of two annotations with subannotations <span class="qtext400">
+annot3.s1</span> and <span class="qtext400">annot3.s2</span>, which are specified explicitly here.</li>
+</ul>
+<p><span class="h4">
+Executable Example
+</span></p>
+<p>
+<a href="javascript:call_link('abencds_annotation_array_abexa.html')" class="blue">ABAP CDS, Annotation Array</a>
+</p>
+<p>
+
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds_annotations_syntax_array.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:24:41 GMT -->
+</html>

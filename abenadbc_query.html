@@ -1,0 +1,152 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENADBC_QUERY -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenadbc_query.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:27 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Queries">
+<title>
+Queries - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenadbc_query.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenadbc_query.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennative_sql.html')" class="blue">Native SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenadbc.html')" class="blue">ADBC - ABAP Database Connectivity</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencl_sql_statement.html')" class="blue">CL_SQL_STATEMENT - Execution of SQL Statements</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Queries
+</span></p>
+<p>
+Queries can be executed using the following instance method from class <span class="lnkgrey">CL_SQL_STATEMENT</span>:
+</p>
+<ul class="disc">
+<li>EXECUTE_QUERY</li>
+</ul>
+<p>
+The method has a mandatory input parameter STATEMENT of type <span class="qtext">string</span> that must be passed to a <span class="qtext">SELECT</span> statement with correct syntax. As with
+<a href="javascript:call_link('abenadbc_ddl_dml.html')" class="blue">DML statements</a>, the method SET_PARAM can be used to bind ABAP data objects to place holders <span class="qtext">?</span>.
+</p>
+<p>
+As the result of a query, a reference to an object of the class <span class="lnkgrey">CL_SQL_RESULT_SET</span>
+is returned in the return value RESULT_SET. The methods of this object allow access to the results set
+of the query. To retain the results set beyond the end of a database LUW, the input parameter HOLD_CURSOR of the EXECUTE_QUERY method can be filled with "X".
+</p>
+<p>
+The class CL_SQL_RESULT_SET of the result object provides the following instance methods for reading the results sets into ABAP data objects:
+</p>
+<ul class="disc">
+<li>SET_PARAM, NEXT, and CLOSE <br> <br>These methods provide access to individual rows and columns
+of the results set. Using SET_PARAM, compatible ABAP data objects must be assigned to the columns from
+left to right by passing corresponding data references for each column to the method. NEXT is used to
+address the rows of the results set one after another. The return value is 1 if the row can be addressed
+and 0 if not. Reads are closed using CLOSE. If the parameter binding between two calls of NEXT is to be modified, the method CLEAR_PARAMETERS must be called first.</li>
+</ul>
+<ul class="disc">
+<li>SET_PARAM_STRUCT, NEXT, and CLOSE <br> <br>These methods provide access to individual rows of the
+results set. SET_PARAM_STRUCT must be used to assign a fully compatible ABAP structure to the rows of
+the results set by passing corresponding data references to the method. An internal table that specifies
+the names and order of the columns to be read can be passed to the parameter CORRESPONDING_FIELDS. For the remaining methods, the same applies as to SET_PARAM.</li>
+</ul>
+<ul class="disc">
+<li>SET_PARAM_TABLE, NEXT_PACKAGE, and  CLOSE <br> <br>These methods provide access to multiple rows
+of the results set. SET_PARAM_TABLE must be used to assign a fully compatibly structured internal table
+to the rows of the results set by passing a corresponding data reference to the method. As with SET_PARAM_STRUCT,
+a CORRESPONDING_FIELDS parameter is used to specify which columns are to be transported. Here, NEXT_PACKAGE
+is used instead of NEXT. It reads at most the number of rows that are passed to the input parameter
+UPTO. If no value is passed to UPTO, all the rows are read. In each call of NEXT_PACKAGE, the rows read
+are appended to the internal table without deleting the previous contents and the number of rows read
+is returned in the return value ROWS_RET. The same applies when changing parameter bindings and to CLOSE as to SET_PARAM.</li>
+</ul>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>A data reference to an indicator variable with predefined type INT2 from ABAP Dictionary can be
+passed to the optional input parameter IND_REF of the method SET_PARAM. Here, the value -1 can be used to display whether a zero value existed on the database.</li>
+</ul>
+<ul class="disc">
+<li>For security reasons, it is better to define the parameters of a query using the placeholder <span class="qtext">?</span> rather than chaining dynamic content. This is also a way of preventing
+<a href="javascript:call_link('abensql_injection_glosry.html')" class="grey" title="Glossary Entry">SQL injections</a>. If the
+statement only contains static content from the program and dynamic content from outside the program is possible only in operand positions (using placeholders), the statement cannot be modified from outside.</li>
+</ul>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+The program <span class="lnkgrey">ADBC_QUERY</span> allows interactive queries that are executed using ADBC to be entered.
+</p>
+<p><span class="h4">
+Executable Examples
+</span></p>
+<ul class="disc">
+<li><a href="javascript:call_link('abenadbc_query_abexa.html')" class="blue">ADBC, Query</a></li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abenadbc_dml_ddl_abexa.html')" class="blue">ADBC, DDL, and DML</a>,
+<a href="javascript:call_link('abenadbc_dml_ddl_binding_abexa.html')" class="blue">ADBC, Parameter Binding</a>, <a href="javascript:call_link('abenadbc_dml_ddl_bulk_abexa.html')" class="blue">ADBC, Bulk Access</a></li>
+</ul>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenadbc_query.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:27 GMT -->
+</html>

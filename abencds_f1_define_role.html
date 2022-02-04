@@ -1,0 +1,148 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENCDS_F1_DEFINE_ROLE -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds_f1_define_role.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:25:33 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="ABAP CDS - DEFINE ROLE">
+<meta name="keywords" content="ABAP, CDS, DEFINE ROLE">
+<title>
+ABAP CDS - DEFINE ROLE - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abencds_f1_define_role.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abencds_f1_define_role.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dictionary.html')" class="blue">ABAP - Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds.html')" class="blue">ABAP CDS in ABAP Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_authorizations.html')" class="blue">ABAP CDS - Access Control</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_f1_dcl_syntax.html')" class="blue">ABAP CDS - DCL Statements</a>&nbsp;&rarr;&nbsp;
+</span>
+<A NAME="@@DEFINE ROLE@@!ABAP_CDS_STATEMENT!@@"></A>
+<p><span class="h1">
+ABAP CDS - DEFINE ROLE
+</span></p>
+<A name="@@ITOC@@ABENCDS_F1_DEFINE_ROLE_1"></A>
+<p><span class="h2">
+Syntax
+</span></p>
+<p>
+<span class="qtext400"><a href="javascript:call_link('abencds_f1_dcl_role_annotations.html')" class="blue">@MappingRole: true</a> <br>
+<i class=bn>[</i><a href="javascript:call_link('abencds_f1_dcl_role_annotations.html')" class="blue">@role_annot1</a><i class=bn>]</i> <br>
+<i class=bn>[</i><a href="javascript:call_link('abencds_f1_dcl_role_annotations.html')" class="blue">@role_annot2</a><i class=bn>]</i> <br>
+... <br><i class=bn>[</i>DEFINE<i class=bn>]</i> ROLE role_name { <a href="javascript:call_link('abencds_dcl_role_rules.html')" class="blue">access_rules</a> }</span>
+</p>
+<p><span class="h4">
+Effect
+</span></p>
+<p>
+Defines a <a href="javascript:call_link('abencds_role_glosry.html')" class="grey" title="Glossary Entry">CDS role</a> called <span class="qtext400">role_name</span> in the
+<a href="javascript:call_link('abencds_dcl_glosry.html')" class="grey" title="Glossary Entry">CDS DCL</a>. Eine CDS-Rolle besteht
+aus einer oder mehreren innerhalb der geschweiften Klammern angegebenen Zugriffsregeln <a href="javascript:call_link('abencds_dcl_role_rules.html')" class="blue"><span class="qtext400">access_rules</span></a>. Jede Zugriffsregel regelt den Zugriff auf eine
+<a href="javascript:call_link('abencds_entity_glosry.html')" class="grey" title="Glossary Entry">CDS-Entit&#x00E4;t</a>.
+Eine CDS-Rolle kann Zugriffsregeln f&#x00FC;r unterschiedliche CDS-Entit&#x00E4;ten enthalten. In einer Zugriffsregel wird entweder eine
+<a href="javascript:call_link('abenaccess_condition_glosry.html')" class="grey" title="Glossary Entry">Zugriffsbedingung</a>
+f&#x00FC;r die CDS-Entit&#x00E4;t definiert oder auch freier Zugriff gew&#x00E4;hrt. When a CDS entity of this type is accessed using Open SQL or an
+<a href="javascript:call_link('abensadl_glosry.html')" class="grey" title="Glossary Entry">SADL</a> query, an access condition is evaluated as an additional selection condition.
+</p>
+<p>
+The annotation <a href="javascript:call_link('abencds_f1_dcl_role_annotations.html')" class="blue"><span class="qtext400">@MappingRole</span></a>
+must be specified before the definition of the role with <span class="qtext400">DEFINE ROLE</span>.
+It is also possible to specify further annotations before the role definition: <a href="javascript:call_link('abencds_f1_dcl_role_annotations.html')" class="blue">
+<span class="qtext400">@role_annot1</span></a>, <a href="javascript:call_link('abencds_f1_dcl_role_annotations.html')" class="blue"><span class="qtext400">
+@role_annot2</span></a>, and so on. The annotation <a href="javascript:call_link('abencds_f1_dcl_role_annotations.html')" class="blue"><span class="qtext400">@MappingRole</span></a> is used to define the CDS role as a
+<a href="javascript:call_link('abenmapping_role_glosry.html')" class="grey" title="Glossary Entry">mapping role</a>, assigned to every user regardless of the client.
+</p>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>Currently, <span class="qtext400">DEFINE ROLE</span> can only be used to defined
+<a href="javascript:call_link('abenmapping_role_glosry.html')" class="grey" title="Glossary Entry">mapping roles</a>, mapped implicitly to every user. The associated access control is applied for every user.</li>
+</ul>
+<ul class="disc">
+<li>Access controls are applied to CDS entities (CDS views) by default when accessed using Open SQL,
+if a CDS role exists for them. The associated annotation <a href="javascript:call_link('abencds_f1_view_entity_annotations.html')" class="blue">
+<span class="qtext400">@AccessControl.authorizationCheck</span></a> has the default value <span class="qtext400">#CHECK</span>.
+In this case, CDS entities without assigned roles produce a syntax check warning in the DDL editor.
+This can be disabled using the annotation value <span class="qtext400">#NOT_REQUIRED</span>. The value <span class="qtext400">#NOT_REQUIRED</span> does not, however, disable implicit access control.</li>
+</ul>
+<ul class="disc">
+<li>A CDS role can be defined for a CDS entity in every package and in every system and dictates that
+implicit access control applies. To disable access control for a CDS entity, the value <span class="qtext400">#NOT_ALLOWED</span>
+must be used for the annotation <a href="javascript:call_link('abencds_f1_view_entity_annotations.html')" class="blue"><span class="qtext400">
+@AccessControl.authorizationCheck</span></a>. In this case, the definition of a role for the CDS entity produces a syntax check warning in the DCL editor.</li>
+</ul>
+<ul class="disc">
+<li>If a CDS role is defined for a CDS entity, this is displayed as information about its CDS source
+code on the <span class="italic">Problems</span> tab in the ABAP Development Tools (ADT). The view must first be configured so that this information is displayed.</li>
+</ul>
+<ul class="disc">
+<li>Separate CDS source code must be created for each CDS role. The CDS source code of a CDS role is edited in a different editor from the CDS source code of a
+<a href="javascript:call_link('abencds_entity_glosry.html')" class="grey" title="Glossary Entry">CDS entity</a> (a
+<a href="javascript:call_link('abencds_view_glosry.html')" class="grey" title="Glossary Entry">CDS view</a> or
+<a href="javascript:call_link('abencds_table_function_glosry.html')" class="grey" title="Glossary Entry">CDS table function</a>). The ADT documentation describes how the different types of source code are created.</li>
+</ul>
+<br>
+<br>
+<!-- POSTFIX --><span class="h4">Continue</span><br>
+<a href="javascript:call_link('abencds_f1_dcl_role_annotations.html')" class="blue">ABAP CDS - DEFINE ROLE, role_annot</a><br>
+<a href="javascript:call_link('abencds_dcl_role_rules.html')" class="blue">ABAP CDS - DEFINE ROLE, access_rules</a><br>
+<a href="javascript:call_link('abencds_dcl_role_conditions.html')" class="blue">ABAP CDS - DEFINE ROLE, condition</a><br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds_f1_define_role.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:25:33 GMT -->
+</html>

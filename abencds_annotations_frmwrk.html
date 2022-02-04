@@ -1,0 +1,1938 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENCDS_ANNOTATIONS_FRMWRK -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds_annotations_frmwrk.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:24:43 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="ABAP CDS - Framework-Specific Annotations">
+<meta name="keywords" content="ABAP, @, Framework-Specific Annotations">
+<title>
+ABAP CDS - Framework-Specific Annotations - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abencds_annotations_frmwrk.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abencds_annotations_frmwrk.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dictionary.html')" class="blue">ABAP - Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds.html')" class="blue">ABAP CDS in ABAP Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_syntax.html')" class="blue">ABAP CDS - Syntax</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_annotations.html')" class="blue">ABAP CDS - Annotations</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_annotations_sap.html')" class="blue">ABAP CDS - SAP Annotations</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+ABAP CDS - Framework-Specific Annotations
+</span></p>
+<p>
+The following tables are a compilation of all <a href="javascript:call_link('abencomponent_annotation_glosry.html')" class="grey" title="Glossary Entry">framework-specific annotations</a> in the ABAP CDS
+<a href="javascript:call_link('abencds_ddl_glosry.html')" class="grey" title="Glossary Entry">CDS DDL</a> and
+<a href="javascript:call_link('abencds_dcl_glosry.html')" class="grey" title="Glossary Entry">CDS DCL</a>. Framework-specific annotations are
+<a href="javascript:call_link('abensap_annotation_glosry.html')" class="grey" title="Glossary Entry">SAP annotations</a> that
+define the technical and semantic properties of CDS objects that are required by specific software components,
+such as ODATA, UI, and Analytics. The documentation <span class="lnkgrey">CDS Annotations</span> describes
+the meaning of framework-specific annotations, which SAP framework is evaluated by these annotations, and their permitted values.
+</p>
+<p>
+If square brackets <span class="qtext400">[ ]</span> are specified after a name in square brackets in the "Annotation" column, this means that the annotation before the square brackets is an
+<a href="javascript:call_link('abencds_annotations_syntax_array.html')" class="blue">annotation array</a>
+and the element after the square brackets belongs to this element. The notation in the CDS source code compiles the elements in the square brackets. See the
+<a href="javascript:call_link('abencds_annotation_array_abexa.html')" class="blue">executable example</a>.
+</p>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_1" class="blue">Analytics-Annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_2" class="blue">AnalyticsDetails-Annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_3" class="blue">Consumption-Annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_4" class="blue">DefaultAggregation-Annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_5" class="blue">EnterpriseSearch-Annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_6" class="blue">Hierarchy-Annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_7" class="blue">OData-Annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_8" class="blue">ObjectModel-Annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_9" class="blue">Search-Annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_10" class="blue">Semantics-Annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_11" class="blue">UI-Annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_12" class="blue">VDM-Annotations</A></li>
+</ul>
+<p><span class="h4">
+Note
+</span></p>
+<p>
+When using the framework-specific annotations, please note the corresponding established rules. Otherwise error messages can occur during framework-specific checks.
+</p>
+<A name="@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_1"></A>
+<p><span class="h2">
+Analytics-Annotations
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Scope</span></td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Analytics.dataCategory</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Analytics.dataExtraction.enabled</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Analytics.hidden</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Analytics.planning.enabled</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Analytics.query</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Analytics.settings.maxProcessingEffort</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Analytics.writeBack.className</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+</table><br>
+<A name="@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_2"></A>
+<p><span class="h2">
+AnalyticsDetails-Annotations
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Scope</span></td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.exceptionAggregationSteps[ ].exceptionAggregationBehavior</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.exceptionAggregationSteps[ ].exceptionAggregationElements[ ]</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.planning.disaggregation</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.planning.distribution</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.planning.distributionReference</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.planning.enabled</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.query.axis</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.query.decimals</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.query.display</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.query.displayHierarchy</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.query.formula</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.query.hidden</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.query.hierarchyBinding[ ].type</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.query.hierarchyBinding[ ].value</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.query.hierarchyBinding[ ].variableSequence</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.query.hierarchyInitialLevel</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.query.scaling</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.query.sortDirection</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.query.totals</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.query.variableSequence</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">AnalyticsDetails.resultValueSource</span></span></td>
+<td>Element</td>
+</tr>
+</table><br>
+<A name="@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_3"></A>
+<p><span class="h2">
+Consumption-Annotations
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Scope</span></td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.defaultValue</span></span></td>
+<td>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.derivation.binding[ ].targetElement</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.derivation.binding[ ].targetParameter</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.derivation.binding[ ].type</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.derivation.binding[ ].value</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.derivation.lookupEntity</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.derivation.resultElement</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.filter.defaultValue</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.filter.defaultValueHigh</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.filter.hidden</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.filter.hierarchyBinding[ ].type</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.filter.hierarchyBinding[ ].value</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.filter.hierarchyBinding[ ].variableSequence</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.filter.mandatory</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.filter.multipleSelections</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.filter.selectionType</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.groupWithElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.hidden</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.labelElement</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.quickInfoElement</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.ranking.activeFunctions[ ].id</span></span></td>
+<td>Meta Data Extension <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.ranking.activeFunctions[ ].weight</span></span></td>
+<td>Meta Data Extension <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.ranking.functionParameterBinding[ ].functionId</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.ranking.functionParameterBinding[ ].parameterId</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.semanticObject</span></span></td>
+<td>Meta Data Extension <br>Element <br>Parameter <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Consumption.valueHelp</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+</table><br>
+<A name="@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_4"></A>
+<p><span class="h2">
+DefaultAggregation-Annotations
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Scope</span></td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">DefaultAggregation</span></span></td>
+<td>Element</td>
+</tr>
+</table><br>
+<A name="@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_5"></A>
+<p><span class="h2">
+EnterpriseSearch-Annotations
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Scope</span></td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.commonAttributes[ ]</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.defaultValueSuggestElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.enabled</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.expand</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.fieldGroupForSearchQuery[ ].elements[ ]</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.fieldGroupForSearchQuery[ ].name</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.filteringFacet.caseInsensitiveAggregation</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.filteringFacet.collapse</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.filteringFacet.complexFilter</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.filteringFacet.default</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.filteringFacet.displayPosition</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.filteringFacet.numberOfValues</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.filteringFacet.order.by</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.filteringFacet.order.byReference</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.filteringFacet.order.direction</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.highlighted.beginTag</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.highlighted.enabled</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.highlighted.endTag</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.maximumLength</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.searchOptions</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.snippets.beginTag</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.snippets.enabled</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.snippets.endTag</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">EnterpriseSearch.technicalDescription</span></span></td>
+<td>Element</td>
+</tr>
+</table><br>
+<A name="@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_6"></A>
+<p><span class="h2">
+Hierarchy-Annotations
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Scope</span></td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Hierarchy.parentChild[ ].directory</span></span></td>
+<td>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Hierarchy.parentChild[ ].label</span></span></td>
+<td>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Hierarchy.parentChild[ ].multipleParents</span></span></td>
+<td>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Hierarchy.parentChild[ ].name</span></span></td>
+<td>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Hierarchy.parentChild[ ].orphanedNode.handling</span></span></td>
+<td>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Hierarchy.parentChild[ ].orphanedNode.stepParentNodeId[ ]</span></span></td>
+<td>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Hierarchy.parentChild[ ].recurse.child[ ]</span></span></td>
+<td>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Hierarchy.parentChild[ ].recurse.parent[ ]</span></span></td>
+<td>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Hierarchy.parentChild[ ].recurseBy</span></span></td>
+<td>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Hierarchy.parentChild[ ].rootNode.visibility</span></span></td>
+<td>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Hierarchy.parentChild[ ].siblingsOrder[ ].by</span></span></td>
+<td>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Hierarchy.parentChild[ ].siblingsOrder[ ].direction</span></span></td>
+<td>View</td>
+</tr>
+</table><br>
+<A name="@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_7"></A>
+<p><span class="h2">
+OData-Annotations
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Scope</span></td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">OData.publish</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+</table><br>
+<A name="@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_8"></A>
+<p><span class="h2">
+ObjectModel-Annotations
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Scope</span></td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.alternativeKey[ ].element[ ]</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.alternativeKey[ ].id</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.alternativeKey[ ].uniqueness</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.association.type[ ]</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.compositionRoot</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.createEnabled</span></span></td>
+<td>Element <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.dataCategory</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.deleteEnabled</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.draftEnabled</span></span></td>
+<td>Element <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.enabled</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.entityChangeStateId</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.foreignKey.association</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.hierarchy.association</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.lifecycle.enqueue.expiryBehavior</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.lifecycle.enqueue.expiryInterval</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.lifecycle.enqueue.notificationBeforeExpiryInterval</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.lifecycle.processing.expiryBehavior</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.lifecycle.processing.expiryInterval</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.lifecycle.processing.notificationBeforeExpiryInterval</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.mandatory</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.modelCategory</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.readOnly</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.representativeKey</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.semanticKey[ ]</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.text.association</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.text.element[ ]</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.transactionalProcessingDelegated</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.transactionalProcessingEnabled</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.transactionalProcessingUnitRoot</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.updateEnabled</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.usageType.dataClass</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.usageType.serviceQuality</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.usageType.sizeCategory</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.writeActivePersistence</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">ObjectModel.writeDraftPersistence</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+</table><br>
+<A name="@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_9"></A>
+<p><span class="h2">
+Search-Annotations
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Scope</span></td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Search.defaultSearchElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Search.fuzzinessThreshold</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Search.ranking</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Search.searchable</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Search.termMappingDictionary</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Search.termMappingListID</span></span></td>
+<td>Element</td>
+</tr>
+</table><br>
+<A name="@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_10"></A>
+<p><span class="h2">
+Semantics-Annotations
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Scope</span></td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.address.city</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.address.country</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.address.label</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.address.number</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.address.postBox</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.address.region</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.address.street</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.address.streetNoNumber</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.address.subRegion</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.address.type[ ]</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.address.zipCode</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.businessDate.at</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.businessDate.createdAt</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.businessDate.from</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.businessDate.lastChangedAt</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.businessDate.to</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendar.dayOfMonth</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendar.dayOfYear</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendar.halfyear</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendar.month</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendar.quarter</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendar.week</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendar.year</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendar.yearHalfyear</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendar.yearMonth</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendar.yearQuarter</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendar.yearWeek</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.categories</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.class</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.completed</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.contact</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.description</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.dtEnd</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.dtStart</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.due</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.duration</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.fbType</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.location</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.percentComplete</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.priority</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.status</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.summary</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.transparent</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.calendarItem.wholeDay</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.contact.birthDate</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.contact.note</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.contact.photo</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.contact.type</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.durationInSeconds</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.eMail.address</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.eMail.bcc</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.eMail.body</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.eMail.cc</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.eMail.from</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.eMail.keywords</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.eMail.received</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.eMail.sender</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.eMail.subject</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.eMail.to</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.eMail.type[ ]</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.fiscal.period</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.fiscal.year</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.fiscal.yearPeriod</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.fiscal.yearVariant</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.geoLocation.cartoId</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.geoLocation.latitude</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.geoLocation.longitude</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.geoLocation.normalizedName</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.imageUrl</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.language</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.languageReference</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.mimeType</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.name.additionalName</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.name.familyName</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.name.fullName</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.name.givenName</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.name.jobTitle</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.name.nickName</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.name.prefix</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.name.suffix</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.organization.name</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.organization.role</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.organization.unit</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.systemDate.createdAt</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.systemDate.lastChangedAt</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.telephone.type[ ]</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.text</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.time</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.url.mimeType</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.user.createdBy</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.user.id</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.user.lastChangedBy</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">Semantics.user.responsible</span></span></td>
+<td>Element <br>Parameter</td>
+</tr>
+</table><br>
+<A name="@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_11"></A>
+<p><span class="h2">
+UI-Annotations
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Scope</span></td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.headLine.criticality</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.headLine.iconUrl</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.headLine.label</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.headLine.targetElement</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.headLine.type</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.headLine.url</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.headLine.value</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.imageUrl</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.mainInfo.criticality</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.mainInfo.iconUrl</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.mainInfo.label</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.mainInfo.targetElement</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.mainInfo.type</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.mainInfo.url</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.mainInfo.value</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.secondaryInfo.criticality</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.secondaryInfo.iconUrl</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.secondaryInfo.label</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.secondaryInfo.targetElement</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.secondaryInfo.type</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.secondaryInfo.url</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.secondaryInfo.value</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.title.criticality</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.title.iconUrl</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.title.label</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.title.targetElement</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.title.type</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.title.url</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.title.value</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.badge.typeImageUrl</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].actions[ ].dataAction</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].actions[ ].invocationGrouping</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].actions[ ].label</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].actions[ ].semanticObjectAction</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].actions[ ].type</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].chartType</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].description</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].dimensionAttributes[ ].dimension</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].dimensionAttributes[ ].role</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].dimensions[ ]</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].measureAttributes[ ].asDataPoint</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].measureAttributes[ ].measure</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].measureAttributes[ ].role</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].measures[ ]</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].qualifier</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.chart[ ].title</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.criticality</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.criticalityCalculation.deviationRangeHighValue</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.criticalityCalculation.deviationRangeHighValueElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.criticalityCalculation.deviationRangeLowValue</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.criticalityCalculation.deviationRangeLowValueElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.criticalityCalculation.improvementDirection</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.criticalityCalculation.toleranceRangeHighValue</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.criticalityCalculation.toleranceRangeHighValueElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.criticalityCalculation.toleranceRangeLowValue</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.criticalityCalculation.toleranceRangeLowValueElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.description</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.forecastValue</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.longDescription</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.maximumValue</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.minimumValue</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.referencePeriod.description</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.referencePeriod.end</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.referencePeriod.start</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.responsible</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.responsibleName</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.targetValue</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.targetValueElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.title</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.trend</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.trendCalculation.downDifference</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.trendCalculation.downDifferenceElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.trendCalculation.isRelativeDifference</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.trendCalculation.referenceValue</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.trendCalculation.strongDownDifference</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.trendCalculation.strongDownDifferenceElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.trendCalculation.strongUpDifference</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.trendCalculation.strongUpDifferenceElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.trendCalculation.upDifference</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.trendCalculation.upDifferenceElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.valueFormat.numberOfFractionalDigits</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.valueFormat.scaleFactor</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.dataPoint.visualization</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.fieldGroup[ ].criticality</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.fieldGroup[ ].dataAction</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.fieldGroup[ ].exclude</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.fieldGroup[ ].groupLabel</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.fieldGroup[ ].iconUrl</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.fieldGroup[ ].importance</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.fieldGroup[ ].invocationGrouping</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.fieldGroup[ ].label</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.fieldGroup[ ].position</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.fieldGroup[ ].qualifier</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.fieldGroup[ ].semanticObjectAction</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.fieldGroup[ ].targetElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.fieldGroup[ ].type</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.fieldGroup[ ].url</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.fieldGroup[ ].value</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.description.criticality</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.description.iconUrl</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.description.label</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.description.targetElement</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.description.type</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.description.url</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.description.value</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.imageUrl</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.title.criticality</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.title.iconUrl</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.title.label</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.title.targetElement</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.title.type</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.title.url</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.title.value</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.typeImageUrl</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.typeName</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.headerInfo.typeNamePlural</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.hidden</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.identification[ ].criticality</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.identification[ ].dataAction</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.identification[ ].exclude</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.identification[ ].iconUrl</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.identification[ ].importance</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.identification[ ].invocationGrouping</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.identification[ ].label</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.identification[ ].position</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.identification[ ].semanticObjectAction</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.identification[ ].targetElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.identification[ ].type</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.identification[ ].url</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.identification[ ].value</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.lineItem[ ].criticality</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.lineItem[ ].dataAction</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.lineItem[ ].exclude</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.lineItem[ ].iconUrl</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.lineItem[ ].importance</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.lineItem[ ].invocationGrouping</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.lineItem[ ].label</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.lineItem[ ].position</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.lineItem[ ].qualifier</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.lineItem[ ].semanticObjectAction</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.lineItem[ ].targetElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.lineItem[ ].type</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.lineItem[ ].url</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.lineItem[ ].value</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.masked</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.multiLineText</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.presentationVariant[ ].groupBy[ ]</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.presentationVariant[ ].id</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.presentationVariant[ ].includeGrandTotal</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.presentationVariant[ ].initialExpansionLevel</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.presentationVariant[ ].maxItems</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.presentationVariant[ ].qualifier</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.presentationVariant[ ].requestAtLeast[ ]</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.presentationVariant[ ].sortOrder[ ].by</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.presentationVariant[ ].sortOrder[ ].direction</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.presentationVariant[ ].text</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.presentationVariant[ ].totalBy[ ]</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.presentationVariant[ ].total[ ]</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.presentationVariant[ ].visualizations[ ].element</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.presentationVariant[ ].visualizations[ ].qualifier</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.presentationVariant[ ].visualizations[ ].type</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.selectionField[ ].element</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.selectionField[ ].exclude</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.selectionField[ ].position</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.selectionField[ ].qualifier</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.selectionPresentationVariant[ ].id</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.selectionPresentationVariant[ ].presentationVariantQualifier</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.selectionPresentationVariant[ ].qualifier</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.selectionPresentationVariant[ ].selectionVariantQualifier</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.selectionPresentationVariant[ ].text</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.selectionVariant[ ].filter</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.selectionVariant[ ].id</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.selectionVariant[ ].parameters[ ].name</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.selectionVariant[ ].parameters[ ].value</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.selectionVariant[ ].qualifier</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.selectionVariant[ ].text</span></span></td>
+<td>Meta Data Extension <br>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.statusInfo[ ].criticality</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.statusInfo[ ].dataAction</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.statusInfo[ ].exclude</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.statusInfo[ ].iconUrl</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.statusInfo[ ].importance</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.statusInfo[ ].invocationGrouping</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.statusInfo[ ].label</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.statusInfo[ ].position</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.statusInfo[ ].semanticObjectAction</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.statusInfo[ ].targetElement</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.statusInfo[ ].type</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.statusInfo[ ].url</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.statusInfo[ ].value</span></span></td>
+<td>Element</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">UI.textArrangement</span></span></td>
+<td>Meta Data Extension <br>Element <br>View</td>
+</tr>
+</table><br>
+<A name="@@ITOC@@ABENCDS_ANNOTATIONS_FRMWRK_12"></A>
+<p><span class="h2">
+VDM-Annotations
+</span></p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Scope</span></td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">VDM.private</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+<tr>
+<td><span class="lnkgrey"><span class="qtext400">VDM.viewType</span></span></td>
+<td>Table Function <br>View</td>
+</tr>
+</table><br>
+<p>
+
+</p>
+<br>
+<br>
+<!-- POSTFIX --><span class="h4">Continue</span><br>
+<img src="exa.gif" alt="Example" title="Example">
+<a href="javascript:call_link('abencds_annotation_array_abexa.html')" class="blue">ABAP CDS, Annotation Array</a><br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds_annotations_frmwrk.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:24:43 GMT -->
+</html>

@@ -1,0 +1,523 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds_f1_view_entity_annotations.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:25:00 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="ABAP CDS - DEFINE VIEW, view_annot">
+<title>
+ABAP CDS - DEFINE VIEW, view_annot - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abencds_f1_view_entity_annotations.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abencds_f1_view_entity_annotations.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dictionary.html')" class="blue">ABAP - Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds.html')" class="blue">ABAP CDS in ABAP Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_cds_entities.html')" class="blue">ABAP CDS - Data Definitions</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_f1_ddl_syntax.html')" class="blue">ABAP CDS - DDL for Data Definitions</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_f1_define_view.html')" class="blue">ABAP CDS - DEFINE VIEW</a>&nbsp;&rarr;&nbsp;
+</span>
+<A NAME="@@/at@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<p><span class="h1">
+ABAP CDS - DEFINE VIEW, view_annot
+</span></p>
+<p><span class="h2">
+<span class="bold">Syntax</span>
+</span></p>
+<P>
+
+</P>
+<p>
+<span class="qtext400">... @<a href="javascript:call_link('abencds_annotations_syntax.html')" class="blue">annotation</a> ...</span>
+</p>
+<p><span class="h4">
+Effect
+</span></p>
+<p>
+Specifies an <a href="javascript:call_link('abencds_annotation_glosry.html')" class="grey" title="Glossary Entry">annotation</a>
+<a href="javascript:call_link('abencds_annotations_syntax.html')" class="blue"><span class="qtext400">annotation</span></a> as a view annotation in the definition of a
+<a href="javascript:call_link('abencds_view_glosry.html')" class="grey" title="Glossary Entry">CDS view</a> in front of the statement
+<a href="javascript:call_link('abencds_f1_define_view.html')" class="blue"><span class="qtext400">DEFINE VIEW</span></a>. The
+name <span class="qtext400">annotation</span> of the annotation must be prefixed directly with the character <span class="qtext400">@</span>.
+</p>
+<p>
+The following tables show the possible <a href="javascript:call_link('abencore_annotation_glosry.html')" class="grey" title="Glossary Entry">
+ABAP annotations</a> that can be specified and their meanings. The ABAP annotations are evaluated by the ABAP runtime environment for every CDS entity. Annotations with other identifiers are usually
+<a href="javascript:call_link('abencds_annotations_frmwrk.html')" class="blue">framework-specific annotations</a>. These are not evaluated by the ABAP runtime environment but by other SAP frameworks instead.
+</p>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_1" class="blue">AbapCatalog annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_2" class="blue">AccessControl annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_3" class="blue">ClientDependent annotations (obsolete)</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_4" class="blue">ClientHandling annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_5" class="blue">DataAging annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_6" class="blue">EndUserText annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_7" class="blue">Metadata annotations</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_8" class="blue">Examples</A></li>
+</ul>
+<p>
+The first column displays the name <span class="qtext400">annotation</span> of an ABAP annotation and
+the second column displays its meaning. The third column shows the possible values <span class="qtext400">value</span>.
+The fourth column displays the value, which has been set implicitly for <span class="qtext400">value</span>,
+if the annotation is not used explicitly. The fifth column displays the value that is set implicitly
+for <span class="qtext400">value</span> if the annotation is specified without a value. If nothing is specified for <span class="qtext400">value</span>, the annotation should be specified without a value.
+</p>
+<A NAME="@@/atAbapCatalog@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atAbapCatalog.buffering@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atAbapCatalog.status@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atAbapCatalog.type@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atAbapCatalog.numberOfKeyFields@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atAbapCatalog.compiler@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atAbapCatalog.compareFilter@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atAbapCatalog.sqlViewName@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atAbapCatalog.viewEnhancementCategory@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atAbapCatalog.preserveKey@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A name="@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_1"></A>
+<p><span class="h2">
+AbapCatalog annotations
+</span></p>
+<p>
+Technical settings of a CDS view.
+</p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Meaning</span></td>
+<td><span class="bold">Possible Values</span></td>
+<td><span class="bold">Default Value if Not Used</span></td>
+<td><span class="bold">Default Value if Used Without Value</span></td>
+</tr>
+<tr>
+<td><span class="qtext400">AbapCatalog.buffering.status</span></td>
+<td>Enables and disables <a href="javascript:call_link('abencds_sap_puffer.html')" class="blue">SAP buffering</a> for the CDS view</td>
+<td><span class="qtext400">#ACTIVE</span>:<br> SAP buffering active <br><br><span class="qtext400">#SWITCHED_OFF</span>:<br>
+SAP buffering allowed but not active <br><br><span class="qtext400">#NOT_ALLOWED</span>:<br> SAP buffering not allowed</td>
+<td><span class="qtext400">#SWITCHED_OFF</span></td>
+<td><span class="qtext400">#SWITCHED_OFF</span></td>
+</tr>
+<tr>
+<td><span class="qtext400">AbapCatalog.buffering.type</span></td>
+<td>Buffering type in <a href="javascript:call_link('abencds_sap_puffer.html')" class="blue">SAP buffering</a></td>
+<td><span class="qtext400">#SINGLE</span>:<br> Single records <br><br><span class="qtext400">#GENERIC</span>:<br>
+Generic area <br><br><span class="qtext400">#FULL</span>:<br> Full <br><br><span class="qtext400">#NONE</span>:<br> None</td>
+<td><span class="qtext400">#NONE</span></td>
+<td><span class="qtext400">#NONE</span></td>
+</tr>
+<tr>
+<td><span class="qtext400">AbapCatalog.buffering.numberOfKeyFields</span></td>
+<td>Number of key elements in <a href="javascript:call_link('abencds_sap_puffer.html')" class="blue">SAP buffering</a> of generic areas</td>
+<td>Number between <span class="qtext400">0</span> and <span class="qtext400">k-1</span>, where <span class="qtext400">k</span> is the number of key elements</td>
+<td><span class="qtext400">0</span></td>
+<td><span class="qtext400">0</span></td>
+</tr>
+<tr>
+<td><span class="qtext400">AbapCatalog.compiler.compareFilter</span></td>
+<td>Defines the evaluation of <a href="javascript:call_link('abencds_path_expression_attr.html')" class="blue">filter conditions</a> in <a href="javascript:call_link('abencds_f1_path_expression.html')" class="blue">path expressions</a> of the CDS view</td>
+<td><span class="qtext400">true</span>:<br> The filter conditions are compared and, if they match, the
+associated join expression is evaluated only once. <br><br><span class="qtext400">false</span>:<br> A separate join expression is created and evaluated for each filter condition.</td>
+<td><span class="qtext400">false</span></td>
+<td><span class="qtext400">true</span></td>
+</tr>
+<tr>
+<td><span class="qtext400">AbapCatalog.preserveKey</span></td>
+<td>Specifies the definition of the key fields in the <a href="javascript:call_link('abencds_database_view_glosry.html')" class="grey" title="Glossary Entry">CDS database view</a> of the CDS view.</td>
+<td><span class="qtext400">true</span>:<br> The key fields of the CDS database view are defined as dictated
+by the addition <a href="javascript:call_link('abencds_f1_select_list_entry.html')" class="blue"><span class="qtext400">KEY</span></a>.
+<br><br><span class="qtext400">false</span>:<br> The key fields of the CDS database view are determined
+as for classic views in ABAP Dictionary, regardless of the addition <a href="javascript:call_link('abencds_f1_select_list_entry.html')" class="blue"><span class="qtext400">KEY</span></a>.</td>
+<td><span class="qtext400">false</span></td>
+<td><span class="qtext400">true</span></td>
+</tr>
+<tr>
+<td><span class="qtext400">AbapCatalog.sqlViewName</span></td>
+<td>Name of the <a href="javascript:call_link('abencds_database_view_glosry.html')" class="grey" title="Glossary Entry">CDS database view</a> in the CDS view</td>
+<td>Character string with a maximum of 16 characters consisting of letters, numbers and underscores and that starts with a
+<a href="javascript:call_link('abenname_space_prefix_glosry.html')" class="grey" title="Glossary Entry">namespace prefix</a>.</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="qtext400">AbapCatalog.viewEnhancementCategory[ ]</span></td>
+<td>Specifies how the CDS view is extended using <a href="javascript:call_link('abencds_view_extend_glosry.html')" class="grey" title="Glossary Entry">
+CDS view enhancements</a>. A comma-separated list of values can be specified in the square brackets of the
+<a href="javascript:call_link('abencds_annotations_syntax_array.html')" class="blue">annotation array</a>.</td>
+<td><span class="qtext400">#PROJECTION_LIST</span>:<br> Extensions of the <span class="qtext400">SELECT</span> list and additional associations are allowed; extensions of CDS views whose <span class="qtext400">SELECT</span> lists contain
+<a href="javascript:call_link('abencds_f1_aggregate_functions.html')" class="blue">aggregate expressions</a> or have a <a href="javascript:call_link('abencds_f1_union.html')" class="blue">
+<span class="qtext400">UNION</span></a> clause must be permitted using further values <br><br><span class="qtext400">
+#GROUP_BY</span>:<br> Aggregated or non-aggregated elements are allowed to be added to a <span class="qtext400">SELECT</span> list with
+<a href="javascript:call_link('abencds_f1_aggregate_functions.html')" class="blue">aggregated expressions</a> and the associated
+extensions of the of the <a href="javascript:call_link('abencds_f1_group_by.html')" class="blue"><span class="qtext400">GROUP-BY</span></a>
+clause are also permitted; can only be specified together with <span class="qtext400">#PROJECTION_LIST</span>
+<br><br><span class="qtext400">#UNION</span>:<br> Extensions of the <span class="qtext400">SELECT</span>
+list of a CDS view with a <a href="javascript:call_link('abencds_f1_union.html')" class="blue"><span class="qtext400">UNION</span></a>
+clause are allowed; can only be specified together with <span class="qtext400">#PROJECTION_LIST</span>
+<br><br><span class="qtext400">#NONE</span>:<br> No extensions allowed; cannot be specified together with other values</td>
+<td><span class="qtext400">#PROJECTION_LIST</span></td>
+<td><span class="qtext400">#PROJECTION_LIST</span></td>
+</tr>
+</table><br>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>Each definition of a CDS view must contain the ABAP annotation <span class="qtext400">AbapCatalog.sqlViewName</span>, which defines the name of the
+<a href="javascript:call_link('abencds_database_view_glosry.html')" class="grey" title="Glossary Entry">CDS database view</a> in ABAP Dictionary.</li>
+</ul>
+<ul class="disc">
+<li>The name given to the database view can no longer be changed after the CDS view is transported into a follow-on system.</li>
+</ul>
+<ul class="disc">
+<li>In the annotation array <span class="qtext400">AbapCatalog.viewEnhancementCategory[
+]</span>, <span class="qtext400">#GROUP_BY</span> and <span class="qtext400">#UNION</span> can only
+be specified together with the default value <span class="qtext400">#PROJECTION_LIST</span>. The value <span class="qtext400">#NONE</span> excludes any other values.</li>
+</ul>
+<ul class="disc">
+<li>Extensions of a view with aggregate expressions or with a <span class="qtext400">UNION</span> clause
+modify the cardinality of the results set. This means that these extensions must have special permission in the view to enable consumers of the view to handle any changes to cardinalities.</li>
+</ul>
+<A NAME="@@/atAccessControl@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atAccessControl.authorizationCheck@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A name="@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_2"></A>
+<p><span class="h2">
+AccessControl annotations
+</span></p>
+<p>
+Control of the <a href="javascript:call_link('abencds_authorizations.html')" class="blue">access control</a> for the CDS view.
+</p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Meaning</span></td>
+<td><span class="bold">Possible Values</span></td>
+<td><span class="bold">Default Value if Not Used</span></td>
+<td><span class="bold">Default Value if Used Without Value</span></td>
+</tr>
+<tr>
+<td><span class="qtext400">AccessControl.authorizationCheck</span></td>
+<td>Defines the implicit <a href="javascript:call_link('abencds_authorizations.html')" class="blue">access control</a> when Open SQL is used to access the CDS view</td>
+<td><span class="qtext400">#CHECK</span>:<br> If Open SQL is used to access the view,
+<a href="javascript:call_link('abencds_authorizations.html')" class="blue">access control</a> is performed implicitly if a
+<a href="javascript:call_link('abencds_role_glosry.html')" class="grey" title="Glossary Entry">CDS role</a> role is assigned
+to the view. If there is no role for the view, a syntax check warning occurs. <br><br><span class="qtext400">#NOT_REQUIRED</span>:<br>
+Like <span class="qtext400">#CHECK</span>, but there is no syntax check warning. <br><br><span class="qtext400">#NOT_ALLOWED</span>:<br> No
+<a href="javascript:call_link('abencds_authorizations.html')" class="blue">access control</a> is performed. This produces a syntax check warning in the CDS source code of a role for the view.</td>
+<td><span class="qtext400">#CHECK</span></td>
+<td><span class="qtext400">#CHECK</span></td>
+</tr>
+</table><br>
+<p><span class="h4">
+Note
+</span></p>
+<p>
+Value <span class="qtext400">#NOT_REQUIRED</span> is recommended for CDS views that no
+<a href="javascript:call_link('abencds_authorizations.html')" class="blue">access control</a> is provided for when they are created,
+but which roles can be defined for later on. To switch off implicit access control for a CDS view, value <span class="qtext400">#NOT_ALLOWED</span> has to be used.
+</p>
+<A NAME="@@/atClientDependent@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A name="@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_3"></A>
+<p><span class="h2">
+ClientDependent annotations (obsolete)
+</span></p>
+<p>
+Obsolete control of <a href="javascript:call_link('abencds_view_client_handling_obs.html')" class="blue">client handling</a> for the CDS view.
+</p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Meaning</span></td>
+<td><span class="bold">Possible Values</span></td>
+<td><span class="bold">Default Value if Not Used</span></td>
+<td><span class="bold">Default Value if Used Without Value</span></td>
+</tr>
+<tr>
+<td><span class="qtext400">ClientDependent</span></td>
+<td>Defines <a href="javascript:call_link('abencds_view_client_handling_obs.html')" class="blue">client handling</a> when Open SQL is used to access the CDS view (obsolete).</td>
+<td><span class="qtext400">true</span>:<br> The CDS view is client-specific. The view fields of the
+CDS entity do not cover a client column, from the perspective of an ABAP program. When accessed using
+<a href="javascript:call_link('abapselect.html')" class="blue"><span class="qtext">SELECT</span></a>, automatic client handling
+is performed. <br><br><span class="qtext400">false</span>:<br> The CDS view is a cross-client view. No automatic client handling is performed.</td>
+<td><span class="qtext400">-</span></td>
+<td><span class="qtext400">true</span></td>
+</tr>
+</table><br>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>The obsolete annotation <span class="qtext400">@ClientDependent</span> is replaced by the annotations
+<span class="qtext400">@ClientHandling.type</span> and <span class="qtext400">@ClientHandling.algorithm</span>.</li>
+</ul>
+<ul class="disc">
+<li>The obsolete annotation <span class="qtext400">@ClientDependent</span> does not have a default value
+if it is not used. If neither of the annotations <span class="qtext400">@ClientDependent</span> or <span class="qtext400">
+@ClientHandling</span> are specified, the default values of the <span class="qtext400">@ClientHandling</span> annotations apply.</li>
+</ul>
+<ul class="disc">
+<li>The obsolete annotation <span class="qtext400">@ClientDependent</span> cannot be specified together with the annotation <span class="qtext400">@ClientHandling</span>.</li>
+</ul>
+<A NAME="@@/atClientHandling@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atClientHandling.type@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atClientHandling.algorithm@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A name="@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_4"></A>
+<p><span class="h2">
+ClientHandling annotations
+</span></p>
+<p>
+Control of the <a href="javascript:call_link('abencds_client_handling.html')" class="blue">client handling</a> for the CDS view.
+</p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Meaning</span></td>
+<td><span class="bold">Possible Values</span></td>
+<td><span class="bold">Default Value if Not Used</span></td>
+<td><span class="bold">Default Value if Used Without Value</span></td>
+</tr>
+<tr>
+<td><span class="qtext400">ClientHandling.type</span></td>
+<td>Defines the <a href="javascript:call_link('abencds_client_handling.html')" class="blue">client dependency</a> when Open SQL is used to access the CDS view.</td>
+<td><span class="qtext400">#CLIENT_DEPENDENT</span>:<br> The CDS view is client-specific. When accessed
+using <a href="javascript:call_link('abapselect.html')" class="blue"><span class="qtext">SELECT</span></a>, automatic client
+handling is performed. <br><br><span class="qtext400">#CLIENT_INDEPENDENT</span>:<br> The CDS view is
+a cross-client function. No automatic client handling is performed. <br><br><span class="qtext400">#INHERITED</span>:<br>
+The client dependency of the CDS view is determined by the data sources used. If a data source is client-specific, the CDS view is too.</td>
+<td><span class="qtext400">#INHERITED</span></td>
+<td><span class="qtext400">#INHERITED</span></td>
+</tr>
+<tr>
+<td><span class="qtext400">ClientHandling.algorithm</span></td>
+<td>Defines <a href="javascript:call_link('abencds_client_handling.html')" class="blue">client handling</a> when Open SQL is used to access the CDS view.</td>
+<td><span class="qtext400">#NONE</span>:<br> No implicit client handling takes place. <br><br><span class="qtext400">
+#AUTOMATED</span>:<br> Implicit client handling takes place. <br><br><span class="qtext400">#SESSION_VARIABLE</span>:<br>
+Implicit client handling takes place. The peformance of this is supported internally by evaluation of session variable <span class="qtext400">$session.client</span>.</td>
+<td><span class="qtext400">#AUTOMATED</span></td>
+<td><span class="qtext400">#AUTOMATED</span></td>
+</tr>
+</table><br>
+<p><span class="h4">
+Note
+</span></p>
+<p>
+An annotation <span class="qtext400">@ClientHandling</span> cannot be specified together with the obsolete annotation <span class="qtext400">@ClientDependent</span>.
+</p>
+<A NAME="@@/atDataAging@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atDataAging.noAgingRestriction@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A name="@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_5"></A>
+<p><span class="h2">
+DataAging annotations
+</span></p>
+<p>
+Control of the handling of <a href="javascript:call_link('abencds_data_aging.html')" class="blue">obsolete data</a> for the CDS view.
+</p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Meaning</span></td>
+<td><span class="bold">Possible Values</span></td>
+<td><span class="bold">Default Value if Not Used</span></td>
+<td><span class="bold">Default Value if Used Without Value</span></td>
+</tr>
+<tr>
+<td><span class="qtext400">DataAging.noAgingRestriction</span></td>
+<td>Defines the handling of <a href="javascript:call_link('abencds_data_aging.html')" class="blue">obsolete data</a> on a
+<a href="javascript:call_link('abenhana_database_glosry.html')" class="grey" title="Glossary Entry">SAP HANA database</a> when Open SQL is used to access the CDS view</td>
+<td><span class="qtext400">true</span>:<br> Open SQL reads all data <br><br><span class="qtext400">false</span>:<br> Open SQL reads current data only</td>
+<td><span class="qtext400">false</span></td>
+<td><span class="qtext400">true</span></td>
+</tr>
+</table><br>
+<A NAME="@@/atEndUserText@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atEndUserText.label@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A name="@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_6"></A>
+<p><span class="h2">
+EndUserText annotations
+</span></p>
+<p>
+Translatable texts of the CDS view.
+</p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Meaning</span></td>
+<td><span class="bold">Possible Values</span></td>
+<td><span class="bold">Default Value if Not Used</span></td>
+<td><span class="bold">Default Value if Used Without Value</span></td>
+</tr>
+<tr>
+<td><span class="qtext400">EndUserText.label</span></td>
+<td>Translatable short text of the CDS view</td>
+<td>Character string with maximum 60 characters</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table><br>
+<p><span class="h4">
+Note
+</span></p>
+<p>
+ABAP annotations introduced using <span class="qtext400">EndUserText</span> are used to define translatable semantic texts for a <a href="javascript:call_link('abencds_object_glosry.html')" class="grey" title="Glossary Entry">CDS object</a>.
+</p>
+<p>
+The value of an annotation like this is saved in special tables that have a language key and that are
+translatable. The value specified in the source code should consist of text in the original language
+of the CDS source code and is translated into the required languages. The methods of the class <span class="lnkgrey">
+CL_DD_DDL_ANNOTATION_SERVICE</span> read these texts as specified by an input parameter for the language. If no language is passed to the input parameter, the
+<a href="javascript:call_link('abenlogon_language_glosry.html')" class="grey" title="Glossary Entry">logon language</a> is used as the default. If no text is found for the language, the
+<a href="javascript:call_link('abensecondary_language_glosry.html')" class="grey" title="Glossary Entry">secondary language</a> in AS ABAP is used.
+</p>
+<A NAME="@@/atMetadata@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atMetadata.allowExtensions@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A NAME="@@/atMetadata.ignorePropagatedAnnotations@@!ABAP_CDS_VIEW_ANNOT!@@"></A>
+<A name="@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_7"></A>
+<p><span class="h2">
+Metadata annotations
+</span></p>
+<p>
+Control of the handling of metadata from the CDS view.
+</p>
+<table border>
+<tr>
+<td><span class="bold">Annotation</span></td>
+<td><span class="bold">Meaning</span></td>
+<td><span class="bold">Possible Values</span></td>
+<td><span class="bold">Default Value if Not Used</span></td>
+<td><span class="bold">Default Value if Used Without Value</span></td>
+</tr>
+<tr>
+<td><span class="qtext400">Metadata.allowExtensions</span></td>
+<td>Controls whether annotations can be extended from <a href="javascript:call_link('abencds_meta_data_extensions.html')" class="blue">metadata extensions</a></td>
+<td><span class="qtext400">true</span>:<br> The current CDS view can be extended. <span class="qtext400">false</span>:<br> The current CDS view cannot be extended.</td>
+<td><span class="qtext400">false</span></td>
+<td><span class="qtext400">true</span></td>
+</tr>
+<tr>
+<td><span class="qtext400">Metadata.ignorePropagatedAnnotations</span></td>
+<td>Controls whether <a href="javascript:call_link('abencds_annotations_analysis.html')" class="blue">analysis of annotations</a> is possible using the annotation API <span class="lnkgrey">CL_DD_DDL_ANNOTATION_SERVICE</span>.</td>
+<td><span class="qtext400">true</span>:<br> Only direct and derived annotations of the current CDS entity
+are respected. <br><br><span class="qtext400">false</span>:<br> Inherited annotations of CDS entities used are also respected.</td>
+<td><span class="qtext400">false</span></td>
+<td><span class="qtext400">true</span></td>
+</tr>
+</table><br>
+<A name="@@ITOC@@ABENCDS_F1_VIEW_ENTITY_ANNOTATIONS_8"></A>
+<p><span class="h2">
+Examples
+</span></p>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+Defines additional attributes with ABAP annotations for the CDS view <span class="qtext400">business_partner</span>
+(except for the mandatory <span class="qtext400">@AbapCatalog.sqlViewName</span> with the name <span class="qtext400">
+BPA_VW</span> for the ABAP repository). The short text <span class="qtext400">Business partner</span> and the CDS view are cross-client.
+</p>
+<dl><dd>
+<span class="qtext400">@AbapCatalog.sqlViewName: 'BPA_VW' <br>@EndUserText.label:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Business partner' <br>
+@ClientDependent:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; false <br>define view business_partner as <br>
+&nbsp;&nbsp;select from snwd_bpa <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { key snwd_bpa.bp_id as id, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; snwd_bpa.bp_role as role, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; snwd_bpa.company_name, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; snwd_bpa.phone_number }</span>
+</dd></dl>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+Activates <a href="javascript:call_link('abensap_buffering_glosry.html')" class="grey" title="Glossary Entry">SAP buffering</a> with single record buffering for the CDS view <span class="qtext400">business_partner</span>.
+</p>
+<dl><dd>
+<span class="qtext400">@AbapCatalog.sqlViewName:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'BPA_VW' <br>@AbapCatalog.buffering.status: #ACTIVE <br>
+@AbapCatalog.buffering.type:&nbsp;&nbsp; #SINGLE <br>define view business_partner as <br>&nbsp;&nbsp;select from snwd_bpa <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { key snwd_bpa.bp_id as id, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; snwd_bpa.bp_role as role, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; snwd_bpa.company_name, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; snwd_bpa.phone_number }</span>
+</dd></dl>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+For the CDS view <span class="qtext400">business_partner</span>, activates <a href="javascript:call_link('abensap_buffering_glosry.html')" class="grey" title="Glossary Entry">SAP buffering</a> for a generic area and a key element.
+</p>
+<dl><dd>
+<span class="qtext400">@AbapCatalog.sqlViewName:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'BPA_VW' <br>
+@AbapCatalog.buffering.status:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#ACTIVE <br>
+@AbapCatalog.buffering.type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#GENERIC <br>
+@AbapCatalog.buffering.numberOfKeyFields: 1 <br>define view business_partner as <br>&nbsp;&nbsp;select from snwd_bpa <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ key snwd_bpa.bp_id as id, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snwd_bpa.bp_role as role, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snwd_bpa.company_name, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snwd_bpa.phone_number }</span>
+</dd></dl>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds_f1_view_entity_annotations.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:25:00 GMT -->
+</html>

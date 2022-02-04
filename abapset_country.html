@@ -1,0 +1,168 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABAPSET_COUNTRY -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abapset_country.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:45:49 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="SET COUNTRY">
+<meta name="keywords" content="ABAP, SET COUNTRY">
+<title>
+SET COUNTRY - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abapset_country.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abapset_country.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenlanguage.html')" class="blue">Language Environment</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencountry.html')" class="blue">Formatting Settings</a>&nbsp;&rarr;&nbsp;
+</span>
+<A NAME="@@SET COUNTRY@@!ABAP_STATEMENT!@@"></A>
+<p><span class="h1">
+SET COUNTRY <br><br>
+</span></p>
+<P>
+<a href="javascript:call_link('abapset_country_shortref.html')" class="blue">Quick Reference</a> <br><br>
+</P>
+<p><span class="h2">
+<span class="bold">Syntax</span>
+</span></p>
+<P>
+<span class="qtext">SET COUNTRY cntry.</span> <br><br>
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+This statement sets the <a href="javascript:call_link('abencountry.html')" class="blue">formatting settings</a> of the language environment for all following statements of the current
+<a href="javascript:call_link('abeninternal_session_glosry.html')" class="grey" title="Glossary Entry">internal session</a>.
+</P>
+<P>
+<span class="qtext">cntry</span> expects a character-like data object that either contains a value from the column LAND of the database table <span class="lnkgrey">T005X</span> or is initial.
+</P>
+<ul class="disc">
+<li>
+If <span class="qtext">cntry</span> contains a value from the table T005X, the number format, date format, and time format are set to a
+<a href="javascript:call_link('abencountry_formats.html')" class="blue">country-specific format</a> in accordance with the entries in columns XDEZP, DATFM, and TIMEFM. <br>
+<br></li>
+<li>
+If <span class="qtext">cntry</span> is initial (contains a blank in the first place), the formatting is set in accordance with the <span class="italic">fixed values</span> in the
+<a href="javascript:call_link('abenuser_master_record_glosry.html')" class="grey" title="Glossary Entry">user master record</a>.
+<br></li>
+</ul>
+<P>
+If the content of <span class="qtext">cntry</span> cannot be found in the table T005X and does not have a blank in the first place, <span class="qtext">sy-subrc</span> is set to 4 and the following settings are made:
+</P>
+<ul class="disc">
+<li>
+The decimal separator is a decimal point and the thousands separator is a comma.
+<br><br></li>
+<li>
+Date in the form <span class="qtext400">"mm/dd/yyyy"</span>
+<br><br></li>
+<li>
+Time in 24-hour format <br><br>
+<br></li>
+</ul>
+<P>
+<span class="bold">System Fields</span>
+</P>
+<table border>
+<tr>
+<td><span class="qtext">sy-subrc</span></td>
+<td><span class="bold">Meaning</span></td>
+</tr>
+<tr>
+<td>0</td>
+<td>The specified country key was found in the database table T005X or a blank was specified.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>The specified country key was not found in database table T005X.</td>
+</tr>
+</table><br>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>
+As long as the statement <span class="qtext">SET COUNTRY</span> is not executed in an internal session, the formatting corresponds to the <span class="italic">fixed values</span> in the
+<a href="javascript:call_link('abenuser_master_record_glosry.html')" class="grey" title="Glossary Entry">user master record</a>. <br>
+<br></li>
+<li>
+If certain formatting settings are only required for one or a few formattings, the formatting option <a href="javascript:call_link('abapcompute_string_format_options.html')" class="blue"><span class="qtext">country</span></a> can be used for
+<a href="javascript:call_link('abenstring_templates_expressions.html')" class="blue">embedded expressions</a> in
+<a href="javascript:call_link('abenstring_templates.html')" class="blue">string templates</a> instead of <span class="qtext">SET COUNTRY</span>. <br>
+<br></li>
+<li>
+Do not confuse the statement <span class="qtext">SET COUNTRY</span> with the obsolete addition <a href="javascript:call_link('abapset_locale_obsolete.html')" class="blue">
+<span class="qtext">COUNTRY</span></a> of the statement <a href="javascript:call_link('abapset_locale.html')" class="blue"><span class="qtext">SET LOCALE LANGUAGE</span></a>, used for setting the
+<a href="javascript:call_link('abentext_environment_glosry.html')" class="grey" title="Glossary Entry">text environment</a>. In particular, it does not have a corresponding <span class="qtext">GET COUNTRY</span> statement. <br><br>
+<br></li>
+</ul>
+<p><span class="h4">
+Executable Example
+</span></p>
+<P>
+<a href="javascript:call_link('abenstring_template_user_abexa.html')" class="blue">Character String Templates,
+Formatting Settings</a> and <a href="javascript:call_link('abenwrite_cutoff_abexa.html')" class="blue"><span class="qtext">WRITE</span>, Cutoff Behavior</a>
+</P>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abapset_country.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:45:52 GMT -->
+</html>

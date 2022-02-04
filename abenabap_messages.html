@@ -1,0 +1,127 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENABAP_MESSAGES -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenabap_messages.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:45:20 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Messages">
+<meta name="keywords" content="ABAP, Messages">
+<title>
+Messages - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenabap_messages.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenabap_messages.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_texts.html')" class="blue">Text Repositories</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Messages
+</span></p>
+<p>
+Messages&#x200E; are <a href="javascript:call_link('abenrepository_object_glosry.html')" class="grey" title="Glossary Entry">repository objects</a> managed using the
+<a href="javascript:call_link('abenmessage_maintenance_glosry.html')" class="grey" title="Glossary Entry">message editor</a>
+tool in ABAP Workbench. Fundamentally, a message is a short text with its own ID that can be expanded
+using an optional long text. A message is available in its original language and in all languages into which it is translated.
+</p>
+<p>
+The statement <a href="javascript:call_link('abapmessage.html')" class="blue"><span class="qtext">MESSAGE</span></a> is used to implement a message in an ABAP program:
+</p>
+<ul class="disc">
+<li>In the basic form of the statement <span class="qtext">MESSAGE</span>, the <a href="javascript:call_link('abenabap_messages_types.html')" class="blue">behavior</a> of a message is determined by the context in which the message was sent</li>
+</ul>
+<ul class="disc">
+<li>The variant <a href="javascript:call_link('abapmessage_raising.html')" class="blue"><span class="qtext">MESSAGE ... RAISING</span></a> associates messages with
+<a href="javascript:call_link('abenexceptions_non_class.html')" class="blue">non-class-based exceptions</a> as exception texts.</li>
+</ul>
+<ul class="disc">
+<li>The variant <a href="javascript:call_link('abapmessage_into.html')" class="blue"><span class="qtext">MESSAGE ... INTO</span></a> assigns the short text of the message to a field.</li>
+</ul>
+<p>
+The system interfaces <a href="javascript:call_link('abenif_t100_message.html')" class="blue">IF_T100_MESSAGE</a> and
+<a href="javascript:call_link('abenif_t100_dyn_msg.html')" class="blue">IF_T100_DYN_MSG</a> make it possible to associate objects with messages and display them using the statement <span class="qtext">MESSAGE</span>. This is intended mainly for
+<a href="javascript:call_link('abenexception_texts.html')" class="blue">exception texts</a> of exception classes.
+</p>
+<ul class="disc">
+<li><a href="javascript:call_link('abenabap_messages_storing.html')" class="blue">Storing Messages</a></li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abenabap_messages_types.html')" class="blue">Behavior of Messages</a></li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abapmessage.html')" class="blue"><span class="qtext">MESSAGE</span></a></li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abenmessage_interfaces.html')" class="blue">System Interface for Messages</a></li>
+</ul>
+<p><span class="h4">
+Programming Guideline
+</span></p>
+<P>
+<a href="javascript:call_link('abenmessages_guidl.html')" class="lnkpurple" title="Guideline">Only use messages for error handling in classic dynpros and as exception texts</a>
+</P>
+<br>
+<br>
+<!-- POSTFIX --><span class="h4">Continue</span><br>
+<a href="javascript:call_link('abenabap_messages_storing.html')" class="blue">Storing Messages</a><br>
+<a href="javascript:call_link('abenabap_messages_types.html')" class="blue">Behavior of Messages</a><br>
+<a href="javascript:call_link('abapmessage.html')" class="blue">MESSAGE</a><br>
+<a href="javascript:call_link('abenmessage_interfaces.html')" class="blue">System Interfaces for Messages</a><br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenabap_messages.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:45:22 GMT -->
+</html>

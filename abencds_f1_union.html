@@ -1,0 +1,180 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENCDS_F1_UNION -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds_f1_union.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:25:02 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="ABAP CDS - SELECT, UNION">
+<title>
+ABAP CDS - SELECT, UNION - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abencds_f1_union.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abencds_f1_union.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dictionary.html')" class="blue">ABAP - Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds.html')" class="blue">ABAP CDS in ABAP Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_cds_entities.html')" class="blue">ABAP CDS - Data Definitions</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_f1_ddl_syntax.html')" class="blue">ABAP CDS - DDL for Data Definitions</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_f1_define_view.html')" class="blue">ABAP CDS - DEFINE VIEW</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_f1_select_statement.html')" class="blue">ABAP CDS - SELECT</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_select_clauses.html')" class="blue">ABAP CDS- SELECT, clauses</a>&nbsp;&rarr;&nbsp;
+</span>
+<A NAME="@@UNION@@!ABAP_CDS_SELECT!@@"></A>
+<A NAME="@@ALL@@!ABAP_CDS_SELECT!@@"></A>
+<p><span class="h1">
+ABAP CDS - SELECT, UNION
+</span></p>
+<A name="@@ITOC@@ABENCDS_F1_UNION_1"></A>
+<p><span class="h2">
+Syntax
+</span></p>
+<p>
+<span class="qtext400">... UNION <i class=bn>[</i>ALL<i class=bn>]</i> <a href="javascript:call_link('abencds_f1_select_statement.html')" class="blue">select_statement</a> ...</span>
+</p>
+<p><span class="h4">
+Effect
+</span></p>
+<p>
+Creates the union of rows in the results sets of two <a href="javascript:call_link('abencds_f1_select_statement.html')" class="blue"><span class="qtext400">SELECT</span> statements</a> of a
+<a href="javascript:call_link('abencds_view_glosry.html')" class="grey" title="Glossary Entry">CDS view.</a> A prerequisite is
+that the structures of the results sets are compatible. This means that the results sets must have the same number of elements and that the pairs of elements in each position have a compatible data type. If no
+<a href="javascript:call_link('abencds_f1_name_list.html')" class="blue">name list</a> is specified, the element names of the result sets must match.
+</p>
+<p>
+A union results set can itself be the left side of a further union. The properties of the union results set are defined as follows:
+</p>
+<ul class="disc">
+<li>The element names are taken either from an explicitly specified
+<a href="javascript:call_link('abencds_f1_name_list.html')" class="blue">name list</a> or, if no list is specified, the matching
+names from the <a href="javascript:call_link('abencds_f1_select_list.html')" class="blue"><span class="qtext400">SELECT</span> lists</a> of all <span class="qtext400">SELECT</span> statements are used.</li>
+</ul>
+<ul class="disc">
+<li>The definition of the key elements is taken from the <a href="javascript:call_link('abencds_f1_select_list.html')" class="blue"><span class="qtext400">SELECT</span> list</a> of the first <span class="qtext400">SELECT</span> statement.</li>
+</ul>
+<ul class="disc">
+<li>The data type of each element is a data type from ABAP Dictionary whose value range covers the data types of the associated columns of all results sets involved.</li>
+</ul>
+<ul class="disc">
+<li>If the addition <span class="qtext400">ALL</span> is not specified, all duplicate entries are removed from the results set. They are not removed if <span class="qtext400">ALL</span> is specified.</li>
+</ul>
+<p>
+A CDS view in which union sets are formed with <span class="qtext400">UNION</span> can expose
+<a href="javascript:call_link('abencds_f1_association.html')" class="blue">associations</a>. An association must be defined and
+exposed in the same way in all <span class="qtext400">SELECT</span> statements joined with <span class="qtext400">UNION</span>.
+That is, associations that are published in the respective <a href="javascript:call_link('abencds_f1_select_list.html')" class="blue"><span class="qtext400">
+SELECT</span> lists</a> must appear in all <span class="qtext400">SELECT</span> statements joined with <span class="qtext400">UNION</span> and the following requirements must be met:
+</p>
+<ul class="disc">
+<li>They have the same name.</li>
+</ul>
+<ul class="disc">
+<li>They have the same cardinality.</li>
+</ul>
+<ul class="disc">
+<li>They must be published at the same position in the <a href="javascript:call_link('abencds_f1_select_list.html')" class="blue"><span class="qtext400">SELECT</span> list</a> using a
+<a href="javascript:call_link('abencds_f1_path_expression.html')" class="blue">path expression</a>.</li>
+</ul>
+<ul class="disc">
+<li>They must have the same <span class="qtext">ON</span> conditions, that is:</li>
+</ul>
+<ul class="circlem2">
+<li>The conditions must relate to the same fields in the source and target data source and express the same logic for these fields.</li>
+</ul>
+<ul class="circlem2">
+<li>The fields of the source data source that are listed in conditions must be at identical respective positions in the <span class="qtext400">SELECT</span> list.</li>
+</ul>
+<p>
+These rules also apply if an association is defined in a data source of a <span class="qtext400">SELECT</span>
+statement and is exposed by the current statement. From outside, the associations with the same name
+that are published in the individual <span class="qtext400">SELECT</span> lists act like an association
+published by the union set. There are no restrictions on associations that are not published in the <span class="qtext400">SELECT</span> lists.
+</p>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>Union sets can be a good way of transforming non-standardized database tables into a standardized view of the data.</li>
+</ul>
+<ul class="disc">
+<li>A CDS view with union sets cannot be expanded using <a href="javascript:call_link('abencds_f1_extend_view.html')" class="blue"><span class="qtext400">EXTEND VIEW</span></a>.</li>
+</ul>
+<p><span class="h4">
+Examples
+</span></p>
+<p>
+Union set without name list. The element names of the <span class="qtext400">SELECT</span> lists must match.
+</p>
+<dl><dd>
+<span class="qtext400">@AbapCatalog.sqlViewName: '...' <br>define view ... as <br>&nbsp;&nbsp;select <br>
+&nbsp;&nbsp;&nbsp;&nbsp;from demo_join1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ a as c1, b as c2, c as c3, d as c4 } <br>
+&nbsp;&nbsp;&nbsp;&nbsp;union <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from demo_join2 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ d as c1, e as c2, f as c3, g as c4 }</span>
+</dd></dl>
+<p>
+Union set with name list. The element names of the <span class="qtext400">SELECT</span> lists do not need to match.
+</p>
+<dl><dd>
+<span class="qtext400">@AbapCatalog.sqlViewName: '...' <br>define view ... ( c1, c2, c3, c4 ) as <br>&nbsp;&nbsp;select <br>
+&nbsp;&nbsp;&nbsp;&nbsp;from demo_join1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ a, b, c, d } <br>&nbsp;&nbsp;&nbsp;&nbsp;union <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from demo_join2 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ d, e, f, g }</span>
+</dd></dl>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds_f1_union.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:25:02 GMT -->
+</html>

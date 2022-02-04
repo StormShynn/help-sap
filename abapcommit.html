@@ -1,0 +1,267 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABAPCOMMIT -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abapcommit.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:44:52 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="COMMIT WORK">
+<meta name="keywords" content="ABAP, COMMIT WORK">
+<title>
+COMMIT WORK - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abapcommit.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abapcommit.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abentransaction.html')" class="blue">Data Consistency</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abensap_luw.html')" class="blue">SAP LUW</a>&nbsp;&rarr;&nbsp;
+</span>
+<A NAME="@@COMMIT WORK@@!ABAP_STATEMENT!@@"></A>
+<A NAME="@@AND WAIT@@COMMIT WORK@@"></A>
+<p><span class="h1">
+COMMIT WORK <br><br>
+</span></p>
+<P>
+<a href="javascript:call_link('abapcommit_shortref.html')" class="blue">Quick Reference</a> <br><br>
+</P>
+<p><span class="h2">
+<span class="bold">Syntax</span>
+</span></p>
+<P>
+ <span class="qtext">COMMIT WORK <i class=bn>[</i>AND WAIT<i class=bn>]</i>.</span> <br><br>
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+The statement <span class="qtext">COMMIT WORK</span> closes the current
+<a href="javascript:call_link('abensap_luw_glosry.html')" class="grey" title="Glossary Entry">SAP LUW</a> and opens a new one.
+All change requests from the current SAP LUW are then committed. In this case, <span class="qtext">COMMIT WORK</span> performs the following actions:
+</P>
+<ol>
+<li>
+It executes all subroutines registered using <a href="javascript:call_link('abapperform_subr.html')" class="blue"><span class="qtext">PERFORM ON COMMIT</span></a>. <br>
+ <br>The order is based on the order of registration or according to the priority specified using the
+addition <span class="qtext">LEVEL</span>. The following statements are not allowed to be executed in a subroutine of this type: <br>
+ <br><a href="javascript:call_link('abapperform_subr.html')" class="blue"><span class="qtext">PERFORM ... ON COMMIT<i class=bn>|</i>ROLLBACK</span></a> <br>
+<span class="qtext">COMMIT WORK</span> <br><a href="javascript:call_link('abaprollback.html')" class="blue"><span class="qtext">ROLLBACK WORK</span></a> <br>
+ <br>The statement <a href="javascript:call_link('abapcall_function_update.html')" class="blue"><span class="qtext">CALL FUNCTION ... IN UPDATE TASK</span></a> can be executed. <br>
+<br></li>
+<li>
+It triggers an internal event for the persistence service of the <a href="javascript:call_link('abenobject_services_glosry.html')" class="grey" title="Glossary Entry">Object Services</a>. <br>
+ <br>If event handlers are registered by the persistence service, they collect the changes to the objects
+managed by the service and use <a href="javascript:call_link('abapcall_function_update.html')" class="blue"><span class="qtext">CALL
+FUNCTION ... IN UPDATE TASK</span></a> to pass them to a special update function module, registered as the final update module. <br>
+<br></li>
+<li>
+It triggers the processing of all update function modules registered using <a href="javascript:call_link('abapcall_function_update.html')" class="blue"><span class="qtext">CALL FUNCTION ... IN UPDATE TASK</span></a> in the update work process or, for
+<a href="javascript:call_link('abenlocal_update_glosry.html')" class="grey" title="Glossary Entry">local updates</a>, in the current work process as well. <br>
+ <br>All high-priority (<span class="qtext400">"VB1"</span>) update function modules are executed in the order of their registration and in a shared
+<a href="javascript:call_link('abendatabase_luw_glosry.html')" class="grey" title="Glossary Entry">database LUW</a>. If the addition
+<span class="qtext">AND WAIT</span> is not specified, the program does not wait (in non-local updates)
+until the update work process has executed it (asynchronous updates), but instead is resumed immediately
+after <span class="qtext">COMMIT WORK</span>. However, if the addition <span class="qtext">AND WAIT</span>
+is specified, program processing after <span class="qtext">COMMIT WORK</span> will not continue until
+the update work process has executed the high-priority update function modules (synchronous updating). <br>
+ <br>When all high-priority update function modules are completed successfully, the statement executes the low-priority
+(<span class="qtext400">"VB2"</span>) update function modules in the order of registration in a shared database LUW in the update work process. <br>
+ <br>No <a href="javascript:call_link('abendatabase_commit_glosry.html')" class="grey" title="Glossary Entry">database commits</a> and no
+<a href="javascript:call_link('abendatabase_rollback_glosry.html')" class="grey" title="Glossary Entry">database rollbacks</a>
+can occur and the update control cannot be modified during the processing of an update function module triggered using <span class="qtext">COMMIT WORK</span> is being processed. Any statements that would produce this situation are
+<a href="javascript:call_link('abendb_commit_during_update.html')" class="blue">forbidden statements in updates</a> and always produce runtime errors. <br>
+ <br>After the execution of high-priority update function modules, the individual function modules registered
+using <a href="javascript:call_link('abapcall_function_background_unit.html')" class="blue"><span class="qtext">CALL FUNCTION
+... IN BACKGROUND UNIT</span></a> and <a href="javascript:call_link('abapcall_function_background_task.html')" class="blue"><span class="qtext">CALL FUNCTION ... IN BACKGROUND TASK</span></a> (obsolete) are each registered in their own database LUW by
+<a href="javascript:call_link('abendestination_glosry.html')" class="grey" title="Glossary Entry">destination</a>. <br>
+<br></li>
+<li>
+It handles all <a href="javascript:call_link('abensap_lock_glosry.html')" class="grey" title="Glossary Entry">SAP locks</a> set
+in the current program in accordance with the value of the formal parameter _SCOPE of the corresponding lock function modules. <br>
+<br></li>
+<li>
+Triggers a <a href="javascript:call_link('abendatabase_commit_glosry.html')" class="grey" title="Glossary Entry">database commit</a> on all currently open
+<a href="javascript:call_link('abendatabase_connection_glosry.html')" class="grey" title="Glossary Entry">database connections</a>, which also terminates the current
+<a href="javascript:call_link('abendatabase_luw_glosry.html')" class="grey" title="Glossary Entry">database LUW</a> and closes all
+<a href="javascript:call_link('abendatabase_cursor_glosry.html')" class="grey" title="Glossary Entry">database cursors</a>. <br>
+<br></li>
+</ol>
+<P>
+The <span class="qtext">COMMIT WORK</span> still triggers the event TRANSACTION_FINISHED from the system
+class <span class="lnkgrey">CL_SYSTEM_TRANSACTION_STATE</span> is triggered, whereby the parameter KIND
+has the value of the constant CL_SYSTEM_TRANSACTION_STATE=>COMMIT_WORK. The time when this event is triggered is described in the documentation for the event in the class:
+</P>
+<ul class="disc">
+<li>
+During a <a href="javascript:call_link('abensynchronous_update_glosry.html')" class="grey" title="Glossary Entry">synchronous update</a>,
+<a href="javascript:call_link('abenlocal_update_glosry.html')" class="grey" title="Glossary Entry">local update</a> and outside the update, TRANSACTION_FINISHED is triggered by <span class="qtext">COMMIT WORK</span> once processing is finished.
+<br><br></li>
+<li>
+During an <a href="javascript:call_link('abenasynchronous_update_glosry.html')" class="grey" title="Glossary Entry">asynchronous
+update</a>, TRANSACTION_FINISHED is triggered by the statement <span class="qtext">COMMIT WORK</span> when the the update is initiated.
+<br></li>
+</ul>
+<P>
+Resources for preparation work can be cleaned up in the event handlers for this event before the update is performed. However, this is no guarantee that the update has not already been performed. <br><br>
+</P>
+<P>
+If the statement <span class="qtext">COMMIT WORK</span> is executed by calling special programs, be aware of the following:
+</P>
+<ul class="disc">
+<li>
+In a program executed using <a href="javascript:call_link('abenbatch_input_glosry.html')" class="grey" title="Glossary Entry">batch
+input</a> or if the program was called using the statement <a href="javascript:call_link('abapcall_transaction_using.html')" class="blue">
+<span class="qtext">CALL TRANSACTION USING</span></a>, <span class="qtext">COMMIT WORK</span> terminates
+batch input processing by default. This setting can be overwritten in the statement <span class="qtext">CALL
+TRANSACTION USING</span> by using the component RACOMMIT of the structure <span class="lnkgrey">CTU_PARAMS</span>, passed to the statement <span class="qtext">OPTIONS FROM</span>. <br>
+<br></li>
+<li>
+In a program called using <a href="javascript:call_link('abapcall_dialog.html')" class="blue"><span class="qtext">CALL DIALOG</span></a>,
+<span class="qtext">COMMIT WORK</span> does not initiate the processing of subroutines or updated function
+modules registered using <a href="javascript:call_link('abapperform_subr.html')" class="blue"><span class="qtext">PERFORM ON
+COMMIT</span></a> and <a href="javascript:call_link('abapcall_function_update.html')" class="blue"><span class="qtext">CALL FUNCTION
+... IN UPDATE TASK</span></a> and does not close the current SAP LUW. At the earliest, the SAP LUW can be closed by the statement <span class="qtext">COMMIT WORK</span> in the calling program. Only
+<a href="javascript:call_link('abenbg_remote_function_glosry.html')" class="grey" title="Glossary Entry">background remote function calls</a> or obsolete
+<a href="javascript:call_link('abentrfc_1_glosry.html')" class="grey" title="Glossary Entry">transactional remote function calls</a>
+registered using <a href="javascript:call_link('abapcall_function_background_unit.html')" class="blue"><span class="qtext">CALL
+FUNCTION ... IN BACKGROUND UNIT</span></a> or <a href="javascript:call_link('abapcall_function_background_task.html')" class="blue"><span class="qtext">CALL FUNCTION ... IN BACKGROUND TASK</span></a> (obsolete) within a
+<a href="javascript:call_link('abendialog_module_object_glosry.html')" class="grey" title="Glossary Entry">dialog module</a> are also started there using <span class="qtext">COMMIT WORK</span>. Any
+<a href="javascript:call_link('abenbgrfc_glosry.html')" class="grey" title="Glossary Entry">bgRFCs</a>,
+<a href="javascript:call_link('abentrfc_2_glosry.html')" class="grey" title="Glossary Entry">tRFCs</a>, or
+<a href="javascript:call_link('abenqrfc_glosry.html')" class="grey" title="Glossary Entry">qRFCs</a> registered in a dialog module and not started there using <span class="qtext">COMMIT WORK</span> are not executed. <br>
+<br></li>
+<li>
+The statement <span class="qtext">COMMIT WORK</span> cannot be executed during the update or during the execution of subroutines registered using <span class="qtext">PERFORM ... ON <i
+class=bn>{</i>COMMIT<i class=bn>|</i>ROLLBACK<i class=bn>}</i></span>. <br>
+<br></li>
+<li>
+The statement <span class="qtext">COMMIT WORK</span> must not be executed in units or LUWs that are managed by background RFC calls
+(<a href="javascript:call_link('abenbgrfc_glosry.html')" class="grey" title="Glossary Entry">bgRFC</a> and the obsolete
+<a href="javascript:call_link('abentrfc_2_glosry.html')" class="grey" title="Glossary Entry">tRFC</a> and <a href="javascript:call_link('abenqrfc_glosry.html')" class="grey" title="Glossary Entry">qRFC</a>). <br><br>
+<br></li>
+</ul>
+<P>
+<span class="bold">System Fields</span>
+</P>
+<table border>
+<tr>
+<td><span class="qtext"><span class="bold">sy-subrc</span></span></td>
+<td><span class="bold">Meaning</span></td>
+</tr>
+<tr>
+<td>0</td>
+<td>The addition <span class="qtext">AND WAIT</span> was specified and the update of the update function modules was successful.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>The addition <span class="qtext">AND WAIT</span> was specified and the update of the update function modules was not successful.</td>
+</tr>
+</table><br>
+<P>
+The statement <span class="qtext">COMMIT WORK</span> always sets <span class="qtext">sy-subrc</span> to 0 if the addition <span class="qtext">AND WAIT</span> is not specified. <br><br>
+</P>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>
+An SAP LUW not closed by <span class="qtext">COMMIT WORK</span> but by ending the current program or closing the
+<a href="javascript:call_link('abeninternal_session_glosry.html')" class="grey" title="Glossary Entry">internal session</a> is
+ignored by the registered procedures. Registered update function modules remain on the database but can no longer be executed.
+<br><br></li>
+<li>
+The statement <span class="qtext">COMMIT WORK</span> closes all <a href="javascript:call_link('abendatabase_cursor_glosry.html')" class="grey" title="Glossary Entry">database cursors</a>. Open SQL statements that access a database cursor later
+(<a href="javascript:call_link('abapselect.html')" class="blue"><span class="qtext">SELECT</span></a> loop and <a href="javascript:call_link('abapfetch.html')" class="blue"><span class="qtext">FETCH</span></a>) raise a non-handleable exception.
+<br><br></li>
+<li>
+If a runtime error occurs during an <a href="javascript:call_link('abenupdate_glosry.html')" class="grey" title="Glossary Entry">update</a> triggered by a <span class="qtext">COMMIT</span>, the update work process executes a
+<a href="javascript:call_link('abendatabase_rollback_glosry.html')" class="grey" title="Glossary Entry">database rollback</a>,
+logs this in the corresponding database tables, and notifies the user whose entries created the entries by SAPMail. After the cause of the error has been resolved, the canceled entries can be updated again.
+<br><br></li>
+<li>
+The statement <a href="javascript:call_link('abapperform_subr.html')" class="blue"><span class="qtext">PERFORM ... ON COMMIT</span></a> can be executed during updates. The registered subroutine must be defined in the current function group.
+<br><br></li>
+<li>
+<span class="qtext">COMMIT WORK</span> also triggers a database commit in programs called using <a href="javascript:call_link('abapcall_dialog.html')" class="blue"><span class="qtext">CALL DIALOG</span></a>.
+<br><br></li>
+<li>
+<span class="qtext">COMMIT WORK</span> empties <a href="javascript:call_link('abenddic_database_tables_gtt.html')" class="blue">global temporary tables</a> of all currently open
+<a href="javascript:call_link('abendatabase_connection_glosry.html')" class="grey" title="Glossary Entry">database connections</a> and prevents the runtime error COMMIT_GTT_ERROR in the case of implicit
+<a href="javascript:call_link('abendb_commit.html')" class="blue">database commits</a>. <br><br>
+<br></li>
+</ul>
+<p><span class="h4">
+<a href="javascript:call_link('abenabap_language_exceptions.html')" class="blue">Exceptions</a>
+</span></p>
+<P>
+<span class="bold">Non-Handleable Exceptions</span> <br><br>
+</P>
+<ul class="disc">
+<li>
+<span class="italic">Cause:</span> <span class="qtext">COMMIT WORK</span> is not allowed within a <span class="qtext">
+FORM</span> called using <a href="javascript:call_link('abapperform.html')" class="blue"><span class="qtext">PERFORM ... ON COMMIT</span></a>. <br><span class="italic">Runtime error:</span> <span class="qtext">COMMIT_IN_PERFORM_ON_COMMIT</span>
+<br><br></li>
+<li>
+<span class="italic">Cause:</span> <span class="qtext">COMMIT WORK</span> is not allowed within the update. <br><span class="italic">Runtime error:</span> <span class="qtext">COMMIT_IN_POSTING</span> <br><br>
+<br></li>
+</ul>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abapcommit.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:45:01 GMT -->
+</html>

@@ -1,0 +1,1409 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENABAP_WORDS -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenabap_words.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:26:19 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="ABAP Words">
+<meta name="keywords" content="ABAP, ABAP Words, Name, Reserved Names">
+<title>
+ABAP Words - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenabap_words.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenabap_words.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_syntax.html')" class="blue">ABAP Syntax</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_statements.html')" class="blue">ABAP Statements</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+ABAP Words
+</span></p>
+<p>
+ABAP words are the vocabulary of the ABAP language. ABAP statements are composed of ABAP words, operands, and operators in accordance with defined syntax rules. ABAP words are taken from the English language and are grouped into
+<a href="javascript:call_link('abenabap_language_element_glosry.html')" class="grey" title="Glossary Entry">ABAP language elements</a> and
+<a href="javascript:call_link('abenabap_language_elmnt_add_glosry.html')" class="grey" title="Glossary Entry">ABAP language element additions</a> that express the semantics of a statement. In addition to letters, ABAP words can also contain hyphens
+(<span class="qtext">-</span>) to form multi-word expressions. As well as ABAP words, some operators are also made up of letters.
+</p>
+<p>
+If a statement is introduced using an ABAP word, the word is an
+<a href="javascript:call_link('abenabap_keyword_glosry.html')" class="grey" title="Glossary Entry">ABAP keyword</a>. The remaining
+ABAP words are additions of a keyword. A single ABAP word can be used both as a keyword and as a non-keyword.
+For example, <span class="qtext">DATA</span> is used as a keyword as well as an addition of other keywords.
+Not all statements are introduced using a keyword or contain ABAP words. Assignments with the <a href="javascript:call_link('abenequals_operator.html')" class="blue">assignment operator <span class="qtext">=</span></a> or
+<a href="javascript:call_link('abapcall_method_static_short.html')" class="blue">method calls</a>, for example, do not contain a keyword and do have to contain any other ABAP word.
+</p>
+<p>
+ABAP words are not reserved names as in some programming languages. Although the use of an ABAP word for
+<a href="javascript:call_link('abennaming_conventions.html')" class="blue">naming conventions</a> is not forbidden, it should
+be avoided if possible. Even if this rule is followed, the introduction of new elements can cause similar
+situations and therefore suitable naming conventions should be observed for reserved names to avoid conflicts with language elements.
+</p>
+<p>
+The following table contains all ABAP words in the current ABAP language version, the names of
+<a href="javascript:call_link('abenpredefined_data_type_glosry.html')" class="grey" title="Glossary Entry">predefined data types</a>, and the names (consisting of letters) of
+<a href="javascript:call_link('abenoperator_glosry.html')" class="grey" title="Glossary Entry">operators</a>. Names in ABAP programs are not case-sensitive.
+</p>
+<table border>
+<tr>
+<td><span class="qtextlight">ABAP_SYSTEM_TIMEZONE</span></td>
+<td><span class="qtextlight">ABAP_USER_TIMEZONE</span></td>
+<td><span class="qtextlight">ABAP-SOURCE</span></td>
+<td><span class="qtextlight">ABBREVIATED</span></td>
+<td><span class="qtextlight">ABS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ABSTRACT</span></td>
+<td><span class="qtextlight">ACCEPT</span></td>
+<td><span class="qtextlight">ACCEPTING</span></td>
+<td><span class="qtextlight">ACCORDING</span></td>
+<td><span class="qtextlight">ACTIVATION</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ACTUAL</span></td>
+<td><span class="qtextlight">ADABAS</span></td>
+<td><span class="qtextlight">ADD</span></td>
+<td><span class="qtextlight">ADD-CORRESPONDING</span></td>
+<td><span class="qtextlight">ADJACENT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">AFTER</span></td>
+<td><span class="qtextlight">ALIAS</span></td>
+<td><span class="qtextlight">ALIASES</span></td>
+<td><span class="qtextlight">ALIGN</span></td>
+<td><span class="qtextlight">ALL</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ALLOCATE</span></td>
+<td><span class="qtextlight">ALPHA</span></td>
+<td><span class="qtextlight">ANALYSIS</span></td>
+<td><span class="qtextlight">ANALYZER</span></td>
+<td><span class="qtextlight">AND</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ANNOTATE</span></td>
+<td><span class="qtextlight">ANY</span></td>
+<td><span class="qtextlight">APPEND</span></td>
+<td><span class="qtextlight">APPENDAGE</span></td>
+<td><span class="qtextlight">APPENDING</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">APPLICATION</span></td>
+<td><span class="qtextlight">ARCHIVE</span></td>
+<td><span class="qtextlight">AREA</span></td>
+<td><span class="qtextlight">ARITHMETIC</span></td>
+<td><span class="qtextlight">AS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">AS400</span></td>
+<td><span class="qtextlight">ASCENDING</span></td>
+<td><span class="qtextlight">ASPECT</span></td>
+<td><span class="qtextlight">ASSERT</span></td>
+<td><span class="qtextlight">ASSIGN</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ASSIGNED</span></td>
+<td><span class="qtextlight">ASSIGNING</span></td>
+<td><span class="qtextlight">ASSOCIATION</span></td>
+<td><span class="qtextlight">ASYNCHRONOUS</span></td>
+<td><span class="qtextlight">AT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ATTRIBUTES</span></td>
+<td><span class="qtextlight">AUTHORITY</span></td>
+<td><span class="qtextlight">AUTHORITY-CHECK</span></td>
+<td><span class="qtextlight">AVG</span></td>
+<td><span class="qtextlight">AVG,</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">BACK</span></td>
+<td><span class="qtextlight">BACKGROUND</span></td>
+<td><span class="qtextlight">BACKUP</span></td>
+<td><span class="qtextlight">BACKWARD</span></td>
+<td><span class="qtextlight">BADI</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">BASE</span></td>
+<td><span class="qtextlight">BEFORE</span></td>
+<td><span class="qtextlight">BEGIN</span></td>
+<td><span class="qtextlight">BETWEEN</span></td>
+<td><span class="qtextlight">BIG</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">BINARY</span></td>
+<td><span class="qtextlight">BINTOHEX</span></td>
+<td><span class="qtextlight">BIT</span></td>
+<td><span class="qtextlight">BIT-AND</span></td>
+<td><span class="qtextlight">BIT-NOT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">BIT-OR</span></td>
+<td><span class="qtextlight">BIT-XOR</span></td>
+<td><span class="qtextlight">BLACK</span></td>
+<td><span class="qtextlight">BLANK</span></td>
+<td><span class="qtextlight">BLANKS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">BLOB</span></td>
+<td><span class="qtextlight">BLOCK</span></td>
+<td><span class="qtextlight">BLOCKS</span></td>
+<td><span class="qtextlight">BLUE</span></td>
+<td><span class="qtextlight">BOUND</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">BOUNDARIES</span></td>
+<td><span class="qtextlight">BOUNDS</span></td>
+<td><span class="qtextlight">BOXED</span></td>
+<td><span class="qtextlight">BREAK-POINT</span></td>
+<td><span class="qtextlight">BT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">BUFFER</span></td>
+<td><span class="qtextlight">BY</span></td>
+<td><span class="qtextlight">BYPASSING</span></td>
+<td><span class="qtextlight">BYTE</span></td>
+<td><span class="qtextlight">BYTE-CA</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">BYTE-CN</span></td>
+<td><span class="qtextlight">BYTE-CO</span></td>
+<td><span class="qtextlight">BYTE-CS</span></td>
+<td><span class="qtextlight">BYTE-NA</span></td>
+<td><span class="qtextlight">BYTE-NS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">BYTE-ORDER</span></td>
+<td><span class="qtextlight">CA</span></td>
+<td><span class="qtextlight">CALL</span></td>
+<td><span class="qtextlight">CALLING</span></td>
+<td><span class="qtextlight">CASE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">CAST</span></td>
+<td><span class="qtextlight">CASTING</span></td>
+<td><span class="qtextlight">CATCH</span></td>
+<td><span class="qtextlight">CEIL</span></td>
+<td><span class="qtextlight">CENTER</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">CENTERED</span></td>
+<td><span class="qtextlight">CHAIN</span></td>
+<td><span class="qtextlight">CHAIN-INPUT</span></td>
+<td><span class="qtextlight">CHAIN-REQUEST</span></td>
+<td><span class="qtextlight">CHANGE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">CHANGING</span></td>
+<td><span class="qtextlight">CHANNELS</span></td>
+<td><span class="qtextlight">CHAR</span></td>
+<td><span class="qtextlight">CHAR-TO-HEX</span></td>
+<td><span class="qtextlight">CHARACTER</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">CHECK</span></td>
+<td><span class="qtextlight">CHECKBOX</span></td>
+<td><span class="qtextlight">CI_</span></td>
+<td><span class="qtextlight">CIRCULAR</span></td>
+<td><span class="qtextlight">CLASS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">CLASS-CODING</span></td>
+<td><span class="qtextlight">CLASS-DATA</span></td>
+<td><span class="qtextlight">CLASS-EVENTS</span></td>
+<td><span class="qtextlight">CLASS-METHODS</span></td>
+<td><span class="qtextlight">CLASS-POOL</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">CLEANUP</span></td>
+<td><span class="qtextlight">CLEAR</span></td>
+<td><span class="qtextlight">CLIENT</span></td>
+<td><span class="qtextlight">CLNT</span></td>
+<td><span class="qtextlight">CLOB</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">CLOCK</span></td>
+<td><span class="qtextlight">CLOSE</span></td>
+<td><span class="qtextlight">CN</span></td>
+<td><span class="qtextlight">CO</span></td>
+<td><span class="qtextlight">COALESCE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">CODE</span></td>
+<td><span class="qtextlight">CODING</span></td>
+<td><span class="qtextlight">COL_BACKGROUND</span></td>
+<td><span class="qtextlight">COL_GROUP</span></td>
+<td><span class="qtextlight">COL_HEADING</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">COL_KEY</span></td>
+<td><span class="qtextlight">COL_NEGATIVE</span></td>
+<td><span class="qtextlight">COL_NORMAL</span></td>
+<td><span class="qtextlight">COL_POSITIVE</span></td>
+<td><span class="qtextlight">COL_TOTAL</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">COLLECT</span></td>
+<td><span class="qtextlight">COLOR</span></td>
+<td><span class="qtextlight">COLUMN</span></td>
+<td><span class="qtextlight">COLUMNS</span></td>
+<td><span class="qtextlight">COMMENT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">COMMENTS</span></td>
+<td><span class="qtextlight">COMMIT</span></td>
+<td><span class="qtextlight">COMMON</span></td>
+<td><span class="qtextlight">COMMUNICATION</span></td>
+<td><span class="qtextlight">COMPARING</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">COMPONENT</span></td>
+<td><span class="qtextlight">COMPONENTS</span></td>
+<td><span class="qtextlight">COMPRESSION</span></td>
+<td><span class="qtextlight">COMPUTE</span></td>
+<td><span class="qtextlight">CONCAT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">CONCAT_WITH_SPACE</span></td>
+<td><span class="qtextlight">CONCATENATE</span></td>
+<td><span class="qtextlight">COND</span></td>
+<td><span class="qtextlight">CONDENSE</span></td>
+<td><span class="qtextlight">CONDITION</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">CONNECT</span></td>
+<td><span class="qtextlight">CONNECTION</span></td>
+<td><span class="qtextlight">CONSTANTS</span></td>
+<td><span class="qtextlight">CONTEXT</span></td>
+<td><span class="qtextlight">CONTEXTS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">CONTINUE</span></td>
+<td><span class="qtextlight">CONTROL</span></td>
+<td><span class="qtextlight">CONTROLS</span></td>
+<td><span class="qtextlight">CONV</span></td>
+<td><span class="qtextlight">CONVERSION</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">CONVERT</span></td>
+<td><span class="qtextlight">COPIES</span></td>
+<td><span class="qtextlight">COPY</span></td>
+<td><span class="qtextlight">CORRESPONDING</span></td>
+<td><span class="qtextlight">COUNT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">COUNTRY</span></td>
+<td><span class="qtextlight">COVER</span></td>
+<td><span class="qtextlight">CP</span></td>
+<td><span class="qtextlight">CPI</span></td>
+<td><span class="qtextlight">CREATE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">CREATING</span></td>
+<td><span class="qtextlight">CRITICAL</span></td>
+<td><span class="qtextlight">CROSS</span></td>
+<td><span class="qtextlight">CS</span></td>
+<td><span class="qtextlight">CUKY</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">CURR</span></td>
+<td><span class="qtextlight">CURRENCY</span></td>
+<td><span class="qtextlight">CURRENCY_CONVERSION</span></td>
+<td><span class="qtextlight">CURRENT</span></td>
+<td><span class="qtextlight">CURSOR</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">CURSOR-SELECTION</span></td>
+<td><span class="qtextlight">CUSTOMER</span></td>
+<td><span class="qtextlight">CUSTOMER-FUNCTION</span></td>
+<td><span class="qtextlight">DANGEROUS</span></td>
+<td><span class="qtextlight">DATA</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">DATABASE</span></td>
+<td><span class="qtextlight">DATAINFO</span></td>
+<td><span class="qtextlight">DATASET</span></td>
+<td><span class="qtextlight">DATE</span></td>
+<td><span class="qtextlight">DATS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">DATS_ADD_DAYS</span></td>
+<td><span class="qtextlight">DATS_ADD_MONTHS</span></td>
+<td><span class="qtextlight">DATS_DAYS_BETWEEN</span></td>
+<td><span class="qtextlight">DATS_IS_VALID</span></td>
+<td><span class="qtextlight">DATS_TIMS_TO_TSTMP</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">DAYLIGHT</span></td>
+<td><span class="qtextlight">DB2</span></td>
+<td><span class="qtextlight">DB6</span></td>
+<td><span class="qtextlight">DD/MM/YY</span></td>
+<td><span class="qtextlight">DD/MM/YYYY</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">DDMMYY</span></td>
+<td><span class="qtextlight">DEALLOCATE</span></td>
+<td><span class="qtextlight">DEC</span></td>
+<td><span class="qtextlight">DECIMAL_SHIFT</span></td>
+<td><span class="qtextlight">DECIMALS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">DECLARATIONS</span></td>
+<td><span class="qtextlight">DEEP</span></td>
+<td><span class="qtextlight">DEFAULT</span></td>
+<td><span class="qtextlight">DEFERRED</span></td>
+<td><span class="qtextlight">DEFINE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">DEFINING</span></td>
+<td><span class="qtextlight">DEFINITION</span></td>
+<td><span class="qtextlight">DELETE</span></td>
+<td><span class="qtextlight">DELETING</span></td>
+<td><span class="qtextlight">DEMAND</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">DEPARTMENT</span></td>
+<td><span class="qtextlight">DESCENDING</span></td>
+<td><span class="qtextlight">DESCRIBE</span></td>
+<td><span class="qtextlight">DESTINATION</span></td>
+<td><span class="qtextlight">DETAIL</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">DIALOG</span></td>
+<td><span class="qtextlight">DIRECTORY</span></td>
+<td><span class="qtextlight">DISCARDING</span></td>
+<td><span class="qtextlight">DISCONNECT</span></td>
+<td><span class="qtextlight">DISPLAY</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">DISPLAY-MODE</span></td>
+<td><span class="qtextlight">DISTANCE</span></td>
+<td><span class="qtextlight">DISTINCT</span></td>
+<td><span class="qtextlight">DIV</span></td>
+<td><span class="qtextlight">DIVIDE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">DIVIDE-CORRESPONDING</span></td>
+<td><span class="qtextlight">DIVISION</span></td>
+<td><span class="qtextlight">DO</span></td>
+<td><span class="qtextlight">DUMMY</span></td>
+<td><span class="qtextlight">DUPLICATE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">DUPLICATES</span></td>
+<td><span class="qtextlight">DURATION</span></td>
+<td><span class="qtextlight">DURING</span></td>
+<td><span class="qtextlight">DYNAMIC</span></td>
+<td><span class="qtextlight">DYNPRO</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">E</span></td>
+<td><span class="qtextlight">EDIT</span></td>
+<td><span class="qtextlight">EDITOR-CALL</span></td>
+<td><span class="qtextlight">ELSE</span></td>
+<td><span class="qtextlight">ELSEIF</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">EMPTY</span></td>
+<td><span class="qtextlight">ENABLED</span></td>
+<td><span class="qtextlight">ENABLING</span></td>
+<td><span class="qtextlight">ENCODING</span></td>
+<td><span class="qtextlight">END</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">END-ENHANCEMENT-SECTION</span></td>
+<td><span class="qtextlight">END-LINES</span></td>
+<td><span class="qtextlight">END-OF-DEFINITION</span></td>
+<td><span class="qtextlight">END-OF-FILE</span></td>
+<td><span class="qtextlight">END-OF-PAGE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">END-OF-SELECTION</span></td>
+<td><span class="qtextlight">END-TEST-INJECTION</span></td>
+<td><span class="qtextlight">END-TEST-SEAM</span></td>
+<td><span class="qtextlight">ENDAT</span></td>
+<td><span class="qtextlight">ENDCASE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ENDCATCH</span></td>
+<td><span class="qtextlight">ENDCHAIN</span></td>
+<td><span class="qtextlight">ENDCLASS</span></td>
+<td><span class="qtextlight">ENDDO</span></td>
+<td><span class="qtextlight">ENDENHANCEMENT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ENDEXEC</span></td>
+<td><span class="qtextlight">ENDFORM</span></td>
+<td><span class="qtextlight">ENDFUNCTION</span></td>
+<td><span class="qtextlight">ENDIAN</span></td>
+<td><span class="qtextlight">ENDIF</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ENDING</span></td>
+<td><span class="qtextlight">ENDINTERFACE</span></td>
+<td><span class="qtextlight">ENDLOOP</span></td>
+<td><span class="qtextlight">ENDMETHOD</span></td>
+<td><span class="qtextlight">ENDMODULE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ENDON</span></td>
+<td><span class="qtextlight">ENDPROVIDE</span></td>
+<td><span class="qtextlight">ENDSELECT</span></td>
+<td><span class="qtextlight">ENDTRY</span></td>
+<td><span class="qtextlight">ENDWHILE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ENDWITH</span></td>
+<td><span class="qtextlight">ENGINEERING</span></td>
+<td><span class="qtextlight">ENHANCEMENT</span></td>
+<td><span class="qtextlight">ENHANCEMENT-POINT</span></td>
+<td><span class="qtextlight">ENHANCEMENT-SECTION</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ENHANCEMENTS</span></td>
+<td><span class="qtextlight">ENTRIES</span></td>
+<td><span class="qtextlight">ENTRY</span></td>
+<td><span class="qtextlight">ENUM</span></td>
+<td><span class="qtextlight">ENVIRONMENT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">EQ</span></td>
+<td><span class="qtextlight">EQUIV</span></td>
+<td><span class="qtextlight">ERRORMESSAGE</span></td>
+<td><span class="qtextlight">ERRORS</span></td>
+<td><span class="qtextlight">ESCAPE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ESCAPING</span></td>
+<td><span class="qtextlight">EVENT</span></td>
+<td><span class="qtextlight">EVENTS</span></td>
+<td><span class="qtextlight">EXACT</span></td>
+<td><span class="qtextlight">EXCEPT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">EXCEPTION</span></td>
+<td><span class="qtextlight">EXCEPTION-TABLE</span></td>
+<td><span class="qtextlight">EXCEPTIONS</span></td>
+<td><span class="qtextlight">EXCLUDE</span></td>
+<td><span class="qtextlight">EXCLUDING</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">EXEC</span></td>
+<td><span class="qtextlight">EXECUTE</span></td>
+<td><span class="qtextlight">EXISTS</span></td>
+<td><span class="qtextlight">EXIT</span></td>
+<td><span class="qtextlight">EXIT-COMMAND</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">EXPAND</span></td>
+<td><span class="qtextlight">EXPANDING</span></td>
+<td><span class="qtextlight">EXPIRATION</span></td>
+<td><span class="qtextlight">EXPLICIT</span></td>
+<td><span class="qtextlight">EXPONENT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">EXPORT</span></td>
+<td><span class="qtextlight">EXPORTING</span></td>
+<td><span class="qtextlight">EXTEND</span></td>
+<td><span class="qtextlight">EXTENDED</span></td>
+<td><span class="qtextlight">EXTENSION</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">EXTRACT</span></td>
+<td><span class="qtextlight">FAIL</span></td>
+<td><span class="qtextlight">FETCH</span></td>
+<td><span class="qtextlight">FIELD</span></td>
+<td><span class="qtextlight">FIELD-GROUPS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">FIELD-SYMBOL</span></td>
+<td><span class="qtextlight">FIELD-SYMBOLS</span></td>
+<td><span class="qtextlight">FIELDS</span></td>
+<td><span class="qtextlight">FILE</span></td>
+<td><span class="qtextlight">FILTER</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">FILTER-TABLE</span></td>
+<td><span class="qtextlight">FILTERS</span></td>
+<td><span class="qtextlight">FINAL</span></td>
+<td><span class="qtextlight">FIND</span></td>
+<td><span class="qtextlight">FIRST</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">FIRST-LINE</span></td>
+<td><span class="qtextlight">FIXED-POINT</span></td>
+<td><span class="qtextlight">FKEQ</span></td>
+<td><span class="qtextlight">FKGE</span></td>
+<td><span class="qtextlight">FLOOR</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">FLTP</span></td>
+<td><span class="qtextlight">FLTP_TO_DEC</span></td>
+<td><span class="qtextlight">FLUSH</span></td>
+<td><span class="qtextlight">FONT</span></td>
+<td><span class="qtextlight">FOR</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">FORM</span></td>
+<td><span class="qtextlight">FORMAT</span></td>
+<td><span class="qtextlight">FORWARD</span></td>
+<td><span class="qtextlight">FOUND</span></td>
+<td><span class="qtextlight">FRAME</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">FRAMES</span></td>
+<td><span class="qtextlight">FREE</span></td>
+<td><span class="qtextlight">FRIENDS</span></td>
+<td><span class="qtextlight">FROM</span></td>
+<td><span class="qtextlight">FUNCTION</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">FUNCTION-POOL</span></td>
+<td><span class="qtextlight">FUNCTIONALITY</span></td>
+<td><span class="qtextlight">FURTHER</span></td>
+<td><span class="qtextlight">GAPS</span></td>
+<td><span class="qtextlight">GE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">GENERATE</span></td>
+<td><span class="qtextlight">GET</span></td>
+<td><span class="qtextlight">GIVING</span></td>
+<td><span class="qtextlight">GKEQ</span></td>
+<td><span class="qtextlight">GKGE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">GLOBAL</span></td>
+<td><span class="qtextlight">GRANT</span></td>
+<td><span class="qtextlight">GREEN</span></td>
+<td><span class="qtextlight">GROUP</span></td>
+<td><span class="qtextlight">GROUPS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">GT</span></td>
+<td><span class="qtextlight">HANDLE</span></td>
+<td><span class="qtextlight">HANDLER</span></td>
+<td><span class="qtextlight">HARMLESS</span></td>
+<td><span class="qtextlight">HASHED</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">HAVING</span></td>
+<td><span class="qtextlight">HDB</span></td>
+<td><span class="qtextlight">HEAD-LINES</span></td>
+<td><span class="qtextlight">HEADER</span></td>
+<td><span class="qtextlight">HEADERS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">HEADING</span></td>
+<td><span class="qtextlight">HELP-ID</span></td>
+<td><span class="qtextlight">HELP-REQUEST</span></td>
+<td><span class="qtextlight">HEXTOBIN</span></td>
+<td><span class="qtextlight">HIDE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">HIGH</span></td>
+<td><span class="qtextlight">HINT</span></td>
+<td><span class="qtextlight">HOLD</span></td>
+<td><span class="qtextlight">HOTSPOT</span></td>
+<td><span class="qtextlight">I</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ICON</span></td>
+<td><span class="qtextlight">ID</span></td>
+<td><span class="qtextlight">IDENTIFICATION</span></td>
+<td><span class="qtextlight">IDENTIFIER</span></td>
+<td><span class="qtextlight">IDS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">IF</span></td>
+<td><span class="qtextlight">IGNORE</span></td>
+<td><span class="qtextlight">IGNORING</span></td>
+<td><span class="qtextlight">IMMEDIATELY</span></td>
+<td><span class="qtextlight">IMPLEMENTATION</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">IMPLEMENTATIONS</span></td>
+<td><span class="qtextlight">IMPLEMENTED</span></td>
+<td><span class="qtextlight">IMPLICIT</span></td>
+<td><span class="qtextlight">IMPORT</span></td>
+<td><span class="qtextlight">IMPORTING</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">IN</span></td>
+<td><span class="qtextlight">INACTIVE</span></td>
+<td><span class="qtextlight">INCL</span></td>
+<td><span class="qtextlight">INCLUDE</span></td>
+<td><span class="qtextlight">INCLUDES</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">INCLUDING</span></td>
+<td><span class="qtextlight">INCREMENT</span></td>
+<td><span class="qtextlight">INDEX</span></td>
+<td><span class="qtextlight">INDEX-LINE</span></td>
+<td><span class="qtextlight">INFOTYPES</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">INHERIT</span></td>
+<td><span class="qtextlight">INHERITING</span></td>
+<td><span class="qtextlight">INIT</span></td>
+<td><span class="qtextlight">INITIAL</span></td>
+<td><span class="qtextlight">INITIALIZATION</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">INNER</span></td>
+<td><span class="qtextlight">INOUT</span></td>
+<td><span class="qtextlight">*-INPUT</span></td>
+<td><span class="qtextlight">INPUT</span></td>
+<td><span class="qtextlight">INSERT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">INSTANCE</span></td>
+<td><span class="qtextlight">INSTANCES</span></td>
+<td><span class="qtextlight">INSTR</span></td>
+<td><span class="qtextlight">INT1</span></td>
+<td><span class="qtextlight">INT2</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">INT4</span></td>
+<td><span class="qtextlight">INT8</span></td>
+<td><span class="qtextlight">INTENSIFIED</span></td>
+<td><span class="qtextlight">INTERFACE</span></td>
+<td><span class="qtextlight">INTERFACE-POOL</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">INTERFACES</span></td>
+<td><span class="qtextlight">INTERNAL</span></td>
+<td><span class="qtextlight">INTERVALS</span></td>
+<td><span class="qtextlight">INTO</span></td>
+<td><span class="qtextlight">INVERSE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">INVERTED-DATE</span></td>
+<td><span class="qtextlight">IS</span></td>
+<td><span class="qtextlight">ISO</span></td>
+<td><span class="qtextlight">ITNO</span></td>
+<td><span class="qtextlight">JOB</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">JOIN</span></td>
+<td><span class="qtextlight">KEEP</span></td>
+<td><span class="qtextlight">KEEPING</span></td>
+<td><span class="qtextlight">KERNEL</span></td>
+<td><span class="qtextlight">KEY</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">KEYS</span></td>
+<td><span class="qtextlight">KEYWORDS</span></td>
+<td><span class="qtextlight">KIND</span></td>
+<td><span class="qtextlight">LANG</span></td>
+<td><span class="qtextlight">LANGUAGE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">LAST</span></td>
+<td><span class="qtextlight">LATE</span></td>
+<td><span class="qtextlight">LAYOUT</span></td>
+<td><span class="qtextlight">LE</span></td>
+<td><span class="qtextlight">LEADING</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">LEAVE</span></td>
+<td><span class="qtextlight">LEFT</span></td>
+<td><span class="qtextlight">LEFT-JUSTIFIED</span></td>
+<td><span class="qtextlight">LEFTPLUS</span></td>
+<td><span class="qtextlight">LEFTSPACE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">LEGACY</span></td>
+<td><span class="qtextlight">LENGTH</span></td>
+<td><span class="qtextlight">LET</span></td>
+<td><span class="qtextlight">LEVEL</span></td>
+<td><span class="qtextlight">LEVELS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">LIKE</span></td>
+<td><span class="qtextlight">LINE</span></td>
+<td><span class="qtextlight">LINE-COUNT</span></td>
+<td><span class="qtextlight">LINE-SELECTION</span></td>
+<td><span class="qtextlight">LINE-SIZE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">LINEFEED</span></td>
+<td><span class="qtextlight">LINES</span></td>
+<td><span class="qtextlight">LIST</span></td>
+<td><span class="qtextlight">LIST-PROCESSING</span></td>
+<td><span class="qtextlight">LISTBOX</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">LITTLE</span></td>
+<td><span class="qtextlight">LLANG</span></td>
+<td><span class="qtextlight">LOAD</span></td>
+<td><span class="qtextlight">LOAD-OF-PROGRAM</span></td>
+<td><span class="qtextlight">LOB</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">LOCAL</span></td>
+<td><span class="qtextlight">LOCALE</span></td>
+<td><span class="qtextlight">LOCATOR</span></td>
+<td><span class="qtextlight">LOG-POINT</span></td>
+<td><span class="qtextlight">LOGFILE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">LOGICAL</span></td>
+<td><span class="qtextlight">LONG</span></td>
+<td><span class="qtextlight">LOOP</span></td>
+<td><span class="qtextlight">LOW</span></td>
+<td><span class="qtextlight">LOWER</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">LPAD</span></td>
+<td><span class="qtextlight">LPI</span></td>
+<td><span class="qtextlight">LT</span></td>
+<td><span class="qtextlight">LTRIM</span></td>
+<td><span class="qtextlight">M</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">MAIL</span></td>
+<td><span class="qtextlight">MAIN</span></td>
+<td><span class="qtextlight">MAJOR-ID</span></td>
+<td><span class="qtextlight">MAPPING</span></td>
+<td><span class="qtextlight">MARGIN</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">MARK</span></td>
+<td><span class="qtextlight">MASK</span></td>
+<td><span class="qtextlight">MATCH</span></td>
+<td><span class="qtextlight">MATCHCODE</span></td>
+<td><span class="qtextlight">MAX</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">MAXIMUM</span></td>
+<td><span class="qtextlight">MEDIUM</span></td>
+<td><span class="qtextlight">MEMBERS</span></td>
+<td><span class="qtextlight">MEMORY</span></td>
+<td><span class="qtextlight">MESH</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">MESSAGE</span></td>
+<td><span class="qtextlight">MESSAGE-ID</span></td>
+<td><span class="qtextlight">MESSAGES</span></td>
+<td><span class="qtextlight">MESSAGING</span></td>
+<td><span class="qtextlight">METHOD</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">METHODS</span></td>
+<td><span class="qtextlight">MIN</span></td>
+<td><span class="qtextlight">MINIMUM</span></td>
+<td><span class="qtextlight">MINOR-ID</span></td>
+<td><span class="qtextlight">MM/DD/YY</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">MM/DD/YYYY</span></td>
+<td><span class="qtextlight">MMDDYY</span></td>
+<td><span class="qtextlight">MOD</span></td>
+<td><span class="qtextlight">MODE</span></td>
+<td><span class="qtextlight">MODIF</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">MODIFIER</span></td>
+<td><span class="qtextlight">MODIFY</span></td>
+<td><span class="qtextlight">MODULE</span></td>
+<td><span class="qtextlight">MOVE</span></td>
+<td><span class="qtextlight">MOVE-CORRESPONDING</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">MSSQLNT</span></td>
+<td><span class="qtextlight">MULTIPLY</span></td>
+<td><span class="qtextlight">MULTIPLY-CORRESPONDING</span></td>
+<td><span class="qtextlight">NA</span></td>
+<td><span class="qtextlight">NAME</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">NAMETAB</span></td>
+<td><span class="qtextlight">NATIVE</span></td>
+<td><span class="qtextlight">NB</span></td>
+<td><span class="qtextlight">NE</span></td>
+<td><span class="qtextlight">NESTED</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">NESTING</span></td>
+<td><span class="qtextlight">NEW</span></td>
+<td><span class="qtextlight">NEW-LINE</span></td>
+<td><span class="qtextlight">NEW-PAGE</span></td>
+<td><span class="qtextlight">NEW-SECTION</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">NEXT</span></td>
+<td><span class="qtextlight">NO</span></td>
+<td><span class="qtextlight">NO-DISPLAY</span></td>
+<td><span class="qtextlight">NO-EXTENSION</span></td>
+<td><span class="qtextlight">NO-GAP</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">NO-GAPS</span></td>
+<td><span class="qtextlight">NO-GROUPING</span></td>
+<td><span class="qtextlight">NO-HEADING</span></td>
+<td><span class="qtextlight">NO-SCROLLING</span></td>
+<td><span class="qtextlight">NO-SIGN</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">NO-TITLE</span></td>
+<td><span class="qtextlight">NO-TOPOFPAGE</span></td>
+<td><span class="qtextlight">NO-ZERO</span></td>
+<td><span class="qtextlight">NODE</span></td>
+<td><span class="qtextlight">NODES</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">NON-UNICODE</span></td>
+<td><span class="qtextlight">NON-UNIQUE</span></td>
+<td><span class="qtextlight">NOT</span></td>
+<td><span class="qtextlight">NP</span></td>
+<td><span class="qtextlight">NS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">NULL</span></td>
+<td><span class="qtextlight">NUMBER</span></td>
+<td><span class="qtextlight">NUMC</span></td>
+<td><span class="qtextlight">O</span></td>
+<td><span class="qtextlight">OBJECT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">OBJECTS</span></td>
+<td><span class="qtextlight">OBLIGATORY</span></td>
+<td><span class="qtextlight">OCCURRENCE</span></td>
+<td><span class="qtextlight">OCCURRENCES</span></td>
+<td><span class="qtextlight">OCCURS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">OF</span></td>
+<td><span class="qtextlight">OFF</span></td>
+<td><span class="qtextlight">OFFSET</span></td>
+<td><span class="qtextlight">OLE</span></td>
+<td><span class="qtextlight">ON</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ONLY</span></td>
+<td><span class="qtextlight">OPEN</span></td>
+<td><span class="qtextlight">OPTION</span></td>
+<td><span class="qtextlight">OPTIONAL</span></td>
+<td><span class="qtextlight">OPTIONS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">OR</span></td>
+<td><span class="qtextlight">ORACLE</span></td>
+<td><span class="qtextlight">ORDER</span></td>
+<td><span class="qtextlight">OTHER</span></td>
+<td><span class="qtextlight">OTHERS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">OUT</span></td>
+<td><span class="qtextlight">OUTER</span></td>
+<td><span class="qtextlight">OUTPUT</span></td>
+<td><span class="qtextlight">OUTPUT-LENGTH</span></td>
+<td><span class="qtextlight">OVERFLOW</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">OVERLAY</span></td>
+<td><span class="qtextlight">PACK</span></td>
+<td><span class="qtextlight">PACKAGE</span></td>
+<td><span class="qtextlight">PAD</span></td>
+<td><span class="qtextlight">PADDING</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">PAGE</span></td>
+<td><span class="qtextlight">PAGES</span></td>
+<td><span class="qtextlight">PARAMETER</span></td>
+<td><span class="qtextlight">PARAMETER-TABLE</span></td>
+<td><span class="qtextlight">PARAMETERS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">PART</span></td>
+<td><span class="qtextlight">PARTIALLY</span></td>
+<td><span class="qtextlight">PATTERN</span></td>
+<td><span class="qtextlight">PERCENTAGE</span></td>
+<td><span class="qtextlight">PERFORM</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">PERFORMING</span></td>
+<td><span class="qtextlight">PERSON</span></td>
+<td><span class="qtextlight">PF</span></td>
+<td><span class="qtextlight">PF-STATUS</span></td>
+<td><span class="qtextlight">PINK</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">PLACES</span></td>
+<td><span class="qtextlight">POOL</span></td>
+<td><span class="qtextlight">POS_HIGH</span></td>
+<td><span class="qtextlight">POS_LOW</span></td>
+<td><span class="qtextlight">POSITION</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">PRAGMAS</span></td>
+<td><span class="qtextlight">PRECOMPILED</span></td>
+<td><span class="qtextlight">PREFERRED</span></td>
+<td><span class="qtextlight">PRESERVING</span></td>
+<td><span class="qtextlight">PRIMARY</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">PRINT</span></td>
+<td><span class="qtextlight">PRINT-CONTROL</span></td>
+<td><span class="qtextlight">PRIORITY</span></td>
+<td><span class="qtextlight">PRIVATE</span></td>
+<td><span class="qtextlight">PROCEDURE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">PROCESS</span></td>
+<td><span class="qtextlight">PROGRAM</span></td>
+<td><span class="qtextlight">PROPERTY</span></td>
+<td><span class="qtextlight">PROTECTED</span></td>
+<td><span class="qtextlight">PROVIDE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">PUBLIC</span></td>
+<td><span class="qtextlight">PUSH</span></td>
+<td><span class="qtextlight">PUSHBUTTON</span></td>
+<td><span class="qtextlight">PUT</span></td>
+<td><span class="qtextlight">QUAN</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">QUEUE-ONLY</span></td>
+<td><span class="qtextlight">QUICKINFO</span></td>
+<td><span class="qtextlight">RADIOBUTTON</span></td>
+<td><span class="qtextlight">RAISE</span></td>
+<td><span class="qtextlight">RAISING</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">RANGE</span></td>
+<td><span class="qtextlight">RANGES</span></td>
+<td><span class="qtextlight">RAW</span></td>
+<td><span class="qtextlight">READ</span></td>
+<td><span class="qtextlight">READ-ONLY</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">READER</span></td>
+<td><span class="qtextlight">RECEIVE</span></td>
+<td><span class="qtextlight">RECEIVED</span></td>
+<td><span class="qtextlight">RECEIVER</span></td>
+<td><span class="qtextlight">RECEIVING</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">RED</span></td>
+<td><span class="qtextlight">REDEFINITION</span></td>
+<td><span class="qtextlight">REDUCE</span></td>
+<td><span class="qtextlight">REDUCED</span></td>
+<td><span class="qtextlight">REF</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">REFERENCE</span></td>
+<td><span class="qtextlight">REFRESH</span></td>
+<td><span class="qtextlight">REGEX</span></td>
+<td><span class="qtextlight">REJECT</span></td>
+<td><span class="qtextlight">REMOTE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">RENAMING</span></td>
+<td><span class="qtextlight">REPLACE</span></td>
+<td><span class="qtextlight">REPLACEMENT</span></td>
+<td><span class="qtextlight">REPLACING</span></td>
+<td><span class="qtextlight">REPORT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">REQUEST</span></td>
+<td><span class="qtextlight">REQUESTED</span></td>
+<td><span class="qtextlight">RESERVE</span></td>
+<td><span class="qtextlight">RESET</span></td>
+<td><span class="qtextlight">RESOLUTION</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">RESPECTING</span></td>
+<td><span class="qtextlight">RESPONSIBLE</span></td>
+<td><span class="qtextlight">RESULT</span></td>
+<td><span class="qtextlight">RESULTS</span></td>
+<td><span class="qtextlight">RESUMABLE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">RESUME</span></td>
+<td><span class="qtextlight">RETRY</span></td>
+<td><span class="qtextlight">RETURN</span></td>
+<td><span class="qtextlight">RETURNCODE</span></td>
+<td><span class="qtextlight">RETURNING</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">RETURNS</span></td>
+<td><span class="qtextlight">RIGHT</span></td>
+<td><span class="qtextlight">RIGHT-JUSTIFIED</span></td>
+<td><span class="qtextlight">RIGHTPLUS</span></td>
+<td><span class="qtextlight">RIGHTSPACE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">RISK</span></td>
+<td><span class="qtextlight">RMC_COMMUNICATION_FAILURE</span></td>
+<td><span class="qtextlight">RMC_INVALID_STATUS</span></td>
+<td><span class="qtextlight">RMC_SYSTEM_FAILURE</span></td>
+<td><span class="qtextlight">ROLE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ROLLBACK</span></td>
+<td><span class="qtextlight">ROUND</span></td>
+<td><span class="qtextlight">ROWS</span></td>
+<td><span class="qtextlight">RPAD</span></td>
+<td><span class="qtextlight">RTRIM</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">RUN</span></td>
+<td><span class="qtextlight">SAP</span></td>
+<td><span class="qtextlight">SAP-SPOOL</span></td>
+<td><span class="qtextlight">SAVING</span></td>
+<td><span class="qtextlight">SCALE_PRESERVING</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SCALE_PRESERVING_SCIENTIFIC</span></td>
+<td><span class="qtextlight">SCAN</span></td>
+<td><span class="qtextlight">SCIENTIFIC</span></td>
+<td><span class="qtextlight">SCIENTIFIC_WITH_LEADING_ZERO</span></td>
+<td><span class="qtextlight">SCREEN</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SCROLL</span></td>
+<td><span class="qtextlight">SCROLL-BOUNDARY</span></td>
+<td><span class="qtextlight">SCROLLING</span></td>
+<td><span class="qtextlight">SEARCH</span></td>
+<td><span class="qtextlight">SECONDARY</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SECONDS</span></td>
+<td><span class="qtextlight">SECTION</span></td>
+<td><span class="qtextlight">SELECT</span></td>
+<td><span class="qtextlight">SELECT-OPTIONS</span></td>
+<td><span class="qtextlight">SELECTION</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SELECTION-SCREEN</span></td>
+<td><span class="qtextlight">SELECTION-SET</span></td>
+<td><span class="qtextlight">SELECTION-SETS</span></td>
+<td><span class="qtextlight">SELECTION-TABLE</span></td>
+<td><span class="qtextlight">SELECTIONS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SEND</span></td>
+<td><span class="qtextlight">SEPARATE</span></td>
+<td><span class="qtextlight">SEPARATED</span></td>
+<td><span class="qtextlight">SET</span></td>
+<td><span class="qtextlight">SHARED</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SHIFT</span></td>
+<td><span class="qtextlight">SHORT</span></td>
+<td><span class="qtextlight">SHORTDUMP-ID</span></td>
+<td><span class="qtextlight">SIGN</span></td>
+<td><span class="qtextlight">SIGN_AS_POSTFIX</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SIMPLE</span></td>
+<td><span class="qtextlight">SINGLE</span></td>
+<td><span class="qtextlight">SIZE</span></td>
+<td><span class="qtextlight">SKIP</span></td>
+<td><span class="qtextlight">SKIPPING</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SMART</span></td>
+<td><span class="qtextlight">SOME</span></td>
+<td><span class="qtextlight">SORT</span></td>
+<td><span class="qtextlight">SORTABLE</span></td>
+<td><span class="qtextlight">SORTED</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SOURCE</span></td>
+<td><span class="qtextlight">SPACE</span></td>
+<td><span class="qtextlight">SPECIFIED</span></td>
+<td><span class="qtextlight">SPLIT</span></td>
+<td><span class="qtextlight">SPOOL</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SPOTS</span></td>
+<td><span class="qtextlight">SQL</span></td>
+<td><span class="qtextlight">SQLSCRIPT</span></td>
+<td><span class="qtextlight">SSTRING</span></td>
+<td><span class="qtextlight">STABLE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">STAMP</span></td>
+<td><span class="qtextlight">STANDARD</span></td>
+<td><span class="qtextlight">START-OF-SELECTION</span></td>
+<td><span class="qtextlight">STARTING</span></td>
+<td><span class="qtextlight">STATE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">STATEMENT</span></td>
+<td><span class="qtextlight">STATEMENTS</span></td>
+<td><span class="qtextlight">STATIC</span></td>
+<td><span class="qtextlight">STATICS</span></td>
+<td><span class="qtextlight">STATUSINFO</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">STEP-LOOP</span></td>
+<td><span class="qtextlight">STOP</span></td>
+<td><span class="qtextlight">STRUCTURE</span></td>
+<td><span class="qtextlight">STRUCTURES</span></td>
+<td><span class="qtextlight">STYLE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SUBKEY</span></td>
+<td><span class="qtextlight">SUBMATCHES</span></td>
+<td><span class="qtextlight">SUBMIT</span></td>
+<td><span class="qtextlight">SUBROUTINE</span></td>
+<td><span class="qtextlight">SUBSCREEN</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SUBSTRING</span></td>
+<td><span class="qtextlight">SUBTRACT</span></td>
+<td><span class="qtextlight">SUBTRACT-CORRESPONDING</span></td>
+<td><span class="qtextlight">SUFFIX</span></td>
+<td><span class="qtextlight">SUM</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SUMMARY</span></td>
+<td><span class="qtextlight">SUMMING</span></td>
+<td><span class="qtextlight">SUPPLIED</span></td>
+<td><span class="qtextlight">SUPPLY</span></td>
+<td><span class="qtextlight">SUPPRESS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SWITCH</span></td>
+<td><span class="qtextlight">SWITCHSTATES</span></td>
+<td><span class="qtextlight">SYBASE</span></td>
+<td><span class="qtextlight">SYMBOL</span></td>
+<td><span class="qtextlight">SYNCPOINTS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SYNTAX</span></td>
+<td><span class="qtextlight">SYNTAX-CHECK</span></td>
+<td><span class="qtextlight">SYNTAX-TRACE</span></td>
+<td><span class="qtextlight">SYSTEM-CALL</span></td>
+<td><span class="qtextlight">SYSTEM-EXCEPTIONS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">SYSTEM-EXIT</span></td>
+<td><span class="qtextlight">TAB</span></td>
+<td><span class="qtextlight">TABBED</span></td>
+<td><span class="qtextlight">TABLE</span></td>
+<td><span class="qtextlight">TABLES</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">TABLEVIEW</span></td>
+<td><span class="qtextlight">TABSTRIP</span></td>
+<td><span class="qtextlight">TARGET</span></td>
+<td><span class="qtextlight">TASK</span></td>
+<td><span class="qtextlight">TASKS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">TEST</span></td>
+<td><span class="qtextlight">TEST-INJECTION</span></td>
+<td><span class="qtextlight">TEST-SEAM</span></td>
+<td><span class="qtextlight">TESTING</span></td>
+<td><span class="qtextlight">TEXT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">TEXTPOOL</span></td>
+<td><span class="qtextlight">THEN</span></td>
+<td><span class="qtextlight">THROW</span></td>
+<td><span class="qtextlight">TIME</span></td>
+<td><span class="qtextlight">TIMES</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">TIMESTAMP</span></td>
+<td><span class="qtextlight">TIMEZONE</span></td>
+<td><span class="qtextlight">TIMS</span></td>
+<td><span class="qtextlight">TIMS_IS_VALID</span></td>
+<td><span class="qtextlight">TITLE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">TITLE-LINES</span></td>
+<td><span class="qtextlight">TITLEBAR</span></td>
+<td><span class="qtextlight">?TO</span></td>
+<td><span class="qtextlight">TO</span></td>
+<td><span class="qtextlight">TOKENIZATION</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">TOKENS</span></td>
+<td><span class="qtextlight">TOP-LINES</span></td>
+<td><span class="qtextlight">TOP-OF-PAGE</span></td>
+<td><span class="qtextlight">TRACE-FILE</span></td>
+<td><span class="qtextlight">TRACE-TABLE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">TRAILING</span></td>
+<td><span class="qtextlight">TRANSACTION</span></td>
+<td><span class="qtextlight">TRANSFER</span></td>
+<td><span class="qtextlight">TRANSFORMATION</span></td>
+<td><span class="qtextlight">TRANSLATE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">TRANSPORTING</span></td>
+<td><span class="qtextlight">TRMAC</span></td>
+<td><span class="qtextlight">TRUNCATE</span></td>
+<td><span class="qtextlight">TRUNCATION</span></td>
+<td><span class="qtextlight">TRY</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">TSTMP_ADD_SECONDS</span></td>
+<td><span class="qtextlight">TSTMP_CURRENT_UTCTIMESTAMP</span></td>
+<td><span class="qtextlight">TSTMP_IS_VALID</span></td>
+<td><span class="qtextlight">TSTMP_SECONDS_BETWEEN</span></td>
+<td><span class="qtextlight">TSTMP_TO_DATS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">TSTMP_TO_DST</span></td>
+<td><span class="qtextlight">TSTMP_TO_TIMS</span></td>
+<td><span class="qtextlight">TYPE</span></td>
+<td><span class="qtextlight">TYPE-POOL</span></td>
+<td><span class="qtextlight">TYPE-POOLS</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">TYPES</span></td>
+<td><span class="qtextlight">ULINE</span></td>
+<td><span class="qtextlight">UNASSIGN</span></td>
+<td><span class="qtextlight">UNDER</span></td>
+<td><span class="qtextlight">UNICODE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">UNION</span></td>
+<td><span class="qtextlight">UNIQUE</span></td>
+<td><span class="qtextlight">UNIT</span></td>
+<td><span class="qtextlight">UNIT_CONVERSION</span></td>
+<td><span class="qtextlight">UNIX</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">UNPACK</span></td>
+<td><span class="qtextlight">UNTIL</span></td>
+<td><span class="qtextlight">UNWIND</span></td>
+<td><span class="qtextlight">UP</span></td>
+<td><span class="qtextlight">UPDATE</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">UPPER</span></td>
+<td><span class="qtextlight">USER</span></td>
+<td><span class="qtextlight">USER-COMMAND</span></td>
+<td><span class="qtextlight">USING</span></td>
+<td><span class="qtextlight">UTF-8</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">VALID</span></td>
+<td><span class="qtextlight">VALUE</span></td>
+<td><span class="qtextlight">VALUE-REQUEST</span></td>
+<td><span class="qtextlight">VALUES</span></td>
+<td><span class="qtextlight">VARIANT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">VARY</span></td>
+<td><span class="qtextlight">VARYING</span></td>
+<td><span class="qtextlight">VERIFICATION-MESSAGE</span></td>
+<td><span class="qtextlight">VERSION</span></td>
+<td><span class="qtextlight">VIA</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">VIEW</span></td>
+<td><span class="qtextlight">VISIBLE</span></td>
+<td><span class="qtextlight">WAIT</span></td>
+<td><span class="qtextlight">WARNING</span></td>
+<td><span class="qtextlight">WHEN</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">WHENEVER</span></td>
+<td><span class="qtextlight">WHERE</span></td>
+<td><span class="qtextlight">WHILE</span></td>
+<td><span class="qtextlight">WIDTH</span></td>
+<td><span class="qtextlight">WINDOW</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">WINDOWS</span></td>
+<td><span class="qtextlight">WITH</span></td>
+<td><span class="qtextlight">WITH-HEADING</span></td>
+<td><span class="qtextlight">WITH-TITLE</span></td>
+<td><span class="qtextlight">WITHOUT</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">WORD</span></td>
+<td><span class="qtextlight">WORK</span></td>
+<td><span class="qtextlight">WRITE</span></td>
+<td><span class="qtextlight">WRITER</span></td>
+<td><span class="qtextlight">XML</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">XSD</span></td>
+<td><span class="qtextlight">YELLOW</span></td>
+<td><span class="qtextlight">YES</span></td>
+<td><span class="qtextlight">YYMMDD</span></td>
+<td><span class="qtextlight">Z</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">ZERO</span></td>
+<td><span class="qtextlight">ZONE</span></td>
+<td><span class="qtextlight">1</span></td>
+<td><span class="qtextlight">2</span></td>
+<td><span class="qtextlight">3</span></td>
+</tr>
+<tr>
+<td><span class="qtextlight">4</span></td>
+<td><span class="qtextlight">5</span></td>
+<td><span class="qtextlight">6</span></td>
+<td><span class="qtextlight">7</span></td>
+</tr>
+</table><br>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenabap_words.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:26:27 GMT -->
+</html>

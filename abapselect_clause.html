@@ -1,0 +1,184 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABAPSELECT_CLAUSE -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abapselect_clause.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:07 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="SELECT - select_clause">
+<title>
+SELECT - select_clause - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abapselect_clause.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abapselect_clause.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopensql.html')" class="blue">Open SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopen_sql_reading.html')" class="blue">Open SQL - Reads</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenselect_clauses.html')" class="blue">SELECT clauses</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+SELECT - select_clause <br><br>
+</span></p>
+<P>
+<a href="javascript:call_link('abapselect_shortref.html')" class="blue">Quick Reference</a> <br><br>
+</P>
+<p><span class="h2">
+<span class="bold">Syntax</span>
+</span></p>
+<P>
+<span class="qtext">... <i class=bn>[</i>DISTINCT<i class=bn>]</i> <a href="javascript:call_link('abapselect_list.html')" class="blue">select_list</a> ...</span> <br><br>
+</P>
+<p><span class="h3">
+Addition:
+</span></p>
+<P>
+   <A HREF="#!ABAP_ONE_ADD@1@" class="blue"> <span class="qtext">... DISTINCT</span> </A> <br><br>
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+<span class="qtext">SELECT</span> clause of a <a href="javascript:call_link('abenquery_glosry.html')" class="grey" title="Glossary Entry">
+query</a> statement. The <span class="qtext">SELECT</span> defines the structure of the <span class="qtext">SELECT</span>
+statement's result set. It consists of a <a href="javascript:call_link('abapselect_list.html')" class="blue"><span class="qtext">SELECT</span>
+list</a>, which defines the columns of the result set, and an optional addition <span class="qtext">DISTINCT</span>, which removes duplicative rows from the result set.
+</P>
+<P>
+The <span class="qtext">SELECT</span> list <a href="javascript:call_link('abapselect_list.html')" class="blue"><span class="qtext">
+select_list</span></a> specifies the columns to be read and defines their names in the results set. Note that column names from the
+<a href="javascript:call_link('abapselect_data_source.html')" class="blue">data source</a> can be changed. For single columns,
+<a href="javascript:call_link('abenaggregate_expression_glosry.html')" class="grey" title="Glossary Entry">aggregate expressions</a> can be used to specify
+<a href="javascript:call_link('abenaggregate_glosry.html')" class="grey" title="Glossary Entry">aggregates</a>.
+<a href="javascript:call_link('abensql_expression_glosry.html')" class="grey" title="Glossary Entry">SQL expressions</a> enable table fields to be evaluated in the database system.
+</P>
+<p><span class="h4">
+Note
+</span></p>
+<P>
+The <span class="qtext">SELECT</span> clause must either be listed as the first clause after the keyword
+<span class="qtext">SELECT</span> (or after optional addition <span class="qtext">SINGLE</span>) or
+after the <span class="qtext">FROM</span> clause. After the <span class="qtext">FROM</span> clause,
+the SELECT clause must be introduced using addition <a href="javascript:call_link('abapselect.html')" class="blue"><span class="qtext">FIELDS</span></a>.
+A <span class="qtext">FROM</span> clause of the <span class="qtext">SELECT</span> clause supports tools such as the code completion in ABAP Editor. <br><br>
+</P>
+<A NAME="@@DISTINCT@@SELECT - select_clause@@"></A>
+<p><span class="h3">
+<A NAME="!ABAP_ONE_ADD@1@"></A> <span class="bold">Addition</span>
+</span></p>
+<P>
+<span class="qtext">... DISTINCT</span> <!-- /A -->  <br>
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+Addition <span class="qtext">DISTINCT</span> removes rows, which occur multiple times in a multirow result set. Here the entire row content is taken into consideration.
+</P>
+<P>
+The addition <span class="qtext">DISTINCT</span> must not be used in the following cases:
+</P>
+<ul class="disc">
+<li>
+if the addition <a href="javascript:call_link('abapselect_single.html')" class="blue"><span class="qtext">SINGLE</span></a> is used.
+<br><br></li>
+<li>
+If a column specified in the <span class="qtext">SELECT</span> list <a href="javascript:call_link('abapselect_list.html')" class="blue"><span class="qtext">select_list</span></a> has the type STRING, RAWSTRING, LCHR or LRAW,
+<br><br></li>
+<li>
+If the system tries to access <a href="javascript:call_link('abenpooled_table_glosry.html')" class="grey" title="Glossary Entry">pooled tables</a> or
+<a href="javascript:call_link('abencluster_table_glosry.html')" class="grey" title="Glossary Entry">cluster tables</a> and single
+columns are specified in the <span class="qtext">SELECT</span> list <a href="javascript:call_link('abapselect_list.html')" class="blue"><span class="qtext">select_list</span></a>.
+<br></li>
+</ul>
+<P>
+If <span class="qtext">DISTINCT</span> is used, the statement <span class="qtext">SELECT</span> bypasses SAP buffering. <br><br>
+</P>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>
+For addition <span class="qtext">DISTINCT</span>, it does not play a role which columns of the result set are key fields of the associated database tables, views or CDS entities.
+<br><br></li>
+<li>
+When specifying <span class="qtext">DISTINCT</span>, note that this requires the execution of sort operations in the database system, and the statement <span class="qtext">SELECT</span> therefore bypasses the
+<a href="javascript:call_link('abensap_buffering_glosry.html')" class="grey" title="Glossary Entry">SAP buffer</a>. <br><br>
+<br></li>
+</ul>
+<p><span class="h4">
+Example
+</span></p>
+<P>
+Gets all destinations to which Lufthansa flies from Frankfurt.
+</P>
+<p class="qtextml1">
+<span class="qtext">
+DATA destinations TYPE TABLE OF spfli-cityto WITH EMPTY KEY. <br> <br>SELECT DISTINCT cityto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM spfli <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE carrid = 'LH' AND <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cityfrom = 'FRANKFURT' <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INTO TABLE @destinations. <br> <br>cl_demo_output=>display_data( destinations ). <br><br>
+</span>
+</p>
+<br>
+<br>
+<!-- POSTFIX --><span class="h4">Continue</span><br>
+<a href="javascript:call_link('abapselect_list.html')" class="blue">SELECT - select_list</a><br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abapselect_clause.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:08 GMT -->
+</html>

@@ -1,0 +1,146 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENCDS_F1_ANNOTATE_VIEW_SELE_LIST -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds_f1_annotate_view_sele_list.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:25:26 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="ABAP CDS - ANNOTATE VIEW, element_list">
+<title>
+ABAP CDS - ANNOTATE VIEW, element_list - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abencds_f1_annotate_view_sele_list.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abencds_f1_annotate_view_sele_list.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dictionary.html')" class="blue">ABAP - Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds.html')" class="blue">ABAP CDS in ABAP Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_meta_data_extensions.html')" class="blue">ABAP CDS Metadata Extensions</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_f1_ddlx_syntax.html')" class="blue">ABAP CDS - DDL for Metadata Extensions</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_f1_annotate_view.html')" class="blue">ABAP CDS - ANNOTATE VIEW</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+ABAP CDS - ANNOTATE VIEW, element_list
+</span></p>
+<A name="@@ITOC@@ABENCDS_F1_ANNOTATE_VIEW_SELE_LIST_1"></A>
+<p><span class="h2">
+Syntax
+</span></p>
+<p>
+<span class="qtext400">... <a href="javascript:call_link('abencds_f1_element_annotations.html')" class="blue">@element_annot1</a> <br>
+&nbsp;&nbsp; <i class=bn>[</i><a href="javascript:call_link('abencds_f1_element_annotations.html')" class="blue">@element_annot2</a> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<i class=bn>]</i> <br>&nbsp;&nbsp;&nbsp;&nbsp;element1<i class=bn>[</i>; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:call_link('abencds_f1_element_annotations.html')" class="blue">@element_annot1</a> <br>
+&nbsp;&nbsp; <i class=bn>[</i><a href="javascript:call_link('abencds_f1_element_annotations.html')" class="blue">@element_annot2</a> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<i class=bn>]</i> <br>&nbsp;&nbsp;&nbsp;&nbsp;element2; <br>&nbsp;&nbsp;&nbsp;&nbsp;...;<i class=bn>]</i></span>
+</p>
+<p><span class="h4">
+Effect
+</span></p>
+<p>
+Specifies annotations for the <a href="javascript:call_link('abencds_f1_select_list_entry.html')" class="blue">elements</a> of the <a href="javascript:call_link('abencds_f1_select_list.html')" class="blue"><span class="qtext400">SELECT</span> list</a> of a
+<a href="javascript:call_link('abencds_view_glosry.html')" class="grey" title="Glossary Entry">CDS view</a> in a
+<a href="javascript:call_link('abencds_metadata_extension_glosry.html')" class="grey" title="Glossary Entry">CDS metadata extension</a>
+introduced with <a href="javascript:call_link('abencds_f1_annotate_view.html')" class="blue"><span class="qtext400">ANNOTATE
+VIEW</span></a>. A semicolon-separated list <span class="qtext400">element1</span>; <span class="qtext400">element2</span>;
+...; prefixed with annotations <span class="qtext400">element_annot</span> can be specified in the curly
+brackets of the <span class="qtext400">ANNOTATE VIEW</span> statement. There must be a semicolon after the last element of the list.
+</p>
+<p>
+Each specified element <span class="qtext400">element</span> should appear in the <span class="qtext400">SELECT</span>
+list of the view that is extended with <span class="qtext400">ANNOTATE VIEW</span>, otherwise the syntax
+check generates a warning. An externally visible element name must be used. This is either the direct
+name, an alternative element name defined with <a href="javascript:call_link('abencds_f1_select_list_entry.html')" class="blue"><span class="qtext400">AS</span></a>, or the name defined in a
+<a href="javascript:call_link('abencds_f1_name_list.html')" class="blue">name list</a>.
+</p>
+<p>
+All elements of the <span class="qtext400">SELECT</span> list can be used exactly once. Allowed
+<a href="javascript:call_link('abencds_annotations_sap.html')" class="blue">SAP annotations</a> <span class="qtext400">@element_annot</span> can be listed before these as
+<a href="javascript:call_link('abencds_f1_element_annotations.html')" class="blue">element annotations</a>. It is not possible
+here to specify annotations after the name of an element <span class="qtext400">element</span> with the syntax <span class="qtext400">@&lt;element_annot</span>.
+</p>
+<p>
+At least one element annotation <a href="javascript:call_link('abencds_f1_element_annotations.html')" class="blue"><span class="qtext400">@element_annot</span></a>
+must be specified before each element of the list. However, the curly brackets of the <span class="qtext400">ANNOTATE VIEW</span> statement can also be empty.
+</p>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>An element must be specified directly with its name. It cannot be specified using names with multiple parts separated by periods, which can be used within the view for its definition.</li>
+</ul>
+<ul class="disc">
+<li>Currently, only <a href="javascript:call_link('abencds_annotations_abap.html')" class="blue"><span class="qtext400">EndUserText</span></a>
+and <a href="javascript:call_link('abencds_annotations_frmwrk.html')" class="blue"><span class="qtext400">UI</span></a> annotations can be specified.</li>
+</ul>
+<ul class="disc">
+<li>An element that is not in the <span class="qtext400">SELECT</span> list of the view is handled like a normal element in the
+<a href="javascript:call_link('abencds_annotations_analysis.html')" class="blue">evaluation of annotations</a> with the class <span class="lnkgrey">CL_DD_DDL_ANNOTATION_SERVICE</span>.</li>
+</ul>
+<p>
+
+</p>
+<p>
+
+</p>
+<p>
+
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds_f1_annotate_view_sele_list.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:25:26 GMT -->
+</html>

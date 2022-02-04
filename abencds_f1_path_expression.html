@@ -1,0 +1,262 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENCDS_F1_PATH_EXPRESSION -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds_f1_path_expression.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:25:02 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="ABAP CDS - path_expr">
+<title>
+ABAP CDS - path_expr - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abencds_f1_path_expression.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abencds_f1_path_expression.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dictionary.html')" class="blue">ABAP - Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds.html')" class="blue">ABAP CDS in ABAP Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_cds_entities.html')" class="blue">ABAP CDS - Data Definitions</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_f1_ddl_syntax.html')" class="blue">ABAP CDS - DDL for Data Definitions</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_f1_define_view.html')" class="blue">ABAP CDS - DEFINE VIEW</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_f1_select_statement.html')" class="blue">ABAP CDS - SELECT</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds_f1_association.html')" class="blue">ABAP CDS - SELECT, association</a>&nbsp;&rarr;&nbsp;
+</span>
+<A NAME="@@.@@!ABAP_CDS_PATH_EXPR!@@"></A>
+<p><span class="h1">
+ABAP CDS - path_expr
+</span></p>
+<A name="@@ITOC@@ABENCDS_F1_PATH_EXPRESSION_1"></A>
+<p><span class="h2">
+Syntax
+</span></p>
+<p>
+<span class="qtext400">... <i class=bn>[</i>viewEntity.<i class=bn>]</i>_assoc1<i class=bn>[</i>
+<a href="javascript:call_link('abencds_f1_select_parameters.html')" class="blue">parameters</a><i class=bn>]</i><i class=bn>[</i><a href="javascript:call_link('abencds_path_expression_attr.html')" class="blue">attributes</a><i class=bn>]</i> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class=bn>[</i>._assoc2<i class=bn>[</i>
+<a href="javascript:call_link('abencds_f1_select_parameters.html')" class="blue">parameters</a><i class=bn>]</i><i class=bn>[</i>
+<a href="javascript:call_link('abencds_path_expression_attr.html')" class="blue">attributes</a><i class=bn>]</i> ... <i class=bn>]</i><i class=bn>[</i>.element<i class=bn>]</i> ...</span>
+</p>
+<p><span class="h4">
+Effect
+</span></p>
+<p>
+Defines a path expression in a <span class="qtext400">SELECT</span> statement of a
+<a href="javascript:call_link('abencds_view_glosry.html')" class="grey" title="Glossary Entry">CDS view</a>. A path expression is a string of
+<a href="javascript:call_link('abencds_f1_association.html')" class="blue">associations</a> separated by periods
+(<span class="qtext400">.</span>) whose names are specified using <span class="qtext400">_assoc1</span>, <span class="qtext400">_assoc2</span>, and so on.
+</p>
+<p>
+Path expressions can be specified in the ABAP CDS DDL as data sources <a href="javascript:call_link('abencds_f1_data_source.html')" class="blue"> <span class="qtext400">data_source</span></a>, as
+<a href="javascript:call_link('abencds_f1_select_list_entry.html')" class="blue">elements</a> of <a href="javascript:call_link('abencds_f1_select_list.html')" class="blue">
+<span class="qtext400">SELECT</span> lists</a>, and as operands of <a href="javascript:call_link('abencds_f1_where_clause.html')" class="blue">
+<span class="qtext400">WHERE</span> conditions</a> or <a href="javascript:call_link('abencds_f1_having_clause.html')" class="blue"><span class="qtext400">
+HAVING</span> conditions</a>. Path expressions specified as operands of a condition must be closed using an element. As a non-aggregated element of a <span class="qtext400">SELECT</span> list of
+<a href="javascript:call_link('abencds_f1_aggregate_functions.html')" class="blue">aggregate expressions</a> and in a <span class="qtext400">WHERE</span>
+condition or <span class="qtext400">HAVING</span> condition, the result of the path expression must be monovalent. This means that the cardinality of all associations used is either "to 1" or the path expression can contain only
+<a href="javascript:call_link('abencds_path_expression_attr.html')" class="blue">filter conditions</a> that are declared as monovalent using the addition <span class="qtext400">1:</span>.
+</p>
+<p>
+The following is evaluated when a CDS view is accessed using a path expression:
+</p>
+<ul class="disc">
+<li>The joins defined by the associations, from left to right.</li>
+</ul>
+<ul class="disc">
+<li>All other conditions of the CDS views in question.</li>
+</ul>
+<p>
+The path expression addresses the full result of this evaluation or a single element appended using <span class="qtext400">.element</span>.
+</p>
+<ul class="disc">
+<li>If the path expression is closed using an element, this must be an element of the target data source of the final association in the path.</li>
+</ul>
+<ul class="disc">
+<li>If the path expression is closed using an association, this is interpreted as follows depending on the position of the path expression:</li>
+</ul>
+<ul class="circlem2">
+<li>After <a href="javascript:call_link('abencds_f1_select_statement.html')" class="blue"><span class="qtext400">FROM</span></a>,
+the association is a data source <a href="javascript:call_link('abencds_f1_data_source.html')" class="blue"><span class="qtext400">data_source</span></a>.</li>
+</ul>
+<ul class="circlem2">
+<li>As an <a href="javascript:call_link('abencds_f1_select_list_entry.html')" class="blue">element</a> of a <a href="javascript:call_link('abencds_f1_select_list.html')" class="blue">
+<span class="qtext400">SELECT</span> list</a>, the association is published for use in other CDS views or in Open SQL.</li>
+</ul>
+<p>
+In a <a href="javascript:call_link('abencds_f1_where_clause.html')" class="blue"><span class="qtext400">WHERE</span></a> clause
+or <a href="javascript:call_link('abencds_f1_having_clause.html')" class="blue"><span class="qtext400">HAVING</span></a> clause, the path expression must be closed using an element.
+</p>
+<p>
+The name of the CDS view in which the first association is defined can be specified in front of this
+association. The first association in a path expression must either be defined in the current CDS view
+or published as an element in a data source of the current view. All further associations must be published in the target data source of the directly prefixed association in the path expression.
+</p>
+<ul class="disc">
+<li><a href="javascript:call_link('abencds_path_expression_attr.html')" class="blue"><span class="qtext400">attributes</span></a>
+can be used to specify attributes in angle brackets after every association. These attributes define the following further properties of this section of the path expression:</li>
+</ul>
+<ul class="circlem2">
+<li>Declaration of monovalency</li>
+</ul>
+<ul class="circlem2">
+<li>Category of the join expression</li>
+</ul>
+<ul class="circlem2">
+<li>Specified filter conditions</li>
+</ul>
+<ul class="disc">
+<li>If the data source <span class="qtext400">target</span> of a specified
+<a href="javascript:call_link('abencds_f1_association.html')" class="blue">association</a> is a CDS entity with
+<a href="javascript:call_link('abencds_f1_param.html')" class="blue">input parameters</a>, <a href="javascript:call_link('abencds_f1_select_parameters.html')" class="blue">
+<span class="qtext400">parameters</span></a> must be used after the name <span class="qtext400">_assoc</span> to pass actual parameters to them.</li>
+</ul>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>The most simple path expression is the name of a single association.</li>
+</ul>
+<ul class="disc">
+<li>CDS DDL path expressions can also be used in <a href="javascript:call_link('abencds_dcl_role_conditions.html')" class="blue">conditions</a> in the ABAP
+<a href="javascript:call_link('abencds_dcl_glosry.html')" class="grey" title="Glossary Entry">CDS DCL</a> of ABAP CDS.</li>
+</ul>
+<ul class="disc">
+<li>An association whose target data source does not publish an association cannot be followed by any
+further associations in a path expression. More specifically, no further associations can be made into a path expression after associations whose target data sources are database tables or classic views.</li>
+</ul>
+<ul class="disc">
+<li>The <a href="javascript:call_link('abencore_annotation_glosry.html')" class="grey" title="Glossary Entry">ABAP annotation</a>
+<a href="javascript:call_link('abencds_f1_view_entity_annotations.html')" class="blue"><span class="qtext400">AbapCatalog.compiler.compareFilter</span></a> can be used to specify whether the
+<a href="javascript:call_link('abencds_path_expression_attr.html')" class="blue">filter conditions</a> are compared for the path
+expressions of a view. If the filter condition matches, the associated join expression is created only
+once, which generally improves performance. Otherwise a separate join expression is created for each filter condition. However, the results sets of both configurations can differ.</li>
+</ul>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+The following CDS view contains the simple path expression <span class="qtext400">_scarr[inner].carrname</span>
+in the <span class="qtext400">SELECT</span> list, whereby the attribute <a href="javascript:call_link('abencds_path_expression_attr.html')" class="blue">
+<span class="qtext400">INNER</span></a> is specified that controls the type of join. The program <span class="lnkgrey">
+DEMO_FROM_JOIN_TO_ASSOCIATION</span> demonstrates that this view returns the same result as a directly programmed inner join in ABAP CDS or in Open SQL.
+</p>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+This example shows three CDS views, <span class="qtext400">sales_order</span>, <span class="qtext400">business_partner</span>,
+and <span class="qtext400">invoice</span>. The CDS view <span class="qtext400">invoice</span> uses its own association and associations from the other two views in path expressions:
+</p>
+<ul class="disc">
+<li>The association <span class="qtext400">sales_order</span> of the CDS view <span class="qtext400">business_partner</span>
+is specified as a data source after <span class="qtext400">FROM</span>. A filter condition guarantees that only certain orders can be used as data sources.</li>
+</ul>
+<ul class="disc">
+<li>The separate association <span class="qtext400">invoice_header</span> is used in a path expression as an operand in the <span class="qtext400">WHERE</span> condition.</li>
+</ul>
+<ul class="disc">
+<li>The association <span class="qtext400">note_header</span> of the CDS view <span class="qtext400">sales_order</span>
+is addressed using the alternative name <span class="qtext400">bpa</span> in <span class="qtext400">business_partner</span>
+and defined as an element of the <span class="qtext400">SELECT</span> list. This means this association can also be used in CDS views that use <span class="qtext400">invoice</span> as a data source.</li>
+</ul>
+<dl><dd>
+<span class="qtext400">@AbapCatalog.sqlViewName: 'SALES_ORDER_VW' <br>define view sales_order as <br>&nbsp;&nbsp;select from snwd_so <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; association [0..1] to snwd_text_key as _note_header <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on snwd_so.note_guid = _note_header.node_key <br>&nbsp;&nbsp;{ * } // Include all fields from snwd_text_key</span>
+</dd></dl>
+<p>
+
+</p>
+<dl><dd>
+<span class="qtext400">@AbapCatalog.sqlViewName: 'BPA_VW' <br>define view business_partner as <br>&nbsp;&nbsp;select from snwd_bpa <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; association [0..*] to sales_order <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on snwd_bpa.node_key = sales_order.buyer_guid <br>
+&nbsp;&nbsp;{ * }</span>
+</dd></dl>
+<p>
+
+</p>
+<dl><dd>
+<span class="qtext400">@AbapCatalog.sqlViewName: 'SALESO_INV_VW' <br>define view invoice as <br>&nbsp;&nbsp;select from <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* Association "sales_order" with filter as data source */ <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; business_partner.sales_order[ <br>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lifecycle_status &lt;> 'C' and lifecycle_status &lt;> 'X'] <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; as bpa_so //alias for data source <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* Association only used in this view definition */ <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; association [0..1] to snwd_so_inv_head as _invoice_header <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on bpa_so.node_key = _invoice_header.so_guid <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ key bpa_so.node_key, //Field from ON-condition in _invoice_header <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bpa_so.so_id, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bpa_so.note_guid, //Field from ON-condition in note_header <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bpa_so.lifecycle_status, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Association is not published, but its element */ <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_invoice_header.dunning_level, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Association from data source is published here */ <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bpa_so.note_header } <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Path expression in WHERE clause */ <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where _invoice_header.dunning_level > '0';</span>
+</dd></dl>
+<p><span class="h4">
+Executable Example
+</span></p>
+<p>
+<a href="javascript:call_link('abenpath_expr_in_colspec_abexa.html')" class="blue">Path Expressions, Use in the <span class="qtext">SELECT</span> List</a> .
+</p>
+<br>
+<br>
+<!-- POSTFIX --><span class="h4">Continue</span><br>
+<a href="javascript:call_link('abencds_path_expression_attr.html')" class="blue">ABAP CDS - path_expr, attributes</a><br>
+<img src="exa.gif" alt="Example" title="Example">
+<a href="javascript:call_link('abencds_assoc_join_abexa.html')" class="blue">ABAP CDS - Joins of Associations</a><br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencds_f1_path_expression.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:25:02 GMT -->
+</html>

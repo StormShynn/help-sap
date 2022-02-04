@@ -1,0 +1,132 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENCALL_TRANSACTION_ABEXA -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencall_transaction_abexa.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:37:14 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Transaction Call, SPA/GPA Parameters">
+<title>
+Transaction Call, SPA/GPA Parameters - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abencall_transaction_abexa.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abencall_transaction_abexa.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_execution.html')" class="blue">Calling and leaving program units</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_program_call.html')" class="blue">Calling Programs</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_call_transaction.html')" class="blue">Calling Transactions</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abapcall_transaction.html')" class="blue">CALL TRANSACTION</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abentransactions_abexas.html')" class="blue">Transaction Call - Examples</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Transaction Call, SPA/GPAParameters
+</span></p>
+<p>
+The example shows how to call a transaction using SPA/GPA parameters.
+</p>
+<A name="@@ITOC@@ABENCALL_TRANSACTION_ABEXA_1"></A>
+<p><span class="h2">
+Source Code
+</span></p>
+<!-- Begin code -->
+<p class="qtextml1"><span class="qtextgrey">
+REPORT demo_call_transaction_spa_gpa.<br>
+<br>
+PARAMETERS: carrid TYPE spfli-carrid,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;connid TYPE spfli-connid.<br>
+<br>
+CLASS demo DEFINITION.<br>
+&nbsp;&nbsp;PUBLIC SECTION.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CLASS-METHODS main.<br>
+ENDCLASS.<br>
+<br>
+CLASS demo IMPLEMENTATION.<br>
+&nbsp;&nbsp;METHOD main.<br>
+</span><span class="qtext">
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SET PARAMETER ID: 'CAR' FIELD carrid,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CON' FIELD connid.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;TRY.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL TRANSACTION 'DEMO_TRANSACTION' WITH AUTHORITY-CHECK.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CATCH cx_sy_authorization_error.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ENDTRY.<br>
+<br>
+</span><span class="qtextgrey">
+&nbsp;&nbsp;ENDMETHOD.<br>
+ENDCLASS.<br>
+<br>
+START-OF-SELECTION.<br>
+&nbsp;&nbsp;demo=&gt;main( ).<br>
+</span></p>
+<!-- End code -->
+<A name="@@ITOC@@ABENCALL_TRANSACTION_ABEXA_2"></A>
+<p><span class="h2">
+Description
+</span></p>
+<p>
+The transaction DEMO_TRANSACTION displays the details for a flight uniquely identified by the airline
+and the flight number. It is called from within <span class="qtext">main</span> using the <span class="qtext">CALL TRANSACTION</span> statement and filled with
+<a href="javascript:call_link('abenspa_gpa_parameter_1_glosry.html')" class="grey" title="Glossary Entry"></a>SPA/GPA</> pa</>rameter</>s</> as initial values using the <span class="qtext">SET PARAMETER</span>  statement.
+</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencall_transaction_abexa.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:37:14 GMT -->
+</html>

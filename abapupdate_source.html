@@ -1,0 +1,359 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABAPUPDATE_SOURCE -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abapupdate_source.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:21 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="UPDATE dbtab - source">
+<title>
+UPDATE dbtab - source - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abapupdate_source.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abapupdate_source.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopensql.html')" class="blue">Open SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopen_sql_writing.html')" class="blue">Open SQL - Write Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abapupdate.html')" class="blue">UPDATE dbtab</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+UPDATE dbtab - source <br><br>
+</span></p>
+<P>
+<a href="javascript:call_link('abapupdate_shortref.html')" class="blue">Quick Reference</a> <br><br>
+</P>
+<p><span class="h2">
+<span class="bold">Syntax</span>
+</span></p>
+<P>
+<span class="qtext">... <i class=bn>{</i> <i class=bn>{</i>SET
+<a href="javascript:call_link('abapupdate_set_expression.html')" class="blue">set_expression1</a>,
+<a href="javascript:call_link('abapupdate_set_expression.html')" class="blue">set_expression2</a>, ... <i class=bn>[</i>WHERE
+<a href="javascript:call_link('abenwhere_logexp.html')" class="blue">sql_cond</a><i class=bn>]</i> <i class=bn>[</i><a href="javascript:call_link('abenosql_db_hints.html')" class="blue">db_hints</a><i class=bn>]</i><i class=bn>}</i></span> <br>
+<span class="qtext">&nbsp;&nbsp;&nbsp;&nbsp;<i class=bn>|</i> <i class=bn>{</i>FROM @wa<i class=bn>|</i><i class=bn>{</i>TABLE @itab<i class=bn>}</i><i class=bn>}</i> <i class=bn>}</i> ...</span> <br><br>
+</P>
+<p><span class="h2">
+Alternatives:
+</span></p>
+<P>
+   <A HREF="#!ABAP_ALTERNATIVE_1@1@" class="blue"> 1. <span class="qtext">... SET set_expression1, set_expression2, ... <i
+class=bn>[</i>WHERE sql_cond<i class=bn>]</i> <i class=bn>[</i>db_hints<i class=bn>]</i></span> </A> <br>
+<br><A HREF="#!ABAP_ALTERNATIVE_2@2@" class="blue"> 2. <span class="qtext">... FROM @wa</span> </A> <br><br><A HREF="#!ABAP_ALTERNATIVE_3@3@" class="blue"> 3. <span class="qtext">... FROM TABLE @itab</span> </A> <br><br>
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+The data in <span class="qtext">source</span> defines which rows and columns are changed. Either individual
+columns are changed using the addition <span class="qtext">SET</span>, or entire rows are overwritten using the addition <span class="qtext">FROM</span>.
+</P>
+<P>
+A <span class="qtext">wa</span> data object, which is not table-like or an <span class="qtext">itab</span> internal table, can be specified after <span class="qtext">FROM</span> as a
+<a href="javascript:call_link('abenopen_sql_host_variables.html')" class="blue">host variable</a> or
+<a href="javascript:call_link('abenopen_sql_host_expressions.html')" class="blue">host expression</a>. The content of these objects
+determines which rows are changed and which values are used to overwrite the row(s). The escape character <span class="qtext">@</span> should precede the work area name or the internal table name (as should be the case with every
+<a href="javascript:call_link('abenopen_sql_host_variables.html')" class="blue">host variable</a>).
+</P>
+<p><span class="h4">
+Note
+</span></p>
+<P>
+Host variables without the escape character <span class="qtext">@</span> are
+<a href="javascript:call_link('abenopen_sql_hostvar_obsolete.html')" class="blue">obsolete</a>. The escape character <span class="qtext">@</span> must be specified in the
+<a href="javascript:call_link('abenopensql_strict_modes.html')" class="blue">strict modes</a> of the syntax check from Release 7.40, SP05. <br><br>
+</P>
+<A NAME="@@SET@@UPDATE dbtab@@"></A>
+<A NAME="@@WHERE@@UPDATE dbtab@@"></A>
+<p><span class="h2">
+<A NAME="!ABAP_ALTERNATIVE_1@1@"></A> <span class="bold">Alternative 1</span>
+</span></p>
+<P>
+ <span class="qtext">... SET set_expression1, set_expression2, ... <i class=bn>[</i>WHERE
+<a href="javascript:call_link('abenwhere_logexp.html')" class="blue">sql_cond</a><i class=bn>]</i> <i class=bn>[</i><a href="javascript:call_link('abenosql_db_hints.html')" class="blue">db_hints</a><i class=bn>]</i></span> <br><br><br><!-- /A -->
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+After the addition <span class="qtext">SET</span>, the changes are specified in a list of change expressions:
+<a href="javascript:call_link('abapupdate_set_expression.html')" class="blue"><span class="qtext">set_expression1</span></a>,
+<a href="javascript:call_link('abapupdate_set_expression.html')" class="blue"> <span class="qtext">set_expression2</span></a>, <span class="qtext">...</span>.
+</P>
+<P>
+The addition <span class="qtext">WHERE</span> uses a logical expression <span class="qtext">sql_cond</span>
+to define in which rows of the database table the changes are executed. For the logical expression <a href="javascript:call_link('abenwhere_logexp.html')" class="blue">
+<span class="qtext">sql_cond</span></a>, the same applies as to the <a href="javascript:call_link('abapwhere.html')" class="blue"><span class="qtext">WHERE</span> condition</a> of the statement <span class="qtext">SELECT</span>, with the exception that no
+<a href="javascript:call_link('abensubquery_glosry.html')" class="grey" title="Glossary Entry">subqueries</a> are to be evaluated
+in the database table to be changed. If no <span class="qtext">WHERE</span> condition is specified, all the rows in the database table are changed.
+</P>
+<P>
+The content of primary key fields can only be changed if the respective database table is not linked with a search help and if
+<a href="javascript:call_link('abenpooled_table_glosry.html')" class="grey" title="Glossary Entry">pool</a> and
+<a href="javascript:call_link('abencluster_table_glosry.html')" class="grey" title="Glossary Entry">cluster tables</a> are not
+accessed. If these changes would create a row which would produce duplicate entries in the primary key
+or a unique secondary index of the database table, no rows are changed and <span class="qtext">sy-subrc</span> is set to 4.
+</P>
+<P>
+If the value of a column with type LRAW or LCHR is modified, the associated INT2 or INT4 field must also be given a value.
+</P>
+<P>
+In this variant, <a href="javascript:call_link('abendatabase_hint_glosry.html')" class="grey" title="Glossary Entry">
+database notes</a> can be specified with <a href="javascript:call_link('abenosql_db_hints.html')" class="blue"><span class="qtext">db_hints</span></a>.
+</P>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>
+When a comma-separated list is used, the syntax check is performed in a
+<a href="javascript:call_link('abenopensql_strict_mode_740_sp05.html')" class="blue">strict mode</a>, which handles the statement more strictly than the regular syntax check.
+<br><br></li>
+<li>
+Instead of using commas, blanks can be used to separate change expressions in an
+<a href="javascript:call_link('abenopen_sql_lists_obsolete.html')" class="blue">obsolete form</a>. Commas must be specified, however, in the
+<a href="javascript:call_link('abenopensql_strict_modes.html')" class="blue">strict modes</a> of the syntax check from Release 7.40, SP05.
+<br></li>
+</ul>
+<p><span class="h4">
+Executable Example
+</span></p>
+<P>
+<a href="javascript:call_link('abenupdate_set_abexa.html')" class="blue"><span class="qtext">UPDATE</span>, Use of <span class="qtext">SET</span></a> <br><br>
+</P>
+<A NAME="@@FROM@@UPDATE dbtab@@"></A>
+<p><span class="h2">
+<A NAME="!ABAP_ALTERNATIVE_2@2@"></A> <span class="bold">Alternative 2</span>
+</span></p>
+<P>
+<span class="qtext">... FROM @wa</span> <br><br><br><!-- /A -->
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+If a work area <span class="qtext">wa</span> is specified (as a
+<a href="javascript:call_link('abenopen_sql_host_variables.html')" class="blue">host variable</a> or
+<a href="javascript:call_link('abenopen_sql_host_expressions.html')" class="blue">host expression</a>), which is not table-like,
+a row is found in the database table whose primary key content is the same as that of the corresponding initial part of the work area. The work area must meet the
+<a href="javascript:call_link('abenopen_sql_wa.html')" class="blue">prerequisites</a> for use in Open SQL statements.
+</P>
+<ul class="disc">
+<li>
+If a work area which does not contain any reference variables for
+<a href="javascript:call_link('abenlob_handle_glosry.html')" class="grey" title="Glossary Entry">LOB handles</a> is specified,
+the content of the work area is interpreted without being converted and follows the structure of the
+database table or the view. The content of the work area is assigned to the rows found. The assignment takes place without conversion, from left to right following the structure of the database table or the view.
+<br><br></li>
+<li>
+When a <a href="javascript:call_link('abenlob_handle_structure_glosry.html')" class="grey" title="Glossary Entry">LOB handle structure</a> is specified, it must be constructed (in accordance with the
+<a href="javascript:call_link('abenopen_sql_wa.html')" class="blue">prerequisites</a>) exactly like the structure of the database table. Work area components that are not
+<a href="javascript:call_link('abenlob_handle_component_glosry.html')" class="grey" title="Glossary Entry">LOB handle components</a>
+are assigned directly to the corresponding column of the row found. In the case of a LOB handle component
+of a reader stream type, this type is created. In this case of a type for a locator: this must exist and is used as a source. For details, see <a href="javascript:call_link('abeninsert_update_modify_lob.html')" class="blue">LOB handles</a>.
+<br></li>
+</ul>
+<P>
+If there is no row with the same content for the primary key in the database or if the change would
+produce a duplicate entry in a unique secondary index, the row is not changed and <span class="qtext">sy-subrc</span> is set to 4.
+</P>
+<P>
+By default, an automatic client handling is performed, which means that any
+<a href="javascript:call_link('abenclient_identifier_glosry.html')" class="grey" title="Glossary Entry">client identifier</a>
+specified in <span class="qtext">wa</span> is ignored and the current client is used instead. The content
+of <span class="qtext">wa</span> is not affected. Automatic client handling can be switched off using the addition <a href="javascript:call_link('abapupdate_target.html')" class="blue"><span class="qtext">CLIENT SPECIFIED</span></a>.
+</P>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>
+The work area <span class="qtext">wa</span> should always be declared in relation to the database table or the view in ABAP Dictionary. For the derivation of
+<a href="javascript:call_link('abenlob_handle_structure_glosry.html')" class="grey" title="Glossary Entry">LOB handle structures</a>, there are special
+<a href="javascript:call_link('abaptypes_lob_handle.html')" class="blue">additions</a> of the statements <span class="qtext">TYPES</span> and <span class="qtext"><i class=bn>[</i>CLASS-<i class=bn>]</i>DATA</span>.
+<br><br></li>
+<li>
+If a <a href="javascript:call_link('abenconstructor_expression_glosry.html')" class="grey" title="Glossary Entry">constructor expression</a> is specified as a
+<a href="javascript:call_link('abenopen_sql_host_expressions.html')" class="blue">host expression</a> for the work area <span class="qtext">
+wa</span>, for which the data type is inferred using the <span class="qtext">#</span> character, a structure consisting of all the database table columns is created as the type.
+<br><br></li>
+<li>
+If the database table or view is specified statically, a
+<a href="javascript:call_link('abapupdate_obsolete.html')" class="blue">short form</a> can be specified outside of classes. This means that the work area specified using <span class="qtext">FROM</span> wa can be omitted. The prerequisite is that a
+<a href="javascript:call_link('abentable_work_area_glosry.html')" class="grey" title="Glossary Entry">table work area</a> <span class="qtext">
+dbtab</span> for the respective database table or the view is declared using the statement <span class="qtext">TABLES</span>.
+The system expands the <span class="qtext">UPDATE</span> statement implicitly to include the addition <span class="qtext">FROM dbtab</span>.
+<br></li>
+</ul>
+<p><span class="h4">
+Example
+</span></p>
+<P>
+Change the discount rate of customer with customer number '00017777' (in the current client) to 3 per cent.
+</P>
+<p class="qtextml1">
+<span class="qtext">
+DATA wa TYPE scustom. <br> <br>SELECT SINGLE * <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM scustom <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE id = '00017777' <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INTO @wa. <br> <br>wa-discount = '003'. <br>UPDATE scustom FROM @wa.
+</span>
+</p>
+<p><span class="h4">
+Example
+</span></p>
+<P>
+The same example as before but with an inline declaration and a host expression.
+</P>
+<p class="qtextml1">
+<span class="qtext">
+SELECT SINGLE * <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM scustom <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE id = '00017777' <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INTO @DATA(wa). <br> <br>UPDATE scustom FROM @( VALUE #( BASE wa discount = '003' ) ). <br><br>
+</span>
+</p>
+<A NAME="@@FROM TABLE@@UPDATE dbtab@@"></A>
+<p><span class="h2">
+<A NAME="!ABAP_ALTERNATIVE_3@3@"></A> <span class="bold">Alternative 3</span>
+</span></p>
+<P>
+<span class="qtext">... FROM TABLE @itab</span> <br><br><br><!-- /A -->
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+If an internal table <span class="qtext">itab</span> is specified as a
+<a href="javascript:call_link('abenopen_sql_host_variables.html')" class="blue">host variable</a> or
+<a href="javascript:call_link('abenopen_sql_host_expressions.html')" class="blue">host expression</a>, the system processes all
+the rows of the internal table in accordance with the rules for the work area <span class="qtext">wa</span>, with the exception that when specifying an internal table,
+<a href="javascript:call_link('abenlocator_glosry.html')" class="grey" title="Glossary Entry">locators</a> are used as a source but
+<a href="javascript:call_link('abenwriter_stream_glosry.html')" class="grey" title="Glossary Entry">reader streams</a> cannot be created.
+</P>
+<P>
+The row type of the internal table must meet the <a href="javascript:call_link('abenopen_sql_wa.html')" class="blue">prerequisites</a> for use in Open SQL statements.
+</P>
+<P>
+If there is no row with the same content of the <a href="javascript:call_link('abenprimary_key_glosry.html')" class="grey" title="Glossary Entry">
+primary key</a> in the database (for a row of the internal table) or if the change would produce a duplicate
+entry in a unique secondary index, the row is not changed and <span class="qtext">sy-subrc</span> is set to 4. Then processing continues with the next row.
+</P>
+<P>
+If the internal table is empty, no rows are changed. However <span class="qtext">sy-subrc</span> is still set to 0. The system field <span class="qtext">sy-dbcnt</span> is set to the number of rows that are inserted.
+</P>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>
+When an internal table is used, package by package processing performs a read (running in parallel to
+an <span class="qtext">UPDATE</span> on the same rows) that partially shows the new status and partially shows the old status.
+<br><br></li>
+<li>
+Statement <span class="qtext">UPDATE FROM TABLE</span> changes all rows for which this is possible.
+If <span class="qtext">sy-subrc</span> contains the value 4 after the statement has been executed, this
+does not mean that no rows were changed. It simply means that not all of the rows in the internal table could be taken into account.
+<br><br></li>
+<li>
+If a <a href="javascript:call_link('abenconstructor_expression_glosry.html')" class="grey" title="Glossary Entry">constructor expression</a> as a
+<a href="javascript:call_link('abenopen_sql_host_expressions.html')" class="blue">host expression</a> is specified as an internal
+table <span class="qtext">itab</span>, for which the data type is inferred using the <span class="qtext">#</span>
+character, a structured standard table (whose row type consists of all the database table columns) with an empty table key is created as the type.
+<br></li>
+</ul>
+<p><span class="h4">
+Example
+</span></p>
+<P>
+
+</P>
+<P>
+Reduces the flight price for all of today's flights of an airline carrier in the database table <span class="lnkgrey">
+SFLIGHT</span> by the percentage <span class="qtext">percent</span>. The new price is always performed in an internal table <span class="qtext">sflight_tab</span> and the database table is changed accordingly.
+</P>
+<p class="qtextml1">
+<span class="qtext">
+PARAMETERS: p_carrid TYPE sflight-carrid, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;percent&nbsp;&nbsp;TYPE p LENGTH 1 DECIMALS 0. <br>
+ <br>DATA sflight_tab TYPE TABLE OF sflight. <br>FIELD-SYMBOLS &lt;sflight> TYPE sflight. <br> <br>SELECT * <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM sflight <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE carrid = @p_carrid AND <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fldate = @sy-datum <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INTO TABLE @sflight_tab. <br>
+ <br>IF sy-subrc = 0. <br>&nbsp;&nbsp;LOOP AT sflight_tab ASSIGNING &lt;sflight>. <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;sflight>-price = <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sflight>-price * ( 1 - percent / 100 ). <br>&nbsp;&nbsp;ENDLOOP. <br>ENDIF. <br> <br>UPDATE sflight FROM TABLE @sflight_tab.
+</span>
+</p>
+<p><span class="h4">
+Example
+</span></p>
+<P>
+The same example as before but with an inline declaration and a host expression.
+</P>
+<p class="qtextml1">
+<span class="qtext">
+PARAMETERS: p_carrid TYPE sflight-carrid, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;percent&nbsp;&nbsp;TYPE p LENGTH 1 DECIMALS 0. <br>
+ <br>SELECT * <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM sflight <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE carrid = @p_carrid AND <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fldate = @sy-datum <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INTO TABLE @DATA(sflight_tab). <br>
+ <br>IF sy-subrc = 0. <br>&nbsp;&nbsp;UPDATE sflight FROM TABLE @( VALUE #( <br>&nbsp;&nbsp;&nbsp;&nbsp;FOR &lt;sflight> IN sflight_tab <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( VALUE #( <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BASE &lt;sflight> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price = &lt;sflight>-price * ( 1 - percent / 100 ) ) ) ) ). <br>ENDIF. <br><br>
+</span>
+</p>
+<br>
+<br>
+<!-- POSTFIX --><span class="h4">Continue</span><br>
+<a href="javascript:call_link('abapupdate_set_expression.html')" class="blue">UPDATE dbtab - set_expression</a><br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abapupdate_source.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:22 GMT -->
+</html>

@@ -1,0 +1,222 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENAMDP_FUNCTION_METHODS -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenamdp_function_methods.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:30 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="AMDP - Function Implementations">
+<meta name="keywords" content="ABAP, AMDP Function Definitions">
+<title>
+AMDP - Function Implementations - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenamdp_function_methods.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenamdp_function_methods.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennative_sql.html')" class="blue">Native SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenamdp.html')" class="blue">AMDP - ABAP Managed Database Procedures</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenamdp_methods.html')" class="blue">AMDP - Methods</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+AMDP - Function Implementations
+</span></p>
+<p>
+An AMDP function implementation is an AMDP method for implementing an AMDP function as a
+<a href="javascript:call_link('abentable_function_glosry.html')" class="grey" title="Glossary Entry">table function</a>. An AMDP
+function implementation is indicated as an AMDP method in the implementation part of the class using
+the addition <a href="javascript:call_link('abapmethod_by_db_proc.html')" class="blue"><span class="qtext">BY DATABASE FUNCTION</span></a>
+of the statement <span class="qtext">METHOD</span>. AMDP functions can be defined that can be accessed only in other AMDP methods and functions defined that implement
+<a href="javascript:call_link('abencds_table_function_glosry.html')" class="grey" title="Glossary Entry">CDS table functions</a>.
+</p>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENAMDP_FUNCTION_METHODS_1" class="blue">AMDP Functions for AMDP Methods</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENAMDP_FUNCTION_METHODS_2" class="blue">AMDP Functions for CDS Table Functions</A></li>
+</ul>
+<A name="@@ITOC@@ABENAMDP_FUNCTION_METHODS_1"></A>
+<p><span class="h2">
+AMDP Functions for AMDP Methods
+</span></p>
+<p>
+An AMDP function implementation whose AMDP function can be accessed in AMDP methods is declared in an
+<a href="javascript:call_link('abenamdp_classes.html')" class="blue">AMDP class</a> like a regular
+<a href="javascript:call_link('abenstatic_method_glosry.html')" class="grey" title="Glossary Entry">static method</a> or
+<a href="javascript:call_link('abeninstance_method_glosry.html')" class="grey" title="Glossary Entry">instance method</a> in any
+<a href="javascript:call_link('abenvisibility_section_glosry.html')" class="grey" title="Glossary Entry">visibility
+section</a>. An AMDP function implementation like this cannot be detected in the declaration part of the class and the same basically applies as to
+<a href="javascript:call_link('abenamdp_procedure_methods.html')" class="blue">AMDP procedure implementations</a> with the following differences:
+</p>
+<ul class="disc">
+<li>An AMDP function implementation must have a <a href="javascript:call_link('abenreturn_value_glosry.html')" class="grey" title="Glossary Entry">
+return value</a> defined using <a href="javascript:call_link('abapmethods_functional.html')" class="blue"><span class="qtext">
+RETURNING</span></a>. The data type of the return value must be tabular with a structured row type whose components are elementary. Any
+<a href="javascript:call_link('abentable_category_glosry.html')" class="grey" title="Glossary Entry">table category</a> and
+<a href="javascript:call_link('abentable_key_glosry.html')" class="grey" title="Glossary Entry">table key</a> can be specified for return value.</li>
+</ul>
+<ul class="disc">
+<li>Alongside the return value, an AMDP function implementation can have only elementary
+<a href="javascript:call_link('abeninput_parameter_glosry.html')" class="grey" title="Glossary Entry">input parameters</a> and must not have any
+<a href="javascript:call_link('abeninput_output_parameter_glosry.html')" class="grey" title="Glossary Entry">input/output parameters</a> or
+<a href="javascript:call_link('abenoutput_parameter_glosry.html')" class="grey" title="Glossary Entry">output parameters</a>. The special input parameter <span class="qtext">connection</span> is not allowed.</li>
+</ul>
+<ul class="disc">
+<li>No class-based exceptions can be declared using <a href="javascript:call_link('abapmethods_general.html')" class="blue"><span class="qtext">RAISING</span></a> in the interface of an AMDP function implementation.</li>
+</ul>
+<ul class="disc">
+<li>An AMDP function implementation must be restricted to reads using the option <a href="javascript:call_link('abapmethod_by_db_proc.html')" class="blue"><span class="qtext">READ-ONLY</span></a> after <span class="qtext">METHOD</span>.</li>
+</ul>
+<ul class="disc">
+<li>An AMDP function implementation can be <a href="javascript:call_link('abenmethod_calls.html')" class="blue">called</a> in ABAP like a regular method and cannot be used as a
+<a href="javascript:call_link('abenfunctional_method_glosry.html')" class="grey" title="Glossary Entry">functional method</a> in a
+<a href="javascript:call_link('abenfunctional_method_call_glosry.html')" class="grey" title="Glossary Entry">functional method call</a>.</li>
+</ul>
+<p>
+An <a href="javascript:call_link('abenamdp_function_glosry.html')" class="grey" title="Glossary Entry">AMDP function</a> defined
+using a AMDP function implementation like this can only be used in other AMDP methods and not in database procedures managed in AMDP or database functions used as native
+<a href="javascript:call_link('abentable_function_glosry.html')" class="grey" title="Glossary Entry">table function</a>s.
+</p>
+<p><span class="h4">
+Executable Example
+</span></p>
+<p>
+<a href="javascript:call_link('abenamdp_functions_abexa.html')" class="blue">AMDP Functions</a>
+</p>
+<A name="@@ITOC@@ABENAMDP_FUNCTION_METHODS_2"></A>
+<p><span class="h2">
+AMDP Functions for CDS Table Functions
+</span></p>
+<p>
+The same applies to an AMDP function implementation that implements a
+<a href="javascript:call_link('abencds_table_function_glosry.html')" class="grey" title="Glossary Entry">CDS table function</a> as to the function implementation above, with the following differences:
+</p>
+<ul class="disc">
+<li>An AMDP function implementation for a CDS table function can only be declared in the
+<a href="javascript:call_link('abenpublic_glosry.html')" class="grey" title="Glossary Entry">public</a>
+<a href="javascript:call_link('abenvisibility_section_glosry.html')" class="grey" title="Glossary Entry">visibility section</a> of a
+<a href="javascript:call_link('abenstatic_class_glosry.html')" class="grey" title="Glossary Entry">static</a> AMDP class. It is not possible in interfaces.</li>
+</ul>
+<ul class="disc">
+<li>A special form of the statement <a href="javascript:call_link('abapclass-methods.html')" class="blue"><span class="qtext">CLASS-METHODS</span></a>
+with the addition <a href="javascript:call_link('abapclass-methods_for_tabfunc.html')" class="blue"><span class="qtext">
+FOR TABLE FUNCTION</span></a> must be used for the declaration. This form flags the AMDP function implementation as an implementation of a
+<a href="javascript:call_link('abencds_table_function_glosry.html')" class="grey" title="Glossary Entry">CDS table function</a>.</li>
+</ul>
+<ul class="disc">
+<li>The parameter interface of an AMDP function implementation is not declared using the statement <span class="qtext">CLASS-METHODS</span>. Instead it is generated in accordance with the associated
+<a href="javascript:call_link('abencds_table_function_glosry.html')" class="grey" title="Glossary Entry">CDS table function</a>
+using the statement <a href="javascript:call_link('abencds_f1_define_table_function.html')" class="blue"><span class="qtext400">DEFINE TABLE FUNCTION</span></a> in the
+<a href="javascript:call_link('abenabap_cds_glosry.html')" class="grey" title="Glossary Entry">ABAP CDS</a> <a href="javascript:call_link('abencds_ddl_glosry.html')" class="grey" title="Glossary Entry">CDS DDL</a>:</li>
+</ul>
+<ul class="circlem2">
+<li>The input parameters in the AMDP function implementation are determined by the
+<a href="javascript:call_link('abencds_f1_func_parameter_list.html')" class="blue">input parameters</a> of the CDS table function.
+Their names are used and the ABAP types are derived from their Dictionary types. The input parameters are not optional.</li>
+</ul>
+<ul class="circlem2">
+<li>A return value with the type of a standard table is created with an empty table key named <span class="qtext">result</span> with a structured row type. The components of the row type are determined by the
+<a href="javascript:call_link('abencds_f1_return_list.html')" class="blue">elements</a> of the CDS table function. Their names
+are used and the ABAP types are derived from their Dictionary types. The row type corresponds to the
+structured data type, which the CDS table function represents with respect to ABAP. In the case of a client-specific CDS table function, the client column is also included.</li>
+</ul>
+<p>
+The <a href="javascript:call_link('abenamdp_function_glosry.html')" class="grey" title="Glossary Entry">AMDP function</a> defined by an AMDP function implementation like this can be used as follows using the
+<a href="javascript:call_link('abencds_entity_glosry.html')" class="grey" title="Glossary Entry">CDS entity</a> represented by the CDS table function:
+</p>
+<ul class="disc">
+<li>as a <a href="javascript:call_link('abapselect_data_source.html')" class="blue">data source</a> of Open SQL read statements in ABAP</li>
+</ul>
+<ul class="disc">
+<li>as a <a href="javascript:call_link('abencds_f1_data_source.html')" class="blue">data source</a> of
+<a href="javascript:call_link('abencds_view_glosry.html')" class="grey" title="Glossary Entry">CDS views</a> in the
+<a href="javascript:call_link('abenabap_cds_glosry.html')" class="grey" title="Glossary Entry">ABAP CDS</a> <a href="javascript:call_link('abencds_ddl_glosry.html')" class="grey" title="Glossary Entry">CDL DDL</a>.</li>
+</ul>
+<p>
+Furthermore, the same uses as in the preceding function implementation are possible in other AMDP methods or other database procedures or database functions
+</p>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>The row type of the return value <span class="qtext">result</span> of an AMDP function implementation
+for a client-specific CDS table function does not contain a client field, even though this field must be declared in the element list.</li>
+</ul>
+<ul class="disc">
+<li>An AMDP function implementation can only be associated with a single CDS table function.</li>
+</ul>
+<ul class="disc">
+<li>When an AMDP function implementation is created for a CDS table function, it must already exist
+as an active function. When a new CDS table function is activated, an empty AMDP function is created
+in the database. This function raises an exception if a non-AMDP access is performed. When the CDS table
+function is accessed by the ABAP runtime environment for the first time (for example, using Open SQL), the AMDP function implementation implements the empty AMDP function. Other frameworks that evaluate CDS entities using their
+<a href="javascript:call_link('abencds_annotation_glosry.html')" class="grey" title="Glossary Entry">annotations</a>, however,
+can also cause the AMDP function to be implemented. It is possible to access the table function in a native way only after the implementation.</li>
+</ul>
+<p><span class="h4">
+Executable Example
+</span></p>
+<p>
+<a href="javascript:call_link('abenamdp_functions_abexa.html')" class="blue">AMDP Functions</a>
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenamdp_function_methods.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:30 GMT -->
+</html>

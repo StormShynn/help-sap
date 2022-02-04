@@ -1,0 +1,126 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENCL_ABAP_CONV -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencl_abap_conv.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:39:09 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="System Classes for Converting Character Sets and Number Formats">
+<title>
+System Classes for Converting Character Sets and Number Formats - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abencl_abap_conv.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abencl_abap_conv.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_data_working.html')" class="blue">Processing Internal Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenvalue_assignments.html')" class="blue">Assignments</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenconversion_rules.html')" class="blue">Assignment and Conversion Rules</a>&nbsp;&rarr;&nbsp;
+</span>
+<A NAME="@@CL_ABAP_CONV_IN_CE@@!ABAP_CLASS!@@"></A>
+<A NAME="@@CL_ABAP_CONV_OUT_CE@@!ABAP_CLASS!@@"></A>
+<A NAME="@@CL_ABAP_CONV_X2X_CE@@!ABAP_CLASS!@@"></A>
+<p><span class="h1">
+System Classes for Converting Character Sets and Number Formats
+</span></p>
+<p>
+The system classes described below enable the conversion of text data between different
+<a href="javascript:call_link('abencodepage_glosry.html')" class="grey" title="Glossary Entry">code pages</a> and of numeric data between different number representations.
+</p>
+<p>
+Data that is not available in ABAP format (that is, text data that is not in the system code page format, or numeric data that is not in the
+<a href="javascript:call_link('abenbyte_order_glosry.html')" class="grey" title="Glossary Entry">byte order</a> used on the current
+<a href="javascript:call_link('abenapplication_server_glosry.html')" class="grey" title="Glossary Entry">application server</a>) can be saved in binary form in an <span class="qtext">x</span> field or in an <span class="qtext">xstring</span>.
+</p>
+<ul class="disc">
+<li>When converting to ABAP format from another format, data is read from a byte sequence and written to an ABAP data object.</li>
+</ul>
+<ul class="disc">
+<li>When converting from ABAP format to another format, data is read from an ABAP data object and written as a byte sequence.</li>
+</ul>
+<p>
+This is done using the following classes:
+</p>
+<ul class="disc">
+<li><span class="lnkgrey">CL_ABAP_CONV_IN_CE</span></li>
+</ul>
+<dl><dd>
+Extracts other formats to ABAP data objects (reads a binary input stream).
+</dd></dl>
+<ul class="disc">
+<li><span class="lnkgrey">CL_ABAP_CONV_OUT_CE</span></li>
+</ul>
+<dl><dd>
+Exports ABAP data objects to another format (writes to a binary output stream).
+</dd></dl>
+<ul class="disc">
+<li><span class="lnkgrey">CL_ABAP_CONV_X2X_CE</span></li>
+</ul>
+<dl><dd>
+Extracts data from any format and exports data to any other format (reads from a binary input stream and writes to a binary output stream).
+</dd></dl>
+<p><span class="h4">
+Note
+</span></p>
+<p>
+The class <a href="javascript:call_link('abencl_abap_codepage.html')" class="blue">CL_ABAP_CODEPAGE</a> wraps the classes above to make it easier to handle code pages when processing character and byte strings.
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abencl_abap_conv.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:39:12 GMT -->
+</html>

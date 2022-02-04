@@ -1,0 +1,269 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABAPSELECT_CLAUSE_COL_SPEC -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abapselect_clause_col_spec.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:09 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="SELECT - col_spec">
+<title>
+SELECT - col_spec - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abapselect_clause_col_spec.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abapselect_clause_col_spec.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopensql.html')" class="blue">Open SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopen_sql_reading.html')" class="blue">Open SQL - Reads</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenselect_clauses.html')" class="blue">SELECT clauses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abapselect_clause.html')" class="blue">SELECT - select_clause</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abapselect_list.html')" class="blue">SELECT - select_list</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+SELECT - col_spec <br><br>
+</span></p>
+<P>
+<a href="javascript:call_link('abapselect_shortref.html')" class="blue">Quick Reference</a> <br><br>
+</P>
+<p><span class="h2">
+<span class="bold">Syntax</span>
+</span></p>
+<P>
+<span class="qtext">... <a href="javascript:call_link('abenopen_sql_columns.html')" class="blue">col</a></span> <br><span class="qtext">
+&nbsp;&nbsp;<i class=bn>|</i> <a href="javascript:call_link('abapselect_aggregate.html')" class="blue">aggregate</a></span> <br>
+<span class="qtext">&nbsp;&nbsp;<i class=bn>|</i> <a href="javascript:call_link('abapsql_expr.html')" class="blue">sql_exp</a></span> <br><br>
+</P>
+<p><span class="h2">
+Alternatives:
+</span></p>
+<P>
+   <A HREF="#!ABAP_ALTERNATIVE_1@1@" class="blue"> 1. <span class="qtext">... col</span> </A> <br><br><A HREF="#!ABAP_ALTERNATIVE_2@2@" class="blue"> 2. <span class="qtext">... aggregate</span> </A> <br>
+<br><A HREF="#!ABAP_ALTERNATIVE_3@3@" class="blue"> 3. <span class="qtext">... sql_exp</span> </A> <br><br>
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+When constructing the results set of a <a href="javascript:call_link('abenquery_glosry.html')" class="grey" title="Glossary Entry">query</a>
+from individual columns, the columns can be specified either by directly entering the name of a column
+<a href="javascript:call_link('abenopen_sql_columns.html')" class="blue"><span class="qtext">col</span></a>, by using an aggregate
+expression <a href="javascript:call_link('abapselect_aggregate.html')" class="blue"><span class="qtext">aggregate</span></a>,
+or by using an SQL expression <a href="javascript:call_link('abapsql_expr.html')" class="blue"><span class="qtext">sql_exp</span></a>.
+</P>
+<p><span class="h4">
+Note
+</span></p>
+<P>
+If SQL expressions are specified together with aggregate expressions, the syntax check is performed in a
+<a href="javascript:call_link('abenopensql_strict_mode_740_sp08.html')" class="blue">strict mode</a>, which handles the statement more strictly than the regular syntax check.
+</P>
+<p><span class="h2">
+<A NAME="!ABAP_ALTERNATIVE_1@1@"></A> <span class="bold">Alternative 1</span>
+</span></p>
+<P>
+<span class="qtext">... col</span> <br><br><br><!-- /A -->
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+Specifies <a href="javascript:call_link('abenopen_sql_columns.html')" class="blue"><span class="qtext">col</span></a> of a
+<a href="javascript:call_link('abapselect_data_source.html')" class="blue">data source</a> column directly. If the name of a
+data source is specified directly, the relevant content is provided in the corresponding column of the
+result set. The data type of a column in the results set is the data type of the corresponding component
+in ABAP Dictionary. The corresponding data host variable after <span class="qtext">INTO</span> or <span class="qtext">APPENDING</span> be a <a href="javascript:call_link('abenselect_into_conversion.html')" class="blue">suitable</a> choice.
+</P>
+<P>
+ If required, columns can be specified using a <a href="javascript:call_link('abenopen_sql_path.html')" class="blue">path expression</a>
+for associations of a CDS view. If the addition <span class="qtext">CORRESPONDING</span> or an inline
+declaration <span class="qtext">@DATA(...)</span> is used in the <a href="javascript:call_link('abapinto_clause.html')" class="blue"><span class="qtext">
+INTO</span></a> clause, any columns specified using a path expression must have an alternative column
+name <span class="qtext">alias</span> defined using <a href="javascript:call_link('abapselect_list.html')" class="blue"><span class="qtext">AS</span></a>.
+</P>
+<P>
+If the value of a column of type LRAW or LCHR is read, the associated length field of type INT2 or INT4 must also be read and specified in the list in front of the column of type LRAW or LCHR.
+</P>
+<p><span class="h4">
+Note
+</span></p>
+<P>
+Columns can only be specified directly in the obsolete form of <a href="javascript:call_link('abenopen_sql_lists_obsolete.html')" class="blue">blank-separated lists</a>. <br><br>
+</P>
+<p><span class="h2">
+<A NAME="!ABAP_ALTERNATIVE_2@2@"></A> <span class="bold">Alternative 2</span>
+</span></p>
+<P>
+<span class="qtext">... aggregate</span> <br><br><br><!-- /A -->
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+Specifies an aggregate expression <a href="javascript:call_link('abapselect_aggregate.html')" class="blue"><span class="qtext">aggregate</span></a>, in which a
+<a href="javascript:call_link('abapselect_data_source.html')" class="blue">data source</a> column is specified as an argument
+of an aggregate function. An aggregate function uses the values from multiple rows of the specified
+column to calculate a single value (with a data type that depends on the aggregate function), and then
+places this value in the column of the results set. The corresponding data host variable after <span class="qtext">INTO</span> or <span class="qtext">APPENDING</span> be a
+<a href="javascript:call_link('abenselect_into_conversion.html')" class="blue">suitable</a> choice.
+</P>
+<P>
+If aggregate expressions are used, any column identifiers that are not included as arguments of an aggregate
+function must be included after the addition <a href="javascript:call_link('abapgroupby_clause.html')" class="blue"><span class="qtext">GROUP
+BY</span></a>. The aggregate functions evaluate the contents of the groups defined by <span class="qtext">GROUP BY</span> in the database system and pass the result to the merged rows of the results set.
+</P>
+<P>
+The following rules apply when aggregate expressions are used in the <span class="qtext">SELECT</span> list:
+</P>
+<ul class="disc">
+<li>
+If the addition <span class="qtext">FOR ALL ENTRIES</span> is used before <a href="javascript:call_link('abapwhere.html')" class="blue"><span class="qtext">WHERE</span></a>, or if
+<a href="javascript:call_link('abencluster_table_glosry.html')" class="grey" title="Glossary Entry">cluster tables</a> or
+<a href="javascript:call_link('abenpooled_table_glosry.html')" class="grey" title="Glossary Entry">pooled tables</a> are included after <span class="qtext">FROM</span>, no aggregate expressions apart from <span class="qtext">COUNT( *
+)</span> can be used. In cases like these, the aggregate expression is not evaluated in the database, but is emulated on the application server. <br>
+<br></li>
+<li>
+Columns of type STRING, RAWSTRING, LCHR, or LRAW cannot be handled with aggregate functions. <br>
+<br></li>
+<li>
+When aggregate expressions are used, the <span class="qtext">SELECT</span> statement bypasses <a href="javascript:call_link('abensap_buffering_glosry.html')" class="grey" title="Glossary Entry">SAP buffering</a>. <br>
+<br></li>
+<li>
+<a href="javascript:call_link('abennull_value_glosry.html')" class="grey" title="Glossary Entry">Null values</a> are not included
+in the calculation for the aggregate functions. The result is a null value only if all the rows in the column in question contain a null value. <br>
+<br></li>
+<li>
+If aggregate expressions only are used after <span class="qtext">SELECT</span>, the results set has
+just one row and the addition <span class="qtext">GROUP BY</span> is not required. If a non-table-like
+target area is specified after <span class="qtext">INTO</span> after a single <span class="qtext">SELECT</span>
+statement (which means not in the case of multiple statements joined using <a href="javascript:call_link('abapunion.html')" class="blue"><span class="qtext">
+UNION</span></a>), the statement <span class="qtext">ENDSELECT</span> cannot be specified (as when using the addition <span class="qtext">SINGLE</span>). If the aggregate expression <span class="qtext">COUNT( *
+)</span> is not used, an internal table can be specified after <span class="qtext">INTO</span>, and the first row of this table is filled. <br>
+<br></li>
+<li>
+If aggregate functions only are used without <span class="qtext">GROUP BY</span>, the results set also contains a row if no data is found in the database. If <span class="qtext">COUNT( *
+)</span> is used, the column in question contains the value 0. The columns for the other aggregate functions
+contain initial values. This row is assigned to the data object specified after <span class="qtext">INTO</span> and, unless only <span class="qtext">COUNT( *
+)</span> is used, <span class="qtext">sy-subrc</span> is set to 0 and <span class="qtext">sy-dbcnt</span> is set to 1. <br>
+<br></li>
+<li>
+If only <span class="qtext">COUNT( * )</span> is used as the only specified column and <span class="qtext">GROUP
+BY</span> is not specified at the same time, the addition <span class="qtext">INTO</span> can be omitted.
+The number of selected rows can then be taken from the system field <span class="qtext">sy-dbcnt</span>.
+If more than 2147483647 rows are selected, <span class="qtext">sy-dbcnt</span> contains the value -1.
+If no data is found on the database, <span class="qtext">sy-subrc</span> is set to 4 and <span class="qtext">sy-dbcnt</span> is set to 0. <br>
+<br></li>
+<li>
+To be able to evaluate the result of aggregate functions in <a href="javascript:call_link('abapinto_clause.html')" class="blue"><span class="qtext">INTO<i
+class=bn>|</i>APPENDING CORRESPONDING FIELDS</span></a> and <a href="javascript:call_link('abaporderby_clause.html')" class="blue"><span class="qtext">
+ORDER BY</span></a>, an alternative column name must be specified using <a href="javascript:call_link('abapselect_list.html')" class="blue"><span class="qtext">AS</span></a>. This is then used by these additions. <br><br>
+<br></li>
+</ul>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>
+Aggregate expressions cannot be specified together with <a href="javascript:call_link('abapselect_list.html')" class="blue"><span class="qtext">data_source~*</span></a> in the comma-separated list.
+<br><br></li>
+<li>
+Aggregate expressions can only be specified in the obsolete form of <a href="javascript:call_link('abenopen_sql_lists_obsolete.html')" class="blue">blank-separated lists</a>. <br><br>
+<br></li>
+</ul>
+<p><span class="h2">
+<A NAME="!ABAP_ALTERNATIVE_3@3@"></A> <span class="bold">Alternative 3</span>
+</span></p>
+<P>
+<span class="qtext">... sql_exp</span> <br><br><br><!-- /A -->
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<P>
+Specifies an SQL expression <a href="javascript:call_link('abapsql_expr.html')" class="blue"><span class="qtext">sql_exp</span></a>, which columns of
+<a href="javascript:call_link('abapselect_data_source.html')" class="blue">data sources</a>, literals or
+<a href="javascript:call_link('abenopen_sql_host_variables.html')" class="blue">host variables</a>, or expressions, can have
+as operands. An SQL expression uses the operands to determine a value (with a data type dependent on
+the expression) and places this value in the column of the results set. The corresponding data host variable after <span class="qtext">INTO</span> or <span class="qtext">APPENDING</span> be a
+<a href="javascript:call_link('abenselect_into_conversion.html')" class="blue">suitable</a> choice. The values of the data source columns specified as operands are the selected values of the current row.
+</P>
+<P>
+SQL expressions cannot currently be used together with the addition <a href="javascript:call_link('abenwhere_logexp_itab.html')" class="blue"><span class="qtext">FOR ALL ENTRIES</span></a>. The data types usable in SQL expressions are also restricted.
+<a href="javascript:call_link('abenlob_glosry.html')" class="grey" title="Glossary Entry">LOBs</a> in particular cannot be edited in expressions.
+</P>
+<P>
+SQL are not possible if the program attribute <span class="italic">fixed point arithmetic</span> is
+<a href="javascript:call_link('abennon_fixed_point_obsolete.html')" class="blue">switched off</a>. They cannot be used when accessing
+<a href="javascript:call_link('abencluster_table_glosry.html')" class="grey" title="Glossary Entry">pooled tables</a> or
+<a href="javascript:call_link('abenpooled_table_glosry.html')" class="grey" title="Glossary Entry">cluster tables</a>. They dictate that the syntax check is performed in a
+<a href="javascript:call_link('abenopensql_strict_mode_740_sp05.html')" class="blue">strict mode</a>, which handles the statement more strictly than the regular syntax check. In particular,
+<a href="javascript:call_link('abenopen_sql_host_variables.html')" class="blue">host variables</a> must be prefixed with the escape character <span class="qtext">@</span> and lists must be specified as comma-separated lists.
+</P>
+<p><span class="h4">
+Note
+</span></p>
+<P>
+SQL expressions are calculated in the database system. <br><br>
+</P>
+<br>
+<br>
+<!-- POSTFIX --><span class="h4">Continue</span><br>
+<a href="javascript:call_link('abapselect_aggregate.html')" class="blue">SELECT - aggregate</a><br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abapselect_clause_col_spec.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:09 GMT -->
+</html>
