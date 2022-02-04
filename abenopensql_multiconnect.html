@@ -1,0 +1,260 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENOPENSQL_MULTICONNECT -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenopensql_multiconnect.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:42:36 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Open SQL - Secondary Database Connections">
+<meta name="keywords" content="ABAP, Secondary Database Connections">
+<title>
+Open SQL - Secondary Database Connections - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenopensql_multiconnect.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenopensql_multiconnect.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopensql.html')" class="blue">Open SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopen_sql_oview.html')" class="blue">Open SQL - Overview</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Open SQL - Secondary Database Connections
+</span></p>
+<p>
+Open SQL statements access the central AS ABAP by default. The addition <a href="javascript:call_link('abapselect_additions.html')" class="blue">
+<span class="qtext">CONNECTION</span></a> can be used to execute Open SQL statements on databases other
+than the standard SAP database. This presents a number of options, for example, data can be passed to and updated in other databases. It is irrelevant whether the other database belongs to a
+<a href="javascript:call_link('abensap_nw_abap_glosry.html')" class="grey" title="Glossary Entry">AS ABAP</a>. However, it is
+a prerequisite that the database system in question is supported by SAP, because only in systems like this is the software needed for an Open SQL access available in form of a shared library.
+</p>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENOPENSQL_MULTICONNECT_1" class="blue">Setting Up a Secondary Database Connection</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENOPENSQL_MULTICONNECT_2" class="blue">The Standard Database Connection</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENOPENSQL_MULTICONNECT_3" class="blue">Service Connections to the SAP Standard Database</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENOPENSQL_MULTICONNECT_4" class="blue">Accessing Other Database Tables</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENOPENSQL_MULTICONNECT_5" class="blue">Database Connections and Transactions</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENOPENSQL_MULTICONNECT_6" class="blue">Interaction with Native SQL Connections</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENOPENSQL_MULTICONNECT_7" class="blue">Management of Database Connections</A></li>
+</ul>
+<A name="@@ITOC@@ABENOPENSQL_MULTICONNECT_1"></A>
+<p><span class="h2">
+Setting Up a Secondary Database Connection
+</span></p>
+<p>
+To a access another database, an entry in the table <span class="lnkgrey">DBCON</span> is required that
+describes the access data of the database. If the secondary database is from a vendor other than the vendor of the database of the current
+<a href="javascript:call_link('abensap_nw_abap_glosry.html')" class="grey" title="Glossary Entry">AS ABAP</a>, the SAP shared
+library is required as well as the client software provided by the vendor. Information about creating
+the DBCON entry and installing the additional software is described in the standard SAP Notes for every supported database system.
+</p>
+<p>
+On AS ABAP, entries in the database table DBCON can be created and modified using the central <a href="javascript:call_link('abendba_cockpit_glosry.html')" class="grey" title="Glossary Entry">DBA Cockpit</a> tool. <br><br>
+</p>
+<A name="@@ITOC@@ABENOPENSQL_MULTICONNECT_2"></A>
+<p><span class="h2">
+The Standard Database Connection
+</span></p>
+<p>
+Every work process has a standard database connection to the SAP standard database. It is shared by all
+<a href="javascript:call_link('abeninternal_session_glosry.html')" class="grey" title="Glossary Entry">internal sessions</a>.
+This database connection can also be accessed explicitly using the name <span class="qtext">DEFAULT</span>.
+The <span class="qtext">DEFAULT</span> connection can also be specified dynamically using <span class="qtext">CONNECTION
+(name)</span>, where the <span class="qtext">name</span> field must have the value <span class="qtext">'DEFAULT'</span>. <br><br>
+</p>
+<A name="@@ITOC@@ABENOPENSQL_MULTICONNECT_3"></A>
+<p><span class="h2">
+Service Connections to the SAP Standard Database
+</span></p>
+<p>
+In addition to the secondary database connections stored in database table <span class="lnkgrey">DBCON</span>,
+service connections to the SAP standard database can also be used. The name of this connection is <span class="qtext400">
+R/3*name</span>, which consist of the prefix <span class="qtext400">R/3*</span> and a user-defined <span class="qtext400">
+name</span>. A service connection automatically uses all the settings of the standard database connection.
+</p>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>Service connections <span class="qtext400">R/3*name</span> can never connect to databases other
+than SAP standard databases. The freely definable <span class="qtext400">name</span> is not associated
+with the entries in the database table DBCON and is used only to identify a service connection. Hence,
+specifying a database connection from the database table DBCON for <span class="qtext400">name</span> does not mean that this database connection is used.</li>
+</ul>
+<ul class="disc">
+<li>Service connections for the SAP standard database are useful for performing operations in a
+<a href="javascript:call_link('abendb_transaction.html')" class="blue">database LUW</a>, which does not depend on the LUW standard connection. It should be noted that the current
+<a href="javascript:call_link('abendb_isolation.html')" class="blue">isolation level</a> is responsible for determining whether
+a read from a database LUW can access data modified in a different database LUW, before this data is committed using a database commit.</li>
+</ul>
+<ul class="disc">
+<li>Service connections to the SAP standard database can also be used for calling an
+<a href="javascript:call_link('abenamdp_procedure_method_glosry.html')" class="grey" title="Glossary Entry">AMDP procedure implementation</a>,
+if this method has an input parameter with the predefined name <span class="qtext">connection</span>. <br><br></li>
+</ul>
+<A name="@@ITOC@@ABENOPENSQL_MULTICONNECT_4"></A>
+<p><span class="h2">
+Accessing Other Database Tables
+</span></p>
+<p>
+If a database connection is used to access database tables or views that are not in the SAP standard
+database, there must also be a database table with the same name and identical type in ABAP Dictionary
+in the local AS ABAP. Open SQL assumes that the type information of these "remote" database tables or
+views corresponds exactly with that of the local database table. This prerequisite is essential for
+the correct interpretation of the database contents, for example, and, if necessary, their conversion
+with respect to the ABAP type of the target fields (see <a href="javascript:call_link('abapinto_clause.html')" class="blue"><span class="qtext">
+INTO</span> Clause</a>). If this prerequisite is not met, wrong data or runtime errors can be produced
+by reads or writes, depending on the database system. Because the ABAP runtime environment cannot ensure
+the consistency of the type descriptions in the local and remote databases, the consistency must be guaranteed by the relevant application program.
+</p>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>The type of a database object specified in an Open SQL statement using the addition <span class="qtext">CONNECTION</span>
+does not necessarily need to match the type of the database object with the same name in the secondary
+database. For example, a view with the same name in the secondary database can be accessed by specifying a database table (or a database table by specifying a view) if they have the same structure.</li>
+</ul>
+<ul class="disc">
+<li>The prerequisite that an identically named database object with a suitable structure must exist in ABAP Dictionary in the current system for views accessed using a secondary database connection is particularly important for
+<a href="javascript:call_link('abenexternal_view_glosry.html')" class="grey" title="Glossary Entry">external views</a>. <br><br></li>
+</ul>
+<A name="@@ITOC@@ABENOPENSQL_MULTICONNECT_5"></A>
+<p><span class="h2">
+Database Connections and Transactions
+</span></p>
+<p>
+Every database connection forms its own transaction context. This means that database changes on one
+connection can be committed (using <a href="javascript:call_link('abapcommit_rollback_connection.html')" class="blue"><span class="qtext">COMMIT
+CONNECTION</span></a>) or rolled back (using <a href="javascript:call_link('abapcommit_rollback_connection.html')" class="blue"><span class="qtext">
+ROLLBACK CONNECTION</span></a>) independently of changes on other database connections. It is possible, for example, to save and commit log data on a secondary database connection without affecting the current
+<a href="javascript:call_link('abentransaction_glosry.html')" class="grey" title="Glossary Entry">transaction</a> running on the standard SAP database connection.
+</p>
+<p>
+Secondary database connections are not known outside the limits of an
+<a href="javascript:call_link('abeninternal_session_glosry.html')" class="grey" title="Glossary Entry">internal session</a>.
+So, if a program opens a database connection and then calls another program (using <a href="javascript:call_link('abapsubmit.html')" class="blue">
+<span class="qtext">SUBMIT</span></a>, for example) that opens a connection to the same database, there are two different connections and therefore two different database transactions.
+</p>
+<p>
+For the first Open SQL command that requests a specific database connection, the system opens a corresponding connection. All subsequent commands (in the same
+<a href="javascript:call_link('abeninternal_session_glosry.html')" class="grey" title="Glossary Entry">internal
+session</a>) for the same "remote" database use the same database connection and all form a database transaction. The transaction is ended using a
+<a href="javascript:call_link('abendb_commit.html')" class="blue">database commit</a> or a <a href="javascript:call_link('abendb_rollback.html')" class="blue">database rollback</a>.
+</p>
+<p>
+The Open SQL statements <a href="javascript:call_link('abapcommit.html')" class="blue"><span class="qtext">COMMIT WORK</span></a>
+and <a href="javascript:call_link('abaprollback.html')" class="blue"><span class="qtext">ROLLBACK WORK</span></a> end transactions
+on all currently open database connections. The same applies to implicit database commits and implicit
+database rollbacks. The statements <a href="javascript:call_link('abapcommit_rollback_connection.html')" class="blue"><span class="qtext">COMMIT
+CONNECTION</span></a> and <a href="javascript:call_link('abapcommit_rollback_connection.html')" class="blue"><span class="qtext">ROLLBACK CONNECTION</span></a>, however, only apply to the specified database connection.
+</p>
+<p><span class="h4">
+Note
+</span></p>
+<p>
+Working with parallel database connections (parallel transactions) can lead to lock situations that
+only one work process is involved in: A program changes a database row on the first connection and tries
+to change the same row on a second connection. This results in the program waiting for the lock of the
+first transaction, without this first transaction ever being able to continue. This situation can only
+be resolved by ending the work process. This is done automatically for dialog processes, but must be
+done manually for background jobs. It is therefore not advisable to change the same table within the a single program using multiple database connections.
+</p>
+<A name="@@ITOC@@ABENOPENSQL_MULTICONNECT_6"></A>
+<p><span class="h2">
+Interaction with Native SQL Connections
+</span></p>
+<p>
+In addition to the above, a connection can be opened explicitly using a <span class="qtext">CONNECT</span> with
+<a href="javascript:call_link('abennative_sql_glosry.html')" class="grey" title="Glossary Entry">Native SQL</a>. Native SQL also
+makes it possible to close and disconnect a database connection explicitly using <span class="qtext">DISCONNECT</span>.
+In this case, the database transaction in question is closed and corresponding database changes are discarded. Using the method GET_CONNECTION (from the
+<a href="javascript:call_link('abenadbc_glosry.html')" class="grey" title="Glossary Entry">ADBC</a> class <span class="lnkgrey">CL_SQL_CONNECTION</span>
+or the embedded Native SQL statement <a href="javascript:call_link('abapexec_connection.html')" class="blue"><span class="qtext">GET
+CONNECTION</span></a>, it is possible to configure the current Native SQL connection. Using Native SQL,
+it is also possible to access a connection that was opened with Open SQL. In this case it is sufficient
+to convert the active Native SQL connection using the method SET CONNECTION or the statement <span class="qtext">SET CONNECTION</span>. It is not necessary to open it using <span class="qtext">CONNECT TO</span>. <br><br>
+</p>
+<A name="@@ITOC@@ABENOPENSQL_MULTICONNECT_7"></A>
+<p><span class="h2">
+Management of Database Connections
+</span></p>
+<p>
+The database connections are automatically managed by the runtime system. If a transaction is committed
+(<a href="javascript:call_link('abapcommit_rollback_connection.html')" class="blue"><span class="qtext">COMMIT CONNECTION</span></a>) or rolled back
+(<a href="javascript:call_link('abapcommit_rollback_connection.html')" class="blue"><span class="qtext">ROLLBACK CONNECTION</span></a>)
+on a database connection, it can be reused by the runtime system. A maximum of 16 database connections
+can be opened for each work process. This means a maximum of 15 secondary database connections is possible for a standard database connection. On certain databases, this number cannot always be reached.
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenopensql_multiconnect.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:42:37 GMT -->
+</html>

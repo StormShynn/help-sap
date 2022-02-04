@@ -1,0 +1,147 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENDDIC_CDS_TABLE_FUNCTIONS -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenddic_cds_table_functions.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:24:59 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="ABAP CDS - Table Functions">
+<meta name="keywords" content="ABAP, ABAP CDS, Table Functions, CDS Table Functions">
+<title>
+ABAP CDS - Table Functions - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenddic_cds_table_functions.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenddic_cds_table_functions.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dictionary.html')" class="blue">ABAP - Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abencds.html')" class="blue">ABAP CDS in ABAP Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_cds_entities.html')" class="blue">ABAP CDS - Data Definitions</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+ABAP CDS - Table Functions
+</span></p>
+<p>
+A CDS table function is defined in <a href="javascript:call_link('abencds_source_code_glosry.html')" class="grey" title="Glossary Entry">CDS source code</a> of a
+<a href="javascript:call_link('abencds_data_definition_glosry.html')" class="grey" title="Glossary Entry">CDS data definition</a> in the
+<a href="javascript:call_link('abenadt_glosry.html')" class="grey" title="Glossary Entry">ABAP Development Tools (ADT)</a> using
+the statement <a href="javascript:call_link('abencds_f1_define_table_function.html')" class="blue"><span class="qtext400">DEFINE TABLE_FUNCTION</span></a> in the
+<a href="javascript:call_link('abencds.html')" class="blue">ABAP Core Data Services (CDS)</a> <a href="javascript:call_link('abencds_ddl_glosry.html')" class="grey" title="Glossary Entry">CDS DDL</a>. A CDS table function includes the following:
+</p>
+<ul class="disc">
+<li>The <a href="javascript:call_link('abencds_entity_glosry.html')" class="grey" title="Glossary Entry">CDS entity</a></li>
+</ul>
+<dl><dd>
+A CDS table function is declared as a CDS entity using the name of its CDS entity as it is defined as
+<span class="qtext400">cds_entity</span> after <a href="javascript:call_link('abencds_f1_define_table_function.html')" class="blue"><span class="qtext400">
+DEFINE TABLE_FUNCTION</span></a>. As a data type in ABAP Dictionary, the CDS entity represents a structured type with the
+<a href="javascript:call_link('abencds_f1_return_list.html')" class="blue">elements of the CDS table function</a> as components and can be used like any
+<a href="javascript:call_link('abencds_entity_glosry.html')" class="grey" title="Glossary Entry">CDS entity</a>.
+</dd></dl>
+<ul class="circlem2">
+<li>In ABAP CDS, the CDS entity can be used as a data source of other CDS entities.</li>
+</ul>
+<ul class="circlem2">
+<li>In ABAP, the CDS entity can be used as a data type and in Open SQL read statements.</li>
+</ul>
+<ul class="circlem2">
+<li>The CDS entity cannot be used as a data type for definitions of <a href="javascript:call_link('abenddic_classical_objects.html')" class="blue">classic dictionary objects</a> in ABAP Dictionary.</li>
+</ul>
+<ul class="disc">
+<li>An <a href="javascript:call_link('abenamdp_function_method_glosry.html')" class="grey" title="Glossary Entry">AMDP function implementation</a></li>
+</ul>
+<dl><dd>
+CDS table functions are implemented in <a href="javascript:call_link('abennative_sql_glosry.html')" class="grey" title="Glossary Entry">Native SQL</a> in an
+<a href="javascript:call_link('abenamdp_method_glosry.html')" class="grey" title="Glossary Entry">AMDP method</a> and the implementation is managed as an
+<a href="javascript:call_link('abenamdp_function_glosry.html')" class="grey" title="Glossary Entry">AMDP function</a> by the
+<a href="javascript:call_link('abenamdp_glosry.html')" class="grey" title="Glossary Entry">AMDP framework</a> in the database system.
+</dd></dl>
+<dl><dd>
+The AMDP method is specified after the addition <span class="qtext400">IMPLEMENTED BY</span> in the
+definition of the CDS table function using <a href="javascript:call_link('abencds_f1_define_table_function.html')" class="blue"><span class="qtext400">DEFINE TABLE_FUNCTION</span></a>. It must be declared as a special
+<a href="javascript:call_link('abenamdp_function_methods.html')" class="blue">AMDP function implementation</a> for precisely
+one CDS table function using the addition <a href="javascript:call_link('abapclass-methods_for_tabfunc.html')" class="blue"><span class="qtext">FOR TABLE FUNCTION</span></a>.
+</dd></dl>
+<dl><dd>
+The parameter interface of the AMDP function is defined using the
+<a href="javascript:call_link('abencds_f1_func_parameter_list.html')" class="blue">input parameters</a> and the <a href="javascript:call_link('abencds_f1_return_list.html')" class="blue">element list</a> of the CDS table function.
+</dd></dl>
+<p>
+Like a <a href="javascript:call_link('abencds_view_glosry.html')" class="grey" title="Glossary Entry">CDS view</a>, a CDS table function is client-specific by default and
+<a href="javascript:call_link('abencds_func_client_handling.html')" class="blue">client handling</a> is automatic in Open SQL accesses.
+</p>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>CDS table functions can only be used in a database system that supports <a href="javascript:call_link('abenamdp_glosry.html')" class="grey" title="Glossary Entry">AMDP</a>.</li>
+</ul>
+<ul class="disc">
+<li>When a CDS table function is created, the CDS entity must be activated first, before the associated
+<a href="javascript:call_link('abenamdp_function_method_glosry.html')" class="grey" title="Glossary Entry">AMDP function implementation</a> is created.</li>
+</ul>
+<ul class="disc">
+<li>When a CDS table function is transported, the CDS entity is first transported as part of the dictionary
+transport objects and then the AMDP function implementation as part of the ABAP transport objects. Depending
+on the size of the transport, there can be a considerable delay between these two phases where the CDS table function is not in a usable state.</li>
+</ul>
+<br>
+<br>
+<!-- POSTFIX --><span class="h4">Continue</span><br>
+<a href="javascript:call_link('abencds_func_client_handling.html')" class="blue">ABAP CDS - Client Handling in CDS Table Functions</a><br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenddic_cds_table_functions.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:24:59 GMT -->
+</html>

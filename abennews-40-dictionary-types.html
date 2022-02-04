@@ -1,0 +1,166 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENNEWS-40-DICTIONARY-TYPES -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abennews-40-dictionary-types.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 18:09:49 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Data Types in the ABAP Dictionary for Release 4.0">
+<title>
+Data Types in the ABAP Dictionary for Release 4.0 - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abennews-40-dictionary-types.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abennews-40-dictionary-types.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennews.html')" class="blue">ABAP - Release-Specific Changes</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennews-4.html')" class="blue">Changes in Releases 4.xx</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennews-40.html')" class="blue">Changes in Releases 4.0 and 4.5</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Data Types in the ABAP Dictionary for Release 4.0 <br><br>
+</span></p>
+<A name="@@ITOC@@ABENNEWS-40-DICTIONARY-TYPES_1"></A>
+<p><span class="h2">
+General
+</span></p>
+<p>
+Up until now the administration and maintenance of data types in the ABAP programming language and in the ABAP Dictionary were not unified.
+</p>
+<p>
+For Release 3.0 the type concept in the ABAP programming language has been greatly enhanced. Elementary
+and structured data types can now be independently defined. Structured data types can be further subdivided
+into structures and internal tables. Structure components and internal table line types can take on
+any data type desired, which makes the definition of extremely complex data types possible. However,
+if you completely split a complex data type into its component parts, you should always end up with elementary ABAP data types.
+</p>
+<p>
+ABAP data types and Dictionary data types previously only genuinely corresponded to one another if they
+were structures with elementary components. The ABAP data type 'structure' corresponded to the structure
+of database tables in the Dictionary and the structure of independent structures. From ABAP programs
+you could refer to database tables and Dictionary structures using the <span class="qtext">LIKE</span>
+addition and also refer to individual components of ABAP Dictionary types at the same time. However,
+complex ABAP data types like internal tables or non-elementary structures had no direct equivalent in
+the Dictionary. From Release 3.0 type groups based on include technology were put at the user's disposal
+as a sort of temporary solution. These type groups allowed the user to store ABAP data types centrally in the Dictionary.
+</p>
+<A name="@@ITOC@@ABENNEWS-40-DICTIONARY-TYPES_2"></A>
+<p><span class="h2">
+Description of functionality
+</span></p>
+<p>
+The following sections describe which Dictionary data types correspond to individual ABAP dtat types and how they are addressed in ABAP:
+</p>
+<A name="@@ITOC@@ABENNEWS-40-DICTIONARY-TYPES_3"></A>
+<p><span class="h3">
+Elementary Types
+</span></p>
+<p>
+Elementary data types in ABAP correspond to the data elements that were up to now only found in the
+ABAP Dictionary. From Release 4.5A data elements will also be called elementary types in the Dictionary.
+For the time being, the two-tiered domain concept for elementary types will retain its validity. The
+actual elementary Dictionary data type contains the semantic attributes, while the technical attributes
+are defined in a domain. You can refer to elementary types and previous Dictionary data elements directly
+in ABAP programs using the addition <span class="qtext">TYPE</span>. When you use <span class="qtext">TYPE</span>
+all external Dictionary data types are converted into their corresponding ABAP data types. Elementary
+types are the smallest indivisible units of those structured types and table types listed below. Thus all Dictionary types contain semantic attributes such as texts, value tables, and documentation.
+</p>
+<A name="@@ITOC@@ABENNEWS-40-DICTIONARY-TYPES_4"></A>
+<p><span class="h3">
+Structured types
+</span></p>
+<p>
+Structures in ABAP correspond to the structures that up to now were only found in the ABAP Dictionary.
+From Release 4.5A structures in the Dictionary will be called structured types. Individual structured
+type components can take any Dictionary data type you want starting from Release 4.5A. This makes complex
+structure construction possible. You can use the addition <span class="qtext">TYPE</span> to refer to
+structured types in ABAP programs. For reasons of compatibility you will still be able to use the addition <span class="qtext">LIKE</span> to refer to structured types.
+</p>
+<A name="@@ITOC@@ABENNEWS-40-DICTIONARY-TYPES_5"></A>
+<p><span class="h3">
+Table types
+</span></p>
+<p>
+From Release 4.5A table types can be defined in the Dictionary. Table type specifications correspond
+to internal tables in ABAP, that is they have an access type, a key, and a line type. Line types can
+be of any Dictionary data type desired, which makes complex nested table creation possible. You can use the addition <span class="qtext">TYPE</span> to refer to table types in ABAP programs.
+</p>
+<A name="@@ITOC@@ABENNEWS-40-DICTIONARY-TYPES_6"></A>
+<p><span class="h3">
+Database tables
+</span></p>
+<p>
+In addition to managing data types centrally, the most important task of the ABAP Dictionary is still
+database table administration. The Dictionary describes from which elementary types the structured type
+of a database table's data record has been constructed. As in the past, you will still be able to use
+the addition <span class="qtext">LIKE</span> in ABAP to refer to the structure of database tables and
+of individual data fields. From 4.5A you will also be able to use <span class="qtext">TYPE</span> refer to the structure and fields of database tables.
+</p>
+<A name="@@ITOC@@ABENNEWS-40-DICTIONARY-TYPES_7"></A>
+<p><span class="h2">
+What's next?
+</span></p>
+<p>
+In the future, SAP plans to allow for the central definition of constants in the ABAP Dictionary, a process which, at this time, can only be undertaken with the aid of type groups. Additionally, a
+</p>
+<p>
+comprehensive bundling concept will make type group encapsulation generally available throughout the system.
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abennews-40-dictionary-types.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 18:09:49 GMT -->
+</html>

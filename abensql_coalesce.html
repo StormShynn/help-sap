@@ -1,0 +1,132 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENSQL_COALESCE -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abensql_coalesce.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:42:51 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="sql_exp - sql_coalesce">
+<title>
+sql_exp - sql_coalesce - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abensql_coalesce.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abensql_coalesce.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopensql.html')" class="blue">Open SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopen_sql_operands.html')" class="blue">Open SQL - Operands</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopen_sql_builtin_functions.html')" class="blue">Open SQL - Built-In Functions</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopen_sql_functions.html')" class="blue">Open SQL - SQL Functions</a>&nbsp;&rarr;&nbsp;
+</span>
+<A NAME="@@COALESCE@@!ABAP_OSQL_FUNC!@@"></A>
+<p><span class="h1">
+sql_exp - sql_coalesce
+</span></p>
+<p><span class="h2">
+<span class="bold">Syntax</span>
+</span></p>
+<P>
+<span class="qtext">... COALESCE( arg1, arg2, ..., argn ) ...</span>
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<p>
+Calls the Coalesce function as an <a href="javascript:call_link('abapsql_expr.html')" class="blue">SQL expression</a> or operand
+of an expression in Open SQL. The Coalesce function can have a comma-separated list with at least two but no more than 255 arguments <span class="qtext">arg1</span>,
+ <span class="qtext">arg1</span>, ..., <span class="qtext">argn</span>. This function returns the values of the first argument, which does not have the
+<a href="javascript:call_link('abennull_value_glosry.html')" class="grey" title="Glossary Entry">null value</a>. If every argument
+has the null value, the value of the last argument <span class="qtext">argn</span> is returned. A blank
+must be placed before the opening parenthesis and after the closing parenthesis. There are a number of possible arguments:
+</p>
+<ul class="disc">
+<li>Columns and expressions of any dictionary types except for ACCP, DF16_SCL (obsolete), DF34_SCL (obsolete), LCHR, LRAW,  PREC, RAWSTRING and STRING</li>
+</ul>
+<ul class="disc">
+<li>Literals, host variables, and host expressions of ABAP types, except for <span class="qtext">string</span> and <span class="qtext">xstring</span></li>
+</ul>
+<p>
+The data types of arguments must either be the same or the data type of one argument must represent the value of the other data types. The result has the dictionary type of the argument with the largest value range.
+</p>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>The coalesce function can be used to assign a target object a self-defined value or the result of an expression, when null values are read. The type-friendly initial value is assigned by default.</li>
+</ul>
+<ul class="disc">
+<li>A maximum of 10 coalesce functions can be nested.</li>
+</ul>
+<ul class="disc">
+<li>A coalesce function is a short from of the following <a href="javascript:call_link('abensql_searched_case.html')" class="blue">complex case distinction</a>:</li>
+</ul>
+<dl><dd>
+<span class="qtext">CASE WHEN arg1 IS NOT NULL THEN arg1 <br>&nbsp;&nbsp;&nbsp;&nbsp; WHEN arg2 IS NOT NULL THEN arg2 <br>&nbsp;&nbsp;&nbsp;&nbsp; ... <br>&nbsp;&nbsp;&nbsp;&nbsp; ELSE argn <br>END</span>
+</dd></dl>
+<p><span class="h4">
+Executable Example
+</span></p>
+<p>
+<a href="javascript:call_link('abensql_expr_coalesce_abexa.html')" class="blue">SQL Expressions, Coalesce Function</a>
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abensql_coalesce.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:42:51 GMT -->
+</html>

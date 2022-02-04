@@ -1,0 +1,215 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENWHERE_LOGEXP_SELTAB -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenwhere_logexp_seltab.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:13 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="sql_cond - IN seltab">
+<title>
+sql_cond - IN seltab - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenwhere_logexp_seltab.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenwhere_logexp_seltab.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopensql.html')" class="blue">Open SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopen_sql_reading.html')" class="blue">Open SQL - Reads</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenselect_clauses.html')" class="blue">SELECT clauses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abapwhere.html')" class="blue">SELECT - WHERE</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenwhere_logexp.html')" class="blue">WHERE - sql_cond</a>&nbsp;&rarr;&nbsp;
+</span>
+<p>
+<a href="javascript:call_link('abensql_cond_shortref.html')" class="blue">Quick Reference</a>
+</p>
+<A NAME="@@IN@@WHERE@@"></A>
+<A NAME="@@NOT IN@@WHERE@@"></A>
+<p><span class="h1">
+sql_cond - IN seltab
+</span></p>
+<A name="@@ITOC@@ABENWHERE_LOGEXP_SELTAB_1"></A>
+<p><span class="h2">
+Syntax
+</span></p>
+<p>
+<span class="qtext">... operand <i class=bn>[</i>NOT<i class=bn>]</i> IN @seltab ...</span>
+</p>
+<p><span class="h4">
+Effect
+</span></p>
+<p>
+This expression is true if the value of the operand <span class="qtext">operand</span> is (not) in the results set described in the rows of the
+<a href="javascript:call_link('abenselection_table_glosry.html')" class="grey" title="Glossary Entry">selection table</a> <span class="qtext">seltab</span>.
+</p>
+<ul class="disc">
+<li><a href="javascript:call_link('abenopen_sql_columns.html')" class="blue">Columns</a> and
+<a href="javascript:call_link('abapsql_expr.html')" class="blue">SQL expressions</a> can be specified for <span class="qtext">operand</span>. This covers literals, host variables, and host expressions.</li>
+</ul>
+<ul class="disc">
+<li>Any internal table whose row type matches a selection table can be specified for the selection table <span class="qtext">seltab</span> (whose name should be prefixed with the escape character <span class="qtext">@</span> like every
+<a href="javascript:call_link('abenopen_sql_host_variables.html')" class="blue">host variable</a>). This includes, in particular, <a href="javascript:call_link('abenranges_table_glosry.html')" class="grey" title="Glossary Entry">ranges tables</a>.</li>
+</ul>
+<p>
+The selection table is evaluated in the same way as in
+<a href="javascript:call_link('abenlogexp_select_option.html')" class="blue">comparison expressions</a>, with the difference
+that any comparisons using the operators <span class="qtext">CP</span> and <span class="qtext">NP</span>
+in <a href="javascript:call_link('abenwhere_logexp_like.html')" class="blue"><span class="qtext">LIKE</span> conditions</a> are
+transformed for which the Open SQL escape character "#" is defined. The pattern after <span class="qtext">CP</span>
+or <span class="qtext">NP</span> is transformed to a pattern for <span class="qtext">LIKE</span> as follows:
+</p>
+<ul class="disc">
+<li>If the Open SQL wildcard characters "%" are contained in the pattern, the "#" escape character is inserted before these characters.</li>
+</ul>
+<ul class="disc">
+<li>Any wildcard characters "*" and "+" that are not prefixed with the escape character "#" are transformed to the Open SQL wildcard characters "%" and "_".</li>
+</ul>
+<ul class="disc">
+<li>Any "#" escape characters that do not prefix themselves or the Open SQL wildcard characters "%" and "_" are removed.</li>
+</ul>
+<p>
+If the selection table is initial, the expression <span class="qtext">IN seltab</span> is always true.
+</p>
+<p>
+The content of the columns LOW and HIGH in the selection table should match the data type of the operand in accordance with the rules for
+<a href="javascript:call_link('abenlossless_assignment_glosry.html')" class="grey" title="Glossary Entry">lossless assignments</a>. This is checked by the
+<a href="javascript:call_link('abenopensql_strict_modes.html')" class="blue">strict modes</a> of the syntax check from Release 7.40, SP08 and can raise an exception.
+</p>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li><span class="qtext">LIKE</span> conditions are case-sensitive, which is not the case in ABAP comparison expressions.</li>
+</ul>
+<ul class="disc">
+<li>If no conditions are specified apart from <span class="qtext">IN seltab</span>, all rows of the data source are selected if the selection table is initial.</li>
+</ul>
+<ul class="disc">
+<li>The conditions specified in the selection table are passed by the
+<a href="javascript:call_link('abendatabase_interface_glosry.html')" class="grey" title="Glossary Entry">database interface</a>
+to the database as SQL statement input values. The maximum number of input values depends on the database
+system and is usually between 2000 and 10000. If the maximum number is exceeded an exception of the class CX_SY_OPEN_SQL_DB is raised.</li>
+</ul>
+<ul class="disc">
+<li>If the selection table contains invalid values, a non-handleable exception is raised.</li>
+</ul>
+<ul class="disc">
+<li>No <a href="javascript:call_link('abenopen_sql_host_expressions.html')" class="blue">host expressions</a> can be specified on the right side.</li>
+</ul>
+<ul class="disc">
+<li>When an SQL expression occurs on the left side, the syntax check is performed in a
+<a href="javascript:call_link('abenopensql_strict_mode_750.html')" class="blue">strict mode</a>, which handles the statement more strictly than the regular syntax check.</li>
+</ul>
+<ul class="disc">
+<li>Specifying the selection table without the escape character <span class="qtext">@</span> is
+<a href="javascript:call_link('abenopen_sql_hostvar_obsolete.html')" class="blue">obsolete</a>. The escape character <span class="qtext">@</span> must be specified in the
+<a href="javascript:call_link('abenopensql_strict_modes.html')" class="blue">strict modes</a> of the syntax check from Release 7.40, SP05.</li>
+</ul>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+A selection table is filled as follows (the order of the rows is not important):
+</p>
+<dl><dd>
+<span class="qtext">SIGN&nbsp;&nbsp;OPTION&nbsp;&nbsp;LOW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HIGH <br>
+--------------------------------------- <br>I&nbsp;&nbsp;&nbsp;&nbsp; EQ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;01104711 <br>
+I&nbsp;&nbsp;&nbsp;&nbsp; BT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 19999999 <br>
+I&nbsp;&nbsp;&nbsp;&nbsp; GE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90000000 <br>E&nbsp;&nbsp;&nbsp;&nbsp; EQ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10000911 <br>
+E&nbsp;&nbsp;&nbsp;&nbsp; BT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10000810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10000815 <br>E&nbsp;&nbsp;&nbsp;&nbsp; CP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1%2##3#+4++5*</span>
+</dd></dl>
+<p>
+The following <span class="qtext">WHERE</span> condition is generated from this:
+</p>
+<dl><dd>
+<span class="qtext">... ( ID = '01104711'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID BETWEEN '10000000' AND '19999999' OR <br>&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;ID >= '90000000' )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AND <br>
+&nbsp;&nbsp;&nbsp;&nbsp;ID &lt;> '10000911'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AND <br>
+&nbsp;&nbsp;&nbsp;&nbsp;ID NOT BETWEEN '10000810' AND '10000815' AND <br>&nbsp;&nbsp;&nbsp;&nbsp;ID NOT LIKE '1#%2##3+4__5%' ESCAPE '#'&nbsp;&nbsp; ...</span>
+</dd></dl>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+Reads flights with a <a href="javascript:call_link('abenprimary_key_glosry.html')" class="grey" title="Glossary Entry">primary key</a> that corresponds to the user entries on the
+<a href="javascript:call_link('abenselection_screen_glosry.html')" class="grey" title="Glossary Entry">selection screen</a>.
+</p>
+<p class="qtextml1">
+<span class="qtext">
+DATA spfli_wa TYPE spfli. <br> <br>SELECT-OPTIONS: s_carrid FOR spfli_wa-carrid NO INTERVALS <br>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NO-EXTENSION, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s_connid FOR spfli_wa-connid NO INTERVALS <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NO-EXTENSION. <br>
+ <br>SELECT SINGLE * <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM spfli <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE carrid IN @s_carrid AND <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connid IN @s_connid <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INTO @spfli_wa.
+</span>
+</p>
+<p>
+
+</p>
+<br>
+<br>
+<!-- POSTFIX --><span class="h4">Continue</span><br>
+<img src="exa.gif" alt="Example" title="Example">
+<a href="javascript:call_link('abenselect_tab_where_abexa.html')" class="blue">Selection Tables in the WHERE Clause</a><br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenwhere_logexp_seltab.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:43:13 GMT -->
+</html>

@@ -1,0 +1,161 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENDDIC_STRUCTURES -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenddic_structures.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:22:29 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Structures">
+<meta name="keywords" content="ABAP, ABAP Dictionary, Structures">
+<title>
+Structures - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenddic_structures.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenddic_structures.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dictionary.html')" class="blue">ABAP - Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_classical_objects.html')" class="blue">Classic Objects in ABAP Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_data_types.html')" class="blue">Data Types</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Structures
+</span></p>
+<p>
+A structure in ABAP Dictionary defines a <a href="javascript:call_link('abenstructured_type_glosry.html')" class="grey" title="Glossary Entry">structured type</a> that contains other data types as components. These components can be:
+</p>
+<ul class="disc">
+<li>Elementary data types</li>
+</ul>
+<ul class="disc">
+<li>Reference types</li>
+</ul>
+<ul class="disc">
+<li>Structured types</li>
+</ul>
+<ul class="disc">
+<li>Table types</li>
+</ul>
+<p>
+A structure that contains other structures as components is called a nested structure. Structure components
+are substructures and substructures can themselves be nested. A structure that contains a reference
+type or a table type as a direct or nested component is a deep structure. A structure that contains
+only elementary data types as a direct or nested component is a flat structure. An internal program object declared with reference to a structure is a data object structured correspondingly (or
+<a href="javascript:call_link('abenstructure_glosry.html')" class="grey" title="Glossary Entry">structure</a> for short).
+</p>
+<ul class="disc">
+<li><a href="javascript:call_link('abenddic_structures_tech.html')" class="blue">Technical attributes of structures</a></li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abenddic_structures_sema.html')" class="blue">Semantic attributes of structures</a></li>
+</ul>
+<p>
+A structure in ABAP Dictionary can be included in another structure as an
+<a href="javascript:call_link('abenddic_include_structure.html')" class="blue">include structure</a>, with the components of the included structure being added as the components of the including structure.
+</p>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>The data types of <a href="javascript:call_link('abenddic_database_tables.html')" class="blue">database tables</a> and
+<a href="javascript:call_link('abenddic_classical_views.html')" class="blue">classic views</a> are all flat (not nested) structures.</li>
+</ul>
+<ul class="disc">
+<li>A <a href="javascript:call_link('abencds_entity_glosry.html')" class="grey" title="Glossary Entry">CDS entity</a>
+(<a href="javascript:call_link('abenddic_cds_views.html')" class="blue">CDS view</a> or
+<a href="javascript:call_link('abenddic_cds_table_functions.html')" class="blue">CDS table function</a>) also represents a structured type and can be used as this sort of type in ABAP programs but not in ABAP Dictionary.</li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abenmesh_type_glosry.html')" class="grey" title="Glossary Entry">Mesh types</a> cannot currently be defined in ABAP Dictionary.</li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abenddic_customizing_includes.html')" class="blue">Customizing includes</a> and
+<a href="javascript:call_link('abenddic_append_structures.html')" class="blue">append structures</a> are available for making enhancements to structures in ABAP Dictionary delivered by SAP, without making modifications.</li>
+</ul>
+<ul class="disc">
+<li>When a <a href="javascript:call_link('abenabap_dynpros_fields.html')" class="blue">dynpro field</a> references a component
+of a structure in ABAP Dictionary, it is important that the structure is declared using <span class="qtext">TABLES</span>
+to enable a data transport between the dynpro and the ABAP program; only flat structures are suitable here.</li>
+</ul>
+<ul class="disc">
+<li>Structures are edited using a source code-based editor in the
+<a href="javascript:call_link('abenadt_glosry.html')" class="grey" title="Glossary Entry">ABAP Development Tools (ADT)</a>. Here, the structures can be created or edited using a syntax based on the
+<a href="javascript:call_link('abencds_general_syntax_rules.html')" class="blue">DDL</a> in <a href="javascript:call_link('abenabap_cds_glosry.html')" class="grey" title="Glossary Entry">ABAP CDS</a>.</li>
+</ul>
+<p><span class="h4">
+Programming Guideline
+</span></p>
+<P>
+<a href="javascript:call_link('abenstruc_comp_names_guidl.html')" class="lnkpurple" title="Guideline">Names of structure components</a>
+</P>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+The structure <span class="lnkgrey">SOADDRESS</span> for the address of a SAPoffice user is a nested structure with substructures.
+</p>
+<p>
+
+</p>
+<br>
+<br>
+<!-- POSTFIX --><span class="h4">Continue</span><br>
+<a href="javascript:call_link('abenddic_structures_tech.html')" class="blue">Technical Attributes of Structures</a><br>
+<a href="javascript:call_link('abenddic_structures_sema.html')" class="blue">Semantic Attributes of Structures</a><br>
+<a href="javascript:call_link('abenddic_include_structure.html')" class="blue">Include Structures</a><br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenddic_structures.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:22:39 GMT -->
+</html>

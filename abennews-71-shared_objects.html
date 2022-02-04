@@ -1,0 +1,155 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENNEWS-71-SHARED_OBJECTS -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abennews-71-shared_objects.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 18:09:55 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Shared Objects in Release 7.0, EhP2">
+<title>
+Shared Objects in Release 7.0, EhP2 - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abennews-71-shared_objects.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abennews-71-shared_objects.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennews.html')" class="blue">ABAP - Release-Specific Changes</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennews-70_ehps.html')" class="blue">Changes in Release 7.0 and its EhPs</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennews-71.html')" class="blue">Changes in Release 7.0, EhP2</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Shared Objects in Release 7.0, EhP2 <br><br>
+</span></p>
+<P>
+<br><A HREF="#!ABAP_MODIFICATION_1@1@" class="blue"> 1. Handling of Memory Shortages </A>
+</P>
+<P>
+<br><A HREF="#!ABAP_MODIFICATION_2@2@" class="blue"> 2. Data References in the Shared Objects Memory </A>
+</P>
+<P>
+<br><A HREF="#!ABAP_MODIFICATION_3@3@" class="blue"> 3. Area Binding </A>
+</P>
+<P>
+<br><A HREF="#!ABAP_MODIFICATION_4@4@" class="blue"> 4. Replacement of PROPAGATE_AREA and PROPAGATE_INSTANCE Methods </A>
+</P>
+<P>
+<br><A HREF="#!ABAP_MODIFICATION_5@5@" class="blue"> 5. Service Class CL_SHM_UTILITIES </A> <br><br> <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_1@1@"></A> <span class="bold">Modification 1</span>
+</span></p>
+<P>
+<span class="bold">Handling of Memory Shortages</span> <br><br><!-- /A -->
+</P>
+<P>
+As of Release 7.0, EhP2, memory shortages in the shared objects memory raise treatable exceptions of the CX_SHM_OUT_OF_MEMORY class. Previously, untreatable runtime errors were caused. <br><br> <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_2@2@"></A> <span class="bold">Modification 2</span>
+</span></p>
+<P>
+<span class="bold">Data References in the Shared Objects Memory</span> <br><br><!-- /A -->
+</P>
+<P>
+As of Release 7.0, EhP2, <a href="javascript:call_link('abenanonymous_data_object_glosry.html')" class="grey" title="Glossary Entry">anonymous data objects</a> in the
+<a href="javascript:call_link('abenshared_objects_memory_glosry.html')" class="grey" title="Glossary Entry">shared objects memory</a>
+with the <a href="javascript:call_link('abapcreate_data_area_handle.html')" class="blue"><span class="qtext">AREA HANDLE</span></a>
+addition of the <a href="javascript:call_link('abapcreate_data.html')" class="blue"><span class="qtext">CREATE DATA</span></a>
+statement can also be created with direct reference to data elements and table types of the ABAP Dictionary. <br><br> <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_3@3@"></A> <span class="bold">Modification 3</span>
+</span></p>
+<P>
+<span class="bold">Area Binding</span> <br><br><!-- /A -->
+</P>
+<P>
+As of Release 7.0, EhP2, the lifetime and visibility of area instances can be bound not only to the current
+<a href="javascript:call_link('abenapplication_server_glosry.html')" class="grey" title="Glossary Entry">application server</a> but also to:
+</P>
+<ul class="disc">
+<li>
+<a href="javascript:call_link('abenuser_session_glosry.html')" class="grey" title="Glossary Entry">User sessions</a>
+<br><br></li>
+<li>
+<a href="javascript:call_link('abentop_level_transaction_glosry.html')" class="grey" title="Glossary Entry">Top level transactions</a> <br><br> <br><br>
+<br></li>
+</ul>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_4@4@"></A> <span class="bold">Modification 4</span>
+</span></p>
+<P>
+<span class="bold"> Replacement of PROPAGATE_AREA and PROPAGATE_INSTANCE</span> Methods <br><br><!-- /A -->
+</P>
+<P>
+The PROPAGATE_AREA and PROPAGATE_INSTANCE methods of an
+<a href="javascript:call_link('abenarea_class_glosry.html')" class="grey" title="Glossary Entry">area class</a> for transactional
+areas should no longer be used. Instead the AFFECT_SERVER parameter of the FREE_AREA, FREE_INSTANCE, INVALIDATE_AREA, and INVALIDATE_INSTANCE methods can be used for this type of area. <br><br> <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_5@5@"></A> <span class="bold">Modification 5</span>
+</span></p>
+<P>
+<span class="bold">Service Class CL_SHM_UTILITIES</span> <br><br><!-- /A -->
+</P>
+<P>
+You can use the CL_SHM_UTILITIES class to programmatically query the attributes of area instances.
+</P>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abennews-71-shared_objects.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 18:09:55 GMT -->
+</html>

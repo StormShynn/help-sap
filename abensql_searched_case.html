@@ -1,0 +1,187 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENSQL_SEARCHED_CASE -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abensql_searched_case.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:42:51 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="sql_exp - sql_searched_case">
+<title>
+sql_exp - sql_searched_case - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abensql_searched_case.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abensql_searched_case.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopensql.html')" class="blue">Open SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopen_sql_operands.html')" class="blue">Open SQL - Operands</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abapsql_expr.html')" class="blue">Open SQL - SQL Expressions</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abensql_case.html')" class="blue">sql_exp - sql_case</a>&nbsp;&rarr;&nbsp;
+</span>
+<A NAME="@@NOT@@!ABAP_OSQL_EXP!@@"></A>
+<A NAME="@@AND@@!ABAP_OSQL_EXP!@@"></A>
+<A NAME="@@OR@@!ABAP_OSQL_EXP!@@"></A>
+<A NAME="@@BETWEEN@@!ABAP_OSQL_EXP!@@"></A>
+<A NAME="@@NOT BETWEEN@@!ABAP_OSQL_EXP!@@"></A>
+<A NAME="@@IS NULL@@!ABAP_OSQL_EXP!@@"></A>
+<A NAME="@@IS NOT NULL@@!ABAP_OSQL_EXP!@@"></A>
+<A NAME="@@=@@!ABAP_OSQL_EXP!@@"></A>
+<A NAME="@@&lt;&gt;@@!ABAP_OSQL_EXP!@@"></A>
+<A NAME="@@<@@!ABAP_OSQL_EXP!@@"></A>
+<A NAME="@@>@@!ABAP_OSQL_EXP!@@"></A>
+<A NAME="@@<=@@!ABAP_OSQL_EXP!@@"></A>
+<A NAME="@@>=@@!ABAP_OSQL_EXP!@@"></A>
+<p><span class="h1">
+sql_exp - sql_searched_case
+</span></p>
+<A name="@@ITOC@@ABENSQL_SEARCHED_CASE_1"></A>
+<p><span class="h2">
+Syntax
+</span></p>
+<p>
+<span class="qtext">... CASE WHEN sql_cond1 THEN result1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class=bn>[</i>WHEN sql_cond2 THEN result2<i class=bn>]</i> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class=bn>[</i>WHEN sql_cond3 THEN result3<i class=bn>]</i> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class=bn>[</i>ELSE resultn<i class=bn>]</i> <br>&nbsp;&nbsp;&nbsp;&nbsp;END ...</span>
+</p>
+<p><span class="h4">
+Effect
+</span></p>
+<p>
+Complex <a href="javascript:call_link('abensql_case.html')" class="blue">case distinction</a> (searched case) in Open SQL. This
+SQL expression evaluates logical expressions <span class="qtext">sql_cond1</span>, <span class="qtext">sql_cond2</span>,
+... in order and provides the operand <span class="qtext">result</span> as a result after <span class="qtext">THEN</span>.
+The logical expression is true for the first time for this result. If none of the logical expressions
+are true, the <span class="qtext">result</span> specified after <span class="qtext">ELSE</span> is selected. If <span class="qtext">ELSE</span> is not specified, the result is the
+<a href="javascript:call_link('abennull_value_glosry.html')" class="grey" title="Glossary Entry">zero value</a>.
+</p>
+<p>
+The potential logical expressions <span class="qtext">sql_cond</span> are a subset of the logical expressions
+<a href="javascript:call_link('abenwhere_logexp.html')" class="blue"><span class="qtext">sql_cond</span></a> of a <a href="javascript:call_link('abapwhere.html')" class="blue">
+<span class="qtext">WHERE</span> condition</a>, but also enable SQL expressions to be used as operands.
+A logical expression <span class="qtext">sql_cond</span> can be constructed from the following relational
+expressions, which can be joined using <span class="qtext">AND</span> and <span class="qtext">OR</span> and negated using <span class="qtext">NOT</span>:
+</p>
+<ul class="disc">
+<li><span class="qtext">operand1 =<i class=bn>|</i>&lt;><i class=bn>|</i>><i class=bn>|</i>&lt;<i class=bn>|</i>>=<i class=bn>|</i>&lt;= operand2</span></li>
+</ul>
+<dl><dd>
+Compares the operand <span class="qtext">operand1</span> on the left side with the operand <span class="qtext">operand2</span>
+on the right side.  The same applies for the relational operators as in a <a href="javascript:call_link('abenwhere_logexp_compare.html')" class="blue">
+<span class="qtext">WHERE</span> condition</a>, but the operands of size comparisons must have numeric data types. The operand <span class="qtext">operand2</span> on the right side can be any
+<a href="javascript:call_link('abapsql_expr.html')" class="blue">SQL expression</a>, which covers columns, literals, host variables, and host expressions. If an operand of the comparison has the
+<a href="javascript:call_link('abennull_value_glosry.html')" class="grey" title="Glossary Entry">null value</a>, the result of this comparison is unknown.
+</dd></dl>
+<ul class="disc">
+<li><span class="qtext">operand BETWEEN operand1 AND operand2</span></li>
+</ul>
+<dl><dd>
+Checks the assignment to an interval. The relational expression functions in the same way as the corresponding
+<a href="javascript:call_link('abenwhere_logexp_interval.html')" class="blue"><span class="qtext">WHERE</span> condition</a>.
+The operands must, however, have numeric data types here. Appropriate host variables and host expressions
+can be specified for <span class="qtext">operand1</span> and <span class="qtext">operand2</span>. If <span class="qtext">operand</span> has the
+<a href="javascript:call_link('abennull_value_glosry.html')" class="grey" title="Glossary Entry">null value</a>, the result of the check is unknown.
+</dd></dl>
+<ul class="disc">
+<li><span class="qtext">operand IS <i class=bn>[</i>NOT<i class=bn>]</i> NULL</span></li>
+</ul>
+<dl><dd>
+Checks for the <a href="javascript:call_link('abennull_value_glosry.html')" class="grey" title="Glossary Entry">null value</a>.
+The relational expression functions in the same way as the corresponding <a href="javascript:call_link('abenwhere_logexp_null.html')" class="blue"><span class="qtext">WHERE</span> condition</a>.
+</dd></dl>
+<p>
+The operands on the left side and the results <span class="qtext">result1</span>, <span class="qtext">result2</span>,
+can be any SQL expressions, which covers columns, literals, host variables, and host expressions. Any
+columns and expressions that occur can have any dictionary types, except for ACCP, DF16_SCL (obsolete),
+DF34_SCL (obsolete), LCHR, LRAW, PREC, RAWSTRING, and STRING. Literals, host variables, and host expressions
+can have any ABAP types, except for <span class="qtext">string</span> and <span class="qtext">xstring</span>.
+Size comparisons and the operator <span class="qtext">BETWEEN</span>, however, can only be specified for numeric types other than decimal floating point numbers.
+</p>
+<p>
+It must be possible to <a href="javascript:call_link('abenwhere_logexp_compare_types.html')" class="blue">compare</a> the data
+types of the operands of a relational expression. If this is not the case, a statically specified type
+raises a syntax error and a dynamically specified type raises an exception of the class CX_SY_DYNAMIC_OSQL_SEMANTICS.
+The results must also be compatible to produce a common result type: Data types <span class="qtext">result1</span>,
+<span class="qtext">result2</span>, ... must be either the same or the data type must be able to fully
+represent the value of all other data types. The result has the dictionary type of the entry with the greatest value range.
+</p>
+<p>
+The same applies to joins between comparisons with unknown results as to the <a href="javascript:call_link('abenwhere_logexp_andornot.html')" class="blue"><span class="qtext">WHERE</span> condition</a>.
+</p>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>When complex <span class="qtext">CASE</span> is used, the syntax check is performed in a
+<a href="javascript:call_link('abenopensql_strict_mode_740_sp08.html')" class="blue">strict mode from Release 7.40, SP08</a>, which handles the statement more strictly than the regular syntax check.</li>
+</ul>
+<ul class="disc">
+<li>When SQL expressions are specified on the left side or host expressions occur on the right side, the syntax check is performed in a
+<a href="javascript:call_link('abenopensql_strict_mode_750.html')" class="blue"> strict mode from Release 7.50</a>, which handles the statement more strictly than the regular syntax check.</li>
+</ul>
+<p><span class="h4">
+Executable Example
+</span></p>
+<p>
+<a href="javascript:call_link('abensql_expr_searched_case_abexa.html')" class="blue">SQL Expressions, Complex <span class="qtext">CASE</span></a>
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abensql_searched_case.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:42:51 GMT -->
+</html>

@@ -1,0 +1,184 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENINTERFACE_ABEXA -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abeninterface_abexa.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:34:37 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="ABAP Objects, Interfaces">
+<title>
+ABAP Objects, Interfaces - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abeninterface_abexa.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abeninterface_abexa.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abendeclarations.html')" class="blue">Declarations</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_declarations.html')" class="blue">Declaration Statements</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenclasses_and_interfaces.html')" class="blue">Classes and Interfaces</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_objects_oview.html')" class="blue">ABAP Objects - Overview</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_objects_abexas.html')" class="blue">Examples for ABAP Objects</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+ABAP Objects, Interfaces
+</span></p>
+<p>
+This example demonstrates the use of interfaces.
+</p>
+<A name="@@ITOC@@ABENINTERFACE_ABEXA_1"></A>
+<p><span class="h2">
+Source Code
+</span></p>
+<!-- Begin code -->
+<p class="qtextml1"><span class="qtext">
+REPORT demo_interface.<br>
+<br>
+INTERFACE status.<br>
+&nbsp;&nbsp;METHODS write.<br>
+ENDINTERFACE.<br>
+<br>
+CLASS counter DEFINITION.<br>
+&nbsp;&nbsp;PUBLIC SECTION.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;INTERFACES status.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;METHODS increment.<br>
+&nbsp;&nbsp;PRIVATE SECTION.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DATA count TYPE i.<br>
+ENDCLASS.<br>
+<br>
+CLASS counter IMPLEMENTATION.<br>
+&nbsp;&nbsp;METHOD status~write.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cl_demo_output=&gt;write_text( |Count in counter is { count }| ).<br>
+&nbsp;&nbsp;ENDMETHOD.<br>
+&nbsp;&nbsp;METHOD increment.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ADD 1 TO count.<br>
+&nbsp;&nbsp;ENDMETHOD.<br>
+ENDCLASS.<br>
+<br>
+CLASS bicycle DEFINITION.<br>
+&nbsp;&nbsp;PUBLIC SECTION.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;INTERFACES status.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;METHODS drive.<br>
+&nbsp;&nbsp;PRIVATE SECTION.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DATA speed TYPE i.<br>
+ENDCLASS.<br>
+<br>
+CLASS bicycle IMPLEMENTATION.<br>
+&nbsp;&nbsp;METHOD status~write.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cl_demo_output=&gt;write_text( |Speed of bicycle is { speed }| ).<br>
+&nbsp;&nbsp;ENDMETHOD.<br>
+&nbsp;&nbsp;METHOD drive.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ADD 10 TO speed.<br>
+&nbsp;&nbsp;ENDMETHOD.<br>
+ENDCLASS.<br>
+<br>
+DATA: count&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE REF TO counter,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bike&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TYPE REF TO bicycle,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status&nbsp;&nbsp;&nbsp;&nbsp; TYPE REF TO status,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status_tab TYPE TABLE OF REF TO status.<br>
+<br>
+START-OF-SELECTION.<br>
+<br>
+&nbsp;&nbsp;CREATE OBJECT: count, bike.<br>
+<br>
+&nbsp;&nbsp;DO 5 TIMES.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;count-&gt;increment( ).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bike-&gt;drive( ).<br>
+&nbsp;&nbsp;ENDDO.<br>
+<br>
+&nbsp;&nbsp;APPEND: count TO status_tab,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bike&nbsp;&nbsp;TO status_tab.<br>
+<br>
+&nbsp;&nbsp;LOOP AT status_tab INTO status.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;status-&gt;write( ).<br>
+&nbsp;&nbsp;ENDLOOP.<br>
+&nbsp;&nbsp; cl_demo_output=&gt;display( ).<br>
+</span></p>
+<!-- End code -->
+<A name="@@ITOC@@ABENINTERFACE_ABEXA_2"></A>
+<p><span class="h2">
+Description
+</span></p>
+<p>
+This example shows a <span class="qtext">status</span> interface for outputting the attributes of an object and its implementation in two different classes.
+</p>
+<p>
+The <span class="qtext">status</span> interface contains a <span class="qtext">write</span> method.
+The <span class="qtext">counter</span> and <span class="qtext">bicycle</span> classes implement the
+interface in the public area. Both classes must implement the interface method in the implementation part corresponding to the required semantics.
+</p>
+<p>
+First, two class reference variables are declared, <span class="qtext">count</span> and <span class="qtext">bike</span>,
+for the classes <span class="qtext">counter</span> and <span class="qtext">bicycle</span>. An interface
+reference variable <span class="qtext">status</span> and an internal table <span class="qtext">status_tab</span>
+with a suitable row type for the interface reference variable, are created for the <span class="qtext">status</span> interface. All the reference variables begin with initial values.
+</p>
+<p>
+Using the <span class="qtext">CREATE OBJECT</span> statement, an object is created for each class, to
+which the references in <span class="qtext">count</span> and <span class="qtext">bike</span> point.
+Using the class reference variable, the <span class="qtext">increment</span> and <span class="qtext">drive</span> methods are called in the respective objects.
+</p>
+<p>
+Through the addition of the class reference variables to the interface reference table, the rows in
+<span class="qtext">status_tab</span> also point to the two objects. Using the interface references,
+it is possible to call the interface method <span class="qtext">write</span> in the objects, but not the class methods <span class="qtext">increment</span> or <span class="qtext">drive</span>.
+</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abeninterface_abexa.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:34:37 GMT -->
+</html>

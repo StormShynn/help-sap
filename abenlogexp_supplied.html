@@ -1,0 +1,150 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENLOGEXP_SUPPLIED -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenlogexp_supplied.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:38:25 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="rel_exp - IS SUPPLIED">
+<title>
+rel_exp - IS SUPPLIED - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenlogexp_supplied.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenlogexp_supplied.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_flow_logic.html')" class="blue">Program Flow Logic</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenlogical_expr_func.html')" class="blue">Expressions and Functions for Conditions</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenlogexp.html')" class="blue">log_exp - Logical Expressions</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenpredicate.html')" class="blue">rel_exp - Predicates</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenpredicate_expressions.html')" class="blue">rel_exp - Predicate Expressions</a>&nbsp;&rarr;&nbsp;
+</span>
+<A NAME="@@IS SUPPLIED@@!ABAP_RELAT_EXPR!@@"></A>
+<A NAME="@@IS NOT SUPPLIED@@!ABAP_RELAT_EXPR!@@"></A>
+<p><span class="h1">
+rel_exp - IS SUPPLIED
+</span></p>
+<A name="@@ITOC@@ABENLOGEXP_SUPPLIED_1"></A>
+<p><span class="h2">
+Syntax
+</span></p>
+<p>
+<span class="qtext">... para IS <i class=bn>[</i>NOT<i class=bn>]</i> SUPPLIED ...</span>
+</p>
+<p><span class="h4">
+Effect
+</span></p>
+<p>
+This predicate expression checks whether a formal parameter <span class="qtext">para</span> of a
+<a href="javascript:call_link('abenprocedure_glosry.html')" class="grey" title="Glossary Entry">procedure</a> is filled or requested. The expression is true if an actual parameter was assigned to the formal parameter in the call.
+</p>
+<p>
+This relational expression can be used only in function modules and methods. For <span class="qtext">para</span>, all optional formal parameters can be specified.
+</p>
+<p>
+If the addition <span class="qtext">NOT</span> is specified, the expression is true if no actual parameter was assigned to the formal parameter in the call.
+</p>
+<p>
+ In function modules called using <a href="javascript:call_link('abapcall_function_destination-.html')" class="blue">Remote Function Call</a>, the
+<a href="javascript:call_link('abenapplication_server_glosry.html')" class="grey" title="Glossary Entry">application servers</a> of the calling and called program must have at least Release 4.6.
+</p>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>The predicate expression <span class="qtext">IS SUPPLIED</span> is not evaluated in function modules that are called as follows:</li>
+</ul>
+<ul class="circlem2">
+<li>Using <a href="javascript:call_link('abapcall_function_update.html')" class="blue"><span class="qtext">CALL FUNCTION ... IN UPDATE TASK ...</span></a></li>
+</ul>
+<ul class="circlem2">
+<li>Using <a href="javascript:call_link('abapcall_function_starting.html')" class="blue"><span class="qtext">CALL FUNCTION ... STARTING NEW TASK ...</span></a></li>
+</ul>
+<ul class="circlem2">
+<li>From an external RFC interface</li>
+</ul>
+<dl><dd>
+ In these cases, <span class="qtext">IS SUPPLIED</span> always returns the value true.
+</dd></dl>
+<ul class="disc">
+<li>The predicate expression <span class="qtext">IS SUPPLIED</span> includes the obsolete expression <a href="javascript:call_link('abenlogexp_requested.html')" class="blue"><span class="qtext">IS REQUESTED</span></a>.</li>
+</ul>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+The logical expression of the first <span class="qtext">IF</span> statement in method <span class="qtext">m1</span>
+is true if an actual parameter is assigned to formal parameter <span class="qtext">p1</span> in the
+call. A check for the initial value would not be sufficient in this context, because this is the value
+of the replacement parameter specified with <span class="qtext">DEFAULT</span>. The logical expression
+of the second <span class="qtext">IF</span> statement is true if no actual parameter is assigned to formal parameter <span class="qtext">p2</span> in the call.
+</p>
+<p class="qtextml1">
+<span class="qtext">
+CLASS c1 DEFINITION. <br>&nbsp;&nbsp;PUBLIC SECTION. <br>&nbsp;&nbsp;&nbsp;&nbsp;CLASS-METHODS m1 IMPORTING p1 TYPE i DEFAULT 0 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EXPORTING p2 TYPE i. <br>
+ENDCLASS. <br> <br>CLASS c1 IMPLEMENTATION. <br>&nbsp;&nbsp;METHOD m1. <br>&nbsp;&nbsp;&nbsp;&nbsp;IF p1 IS SUPPLIED. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... <br>&nbsp;&nbsp;&nbsp;&nbsp;ELSE. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... <br>
+&nbsp;&nbsp;&nbsp;&nbsp;ENDIF. <br>&nbsp;&nbsp;&nbsp;&nbsp;IF p2 IS NOT SUPPLIED. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;ELSE. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... <br>&nbsp;&nbsp;&nbsp;&nbsp;ENDIF. <br>&nbsp;&nbsp;ENDMETHOD. <br>ENDCLASS.
+</span>
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenlogexp_supplied.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:38:25 GMT -->
+</html>

@@ -1,0 +1,127 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENDYNP_FIELD_DATA_TRANSPORT -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abendynp_field_data_transport.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:47:55 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Data transport at point of time PAI">
+<title>
+Data transport at point of time PAI - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abendynp_field_data_transport.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abendynp_field_data_transport.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_screens.html')" class="blue">User Dialogs</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dynpros.html')" class="blue">Dynpros</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dynpros_dynpro_statements.html')" class="blue">Statements in the Screen Flow Logic</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('dynpfield.html')" class="blue">FIELD</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Data transport at point of time PAI
+</span></p>
+<p>
+If the statement <a href="javascript:call_link('dynpfield.html')" class="blue"><span class="qtext">FIELD</span></a> is used in the event block at point of time
+<a href="javascript:call_link('abenpai_glosry.html')" class="grey" title="Glossary Entry">PAI</a>, then the statement controls the data transport for the specified
+<a href="javascript:call_link('abendynpro_field_glosry.html')" class="grey" title="Glossary Entry">dynpro field</a>. By default,
+all dynpro fields are transported to the ABAP program at the event PAI and before the processing of
+the corresponding event block. If you use one or multiple <span class="qtext">FIELD</span>-statements,
+only such dynpro fields are transported directly at the event PAI, which are not listed after a <span class="qtext">FIELD</span>-statement.
+</p>
+<p>
+The transport of the content of a dynpro field <span class="qtext">dynp_field</span> specified after
+<span class="qtext">FIELD</span> to the homonymous global ABAP data object takes place at execution
+of the corresponding <span class="qtext">FIELD</span>-statement. If a dynpro field is listed in more
+than one <span class="qtext">FIELD</span>-statement, its value is transfered when the first corresponding <span class="qtext">FIELD</span>-statement is executed. There are the following  exceptions:
+</p>
+<ul class="disc">
+<li>The statement <span class="qtext">FIELD</span> has no effect for the OK-field. The OK-field is always transported directly at the event PAI.</li>
+</ul>
+<ul class="disc">
+<li>A field, whose content is initial to <a href="javascript:call_link('abenpbo_glosry.html')" class="grey" title="Glossary Entry">PBO</a>,
+and which is not changed by the user, is not transported by the <span class="qtext">FIELD</span>-statement.
+If this field in a PAI-module is filled with a value before execution of the <span class="qtext">FIELD</span>-statement, then the value is not overwritten with the
+<a href="javascript:call_link('abeninitial_value_glosry.html')" class="grey" title="Glossary Entry">initial value</a> by the <span class="qtext">FIELD</span> statement.</li>
+</ul>
+<p><span class="h4">
+Note
+</span></p>
+<ul class="disc">
+<li>The effect of the statement <span class="qtext">FIELD</span> upon the data transport to the event PAI is independent from the link to a <span class="qtext">MODULE</span>-statement.</li>
+</ul>
+<ul class="disc">
+<li>A dynpro field must not be used in a PAI-module, before it is transported by the dynpro. Otherwise, the ABAP field contains the same value as at the end of the previous dialog step.</li>
+</ul>
+<ul class="disc">
+<li>When dynpro fields are defined with reference to
+<a href="javascript:call_link('abenflat_structure_glosry.html')" class="grey" title="Glossary Entry">flat structures</a> in the
+ABAP Dictionary, the homonymous global data objects of the ABAP-program must be declared with the statement <span class="qtext">TABLES</span> as
+<a href="javascript:call_link('abeninterface_work_area_glosry.html')" class="grey" title="Glossary Entry">interface work area</a>. Otherwise, no data transport takes place, neither with or without <span class="qtext">FIELD</span>.</li>
+</ul>
+<ul class="disc">
+<li>If a dynpro field is defined with reference to a data element in the ABAP-Dictionary, to which is
+assigned an obsolete field-exit on a customer system, then the function module of the field-exit can be executed during transport, which in general changes the value of the dynpro field.</li>
+</ul>
+<br>
+<br>
+<!-- POSTFIX --><span class="h4">Continue</span><br>
+<img src="exa.gif" alt="Example" title="Example">
+<a href="javascript:call_link('abendynpro_field_abexa.html')" class="blue">Screens, FIELD Statement</a><br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abendynp_field_data_transport.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:47:55 GMT -->
+</html>

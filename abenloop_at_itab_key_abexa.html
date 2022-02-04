@@ -1,0 +1,175 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENLOOP_AT_ITAB_KEY_ABEXA -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenloop_at_itab_key_abexa.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:41:16 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Internal Tables, Loop with Key Specified">
+<title>
+Internal Tables, Loop with Key Specified - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenloop_at_itab_key_abexa.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenloop_at_itab_key_abexa.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_data_working.html')" class="blue">Processing Internal Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenitab.html')" class="blue">Internal Tables</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abentable_processing_statements.html')" class="blue">Processing Statements for Internal Tables</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abaploop_at_itab_variants.html')" class="blue">LOOP AT itab</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abaploop_at_itab.html')" class="blue">LOOP AT itab - Basic Form</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Internal Tables, Loop with Key Specified
+</span></p>
+<p>
+The example demonstrates the execution of the <span class="qtext">LOOP AT itab</span> statement with various table keys.
+</p>
+<A name="@@ITOC@@ABENLOOP_AT_ITAB_KEY_ABEXA_1"></A>
+<p><span class="h2">
+Source Code
+</span></p>
+<!-- Begin code -->
+<p class="qtextml1"><span class="qtextgrey">
+REPORT demo_loop_at_itab_using_key.<br>
+<br>
+CLASS demo DEFINITION.<br>
+&nbsp;&nbsp;PUBLIC SECTION.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CLASS-METHODS main.<br>
+ENDCLASS.<br>
+<br>
+CLASS demo IMPLEMENTATION.<br>
+&nbsp;&nbsp;METHOD main.<br>
+</span><span class="qtext">
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DATA spfli_tab TYPE HASHED TABLE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OF spfli<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WITH UNIQUE KEY primary_key<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COMPONENTS carrid connid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WITH NON-UNIQUE SORTED KEY city_from_to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COMPONENTS cityfrom cityto<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WITH NON-UNIQUE SORTED KEY city_to_from<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COMPONENTS cityto cityfrom.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FIELD-SYMBOLS &lt;spfli&gt; LIKE LINE OF spfli_tab.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SELECT *<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM spfli<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ORDER BY carrid, connid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INTO TABLE @spfli_tab.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WRITE / 'LOOP without USING KEY' COLOR = 4.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SKIP.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;LOOP AT spfli_tab ASSIGNING &lt;spfli&gt;.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WRITE: / &lt;spfli&gt;-carrid COLOR = 3,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;spfli&gt;-connid COLOR = 3 INTENSIFIED off,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;spfli&gt;-cityfrom,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;spfli&gt;-cityto.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ENDLOOP.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SKIP.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WRITE / 'LOOP with USING KEY cityfrom cityto' COLOR = 4.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SKIP.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;LOOP AT spfli_tab ASSIGNING &lt;spfli&gt; USING KEY city_from_to.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WRITE: / &lt;spfli&gt;-carrid,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;spfli&gt;-connid,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;spfli&gt;-cityfrom COLOR = 3,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;spfli&gt;-cityto&nbsp;&nbsp; COLOR = 3 INTENSIFIED off.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ENDLOOP.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SKIP.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WRITE / 'LOOP with USING KEY cityto cityfrom' COLOR = 4.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SKIP.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;LOOP AT spfli_tab ASSIGNING &lt;spfli&gt; USING KEY city_to_from.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WRITE: / &lt;spfli&gt;-carrid,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;spfli&gt;-connid,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;spfli&gt;-cityfrom COLOR = 3 INTENSIFIED off,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;spfli&gt;-cityto&nbsp;&nbsp; COLOR = 3.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ENDLOOP.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SKIP.<br>
+<br>
+</span><span class="qtextgrey">
+&nbsp;&nbsp;ENDMETHOD.<br>
+ENDCLASS.<br>
+<br>
+START-OF-SELECTION.<br>
+&nbsp;&nbsp;demo=&gt;main( ).<br>
+</span></p>
+<!-- End code -->
+<A name="@@ITOC@@ABENLOOP_AT_ITAB_KEY_ABEXA_2"></A>
+<p><span class="h2">
+Description
+</span></p>
+<p>
+The table <span class="qtext">spfli_tab</span> is a hashed table with an unique primary key and two non-unique sorted secondary keys.
+</p>
+<p>
+The first <span class="qtext">LOOP</span> takes place without a key being specified. The table output
+is in the order in which the table was filled. This means it is sorted by the fields entered after the <span class="qtext">ORDER BY</span> of the <span class="qtext">SELECT</span> statement.
+</p>
+<p>
+The other two <span class="qtext">LOOP</span> loops are carried out under the specification of one of the two secondary table keys <span class="qtext">city_from_to</span> or <span class="qtext">city_to_from</span>.
+</p>
+<p>
+The columns whose sort order were used to output the table are indicated by color.
+</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenloop_at_itab_key_abexa.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:41:16 GMT -->
+</html>

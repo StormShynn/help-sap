@@ -1,0 +1,195 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENSQL_ELEM -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abensql_elem.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:42:51 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="sql_exp - sql_elem">
+<title>
+sql_exp - sql_elem - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abensql_elem.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abensql_elem.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopensql.html')" class="blue">Open SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopen_sql_operands.html')" class="blue">Open SQL - Operands</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abapsql_expr.html')" class="blue">Open SQL - SQL Expressions</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+sql_exp - sql_elem
+</span></p>
+<A name="@@ITOC@@ABENSQL_ELEM_1"></A>
+<p><span class="h2">
+Syntax
+</span></p>
+<p>
+<span class="qtext">... col <i class=bn>|</i> literal <i class=bn>|</i> @dobj <i class=bn>|</i> @( expr )&nbsp;&nbsp;...</span>
+</p>
+<p><span class="h4">
+Effect
+</span></p>
+<p>
+Elementary expression in Open SQL. An elementary expression is either a column <a href="javascript:call_link('abenopen_sql_columns.html')" class="blue"><span class="qtext">col</span></a> of a
+<a href="javascript:call_link('abapselect_data_source.html')" class="blue">data source</a> or a literal <span class="qtext">literal</span>, a
+<a href="javascript:call_link('abenopen_sql_host_variables.html')" class="blue">host variable</a> <span class="qtext">dobj</span>, or a
+<a href="javascript:call_link('abenopen_sql_host_expressions.html')" class="blue">host expression</a> <span class="qtext">@( expr )</span>.
+</p>
+<ul class="disc">
+<li>The column <a href="javascript:call_link('abenopen_sql_columns.html')" class="blue"><span class="qtext">col</span></a> can have any data type from ABAP Dictionary.</li>
+</ul>
+<ul class="disc">
+<li>The ABAP objects <span class="qtext">literal</span>, <span class="qtext">@dobj</span>, and <span class="qtext">@( expr
+)</span> can have any non-generic ABAP data type except <span class="qtext">string</span> and <span class="qtext">xstring</span>  and the name of a host variable must be tagged with the escape character <span class="qtext">@</span>. Empty
+<a href="javascript:call_link('abentext_field_literal_glosry.html')" class="grey" title="Glossary Entry">text field literals</a> cannot be specified.</li>
+</ul>
+<p>
+The result is the value of the column, the value of the literal, the value of the host variable, or
+the result of the expression. When a column is specified, the result has the data type of the column. When an ABAP object is specified, the ABAP type is mapped to a dictionary type as follows:
+</p>
+<table border>
+<tr>
+<td><span class="bold">Numeric ABAP Type</span></td>
+<td><span class="bold">Dictionary Type</span></td>
+</tr>
+<tr>
+<td><span class="qtext">b</span>, <span class="qtext">s</span>, <span class="qtext">i</span>, <span class="qtext">int8</span></td>
+<td>INT1, INT2, INT4, INT8</td>
+</tr>
+<tr>
+<td><span class="qtext">p</span></td>
+<td>DEC with appropriate length and decimal places</td>
+</tr>
+<tr>
+<td><span class="qtext">decfloat16</span>, <span class="qtext">decfloat34</span></td>
+<td>DF16_RAW, DF34_RAW</td>
+</tr>
+<tr>
+<td><span class="qtext">f</span></td>
+<td>FLTP</td>
+</tr>
+</table><br>
+<p>
+
+</p>
+<table border>
+<tr>
+<td><span class="bold">Character-Like ABAP Type</span></td>
+<td><span class="bold">Dictionary Type</span></td>
+</tr>
+<tr>
+<td><span class="qtext">c</span></td>
+<td>CHAR with appropriate length</td>
+</tr>
+<tr>
+<td><span class="qtext">n</span></td>
+<td>NUMC with appropriate length</td>
+</tr>
+<tr>
+<td><span class="qtext">d</span></td>
+<td>DATS</td>
+</tr>
+<tr>
+<td><span class="qtext">t</span></td>
+<td>TIMS</td>
+</tr>
+</table><br>
+<p>
+
+</p>
+<table border>
+<tr>
+<td><span class="bold">Byte-Like ABAP Type</span></td>
+<td><span class="bold">Dictionary Type</span></td>
+</tr>
+<tr>
+<td><span class="qtext">x</span></td>
+<td>RAW with appropriate length</td>
+</tr>
+</table><br>
+<p><span class="h4">
+Note
+</span></p>
+<ul class="disc">
+<li>A column specified as an elementary expression can be flagged using
+<a href="javascript:call_link('abensql_exp_parentheses.html')" class="blue">parentheses</a>. In this case, the statement can
+only have lists separated by commas and host variables must be indicated by the escape character <span class="qtext">@</span>.</li>
+</ul>
+<ul class="disc">
+<li>It can be a good idea to specify a literal, a host variable, or a host expression as an elementary
+expression of a <span class="qtext">SELECT</span> list whenever a defined value is assigned to a column of a results set that is not read from the database.</li>
+</ul>
+<ul class="disc">
+<li>Specifying a constant or a literal as the only element of a <span class="qtext">SINGLE</span> list is one way of defining whether data in a selection exists without having to transport data from the database.</li>
+</ul>
+<ul class="disc">
+<li>If required, columns can be specified as <span class="qtext">col</span> using a <a href="javascript:call_link('abenopen_sql_path.html')" class="blue">path expression</a> for associations of a CDS view.</li>
+</ul>
+<p><span class="h4">
+Executable Example
+</span></p>
+<p>
+<a href="javascript:call_link('abensql_expr_literal_abexa.html')" class="blue">Constant in the <span class="qtext">SELECT</span> List</a>
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abensql_elem.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:42:51 GMT -->
+</html>

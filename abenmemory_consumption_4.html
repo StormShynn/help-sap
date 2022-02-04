@@ -1,0 +1,130 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENMEMORY_CONSUMPTION_4 -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenmemory_consumption_4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:33:05 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Complex Data Objects with Deep Components">
+<meta name="keywords" content="ABAP, Complex Data Objects with Deep Components, Fill Level of Complex Data Objects">
+<title>
+Complex Data Objects with Deep Components - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenmemory_consumption_4.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenmemory_consumption_4.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abendeclarations.html')" class="blue">Declarations</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_declarations.html')" class="blue">Declaration Statements</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abentypes_and_objects.html')" class="blue">Data Types and Data Objects</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abentypes_objects_oview.html')" class="blue">Types and Objects - Overview</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abendata_objects.html')" class="blue">Data Objects</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenmemory_consumption.html')" class="blue">Memory Management of Deep Objects</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Complex Data Objects with Deep Components
+</span></p>
+<p>
+If data objects of <a href="javascript:call_link('abencomplex_data_type_glosry.html')" class="grey" title="Glossary Entry">complex
+data types</a> have many deep components, which often, for example, applies to internal tables with
+a deep row type, the management costs (in the form of memory) for references and headers must be prevented from growing disproportionately large compared to the actual data content.
+</p>
+<p>
+For complex data objects with relatively little data content, three basic cases can be distinguished:
+</p>
+<ol>
+<li>
+<span class="bold">Complex data objects with a sparse fill level</span> <br>A complex deep data object
+is sparsely populated if it contains many deep components, most of which are initial. The memory requirement of a deep initial component like this is 8 bytes, unless the component does not yet point to a header. <br>
+</li>
+<li>
+<span class="bold">Complex data objects with a duplicative fill level</span> <br>A complex deep data
+object has a duplicative fill level if it contains many deep components of which a majority refers to the same data. Components like this share the dynamic memory and only contribute the memory requirements to their references. For
+<a href="javascript:call_link('abendynamic_data_object_glosry.html')" class="grey" title="Glossary Entry">dynamic data objects</a>, this is achieved by <a href="javascript:call_link('abenmemory_consumption_3.html')" class="blue">sharing</a>. <br>
+</li>
+<li>
+<span class="bold">Complex data objects with a low fill level</span> <br>A complex deep data object
+has a low fill level if it contains many deep components that refer to different objects, strings, or internal tables in which the objects only require very little memory or are empty.
+</li>
+</ol>
+<p>
+Deep data objects with a fill level that is sparse, duplicative, and not too low are generally harmless.
+</p>
+<p>
+For deep data objects with a sparse fill level and few duplicative parts, it is vital to consider the
+memory requirements for references and headers. Unlike other programming languages, ABAP is inappropriate
+for massive use of data objects like this. A class wrapper is one possible alternative to internal tables at a low dataset level, since the extra costs for objects are comparatively low.
+</p>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+An example of a duplicative data object with a low fill level is an internal table whose row type is
+itself table-like or contains table-like components. Even if the inner internal tables are initialized
+after prior usage, they still occupy memory for reference and header, which, in the case of a large outer internal table, can produce considerable memory requirements for little or no work data.
+</p>
+<p><span class="h4">
+Executable Example
+</span></p>
+<p>
+See <a href="javascript:call_link('abenmemory_usage_abexa.html')" class="blue">Deep Data Objects, Memory Usage</a>.
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenmemory_consumption_4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:33:05 GMT -->
+</html>

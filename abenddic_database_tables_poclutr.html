@@ -1,0 +1,109 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENDDIC_DATABASE_TABLES_POCLUTR -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenddic_database_tables_poclutr.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:23:53 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Transforming Pooled Tables and Cluster Tables">
+<title>
+Transforming Pooled Tables and Cluster Tables - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenddic_database_tables_poclutr.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenddic_database_tables_poclutr.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dictionary.html')" class="blue">ABAP - Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_classical_objects.html')" class="blue">Classic Objects in ABAP Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_database_tables.html')" class="blue">Database Tables</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_database_tables_poolclu.html')" class="blue">Pooled Tables and Cluster Tables</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Transforming Pooled Tables and Cluster Tables
+</span></p>
+<p>
+Any existing pooled tables and cluster tables should be transformed to transparent tables. In particular, if a
+<a href="javascript:call_link('abenhana_database_glosry.html')" class="grey" title="Glossary Entry">SAP HANA database</a> is
+used as the central database of AS ABAP, only transparent tables should be used, since the architecture of SAP HANA databases does not provide optimum support for pooled tables and cluster tables.
+</p>
+<p>
+The tables can be transformed in ABAP Dictionary for the current system. By default, the table is then
+also transformed when migrated to another database in follow-on systems. If, in exceptional cases, the
+transformation in follow-on systems is to be restricted only to specific database systems, this can
+be noted using the <span class="qtext400">Transparent on following DBs</span> flag in the original system.
+If this is the case, any pooled tables or cluster tables transformed to transparent tables in one system,
+are transformed in follow-on systems only if migrated to the specified databases. They are kept as pooled
+tables or cluster tables for all other databases. Currently, only SAP HANA databases can be specified as database systems where this transformation can take place.
+</p>
+<p>
+Once a table is transformed to a transparent database table, the <span class="qtext400">Transparent
+on following DBs</span> flag is kept and defines the transformation in further follow-on systems. If
+a transformed transparent table is migrated to a follow-on system, the pooled tables or cluster tables
+are only transformed to transparent tables if the flag is not set or if the flag is set and the target database system matches.
+</p>
+<p>
+In addition, this flag determines that a table on each database where it has once been made transparent
+is no longer transformed to a pooled table or cluster table, even if a transport with the corresponding
+table definition is imported or an attempt is made to perform the transformation in ABAP Dictionary. Before this can happen, the flag must be removed explicitly.
+</p>
+<p>
+
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenddic_database_tables_poclutr.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:23:53 GMT -->
+</html>

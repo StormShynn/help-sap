@@ -1,0 +1,135 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENOPENSQL -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenopensql.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:42:27 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Open SQL">
+<meta name="keywords" content="ABAP, Client Handling, Database Interface, Open SQL">
+<title>
+Open SQL - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenopensql.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenopensql.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Open SQL
+</span></p>
+<ul class="disc">
+<li><a href="javascript:call_link('abenopen_sql_oview.html')" class="blue">Open SQL - Overview</a></li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abenopen_sql_operands.html')" class="blue">Open SQL - Operands</a></li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abenopen_sql_reading.html')" class="blue">Open SQL - Reads</a></li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abenopen_sql_writing.html')" class="blue">Open SQL - Writes</a></li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abenopen_sql_wa.html')" class="blue">Open SQL - Work Areas in Statements</a></li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abenstreams_locators.html')" class="blue">Open SQL - Streaming and Locators</a></li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abenosql_db_hints.html')" class="blue">Open SQL - Database Notes</a></li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abenopensql_exceptions.html')" class="blue">Open SQL - Exceptions</a></li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abenopen_sql_perfo.html')" class="blue">Open SQL - Performance Notes</a></li>
+</ul>
+<p>
+The statements <a href="javascript:call_link('abapcommit.html')" class="blue"><span class="qtext">COMMIT WORK</span></a> and
+<a href="javascript:call_link('abapcommit.html')" class="blue"><span class="qtext">ROLLBACK WORK</span></a> are also part of Open SQL but are handled in the context of LUWs.
+</p>
+<p><span class="h4">
+Programming Guideline
+</span></p>
+<P>
+<a href="javascript:call_link('abendatabase_access_guidl.html')" class="lnkpurple" title="Guideline">Using Open SQL</a>
+</P>
+<p><span class="h4">
+Note
+</span></p>
+<p>
+The statements described here are accompanied by <a href="javascript:call_link('abenopen_sql_obsolete.html')" class="blue">obsolete short forms</a> of Open SQL statements, based on the implicit use of
+<a href="javascript:call_link('abentable_work_area_glosry.html')" class="grey" title="Glossary Entry">table work areas</a>.
+</p>
+<br>
+<br>
+<!-- POSTFIX --><span class="h4">Continue</span><br>
+<a href="javascript:call_link('abenopen_sql_oview.html')" class="blue">Open SQL - Overview</a><br>
+<a href="javascript:call_link('abenopen_sql_operands.html')" class="blue">Open SQL - Operands</a><br>
+<a href="javascript:call_link('abenopen_sql_reading.html')" class="blue">Open SQL - Reads</a><br>
+<a href="javascript:call_link('abenopen_sql_writing.html')" class="blue">Open SQL - Write Accesses</a><br>
+<a href="javascript:call_link('abenopen_sql_wa.html')" class="blue">Open SQL - Work Areas in Statements</a><br>
+<a href="javascript:call_link('abenstreams_locators.html')" class="blue">Open SQL - Streaming and Locators</a><br>
+<a href="javascript:call_link('abenopensql_exceptions.html')" class="blue">Open SQL - Exceptions</a><br>
+<a href="javascript:call_link('abenosql_db_hints.html')" class="blue">Open SQL - Database Notes</a><br>
+<a href="javascript:call_link('abenopen_sql_perfo.html')" class="blue">Open SQL - Performance Notes</a><br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenopensql.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:42:30 GMT -->
+</html>

@@ -1,0 +1,243 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENDDIC_DECIMAL_FLOATING_POINT -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenddic_decimal_floating_point.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:25:53 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Decimal Floating Point Numbers">
+<meta name="keywords" content="ABAP, Decimal Floating Point Numbers, ABAP Dictionary">
+<title>
+Decimal Floating Point Numbers - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenddic_decimal_floating_point.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenddic_decimal_floating_point.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dictionary.html')" class="blue">ABAP - Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_builtin_types_intro.html')" class="blue">Predefined Data Types in ABAP Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_builtin_types_prop.html')" class="blue">Attributes of the Predefined Dictionary Types</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_builtin_types_general.html')" class="blue">General Dictionary Types</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Decimal Floating Point Numbers
+</span></p>
+<p>
+In <a href="javascript:call_link('abendecfloat_glosry.html')" class="grey" title="Glossary Entry">decimal floating point numbers</a>, a maximum of 16 or 34 places exactly are returned in the mantissa depending on the data type.
+</p>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENDDIC_DECIMAL_FLOATING_POINT_1" class="blue">Handling in ABAP Dictionary</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENDDIC_DECIMAL_FLOATING_POINT_2" class="blue">Handling in Dynpros - Output Length and Output Style</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENDDIC_DECIMAL_FLOATING_POINT_3" class="blue">Handling in ABAP Programs</A></li>
+</ul>
+<A name="@@ITOC@@ABENDDIC_DECIMAL_FLOATING_POINT_1"></A>
+<p><span class="h2">
+Handling in ABAP Dictionary
+</span></p>
+<p>
+In ABAP Dictionary, the following data types are available for decimal floating numbers:
+</p>
+<ul class="disc">
+<li><a href="javascript:call_link('abenddic_builtin_types.html')" class="blue">DF16_DEC</a> and <a href="javascript:call_link('abenddic_builtin_types.html')" class="blue">DF16_RAW</a> for 16-digit numbers.</li>
+</ul>
+<ul class="disc">
+<li><a href="javascript:call_link('abenddic_builtin_types.html')" class="blue">DF34_DEC</a> and <a href="javascript:call_link('abenddic_builtin_types.html')" class="blue">DF34_RAW</a> for 34-digit numbers.</li>
+</ul>
+<p>
+These data types are a replacement for real decimal floating point types that are supported by all database systems:
+</p>
+<ul class="disc">
+<li>DF16_DEC and DF34_DEC <br> <br>In database fields of this type, decimal floating point numbers are
+stored as a packed number (format DEC). The length and the number of decimal places must be specified when defining a data type in ABAP Dictionary. Calculations (<span class="qtext">SELECT</span> with appropriate
+<a href="javascript:call_link('abapsql_expr.html')" class="blue">SQL expressions</a> or with the aggregate functions <a href="javascript:call_link('abapselect_aggregate.html')" class="blue">
+<span class="qtext">SUM</span> and <span class="qtext">AVG</span></a>, <span class="qtext">UPDATE</span>
+with <a href="javascript:call_link('abapupdate_set_expression.html')" class="blue"><span class="qtext">SET</span> <span class="qtext">+</span>,
+and <span class="qtext">-</span></a>) can be performed on the database for this type. When there is
+a write to the database, the system implicitly rounds off to the number of decimal places and decimal overflows can occur. Database fields with these types can be edited in
+<a href="javascript:call_link('abennative_sql_glosry.html')" class="grey" title="Glossary Entry">Native SQL</a>.</li>
+</ul>
+<ul class="disc">
+<li>DF16_RAW and DF34_RAW <br> <br>In database fields of this type, decimal floating point numbers are
+stored as binary (in RAW format). The length is set to 16 or 34 places. Values can be sorted, compared,
+and used in indexes. For this type, no calculations can be performed on the database. This is an SAP-specific format, which means that the corresponding fields also cannot be edited in
+<a href="javascript:call_link('abennative_sql_glosry.html')" class="grey" title="Glossary Entry">Native SQL</a>. The scaling is lost when writing to the database.</li>
+</ul>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>The actual predefined data type from ABAP Dictionary used for decimal point numbers depends on their purpose.</li>
+</ul>
+<ul class="circlem2">
+<li>The types DF16_DEC and DF34_DEC can be used for calculations on the database, but their value ranges are smaller than those of real decimal floating point numbers.</li>
+</ul>
+<ul class="circlem2">
+<li>The types DF16_RAW and DF34_RAW cover the whole value range, but are not recognized as numbers by the databases.</li>
+</ul>
+<ul class="disc">
+<li>As in the <a href="javascript:call_link('abenddic_builtin_types_int_pack.html')" class="blue">general packed numbers</a>, the number of places in the types DF16_DEC and DF34_DEC should be odd.</li>
+</ul>
+<ul class="disc">
+<li>As well as the types above, there are also the
+<a href="javascript:call_link('abenddic_obsolete_types.html')" class="blue">obsolete</a> predefined data types DF16_SCL and DF34_SCL for decimal floating point numbers with
+<a href="javascript:call_link('abenscale_glosry.html')" class="grey" title="Glossary Entry">scaling</a>.</li>
+</ul>
+<ul class="circlem2">
+<li>In database fields of this type, decimal floating point numbers are stored in the same way as DF16_RAW
+or DF34_RAW (length 16 or 34 places, and the same restrictions apply). The scaling must be specified
+in a direct successor database field with type INT2. When a decimal floating point number is written, this field is filled automatically with the scaling and the scaling is taken from it in reads.</li>
+</ul>
+<ul class="circlem2">
+<li>It is strongly advised not to use the types DF16_SCL and DF34_SCL. Their functions are rarely needed and the additional column for scaling makes them too complicated and error-prone to use correctly.</li>
+</ul>
+<A name="@@ITOC@@ABENDDIC_DECIMAL_FLOATING_POINT_2"></A>
+<p><span class="h2">
+Handling in Dynpros - Output Length and Output Style
+</span></p>
+<p>
+The maximum output length that can be specified in a
+<a href="javascript:call_link('abenddic_domains.html')" class="blue">domain</a> for a 16-character decimal floating point number is 24. For a 34-character number, 46 is the maximum output length. These are also the default values.
+</p>
+<p>
+In a domain, or directly in a structure component created using one of the types for decimal floating
+numbers (but not in data elements with directly specified technical attributes), one of the following
+output styles is always defined. The output style defines how a dynpro field defined with reference to this domain (or a corresponding ABAP field in the case of list output) is formatted:
+</p>
+<ul class="disc">
+<li><span class="italic">Simple</span></li>
+</ul>
+<dl><dd>
+Mathematical or scientific notation (depending on space)
+</dd></dl>
+<ul class="disc">
+<li><span class="italic">Leading sign to the right</span></li>
+</ul>
+<dl><dd>
+Commercial notation (canceled if not enough space, instead of implicit transformation to scientific notation)
+</dd></dl>
+<ul class="disc">
+<li><span class="italic">Scale-preserving</span></li>
+</ul>
+<dl><dd>
+Format with preservation of scaling, including trailing zeroes in the decimal places
+</dd></dl>
+<ul class="disc">
+<li><span class="italic">Scientific</span></li>
+</ul>
+<dl><dd>
+Scientific notation
+</dd></dl>
+<ul class="disc">
+<li><span class="italic">Scientific with leading zero</span></li>
+</ul>
+<dl><dd>
+Scientific notation with a 0 as an integer digit
+</dd></dl>
+<ul class="disc">
+<li><span class="italic">Scale-preserving scientific</span></li>
+</ul>
+<dl><dd>
+Scientific notation including trailing zeroes in the mantissa.
+</dd></dl>
+<ul class="disc">
+<li><span class="italic">Technical</span></li>
+</ul>
+<dl><dd>
+Scientific notation where the exponent is always an integer and a multiple of 3. The value range of the integer digits is between 1 and 999 (except if the source field has the value 0).
+</dd></dl>
+<p>
+For dynpro fields whose data type is not defined in ABAP Dictionary, the <span class="italic">output style</span> can also be determined in
+<a href="javascript:call_link('abenscreen_painter_glosry.html')" class="grey" title="Glossary Entry">Screen Painter</a>. In the
+case of formatting with the statements <a href="javascript:call_link('abapwrite-.html')" class="blue"><span class="qtext">WRITE</span></a>
+or <a href="javascript:call_link('abapwrite_to.html')" class="blue"><span class="qtext">WRITE TO</span></a>, the addition <a href="javascript:call_link('abapwrite_ext_options.html')" class="blue"><span class="qtext">STYLE</span></a> is available (as for the
+<a href="javascript:call_link('abapcompute_string_format_options.html')" class="blue">string templates</a>).
+</p>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>If scientific notation is used, a limited number of displayed places in the mantissa is recommended.
+This can be specified using the predefined function <a href="javascript:call_link('abendec_floating_point_functions.html')" class="blue"><span class="qtext">rescale</span></a>.</li>
+</ul>
+<ul class="disc">
+<li>The "scale-preserving" style ensures that the scaling is restored in conversions from dynpro fields to ABAP, and not just the original value.</li>
+</ul>
+<ul class="disc">
+<li>If vertically aligned decimal separators and exponents are needed on UIs, the scale-preserving scientific notation can be used.</li>
+</ul>
+<A name="@@ITOC@@ABENDDIC_DECIMAL_FLOATING_POINT_3"></A>
+<p><span class="h2">
+Handling in ABAP Programs
+</span></p>
+<p>
+The ABAP types that correspond to the 16 or 34 figure decimal floating numbers in ABAP Dictionary are
+<span class="qtext">decfloat16</span> and <span class="qtext">decfloat34</span>, which are handled internally according to the IEEE-754-2008 standard, and are supported by all ABAP operations. In
+<a href="javascript:call_link('abensql_arith.html')" class="blue">arithmetic SQL expressions</a>, decimal floating point numbers are not supported.
+</p>
+<p>
+The addition <a href="javascript:call_link('abapwrite_to_options.html')" class="blue"><span class="qtext">STYLE</span></a> after <a href="javascript:call_link('abapwrite_to.html')" class="blue"><span class="qtext">WRITE <i
+class=bn>[</i>TO<i class=bn>]</i></span></a> and the formatting option <a href="javascript:call_link('abapcompute_string_format_options.html')" class="blue"><span class="qtext">STYLE</span></a> in
+<a href="javascript:call_link('abenstring_templates_expressions.html')" class="blue">embedded expressions</a> are available for the formatting of decimal floating numbers in programs. These overwrite the output style defined in ABAP Dictionary.
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenddic_decimal_floating_point.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:25:54 GMT -->
+</html>

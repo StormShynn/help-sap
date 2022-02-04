@@ -1,0 +1,249 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENFILE_INTERFACE_AUTHORITY -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenfile_interface_authority.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:44:27 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Automatic Authorization Checks">
+<meta name="keywords" content="ABAP, Authorizations for File Accesses">
+<title>
+Automatic Authorization Checks - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenfile_interface_authority.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenfile_interface_authority.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_files.html')" class="blue">ABAP File Interface</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abendataset_auth.html')" class="blue">Authorization for File Access</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Automatic Authorization Checks
+</span></p>
+<p>
+The following authorization checks take place automatically during data access:
+</p>
+<ul class="disc">
+<li>Checks in the Operating System</li>
+</ul>
+<ul class="disc">
+<li>Program-Independent Checks on Access Rights</li>
+</ul>
+<ul class="disc">
+<li>Authorization Check for Special Files</li>
+</ul>
+<ul class="disc">
+<li>Authorization Checks for Users and Programs for Individual Files</li>
+</ul>
+<A name="@@ITOC@@ABENFILE_INTERFACE_AUTHORITY_1"></A>
+<p><span class="h2">
+Checks in the Operating System
+</span></p>
+<p>
+From the point of view of the application server's operating system, all file accesses are carried out by the
+<a href="javascript:call_link('abensap_nw_abap_glosry.html')" class="grey" title="Glossary Entry">AS ABAP</a>. As a consequence, the user of an operating system in an
+<a href="javascript:call_link('abensap_nw_abap_glosry.html')" class="grey" title="Glossary Entry">AS ABAP</a> must have the authority
+to read and write to all files and directories that are handled by the ABAP file interface. If this
+authorization does not exist, the file interface statements can only be partially carried out, or not
+at all. If a statement cannot be executed because of lack of authorization in the operating system, the return value <span class="qtext">sy-subrc</span> is set to not equal to 0.
+</p>
+<A name="@@ITOC@@ABENFILE_INTERFACE_AUTHORITY_2"></A>
+<p><span class="h2">
+Program-Independent Checks on Access Rights
+</span></p>
+<p>
+For access to files using the statements <a href="javascript:call_link('abapopen_dataset.html')" class="blue"> <span class="qtext">OPEN
+DATASET</span></a>, <a href="javascript:call_link('abapread_dataset.html')" class="blue"><span class="qtext">READ DATASET</span></a>,
+<a href="javascript:call_link('abaptransfer.html')" class="blue"><span class="qtext">TRANSFER</span></a>, and <a href="javascript:call_link('abapdelete_dataset.html')" class="blue">
+<span class="qtext">DELETE DATASET</span></a>, a verification check of the entry in the database table
+<span class="lnkgrey">SPTH</span> is carried out automatically. The entries in the database table SPTH control the general reads and writes from ABAP programs to files and whether files should be backed up or not.
+</p>
+<p>
+In the database table SPTH, reads and writes can be forbidden in general for generic, specifiable files, independent of the
+<a href="javascript:call_link('abenauthorization_object_glosry.html')" class="grey" title="Glossary Entry">authorization objects</a>.
+For the remaining files (on which reads and writes can be performed in the database table SPTH), authorization
+checks can be carried out on the basis of authorization objects. In the database table <span class="lnkgrey">SPTH</span>,
+authorization groups from the table <span class="lnkgrey">SPTHB</span> (texts in <span class="lnkgrey">SPTHT</span>,
+shared view <span class="lnkgrey">V_SPT</span>) for program-independent authorization checks can be
+defined. The following table shows the columns of the database table SPTH. If the check on the database table SPTH has a negative result, a non-handleable exception is raised.
+</p>
+<table border>
+<tr>
+<td><span class="bold">Column</span></td>
+<td><span class="bold">Meaning</span></td>
+</tr>
+<tr>
+<td>PATH</td>
+<td>Column for generic file names. The attributes specified in the other columns of this row apply to all the files of the application server that are best described by the entry in this column.</td>
+</tr>
+<tr>
+<td>SAVEFLAG</td>
+<td>If this column contains the value <span class="qtext400">"X"</span>, the files entered in the PATH are included in the backup procedure.</td>
+</tr>
+<tr>
+<td>FS_NOREAD</td>
+<td>If this column contains the value <span class="qtext400">"X"</span>, the files specified in the
+column PATH cannot be accessed from ABAP. This setting overrides the setting in the columns FS_NOWRITE and FS_BRGRU as well as the authorization check on the authorization object S_DATASET.</td>
+</tr>
+<tr>
+<td>FS_NOWRITE</td>
+<td>If this column contains the value <span class="qtext400">"X"</span>, writes cannot be performed
+on the files specified in the column PATH from ABAP. This setting overrides the setting in the column FS_BRGRU as well as the authorization check on the authorization object S_DATASET.</td>
+</tr>
+<tr>
+<td>FS_BRGRU</td>
+<td>In this column, it is possible to define an authorization group using a free choice of name. The
+files of multiple rows can be grouped together in this way. During the evaluation of the database table
+SPTH, an authorization check is carried out for the current user against the authorization object S_PATH
+that contains two authorization fields RS_BRGRU and ACTVT. In this way, access to the files specified
+in PATH can be granted independently from the user. If no name is entered, no authorization check is carried out against the authorization object S_PATH.</td>
+</tr>
+</table><br>
+<p><span class="h4">
+Note
+</span></p>
+<p>
+In comparison to the authorization check using the authorization object S_DATASET (see below), an authorization
+check using the authorization object S_PATH is independent of the ABAP program in which it occurs. Furthermore,
+the check is not limited to a single file, but includes all the generically specified files of the column PATH.
+</p>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+The table SPTH is filled as follows:
+</p>
+<table border>
+<tr>
+<td><span class="bold">PATH</span></td>
+<td><span class="bold">SAVEFLAG</span></td>
+<td><span class="bold">FS_NOREAD</span></td>
+<td><span class="bold">FS_NOWRITE</span></td>
+<td><span class="bold">FS_BRGRU</span></td>
+</tr>
+<tr>
+<td><span class="qtext400">*</span></td>
+<td>-</td>
+<td><span class="qtext400">X</span></td>
+<td><span class="qtext400">X</span></td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="qtext400">/tmp</span></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="qtext400">/tmp/myfiles</span></td>
+<td><span class="qtext400">X</span></td>
+<td>-</td>
+<td>-</td>
+<td><span class="qtext400">FILE</span></td>
+</tr>
+</table><br>
+<p>
+The entries in the
+</p>
+<ul class="disc">
+<li>first row apply to all files of the application server except for those in the path <span class="qtext400">/tmp</span>,</li>
+</ul>
+<ul class="disc">
+<li>second row apply to all files of the application server in the path <span class="qtext400">/tmp</span>, except for the files in the path <span class="qtext400">/tmp/myfiles</span>,</li>
+</ul>
+<ul class="disc">
+<li>third row apply to the files in the path <span class="qtext400">/tmp/myfiles</span>.</li>
+</ul>
+<p>
+These entries specify that no ABAP program can access any files on the application server, except for
+the files in the path <span class="qtext400">/tmp</span>. All ABAP programs can perform both reads and
+writes on the files in the path <span class="qtext400">/tmp</span>. Only users who have an authorization
+for the authorization group <span class="qtext400">FILE</span> can use ABAP programs that can perform
+reads and writes on the files in the path <span class="qtext400">/tmp/myfiles</span>. The files in this
+paths are also designed for backup purposes. Using the table above, the following program lines produce a runtime error for all users:
+</p>
+<dl><dd>
+<span class="qtext">DATA fname TYPE string. <br>fname = `/system/files`. <br>OPEN DATASET fname FOR OUTPUT IN BINARY MODE.</span>
+</dd></dl>
+<A name="@@ITOC@@ABENFILE_INTERFACE_AUTHORITY_3"></A>
+<p><span class="h2">
+Authorization Checks for Special Files
+</span></p>
+<p>
+Every time a PSE file (file with the extension <span class="qtext400">.pse</span> for a Personal Security
+Environment) is accessed, an automatic authorization check for the current user is performed with the value "01" for the field ACTVT of the authorization object S_RZL_ADM of the system administrator.
+</p>
+<A name="@@ITOC@@ABENFILE_INTERFACE_AUTHORITY_4"></A>
+<p><span class="h2">
+Authorization Checks for Users and Programs for Individual Files
+</span></p>
+<p>
+Every time a file is opened or deleted using the ABAP file interface, an automatic authorization check
+is carried out for the current user and the current program using the predefined authorization object
+S_DATASET. This authorization object contains the authorization fields PROGRAM for the program names,
+FILENAME for the opened files, and ACTVT with the activities <span class="bold">Delete</span>, <span class="bold">
+Read</span>, <span class="bold">Write</span>, <span class="bold">Read with Filter</span>, and <span class="bold">
+Write with Filter</span>. If the user or program does not have the necessary authorization, a handleable
+exception is raised. To avoid this, the function module <span class="lnkgrey">AUTHORITY_CHECK_DATASET</span> can be called before the relevant ABAP statement to check whether the authorization exists.
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenfile_interface_authority.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:44:27 GMT -->
+</html>

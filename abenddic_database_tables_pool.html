@@ -1,0 +1,155 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENDDIC_DATABASE_TABLES_POOL -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenddic_database_tables_pool.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:23:52 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Pooled Tables in Table Pools">
+<title>
+Pooled Tables in Table Pools - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenddic_database_tables_pool.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenddic_database_tables_pool.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dictionary.html')" class="blue">ABAP - Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_classical_objects.html')" class="blue">Classic Objects in ABAP Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_database_tables.html')" class="blue">Database Tables</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_database_tables_poolclu.html')" class="blue">Pooled Tables and Cluster Tables</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Pooled Tables in Table Pools
+</span></p>
+<p>
+Pooled tables are a special category of database table in ABAP Dictionary. They are defined by being saved in table pools rather than being defined as pooled tables on the database.
+</p>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENDDIC_DATABASE_TABLES_POOL_1" class="blue">Table Pools</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENDDIC_DATABASE_TABLES_POOL_2" class="blue">Pooled Tables</A></li>
+</ul>
+<A name="@@ITOC@@ABENDDIC_DATABASE_TABLES_POOL_1"></A>
+<p><span class="h2">
+Table Pools
+</span></p>
+<p>
+A table pool is defined as a database table on the database. It contains all rows of the pooled tables assigned to it. A table pool has the following table fields for this:
+</p>
+<ul class="disc">
+<li>Key field TABNAME with the type CHAR of length 10 for the name of a pooled table</li>
+</ul>
+<ul class="disc">
+<li>Key field VARKEY with the type CHAR with a maximum length of 110 for the values (chained as a character string) of the key fields of a row of the pooled table specified in TABNAME</li>
+</ul>
+<ul class="disc">
+<li>Field DATALN with the type INT2 for the length of the string in VARDATA</li>
+</ul>
+<ul class="disc">
+<li>Field VARDATA with the type RAW for the non-key fields (compressed in a byte chain) of the row specified by the key in VARKEY of the pooled table specified in TABNAME</li>
+</ul>
+<p>
+The name of a table pool can have a maximum of ten characters. The configurable technical attributes of a database table are the
+<a href="javascript:call_link('abenddic_database_tables_siz_cat.html')" class="blue">size category</a> and the
+<a href="javascript:call_link('abenddic_database_tables_act_type.html')" class="blue">activation type</a>. All other technical attributes are fixed.
+</p>
+<p>
+Once it is activated in ABAP Dictionary, a table pool must be created explicitly on the database using the Database Utility tool. A table pool that already contains data can no longer be modified or deleted.
+</p>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+In systems where no transformation to transparent tables has taken place, the table pool <span class="lnkgrey">ATAB</span> contains pooled tables from the ABAP runtime environment.
+</p>
+<A name="@@ITOC@@ABENDDIC_DATABASE_TABLES_POOL_2"></A>
+<p><span class="h2">
+Pooled Tables
+</span></p>
+<p>
+All key fields of a pooled table must have a flat character-like data type. The total length of all
+key fields or the total length of all non-key fields of a pooled table cannot be greater than the length
+of the VARKEY or VARDATA field of the associated table pool. A pooled table cannot have any fields of
+the obsolete predefined types DF16_SCL and DF34_SCL. The name of a table field can have a maximum of 10 characters, which is also important when including structures as
+<a href="javascript:call_link('abenddic_include_structure.html')" class="blue">include structures</a>.
+</p>
+<p>
+Before a pooled table is created, a suitable transparent table with a suitable
+<a href="javascript:call_link('abenddic_database_tables_delivery.html')" class="blue">delivery class</a> must be created and transformed to a pooled table. This assigns the pooled table to a table pool.
+</p>
+<p>
+No secondary indexes can be created for a pooled table. The same
+<a href="javascript:call_link('abenddic_database_tables_tech.html')" class="blue">technical settings</a> can be made as in a transparent table, but these are ignored (they are defaults for the
+<a href="javascript:call_link('abenddic_database_tables_poclutr.html')" class="blue">transformation</a> to a transparent table.
+</p>
+<p><span class="h4">
+Note
+</span></p>
+<p>
+A pooled table can be flagged as transparent in its technical settings, which is a simple way of transforming it to a transparent table.
+</p>
+<p><span class="h4">
+Note
+</span></p>
+<p>
+In systems where no transformation to transparent tables has taken place, the table <span class="lnkgrey">PVERI_CLNT</span> is a pooled table in the table pool <span class="lnkgrey">ATAB</span>.
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenddic_database_tables_pool.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:23:52 GMT -->
+</html>

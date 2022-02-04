@@ -1,0 +1,172 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENNEWS-740_SP08-AMDP -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abennews-740_sp08-amdp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 18:09:55 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="AMDP in Release 7.40, SP08">
+<title>
+AMDP in Release 7.40, SP08 - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abennews-740_sp08-amdp.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abennews-740_sp08-amdp.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennews.html')" class="blue">ABAP - Release-Specific Changes</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennews-740.html')" class="blue">Changes in Release 7.40 and Its SPs</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennews-740_sp08.html')" class="blue">Changes in Release 7.40, SP08</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+AMDP in Release 7.40, SP08 <br><br>
+</span></p>
+<P>
+<br><A HREF="#!ABAP_MODIFICATION_1@1@" class="blue"> 1. Tabular <span class="qtext">CHANGING</span> parameters for SQLScript procedures </A>
+</P>
+<P>
+<br><A HREF="#!ABAP_MODIFICATION_2@2@" class="blue"> 2. Handleable exceptions in AMDP procedure implementations </A>
+</P>
+<P>
+<br><A HREF="#!ABAP_MODIFICATION_3@3@" class="blue"> 3. AMDP BAdIs </A>
+</P>
+<P>
+<br><A HREF="#!ABAP_MODIFICATION_4@4@" class="blue"> 4. Secondary database connections </A>
+</P>
+<P>
+<br><A HREF="#!ABAP_MODIFICATION_5@5@" class="blue"> 5. Suppressing syntax error messages </A>
+</P>
+<P>
+<br><A HREF="#!ABAP_MODIFICATION_6@6@" class="blue"> 6. Support for the language L on SAP HANA </A> <br><br> <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_1@1@"></A> <span class="bold">Modification 1</span>
+</span></p>
+<P>
+<span class="bold">Tabular <span class="qtext">CHANGING</span> Parameters for SQLScript Procedures</span> <br><br><!-- /A -->
+</P>
+<P>
+In Release 7.40, SP08, the restriction that <a href="javascript:call_link('abenamdp_hdb_sqlscript.html')" class="blue">SQLScript procedures</a> managed using
+<a href="javascript:call_link('abenamdp_glosry.html')" class="grey" title="Glossary Entry">AMDP</a> cannot have tabular input/output
+parameters is lifted. The technical restriction that SQLScript procedures do not support <span class="qtext400">INOUT</span>
+parameters is bypassed by generating a pair of <span class="qtext400">IN</span> and <span class="qtext400">OUT</span>
+parameters. Here, the <span class="qtext400">OUT</span> parameter is assigned the value of the <span class="qtext400">
+IN</span> parameter at the start of the procedure and hence can be used like an <span class="qtext400">INOUT</span> parameter. <br><br> <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_2@2@"></A> <span class="bold">Modification 2</span>
+</span></p>
+<P>
+<span class="bold">Handleable Exceptions in AMDP Procedure Implementations</span> <br><br><!-- /A -->
+</P>
+<P>
+From Release 7.40, SP08, the exception classes specified under
+<a href="javascript:call_link('abenamdp_exceptions.html')" class="blue">AMDP - Exceptions</a> can be declared in the interface of an
+<a href="javascript:call_link('abenamdp_procedure_method_glosry.html')" class="grey" title="Glossary Entry">AMDP procedure implementation</a>
+using <span class="qtext">RAISING</span> and handled when the method is called. Before Release 7.40,
+SP08, the exception situations in question raised a non-handleable exception and always produced a runtime error. <br><br> <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_3@3@"></A> <span class="bold">Modification 3</span>
+</span></p>
+<P>
+<span class="bold">AMDP BAdIs</span> <br><br><!-- /A -->
+</P>
+<P>
+From Release 7.40, SP08, special <a href="javascript:call_link('abenamdp_badi_glosry.html')" class="grey" title="Glossary Entry">AMDP BAdIs</a> were introduced for
+<a href="javascript:call_link('abenamdp_procedure_method_glosry.html')" class="grey" title="Glossary Entry">AMDP procedure implementations</a>. These apply the effect of the switches from
+<a href="javascript:call_link('abenswitch_framework_glosry.html')" class="grey" title="Glossary Entry">Switch Framework</a> to the implementation of database procedures in the current database. When an
+<a href="javascript:call_link('abenamdp_procedure_glosry.html')" class="grey" title="Glossary Entry">AMDP procedure</a> calls
+an AMDP procedure managed by an AMDP BAdI, the implementation is executed that matches the current switch setting. <br><br> <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_4@4@"></A> <span class="bold">Modification 4</span>
+</span></p>
+<P>
+<span class="bold">Secondary Database Connections</span> <br><br><!-- /A -->
+</P>
+<P>
+From Release 7.40, SP08, an input parameter with the previously invalid parameter name <span class="qtext">connection</span> can be created for an
+<a href="javascript:call_link('abenamdp_procedure_method_glosry.html')" class="grey" title="Glossary Entry">AMDP procedure implementation</a>. This makes it possible to use a
+<a href="javascript:call_link('abenopensql_multiconnect.html')" class="blue">secondary database connection</a> with the central
+AS ABAP database. Only the standard database connection or service connections <span class="qtext400">R/3*name</span> with the standard SAP database. <br><br> <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_5@5@"></A> <span class="bold">Modification 5</span>
+</span></p>
+<P>
+<span class="bold">Suppressing Syntax Error Messages</span> <br><br><!-- /A -->
+</P>
+<P>
+When an AMDP method is implemented after the addition <span class="qtext">OPTIONS</span> of the statement
+<a href="javascript:call_link('abapmethod_by_db_proc.html')" class="blue"><span class="qtext">METHOD</span></a>, the new option
+<span class="qtext">SUPPRESS SYNTAX ERRORS</span> can be specified (for internal use at SAP only). This
+suppresses any syntax errors caused by database objects addressed in the AMDP procedure but that do not yet exist in the syntax check. <br><br> <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_6@6@"></A> <span class="bold">Modification 6</span>
+</span></p>
+<P>
+<span class="bold">Support for the Language L on SAP HANA</span> <br><br><!-- /A -->
+</P>
+<P>
+For internal use at SAP only, <a href="javascript:call_link('abenamdp_procedure_method_glosry.html')" class="grey" title="Glossary Entry">AMDP procedure implementations</a> can be implemented in SAP's own low-level programming language
+<a href="javascript:call_link('abenllang_glosry.html')" class="grey" title="Glossary Entry">L</a>. See <a href="javascript:call_link('abenamdp_hdb_l_internal.html')" class="blue">AMDP - L for the SAP HANA Database</a>.
+</P>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abennews-740_sp08-amdp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 18:09:55 GMT -->
+</html>

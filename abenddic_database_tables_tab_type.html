@@ -1,0 +1,105 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENDDIC_DATABASE_TABLES_TAB_TYPE -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenddic_database_tables_tab_type.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:23:14 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Table Category of Database Tables">
+<meta name="keywords" content="ABAP, Table Category, Database Tables">
+<title>
+Table Category of Database Tables - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenddic_database_tables_tab_type.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenddic_database_tables_tab_type.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dictionary.html')" class="blue">ABAP - Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_classical_objects.html')" class="blue">Classic Objects in ABAP Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_database_tables.html')" class="blue">Database Tables</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_database_tables_tech.html')" class="blue">Technical Attributes of Database Tables</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_database_tables_techspec.html')" class="blue">Table-Specific Technical Attributes of Database Tables</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Table Category of Database Tables
+</span></p>
+<p>
+The default table category is the transparent table. In transparent tables, the database object has
+an identically named variant with the same columns as in the definition in ABAP Dictionary. The fields of transparent tables can be edited using
+<a href="javascript:call_link('abennative_sql_glosry.html')" class="grey" title="Glossary Entry">Native SQL</a> as well as using
+<a href="javascript:call_link('abenopen_sql_glosry.html')" class="grey" title="Glossary Entry">Open SQL</a>. Outside AS ABAP, they can be edited using the programming interface of the database.
+</p>
+<p>
+ABAP Dictionary makes it possible to transform database tables from one category to another. To create
+a different table category as a transparent table, a transparent table must be created first and then transformed into one of the following table categories:
+</p>
+<ul class="disc">
+<li><a href="javascript:call_link('abenddic_database_tables_gtt.html')" class="blue">Global temporary table</a></li>
+</ul>
+<dl><dd>
+A global temporary table (GTT) is a special transparent table used exclusively as a repository of temporary data during a <a href="javascript:call_link('abendatabase_luw_glosry.html')" class="grey" title="Glossary Entry">database LUW</a>.
+</dd></dl>
+<ul class="disc">
+<li><a href="javascript:call_link('abenddic_database_tables_poolclu.html')" class="blue">Pooled tables and cluster tables</a></li>
+</ul>
+<dl><dd>
+Pooled tables and cluster tables are the content of a table pool or table cluster and do not exist as variants of tables on the database.
+</dd></dl>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenddic_database_tables_tab_type.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:23:16 GMT -->
+</html>

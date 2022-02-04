@@ -1,0 +1,142 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENTAB_STRIP_CONTROL1_ABEXA -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abentab_strip_control1_abexa.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:48:02 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Screens, Tabstrips with scrolling in the SAP GUI">
+<title>
+Screens, Tabstrips with scrolling in the SAP GUI - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abentab_strip_control1_abexa.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abentab_strip_control1_abexa.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_screens.html')" class="blue">User Dialogs</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dynpros.html')" class="blue">Dynpros</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dynpros_dynpro_statements.html')" class="blue">Statements in the Screen Flow Logic</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abendynp_subscreens.html')" class="blue">Subscreens, Tabstrips, and Splitter Controls</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abentab_strip_control_abexas.html')" class="blue">Subscreens, Tabstrips, and Splitter Controls - Examples</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Screens, Tabstrips with scrolling in the SAP GUI
+</span></p>
+<p>
+This example demonstrates the use of tabstrip controls with local scrolling.
+</p>
+<A name="@@ITOC@@ABENTAB_STRIP_CONTROL1_ABEXA_1"></A>
+<p><span class="h2">
+Source Code
+</span></p>
+<!-- Begin code -->
+<p class="qtextml1"><span class="qtext">
+REPORT demo_dynpro_tabstrip_local.<br>
+<br>
+CONTROLS mytabstrip TYPE TABSTRIP.<br>
+<br>
+DATA: ok_code TYPE sy-ucomm,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;save_ok TYPE sy-ucomm.<br>
+<br>
+mytabstrip-activetab = 'PUSH2'.<br>
+<br>
+CALL SCREEN 100.<br>
+<br>
+MODULE status_0100 OUTPUT.<br>
+&nbsp;&nbsp;SET PF-STATUS 'SCREEN_100'.<br>
+ENDMODULE.<br>
+<br>
+MODULE cancel INPUT.<br>
+&nbsp;&nbsp;LEAVE PROGRAM.<br>
+ENDMODULE.<br>
+<br>
+MODULE user_command INPUT.<br>
+&nbsp;&nbsp;save_ok = ok_code.<br>
+&nbsp;&nbsp;CLEAR ok_code.<br>
+&nbsp;&nbsp;IF save_ok = 'OK'.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE i888(sabapdemos) WITH 'MYTABSTRIP-ACTIVETAB ='<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mytabstrip-activetab.<br>
+&nbsp;&nbsp;ENDIF.<br>
+ENDMODULE.<br>
+</span></p>
+<!-- End code -->
+<A name="@@ITOC@@ABENTAB_STRIP_CONTROL1_ABEXA_2"></A>
+<p><span class="h2">
+Description
+</span></p>
+<p>
+The static subsequent screen number of screen 100 is 100. It is a tabstrip page called <span class="qtext">mytabstrip</span>
+created with three tabs, PUSH1, PUSH2, PUSH3 and function codes with the same names (type <span class="qtext">p</span>). One of three identically sized subscreen areas,
+ <span class="qtext">sub1</span> to <span class="qtext">sub3</span>, is assigned to each tab. The button
+is called BUTTON and has the function code 'OK'. In addition three subscreens, 110 to 130, are defined.
+These subscreens fit into the above mentioned subscreen areas. The screen flow logic of the subscreens 110 to 130 does not contain any module calls.
+</p>
+<p>
+When the program is executed, the user sees a screen, the second tab page of which is active because
+before screen 100 is called, the component <span class="qtext">activetab</span> of the structure <span class="qtext">
+mytabstrip</span> is set to PUSH2. The user can scroll between the tab pages without triggering the PAI event. Each tab page has one of the three subscreens attached to it.
+</p>
+<p>
+By selecting the Continue button, the PAI event is triggered and a message shows the function code of the tab assigned to the currently active tab page.
+</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abentab_strip_control1_abexa.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:48:02 GMT -->
+</html>

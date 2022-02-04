@@ -1,0 +1,190 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENSQL_ARITH_FUNC -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abensql_arith_func.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:42:51 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="sql_exp - sql_num_func">
+<title>
+sql_exp - sql_num_func - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abensql_arith_func.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abensql_arith_func.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopensql.html')" class="blue">Open SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopen_sql_operands.html')" class="blue">Open SQL - Operands</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopen_sql_builtin_functions.html')" class="blue">Open SQL - Built-In Functions</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopen_sql_functions.html')" class="blue">Open SQL - SQL Functions</a>&nbsp;&rarr;&nbsp;
+</span>
+<A NAME="@@ABS@@!ABAP_OSQL_FUNC!@@"></A>
+<A NAME="@@MOD@@!ABAP_OSQL_FUNC!@@"></A>
+<A NAME="@@DIV@@!ABAP_OSQL_FUNC!@@"></A>
+<A NAME="@@FLOOR@@!ABAP_OSQL_FUNC!@@"></A>
+<A NAME="@@CEIL@@!ABAP_OSQL_FUNC!@@"></A>
+<A NAME="@@ROUND@@!ABAP_OSQL_FUNC!@@"></A>
+<p><span class="h1">
+sql_exp - sql_num_func
+</span></p>
+<p><span class="h2">
+<span class="bold">Syntax</span>
+</span></p>
+<P>
+<span class="qtext">... func( arg1<i class=bn>[</i>, arg2<i class=bn>]</i> ... ) ...</span>
+</P>
+<p><span class="h4">
+Effect
+</span></p>
+<p>
+Calls an numeric function <span class="qtext">func</span> as an
+<a href="javascript:call_link('abapsql_expr.html')" class="blue">SQL expression</a> or operand of an expression in Open SQL.
+The arguments <span class="qtext">arg1</span>, <span class="qtext">arg2</span>, ... of the function
+are specified as a comma-separated list in parentheses. A blank must be placed before the opening parenthesis and after the closing parenthesis.
+</p>
+<p>
+The following table shows the numeric functions that can be specified as SQL expressions and the requirements made on the arguments. The meaning of the functions can be found under
+<a href="javascript:call_link('abensql_functions_numeric.html')" class="blue">SQL Functions for Numeric Values</a>.
+</p>
+<table border>
+<tr>
+<td><span class="bold">Syntax</span></td>
+<td><span class="bold">Valid Argument Types</span></td>
+<td><span class="bold">Result Type</span></td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abensql_functions_numeric.html')" class="blue"><span class="qtext">ABS( expr )</span></a></td>
+<td>All numeric types except <a href="javascript:call_link('abendecfloat_glosry.html')" class="grey" title="Glossary Entry">decimal floating point numbers</a></td>
+<td>Type of the argument</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abensql_functions_numeric.html')" class="blue"><span class="qtext">CEIL( expr )</span></a></td>
+<td>DEC, CURR, and QUAN with decimal places</td>
+<td>DEC without decimal places in the length of the result</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abensql_functions_numeric.html')" class="blue"><span class="qtext">DIV( expr1,expr2 )</span></a></td>
+<td>INT1, INT2, INT4, and INT8 plus DEC, CURR, and QUAN without decimal places</td>
+<td>Type of the argument with the greatest value range.</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abensql_functions_numeric.html')" class="blue"><span class="qtext">DIVISION( expr1,expr2,dec )</span></a></td>
+<td><span class="qtext">expr1</span>, <span class="qtext">expr2</span>: INT1, INT2, INT4, INT8, DEC, CURR, and QUAN<br><br> <span class="qtext">dec</span>: Literal or constant
+<a href="javascript:call_link('abenopen_sql_host_variables.html')" class="blue">host variable</a> with
+<a href="javascript:call_link('abenbuilt_in_types_complete.html')" class="blue">ABAP type</a> <span class="qtext">b</span>, <span class="qtext">
+s</span>, <span class="qtext">i</span>, <span class="qtext">int8</span> greater than or equal to 0 and
+not greater than the maximum value of 6 and the length of <span class="qtext">exp2</span> plus the number of decimal places of <span class="qtext">exp1</span> plus 1</td>
+<td>DEC with <span class="qtext">dec</span> decimal places. The length of the result is the length of
+<span class="qtext">exp1</span> minus the decimal places in <span class="qtext">exp1</span> plus the
+decimal places in <span class="qtext">exp2</span> plus <span class="qtext">dec</span>. This value must not be greater than 31.</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abensql_functions_numeric.html')" class="blue"><span class="qtext">FLOOR( expr )</span></a></td>
+<td>DEC, CURR, and QUAN with decimal places</td>
+<td>DEC without decimal places in the length of the result</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abensql_functions_numeric.html')" class="blue"><span class="qtext">MOD( expr1,expr2 )</span></a></td>
+<td>INT1, INT2, INT4, and INT8 plus DEC, CURR, and QUAN without decimal places</td>
+<td>Type of the argument with the greatest value range.</td>
+</tr>
+<tr>
+<td><a href="javascript:call_link('abensql_functions_numeric.html')" class="blue"><span class="qtext">ROUND( expr,pos )</span></a></td>
+<td><span class="qtext">expr</span>: INT1, INT2, INT4, INT8, DEC, CURR, and QUAN <br><br> <span class="qtext">pos</span>: INT1, INT2, and INT4</td>
+<td>Type of <span class="qtext400">expr</span>, where INT1 and INT2 are updated after INT4 and CURR and QUAN are updated after DEC.</td>
+</tr>
+</table><br>
+<p>
+The arguments <span class="qtext">expr</span>, <span class="qtext">expr1</span>, <span class="qtext">expr3</span>, and <span class="qtext">pos</span> can be
+<a href="javascript:call_link('abapsql_expr.html')" class="blue">SQL expressions</a>, more specifically individual columns, literals, SQL functions, host variables, or host expressions. The possible types are specified as predefined
+<a href="javascript:call_link('abenddic_builtin_types.html')" class="blue">dictionary types</a>. The possible data types for literals, host variables, and host expressions are the ABAP types
+<a href="javascript:call_link('abenddic_builtin_types.html')" class="blue">assigned</a> to the dictionary types above.
+</p>
+<p>
+If an argument of a numeric function has the <a href="javascript:call_link('abennull_value_glosry.html')" class="grey" title="Glossary Entry">null value</a>, the result of the full numeric function is the null value.
+</p>
+<p><span class="h4">
+Note
+</span></p>
+<p>
+The SQL functions <a href="javascript:call_link('abensql_functions_numeric.html')" class="blue"><span class="qtext400">DIV</span></a>
+and <a href="javascript:call_link('abensql_functions_numeric.html')" class="blue"><span class="qtext400">MOD</span></a> behave
+differently with respect to the signs than the ABAP operators <a href="javascript:call_link('abenarith_operators.html')" class="blue"><span class="qtext">
+DIV</span></a> and <a href="javascript:call_link('abenarith_operators.html')" class="blue"><span class="qtext">MOD</span></a>.
+In the SQL function <span class="qtext">DIV</span>, the amounts of the arguments are divided and then
+the sign is assigned (positive if the arguments have the same signs and negative if they have different
+signs). Accordingly, the result of <span class="qtext">MOD</span> can be negative, so that multiplying
+the result of <span class="qtext">DIV</span> by <span class="qtext">expr2</span> plus the result of
+<span class="qtext">MOD</span> produces the value of <span class="qtext">expr1</span>. The ABAP operator
+<a href="javascript:call_link('abenarith_operators.html')" class="blue"><span class="qtext">MOD</span></a>, on the other hand, only produces positive results. See <a href="javascript:call_link('abensql_functions_numeric.html')" class="blue">Example</a>.
+</p>
+<p><span class="h4">
+Executable Example
+</span></p>
+<p>
+<a href="javascript:call_link('abensql_expr_arith_abexa.html')" class="blue">SQL Expressions, Arithmetic Calculations</a>
+</p>
+<p>
+
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abensql_arith_func.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:42:51 GMT -->
+</html>

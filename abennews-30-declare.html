@@ -1,0 +1,160 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENNEWS-30-DECLARE -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abennews-30-declare.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 18:09:43 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Declarative Statements in Release 3.0">
+<title>
+Declarative Statements in Release 3.0 - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abennews-30-declare.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abennews-30-declare.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennews.html')" class="blue">ABAP - Release-Specific Changes</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abennews-30.html')" class="blue">Changes in Release 3.0</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Declarative Statements in Release 3.0 <br><br>
+</span></p>
+<P>
+<br><A HREF="#!ABAP_MODIFICATION_1@1@" class="blue"> 1. Defining types </A> <br><br><A HREF="#!ABAP_MODIFICATION_2@2@" class="blue"> 2. Type groups </A> <br>
+<br><A HREF="#!ABAP_MODIFICATION_3@3@" class="blue"> 3. Defining constants </A> <br><br><A HREF="#!ABAP_MODIFICATION_4@4@" class="blue"> 4. Defining static variables </A> <br>
+<br><A HREF="#!ABAP_MODIFICATION_5@5@" class="blue"> 5. Multiple nesting of structures </A> <br><br><A HREF="#!ABAP_MODIFICATION_6@6@" class="blue"> 6. Internal tables without header line </A> <br>
+<br><A HREF="#!ABAP_MODIFICATION_7@7@" class="blue"> 7. Specifying the types of parameters and field symbols </A> <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_1@1@"></A> <span class="bold">Modification 1</span>
+</span></p>
+<P>
+Defining Types <br><br><!-- /A --> <br>The <a href="javascript:call_link('abaptypes_simple.html')" class="blue"><span class="qtext">TYPES</span></a>
+statement has been introduced, allowing you to define your own types. It has a similar syntax to the <span class="qtext">DATA</span> statement. <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_2@2@"></A> <span class="bold">Modification 2</span>
+</span></p>
+<P>
+Type Groups <br><br><!-- /A --> <br>Type groups (see <a href="javascript:call_link('abaptype-pool.html')" class="blue"><span class="qtext">TYPE-POOL</span></a>) allow you to build groups of global types and their associated constants. <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_3@3@"></A> <span class="bold">Modification 3</span>
+</span></p>
+<P>
+Defining Constants <br><br><!-- /A --> <br>The <a href="javascript:call_link('abapconstants.html')" class="blue"><span class="qtext">CONSTANTS</span></a>
+statement allows you to define constants. The syntax of the <span class="qtext">CONSTANTS</span> statement
+is similar to that of the<span class="qtext">DATA</span> statement. You can define both simple fields and structures as constants. You cannot define constant tables. <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_4@4@"></A> <span class="bold">Modification 4</span>
+</span></p>
+<P>
+Defining Static Variables <br><br><!-- /A --> <br>Fields within <span class="qtext">FORM</span>s and
+<span class="qtext">FUNCTION</span>s that are defined with <span class="qtext">DATA</span> are re-created
+and re-initialized each time the routine is called. The new <a href="javascript:call_link('abapstatics.html')" class="blue"><span class="qtext">
+STATICS</span></a> statement, which you can use within <span class="qtext">FORM</span>s and <span class="qtext">FUNCTION</span>s,
+allows you to define fields that retain their values beyond the routine call. This statement supports nearly all of the additions used with the <span class="qtext">DATA</span> statement. <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_5@5@"></A> <span class="bold">Modification 5</span>
+</span></p>
+<P>
+Multiple Nesting of Structures <br><br><!-- /A --> <br>Previously, it was only possible to define simple
+nested structures using the <span class="qtext">DATA</span> statement. You could not nest <span class="qtext">DATA
+BEGIN OF, .... END OF</span>. This restriction has now been lifted, allowing you to define structures
+as components of another structure. This is now posssible in the <a href="javascript:call_link('abapdata_struc.html')" class="blue"><span class="qtext">
+DATA</span></a>, <a href="javascript:call_link('abapstatics.html')" class="blue"><span class="qtext">STATICS</span></a>, <a href="javascript:call_link('abapconstants.html')" class="blue">
+<span class="qtext">CONSTANTS</span></a>, and <a href="javascript:call_link('abaptypes_struc.html')" class="blue"><span class="qtext">TYPES</span></a> statements. <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_6@6@"></A> <span class="bold">Modification 6</span>
+</span></p>
+<P>
+Internal Tables without Header Line <br><br><!-- /A --> <br>Previously, each interanl table automatically had a
+<a href="javascript:call_link('abenheader_line_glosry.html')" class="grey" title="Glossary Entry">header line</a>, which served
+as a table work area. A table with header line is therefore a mixture of two data objects (the table
+and the header line) under a single name. You can now define tables and table types without header lines
+in the <a href="javascript:call_link('abapdata_itab.html')" class="blue"><span class="qtext">DATA</span></a>, <a href="javascript:call_link('abapstatics.html')" class="blue">
+<span class="qtext">STATICS</span></a>, and <a href="javascript:call_link('abaptypes_itab.html')" class="blue"><span class="qtext">TYPES</span></a> statements, using the following syntax: <br>
+</P>
+<p class="qtextml1">
+<span class="qtext">
+DATA TAB TYPE STRUC OCCURS 0. <br>
+</span>
+</p>
+<P>
+You can use these tables without header lines as components in structures. If you need a work area for a table, you must define it under another name. <br>
+ <br>With the <span class="qtext">DATA</span> and <span class="qtext">STATICS</span> statements, you
+can use the <span class="qtext">... WITH HEADER LINE</span> addition to create a table with header line.
+You may only do this at the top nesting level, that is, not within a structure. Since the property of
+having a header line or not is not a type property, but a property of a data object, you cannot use this addition in the <span class="qtext">TYPES</span> statement. <br><br>
+</P>
+<p><span class="h4">
+<A NAME="!ABAP_MODIFICATION_7@7@"></A> <span class="bold">Modification 7</span>
+</span></p>
+<P>
+Specifying the Types of Parameters and Field Symbols <br><br><!-- /A --> <br>You can now specify the
+types of the parameters of <a href="javascript:call_link('abapform.html')" class="blue"><span class="qtext">FORMs</span></a>
+and <a href="javascript:call_link('abapfield-symbols.html')" class="blue"><span class="qtext">FIELD-SYMBOLS</span></a> using
+the <span class="qtext">LIKE fld</span> and <span class="qtext">TYPE typ</span> additions. For the parameters
+of function modules, you can now use references to predefined ABAP types and global types as well as referring to ABAP Dictionary fields.
+</P>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abennews-30-declare.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 18:09:43 GMT -->
+</html>

@@ -1,0 +1,157 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENOPEN_SQL_HOST_VARIABLES -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenopen_sql_host_variables.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:42:49 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Open SQL - Host Variables">
+<meta name="keywords" content="ABAP, Host Variables, Open SQL">
+<title>
+Open SQL - Host Variables - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenopen_sql_host_variables.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenopen_sql_host_variables.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_language_external_data.html')" class="blue">Processing External Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_sql.html')" class="blue">ABAP Database Accesses</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopensql.html')" class="blue">Open SQL</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenopen_sql_operands.html')" class="blue">Open SQL - Operands</a>&nbsp;&rarr;&nbsp;
+</span>
+<A NAME="@@/at@@!ABAP_ESCAPE!@@"></A>
+<p><span class="h1">
+Open SQL - Host Variables
+</span></p>
+<A name="@@ITOC@@ABENOPEN_SQL_HOST_VARIABLES_1"></A>
+<p><span class="h2">
+Syntax
+</span></p>
+<p>
+<span class="qtext">... @dobj ...</span>
+</p>
+<p><span class="h4">
+Effect
+</span></p>
+<p>
+<a href="javascript:call_link('abenhost_variable_glosry.html')" class="grey" title="Glossary Entry">Host variables</a> are global
+or local variables (usually variables) <span class="qtext">dobj</span> declared in the ABAP program
+that are used in operand positions of Open SQL statements. Instead of the data object itself, a field
+symbol to which the data object is assigned can be specified. Dereferenced data reference variables can also be specified.
+</p>
+<p>
+To identify a host variable, the names of <a href="javascript:call_link('abennamed_data_object_glosry.html')" class="grey" title="Glossary Entry">
+named</a> data objects or field symbols should always be directly prefixed by the escape character <span class="qtext">
+@</span>. The escape character can only be used in programs, in which the program property <a href="javascript:call_link('abenfixed_point_arithmetic_glosry.html')" class="grey" title="Glossary Entry">
+<span class="italic">fixed point arithmetic</span></a> is activated. When the escape character is used, the syntax check is performed in a
+<a href="javascript:call_link('abenopensql_strict_mode_740_sp05.html')" class="blue">strict mode</a>, which handles the statement more strictly than the regular syntax check.
+</p>
+<p>
+The content of host variables in reading positions is passed to the database system together with the
+SQL statement before it is executed. The content of host variables in writing positions is taken from the database system after the SQL statement is ended.
+</p>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>ABAP data objects that are specified as enclosed dynamic tokens do not belong to the host variables and cannot be prefixed by the escape character <span class="qtext">@</span>.</li>
+</ul>
+<ul class="disc">
+<li>The escape character for host variables is independent of the general escape character for names
+<a href="javascript:call_link('abennames_escaping.html')" class="blue"><span class="qtext">!</span></a>. The escape character
+<span class="qtext">!</span> can also be written in front of host variables that are already prefixed by the escape character <span class="qtext">@</span>. However, this is not recommended.</li>
+</ul>
+<ul class="disc">
+<li>Specifying host variables without the escape character <span class="qtext">@</span> is
+<a href="javascript:call_link('abenopen_sql_hostvar_obsolete.html')" class="blue">obsolete</a>. The escape character <span class="qtext">@</span> must be specified in the
+<a href="javascript:call_link('abenopensql_strict_modes.html')" class="blue">strict modes</a> of the syntax check from Release 7.40, SP05.</li>
+</ul>
+<ul class="disc">
+<li>In addition to host variables, suitable ABAP literals can be specified at the relevant reading positions
+in Open SQL statements. Literals are usually handled like host variables. A literal, however, cannot be prefixed (and does not need to be prefixed) by the escape character <span class="qtext">@</span>.</li>
+</ul>
+<ul class="disc">
+<li>As a part of SQL expressions, host variables can be specified wherever these expressions are possible.</li>
+</ul>
+<ul class="disc">
+<li>When host variables with an escape character <span class="qtext">@</span> are specified, the syntax check is performed in a
+<a href="javascript:call_link('abenopensql_strict_mode_740_sp05.html')" class="blue">strict mode</a>, which handles the statement more strictly than the regular syntax check.</li>
+</ul>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+Specifies various host variables; the escape character <span class="qtext">@</span> is always used.
+</p>
+<p class="qtextml1">
+<span class="qtext">
+DATA carrid TYPE spfli-carrid. <br>cl_demo_input=>request( CHANGING field = carrid ). <br> <br>DATA: BEGIN OF result, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; carrid TYPE sflight-carrid, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connid TYPE sflight-connid, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END OF result. <br>SELECT carrid, connid <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM sflight <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INTO CORRESPONDING FIELDS OF @result <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE carrid = @carrid. <br>
+&nbsp;&nbsp;... <br>ENDSELECT. <br> <br>FIELD-SYMBOLS &lt;result> LIKE result. <br>SELECT carrid, connid <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM sflight <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INTO CORRESPONDING FIELDS OF @&lt;result> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE carrid = @carrid. <br>&nbsp;&nbsp;... <br>ENDSELECT. <br> <br>
+DATA dref LIKE REF TO result. <br>SELECT carrid, connid <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM sflight <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INTO CORRESPONDING FIELDS OF @dref->* <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE carrid = @carrid. <br>&nbsp;&nbsp;... <br>ENDSELECT.
+</span>
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenopen_sql_host_variables.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:42:49 GMT -->
+</html>

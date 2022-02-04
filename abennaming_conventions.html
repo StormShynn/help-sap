@@ -1,0 +1,150 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENNAMING_CONVENTIONS -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abennaming_conventions.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:28:01 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Naming Conventions and Namespaces">
+<meta name="keywords" content="ABAP, Namespace, Namespaces, Naming Convention">
+<title>
+Naming Conventions and Namespaces - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abennaming_conventions.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abennaming_conventions.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_syntax.html')" class="blue">ABAP Syntax</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Naming Conventions and Namespaces
+</span></p>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENNAMING_CONVENTIONS_1" class="blue">Naming Conventions</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENNAMING_CONVENTIONS_2" class="blue">Namespaces</A></li>
+</ul>
+<A name="@@ITOC@@ABENNAMING_CONVENTIONS_1"></A>
+<p><span class="h2">
+Naming Conventions
+</span></p>
+<p>
+The following conventions apply to the names of all definable objects within ABAP programs, such as data types, data objects, classes, macros, or
+<a href="javascript:call_link('abenprocedure_glosry.html')" class="grey" title="Glossary Entry">procedures</a>:
+</p>
+<ul class="disc">
+<li>A name can be up to 30 characters in length.</li>
+</ul>
+<ul class="disc">
+<li>Permitted characters are letters from "A" to "Z", digits from "0" to "9", and underscores (<span class="qtext">_</span>).</li>
+</ul>
+<ul class="disc">
+<li>The name must start with a letter or an underscore (<span class="qtext">_</span>). Only outside of ABAP objects can the name also start with a different character.</li>
+</ul>
+<ul class="disc">
+<li>The name can have a <a href="javascript:call_link('abenname_space_prefix_glosry.html')" class="grey" title="Glossary Entry">namespace prefix</a>. A namespace prefix consists of at least three characters that are enclosed by two forward slashes
+(<span class="qtext">/.../</span>). The entire length of prefix and name cannot exceed 30 characters.</li>
+</ul>
+<ul class="disc">
+<li>The names of predefined ABAP types or predefined data objects cannot be used for data types or data objects.</li>
+</ul>
+<ul class="disc">
+<li>The use of IDs that are reserved for <a href="javascript:call_link('abenabap_words.html')" class="blue">ABAP words</a> and so on for custom definitions is not actually forbidden, but is strongly advised against.</li>
+</ul>
+<ul class="disc">
+<li>Field symbols are special because their names have to be enclosed in angle brackets
+(<span class="qtext">&lt;...></span>). The angle brackets are a part of the name, which means that a field symbol could potentially be called <span class="qtext">&lt;></span> (but this is not recommended).</li>
+</ul>
+<p><span class="h4">
+Programming Guideline
+</span></p>
+<P>
+<a href="javascript:call_link('abenprog_intern_names_guidl.html')" class="lnkpurple" title="Guideline">Program-Internal Names</a>
+</P>
+<p><span class="h4">
+Notes
+</span></p>
+<ul class="disc">
+<li>All types possible in ABAP are in a namespace. Data types and object types do not have separate
+namespaces. A global class, for example, cannot be created with a name that is already being used for a data type in ABAP Dictionary.</li>
+</ul>
+<ul class="disc">
+<li>The naming conventions presented here must be followed. They are not checked in full by the syntax check, but they must not be broken more than absolutely necessary.</li>
+</ul>
+<ul class="disc">
+<li>The program <span class="lnkgrey"> DEMO_CHARACTERS_IN_ABAP_NAMES</span> demonstrates how these checks run in the current system.</li>
+</ul>
+<A name="@@ITOC@@ABENNAMING_CONVENTIONS_2"></A>
+<p><span class="h2">
+Namespaces
+</span></p>
+<p>
+Outside of class declarations, different objects have separate namespaces, so it is possible that data
+types, data objects, or procedures can have the same name. Classes and interfaces thus lie within the
+same namespace as data types. The namespace is valid for the respective context. Within a context, the
+names of the same objects must be unique. For example, there can only be one subroutine with the same name in an ABAP program and only one function module with the same name in the entire
+<a href="javascript:call_link('abensap_nw_abap_glosry.html')" class="grey" title="Glossary Entry">AS ABAP</a>.
+</p>
+<p>
+Within a class declaration, the name of every class component (data type, attribute, method, event, or alias name) must be unique.
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abennaming_conventions.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:28:05 GMT -->
+</html>

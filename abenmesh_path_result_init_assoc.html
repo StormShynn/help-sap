@@ -1,0 +1,113 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENMESH_PATH_RESULT_INIT_ASSOC -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenmesh_path_result_init_assoc.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:41:59 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Meshes - Result of Initial Association">
+<title>
+Meshes - Result of Initial Association - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenmesh_path_result_init_assoc.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenmesh_path_result_init_assoc.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_reference.html')" class="blue">ABAP - Reference</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_data_working.html')" class="blue">Processing Internal Data</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_meshes.html')" class="blue">Meshes</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenmesh_pathes.html')" class="blue">Meshes - Mesh Paths</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenmesh_path_result.html')" class="blue">Meshes - Mesh Path Result</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Meshes - Result of Initial Association
+</span></p>
+<p>
+An initial association with the <a href="javascript:call_link('abenmesh_path.html')" class="blue">syntax</a>
+</p>
+<p>
+<span class="qtext">...rnode<a href="javascript:call_link('abenmesh_path_assoc.html')" class="blue">\_associ</a>[ source <i class=bn>[</i><a href="javascript:call_link('abenmesh_path_assoc_cond.html')" class="blue">cond</a><i class=bn>]</i> ] ...</span>
+</p>
+<p>
+describes a set of rows in the follow-on node of the used association that meets the following conditions:
+</p>
+<ul class="disc">
+<li>All rows meet the <a href="javascript:call_link('abaptypes_mesh_association.html')" class="blue"><span class="qtext">ON</span>
+condition</a> of the used association with respect to the specified structure <span class="qtext">source</span>.
+Every <span class="qtext">tcomp</span> column specified in the <span class="qtext">ON</span> condition
+has the same content as in the <span class="qtext">scomp</span> column (of the root node in the <span class="qtext">source</span> structure) assigned to the <span class="qtext">ON</span> condition.</li>
+</ul>
+<ul class="disc">
+<li>Depending on the mesh path <a href="javascript:call_link('abenmesh_path_usage.html')" class="blue">usage</a>, the set of
+rows can be further restricted by using additional <a href="javascript:call_link('abenmesh_path_assoc_cond.html')" class="blue"><span class="qtext">cond</span></a> conditions.</li>
+</ul>
+<p><span class="h4">
+Note
+</span></p>
+<p>
+The set of rows described by the result can be either one single row or multiple rows.
+</p>
+<p><span class="h4">
+Executable Examples
+</span></p>
+<p>
+<a href="javascript:call_link('abenmesh_path_result_abexas.html')" class="blue">Results of Mesh Paths</a>
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenmesh_path_result_init_assoc.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:41:59 GMT -->
+</html>

@@ -1,0 +1,178 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="EN">
+<!-- ABENDDIC_DATABASE_TABLES_CLUSTER -->
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenddic_database_tables_cluster.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:23:52 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="SAP">
+<meta name="description" content="Cluster Tables in Table Clusters">
+<title>
+Cluster Tables in Table Clusters - ABAP Keyword Documentation
+</title>
+<link rel="icon" href="ABAPIcon.ico" type="image/ico">
+<link rel="shortcut icon" href="ABAPIcon.ico">
+<LINK rel="stylesheet" href="abap_docu.css" type="text/css">
+<script type="text/JavaScript">
+function call_link(linked_file)
+{
+   if(parent.frames.length>0){
+     parent.window.frames["basefrm"].window.location = linked_file;
+     parent.window.frames["treeframe"].window.location = "abap_docu_tree92bd.html?file=" + linked_file;}
+   else {
+     window.location = linked_file;}
+}
+function urlToClipboard(id){
+ try{ var loc = top.location.href;}
+ catch(e){ alert( "URL cannnot be determined" ); return; }
+ var field = document.getElementById(id);
+ field.focus();
+ if ( loc.search( ".htm" ) == -1 && loc.search( ".HTM" ) == -1  ){ loc = loc + "index.htm"; }
+ if (   loc.search( "index.html" ) != -1
+     || loc.search( "INDEX-2.html" ) != -1 ){
+   var off = loc.search( "file=" );
+   if ( off == -1  ){
+     field.value = loc + "?file=abenddic_database_tables_cluster.htm"; }
+   else {
+     field.value = loc.substring( 0, off ) + "file=abenddic_database_tables_cluster.htm";
+   }
+ }
+ else {
+    field.value = loc; }
+ field.setSelectionRange(0, field.value.length);
+ var r = confirm( "Copy URL to clipboard?\n\n" + field.value + "\n\nCopy to clipboard does not work in all browsers." );
+ if (r == true) {
+   try{
+     document.execCommand("copy");
+   }
+     catch(e){ alert( "URL could not be copied to clipboard" ); }
+ }
+ window.scrollTo(0,0);
+}
+</script>
+</head>
+<body>
+<div class="all">
+<p class="copyright">SAP NetWeaver AS ABAP Release 751, &copy;Copyright 2017 SAP AG. All rights reserved.
+&nbsp;<input type="button" value="URL" style="font-size:8px; width:26px; height:16px; padding:0"
+ onclick="urlToClipboard('url')" title="Copy URL to Clipboard" >
+</p>
+<span class="path">
+<a href="javascript:call_link('abenabap.html')" class="blue">ABAP - Keyword Documentation</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenabap_dictionary.html')" class="blue">ABAP - Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_classical_objects.html')" class="blue">Classic Objects in ABAP Dictionary</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_database_tables.html')" class="blue">Database Tables</a>&nbsp;&rarr;&nbsp;
+<a href="javascript:call_link('abenddic_database_tables_poolclu.html')" class="blue">Pooled Tables and Cluster Tables</a>&nbsp;&rarr;&nbsp;
+</span>
+<p><span class="h1">
+Cluster Tables in Table Clusters
+</span></p>
+<p>
+Cluster tables are a special category of database table in ABAP Dictionary. They are defined by being saved in table clusters rather than being defined as cluster tables on the database.
+</p>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENDDIC_DATABASE_TABLES_CLUSTER_1" class="blue">Table Cluster</A></li>
+</ul>
+<ul class="disc">
+<li><A HREF="#@@ITOC@@ABENDDIC_DATABASE_TABLES_CLUSTER_2" class="blue">Cluster Tables</A></li>
+</ul>
+<A name="@@ITOC@@ABENDDIC_DATABASE_TABLES_CLUSTER_1"></A>
+<p><span class="h2">
+Table Cluster
+</span></p>
+<p>
+A table cluster is defined as a database table in the database. It contains all rows of the cluster
+tables assigned to it. Here, multiple rows from various cluster tables are grouped in a byte string.
+There is one row and (potentially) multiple continuation rows for this byte string. A table cluster has the following table fields for this:
+</p>
+<ul class="disc">
+<li>Custom key fields CLKEY1, CLKEY2, ... with any name and any type permitted for <a href="javascript:call_link('abenddic_database_tables_key.html')" class="blue">key fields</a> except decimal floating point numbers.</li>
+</ul>
+<ul class="disc">
+<li>Key field PAGENO with the type INT2 for indicating continuation rows.</li>
+</ul>
+<ul class="disc">
+<li>TIMESTMP with the type CHAR of the length 14.</li>
+</ul>
+<ul class="disc">
+<li>PAGELG with the type INT2 for the length of the byte string in VARDATA.</li>
+</ul>
+<ul class="disc">
+<li>VARDATA with the type RAW for the rows (compressed in a byte string) of the assigned cluster tables
+determined using the key fields CLKEY1, CLKEY2, ... Alongside the actual values, the byte string contains
+information about the structure of the data and from which cluster table it comes. If the byte string
+is longer than the maximum length of the VARDATA field, a continuation row is written using the same
+key values. The continuation rows of a key are distinguished by their values in the field PAGENO. The actual length of the byte string is saved in the field PAGELG.</li>
+</ul>
+<p>
+The name of a table cluster can have a maximum of ten characters. The configurable technical attributes of a database table are the
+<a href="javascript:call_link('abenddic_database_tables_siz_cat.html')" class="blue">size category</a> and the
+<a href="javascript:call_link('abenddic_database_tables_act_type.html')" class="blue">activation type</a>. All other technical attributes are fixed.
+</p>
+<p>
+Once it is activated in ABAP Dictionary, a table cluster must be created explicitly on the database using the Database Utility tool. A table cluster that already contains data can no longer be modified or deleted.
+</p>
+<p><span class="h4">
+Note
+</span></p>
+<p>
+Table clusters and cluster tables should not be confused with export/import tables used to add <a href="javascript:call_link('abendata_cluster_glosry.html')" class="grey" title="Glossary Entry">data clusters</a>.
+</p>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+In systems where no transformation to transparent tables has taken place, the table cluster <span class="lnkgrey">DOKCLU</span>
+contains the cluster table <span class="lnkgrey">DOKTL</span>. The key fields ID, OBJECT, LANGU, TYP, and DOKVERSION cover a part of the table key DOKTL.
+</p>
+<A name="@@ITOC@@ABENDDIC_DATABASE_TABLES_CLUSTER_2"></A>
+<p><span class="h2">
+Cluster Tables
+</span></p>
+<p>
+The intersection of the <a href="javascript:call_link('abenddic_database_tables_key.html')" class="blue">key fields</a> of the
+cluster tables constructs the primary key of the table cluster. The table key of a cluster table must
+contain the key of the assigned table cluster as its initial part. The key fields of a cluster table
+cannot have any predefined types for decimal floating point numbers. A cluster table cannot have any
+data fields of the obsolete predefined types DF16_SCL and DF34_SCL. The name of a table field can have a maximum of 10 characters, which is also important when including structures as
+<a href="javascript:call_link('abenddic_include_structure.html')" class="blue">include structures</a>.
+</p>
+<p>
+Before a cluster table is created, a suitable transparent table with a suitable
+<a href="javascript:call_link('abenddic_database_tables_delivery.html')" class="blue">delivery class</a> must be created and transformed to a cluster table. This assigns the cluster table to a table cluster.
+</p>
+<p>
+No secondary indexes can be created for a cluster table. The same
+<a href="javascript:call_link('abenddic_database_tables_tech.html')" class="blue">technical settings</a> can be made as in a transparent table, but these are ignored (they are defaults for the
+<a href="javascript:call_link('abenddic_database_tables_poclutr.html')" class="blue">transformation</a> to a transparent table).
+</p>
+<p><span class="h4">
+Note
+</span></p>
+<p>
+Table clusters and cluster tables should not be confused with
+<a href="javascript:call_link('abenexport_import_table_glosry.html')" class="grey" title="Glossary Entry">export/import tables</a> tables used to add
+<a href="javascript:call_link('abendata_cluster_glosry.html')" class="grey" title="Glossary Entry">data clusters</a>.
+</p>
+<p><span class="h4">
+Example
+</span></p>
+<p>
+The cluster table <span class="lnkgrey">DOKTL</span>, which contains all documentation created in the
+transaction <span class="lnkgrey">SE61</span>, is a part of the table cluster <span class="lnkgrey">DOKCLU</span> in systems where no transformation to transparent tables has yet taken place.
+</p>
+<p>
+
+</p>
+<br>
+<br>
+<br>
+<br>
+</DIV>
+<fieldset style="opacity:0">
+<input id="url" type="text" />
+</fieldset>
+</BODY>
+
+<!-- Mirrored from help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenddic_database_tables_cluster.htm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Jan 2022 17:23:53 GMT -->
+</html>
